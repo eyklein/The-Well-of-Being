@@ -222,9 +222,26 @@ class AudioContent extends Content{
 	play(){
 		this.isPlaying=true;
 		
-		this.html.fe.play();
+		var playPromise = this.html.fe.play();
 
-		this.addToActiveAudio();
+	  	if (playPromise !== undefined) {
+	    	playPromise.then(_ => {
+		      	// Automatic playback started!
+		      	// Show playing UI.
+		      	this.addToActiveAudio();
+		      	console.log("Audio Playing!!!")
+		    })
+		    .catch(error => {
+		      	// Auto-play was prevented
+		     	// Show paused UI.
+		     	console.log("Audio ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		    });
+		}
+
+
+
+
+		
 	}
 	pause(){
 		this.isPlaying=false;

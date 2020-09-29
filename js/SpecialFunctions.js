@@ -92,6 +92,7 @@ function updateContentSize(){
 		 width=(window.innerHeight*16/9);
 		 height=(window.innerHeight);
 	}
+	document.width=width;
 
 	document.getElementById("content").style.width=width+'px';
 	document.getElementById("content").style.height=height+'px';

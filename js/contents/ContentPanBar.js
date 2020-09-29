@@ -63,25 +63,29 @@ class PanBarContent extends Content{
 
 
 		this.html.fe = document.createElement("div");
-		this.html.fe.style.width="10px"
+		this.html.fe.style.width="2px"
 		this.html.fe.style.height="100%"
+
+		// this.html.fe.style['transform']="translate(-50%,0)"
+
+		this.html.fe.classList.add("pan-bar");
 
 		this.html.bar=document.createElement("div");
 		this.html.bar.style.height="100%";
 		this.html.bar.style.width="100%";
-		this.html.bar.style["background-color"]="#999";
+		// this.html.bar.style["background-color"]="#999";
 		this.html.fe.append(this.html.bar);
 
 		this.html.round=document.createElement("div");
 		this.html.round.innerHTML="< >";
 		this.html.round.style.height="3vw";
-		this.html.round.style.width="4vw";
+		this.html.round.style.width="3.2vw";
 		this.html.round.style.transform="translate(-1.5vw,-1.5vw)";
 
 		this.html.round.style.position="absolute";
 		this.html.round.style.top="50%";
-		this.html.round.style["background-color"]="#999";
-		this.html.round.classList.add("circle");
+		// this.html.round.style["background-color"]="#999";
+		this.html.round.classList.add("pan-bar-tab");
 		this.html.fe.append(this.html.round);
 
 
@@ -108,13 +112,33 @@ class PanBarContent extends Content{
 
 
 		$(this.html.fe).on('mousedown', function() {
-				var x1 =  -5;//$(this.html.fe).position().left;
-				var x2 = $(window).width()-5//$(this.html.fe).position().left;
-				//var x2 = x1;
+				// var x1 =  -5;//$(this.html.fe).position().left;
+				// var x2 = $(window).width()-5//$(this.html.fe).position().left;
+				// //var x2 = x1;
 
-				var y1 = $(this.html.fe).position().top;
-				var y2 = y1; //($(window).height() + $(this.html.fe).position().top);
-				$(this.html.fe).draggable('option', 'containment', [x1, y1, x2, y2]);
+				// var y1 = $(this.html.fe).position().top;
+				// var y2 = y1; //($(window).height() + $(this.html.fe).position().top);
+				// $(this.html.fe).draggable('option', 'containment', [x1, y1, x2, y2]);
+
+
+				$( this.html.fe ).draggable({
+
+				    stop: function (){
+				    	
+
+				     var l = ( 100 * parseFloat($(this).css("left")) / parseFloat($(this).parent().css("width")) ) ;
+				     l=Math.max(l,0);
+				     l=Math.min(l,100);
+				     l=l+"%";
+				     console.log(l)
+				     // var t = ( 100 * parseFloat($(this).css("top")) / parseFloat($(this).parent().css("height")) )+ "%" ;
+				     $(this).css("left" , l);
+				     // $(this).css("top" , t);
+				     }
+
+				});
+
+
 			}.bind(this));
 
 
@@ -124,8 +148,7 @@ class PanBarContent extends Content{
 			// console.log(1)
 			// (e.target.offsetLeft+5) /window.innerWidth;
 			// console.log((e.target.offsetLeft+5) /window.innerWidth)
-
-			this.target.pan((e.target.offsetLeft+5) /window.innerWidth);
+			this.target.pan((e.target.offsetLeft) /document.width);
 
 		}.bind(this));
 

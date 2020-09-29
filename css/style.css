@@ -72,6 +72,20 @@ canvas{
 }*/
 
 
+.pan-bar{
+  transform:translate(-50%,0);
+  background-color:rgba(0,0,0,.2);
+}
+
+.pan-bar-tab{
+  background-color:inherit;
+}
+
+.pan-bar:hover{
+  transform:translate(-50%,0);
+  background-color:rgba(0,0,0,.3);
+}
+
 .circle {
     border-radius: 20%;
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */

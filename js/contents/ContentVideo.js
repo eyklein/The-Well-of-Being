@@ -229,9 +229,25 @@ class VideoContent extends Content{
 	play(){
 		this.isPlaying=true;
 		
-		this.html.fe.play();
+		// this.html.fe.play();
 
-		this.addToActiveVideo();
+		this.playPromise = this.html.fe.play();
+
+	  	if (this.playPromise !== undefined) {
+	    	this.playPromise.then(_ => {
+		      	// Automatic playback started!
+		      	// Show playing UI.
+		      	this.addToActiveVideo();
+		      	console.log("Video Playing!!!")
+		    })
+		    .catch(error => {
+		      	// Auto-play was prevented
+		     	// Show paused UI.
+		     	console.log("Video ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		    });
+		}
+
+		
 	}
 	pause(){
 		this.isPlaying=false;

@@ -236,13 +236,25 @@ class LoadScreen{
 		// console.log()
 		this.html.loadBar.style.width=this.loadedPercent*100+"%";
 
+
+
+
+
+		console.log(this.loadedPercent);
+
+		// if(this.html.netVideo.currentTime>this.loadedPercent*8){
+		// 	this.html.netVideo.pause()
+		// }else{
+		// 	this.html.netVideo.play()
+		// }
+
+
+
+
+
 		// console.log(this.html.netVideo)
 		//this.html.netVideo.play()
-		if(this.html.netVideo.currentTime>this.loadedPercent*8){
-			this.html.netVideo.pause()
-		}else{
-			this.html.netVideo.play()
-		}
+		
 		//this.html.netVideo.currentTime=this.loadedPercent*8;
 		// console.log(this.html.netVideo.currentTime)
 
