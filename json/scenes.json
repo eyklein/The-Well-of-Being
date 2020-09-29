@@ -1749,8 +1749,8 @@
 				"rangeType": "times",
 				"source": "transcript",
 				"rangeInfo": {
-					"start": 43,
-					"end": 48
+					"start": 46.5,
+					"end": 70
 				},
 				"hideInfo":{
 					"startHidden":true,
@@ -1767,7 +1767,7 @@
 					},
 					"dimensions": {
 						"width": "45%",
-						"height": "5%"
+						"height": "35%"
 					},
 					"font": {
 						"font-family": "indieFlower"
@@ -2377,7 +2377,7 @@
 			"id": "102",
 			"content": {
 				"type": "text",
-				"value": "Next >"
+				"value": "Oct 14 th"
 			},
 			"effects": {
 				"general": {
