@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+    <link rel="icon" href="img/moon_y_favicon.gif" type="image/gif" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Story Time</title>
+
+    <!-- move to the end of body for loading -->
+    <script src="js/soundjs-0.5.2.min.js"></script>
+   <!--  <script src="http://code.createjs.com/soundjs-0.5.2.min.js"></script> -->
+
+   
+   <script src="js/SpecialFunctions.js"></script>
+    <script src="js/OnPageLoad.js"></script>
+    <script src="js/WindowManager.js"></script>
+    <script src="js/LoadScreen.js"></script>
+    <script src="js/Scene.js"></script>
+    <script src="js/TimeOut.js"></script>
+    <script src="js/Play.js"></script>
+    <script src="js/contents/Content.js"></script>
+
+    <!-- <script src="js/FrontEnd.js"></script> -->
+    
+    <script src="js/BackEndSceneModual.js"></script>
+    <script src="js/ContentEditorOverlay.js"></script>
+
+
+
+    <script src="js/contents/ContentAudio.js"></script>
+    <script src="js/contents/ContentText.js"></script>
+
+
+
+    <script src="js/content_effects/EffectContent.js"></script>
+    <script src="js/content_effects/EffectText.js"></script>
+    <script src="js/content_effects/EffectTextGlow.js"></script>
+   
+    <!-- <script src="js/content_effects/ContentProperty.js"></script> -->
+    
+    <script src="js/content_effects/EffectAudio.js"></script>
+    <script src="js/content_effects/EffectAudioClipping.js"></script>
+    <script src="js/content_effects/EffectAudioRepeat.js"></script>
+    <script src="js/content_effects/EffectAudioTrack.js"></script>
+    
+
+    <!-- <script src="js/content_effects/TextEffect.js"></script> -->
+     <script src="js/content_effects/EffectTextHide.js"></script>
+    <script src="js/content_effects/EffectTextFill.js"></script>
+    <script src="js/content_effects/EffectTextStroke.js"></script>
+
+    <script src="js/contents/ContentImage.js"></script>
+    <script src="js/content_effects/EffectImage.js"></script>
+    <script src="js/content_effects/EffectImagePosition.js"></script>
+    <script src="js/content_effects/EffectImageGlow.js"></script>
+    <script src="js/content_effects/EffectImageReplace.js"></script>
+    <script src="js/content_effects/EffectImageOpacity.js"></script>
+    <script src="js/content_effects/EffectImageHide.js"></script>
+    <script src="js/content_effects/EffectImageTranslate.js"></script>
+    
+    
+
+    
+    
+     
+    
+
+    
+    
+    
+     
+
+    <script src="js/svg_creator.js"></script>
+
+    <script src="js/Download.js"></script>
+    
+
+  <script src="js/ContentEditor.js"></script>
+  <script src="js/Action.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+	<div id="top-bar">
+		<!-- <button type="button" id="go_to_scene_veiw">Go to Scenes</button>
+
+  		<script type="text/javascript">
+       
+  		</script> -->
+
+
+	</div>
+
+  	<div id='content'>
+
+	  	<div id='background_img' style='position:absolute; z-index:-10;' alt='background image'></div>
+
+	  	<div id='main_text' style='position:absolute; z-index:0;' alt='text'> </div>
+
+     
+    <div id='bottom_bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'>
+      </div>
+
+
+
+   
+
+
+
+	 </div>
+    
+
+        <div id='loading-hiden' alt='text' style='display:none;'>
+          <img src='img/Rocket.gif'>
+          <img src='img/Rocket-Fire.gif'>
+        </div> 
+
+   <div id="editor">
+   </div>
+
+  <script>
+    loadScreen = new LoadScreen()
+  </script>
+
+  	
+  	
+  	
+
+  	
+
+</body>
+
+
+</html>

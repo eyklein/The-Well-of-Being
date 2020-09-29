@@ -1,0 +1,2263 @@
+{
+	"startingScene": "INTRO",
+	"scenes": [{
+		"name": "universal",
+		"id": "uni",
+		"actions": [],
+		"contents": [{
+			"id": "799",
+			"content": {
+				"type": "audio",
+				"value": "audio/Background Noise.mp3"
+			},
+			"effects": {
+				"general": {
+					"clipping": {
+						"start": 0,
+						"duration": 467
+					},
+					"repeat": {
+						"isOn": true
+					},
+					"track": {
+						"value": "background"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 0
+				},
+				"scenes": {
+					"uni": {
+						"pos": {}
+					},
+					"INSTUCTIONS": {
+						"pos": {}
+					},
+					"INTRO": {
+						"pos": {
+							"x": 527
+						}
+					}
+				}
+			}
+		}]
+	}, {
+		"name": "instuctions",
+		"id": "INSTUCTIONS",
+		"actions": [{
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "101",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "005",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "002",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "002",
+			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "002",
+			"headID": "002",
+			"trigger": "click",
+			"elicit": "unclickable",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "002",
+			"headID": "003",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "004",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "004",
+			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "004INTRO",
+			"tailID": "004",
+			"headID": "INTRO",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "004",
+			"headID": "101",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "004",
+			"headID": "002",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "004",
+			"headID": "003",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "004",
+			"headID": "004",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "004",
+			"headID": "005",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "004",
+			"headID": "501",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "01",
+			"tailID": "INSTUCTIONS",
+			"headID": "501",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}],
+		"contents": [{
+			"id": "501",
+			"content": {
+				"type": "img",
+				"value": "img/black.jpg"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"opacity": {
+						"opacity": "0.7"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 613
+				}
+			}
+		}, {
+			"id": "101",
+			"content": {
+				"type": "text",
+				"value": "This is an experimental story telling platform. You can click on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            text or objects to move the reader through the story."
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "10%",
+						"left": "10%"
+					},
+					"dimensions": {
+						"width": "80%",
+						"height": "80%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 724
+				}
+			}
+		}, {
+			"id": "005",
+			"content": {
+				"type": "text",
+				"value": "Click here to go full screen &#x2193;"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"bottom": "2%",
+						"right": "1.1%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 839
+				}
+			}
+		}, {
+			"id": "002",
+			"content": {
+				"type": "text",
+				"value": "highlighted"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "20.2%",
+						"left": "37.39%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"z-index": {
+						"index": 102
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 332
+				}
+			}
+		}, {
+			"id": "003",
+			"content": {
+				"type": "text",
+				"value": "highlighted"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "20.2%",
+						"left": "37.39%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"z-index": {
+						"index": 103
+					},
+					"fill": {
+						"color": "#6aca4d"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 458
+				}
+			}
+		}, {
+			"id": "004",
+			"content": {
+				"type": "text",
+				"value": "<u>START</u>"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "60%",
+						"left": "37.39%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"z-index": {
+						"index": 103
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 179
+				}
+			}
+		}]
+	}, {
+		"name": "intro",
+		"id": "INTRO",
+		"actions": [{
+			"id": "INTRO101d",
+			"tailID": "INTRO",
+			"headID": "101",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "INTRO101a",
+			"tailID": "INTRO",
+			"headID": "101",
+			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "101INSTUCTIONSd",
+			"tailID": "101",
+			"headID": "INSTUCTIONS",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "101101h",
+			"tailID": "101",
+			"headID": "101",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "101002h",
+			"tailID": "101",
+			"headID": "102",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "INTRO002",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "INTRO002",
+			"tailID": "INTRO",
+			"headID": "102",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": ["this.scene.contentsLib[901].isDonePlaying"]
+		}, {
+			"id": "INTRO002",
+			"tailID": "INTRO",
+			"headID": "102",
+			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "INTRO102",
+			"tailID": "102",
+			"headID": "viii-xii",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "INTRO901",
+			"tailID": "INTRO",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": ["this.activations<1"]
+		}, {
+			"id": "INTRO901",
+			"tailID": "INTRO",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "cue",
+			"delay": 0,
+			"conditions": []
+		}],
+		"contents": [{
+			"id": "701",
+			"content": {
+				"type": "audio",
+				"value": "audio/full_reading_v200.mp3"
+			},
+			"effects": {
+				"general": {
+					"clipping": {
+						"start": 0,
+						"duration": 17
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "901",
+			"content": {
+				"type": "video",
+				"value": "video/intro.mp4"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"clipping": {
+						"start": 0,
+						"duration": 10
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 200
+				}
+			}
+		}, {
+			"id": "101",
+			"content": {
+				"type": "text",
+				"value": "< Directions"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "2%",
+						"left": "2%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.02
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		}, {
+			"id": "102",
+			"content": {
+				"type": "text",
+				"value": "Start >"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"bottom": "8%",
+						"right": "2%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		}]
+	}, {
+		"name": "Pages viii-xii",
+		"id": "viii-xii",
+		"actions": [{
+			"id": "viii-xii*901d",
+			"tailID": "viii-xii",
+			"headID": "INTRO",
+			"trigger": "time",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "viii-xii901d",
+			"tailID": "viii-xii",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "viii-xii901d",
+			"tailID": "viii-xii",
+			"headID": "701",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "viii-xii001d",
+			"tailID": "viii-xii",
+			"headID": "001",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "701",
+			"headID": "001",
+			"trigger": "onEnd",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "701",
+			"headID": "003",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701002h",
+			"tailID": "701",
+			"headID": "002",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701102D",
+			"tailID": "701",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "701102C",
+			"tailID": "701",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701102C",
+			"tailID": "102",
+			"headID": "xiv",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "viii-xii901p",
+			"tailID": "viii-xii",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "play",
+			"delay": 5,
+			"conditions": []
+		}],
+		"contents": [{
+			"id": "701",
+			"content": {
+				"type": "audio",
+				"value": "audio/full_reading_v200.mp3"
+			},
+			"effects": {
+				"general": {
+					"clipping": {
+						"start": 18,
+						"duration": 26
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "001",
+			"content": {
+				"type": "transcriptBox",
+				"alignWith": "audio/full_reading_v200.mp3",
+				"source": "transcript",
+				"offsets":{
+					"start":0,
+					"end":0,
+					"all":0
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "5%",
+						"left": "8%"
+					},
+					"dimensions": {
+						"width": "84%",
+						"height": "15%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.0362
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#f00"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "003",
+			"content": {
+				"type": "textBox",
+				"rangeType": "times",
+				"source": "transcript",
+				"rangeInfo": {
+					"start": 18,
+					"duration": 26
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"dimensions": {
+						"width": "45%",
+						"height": "40%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.025
+					},
+					"text-align": {
+						"value": "left"
+					},
+					"background-fill": {
+						"color": "rgba(100,100,100,.3)"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "rgba(0,0,0,.7)"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "002",
+			"content": {
+				"type": "panBar",
+				"target": 901
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"right": "-5px"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.020
+					},
+					"dimensions": {
+						"width": "2%",
+						"height": "100%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "901",
+			"content": {
+				"type": "video",
+				"value": "video/viii-xii.mp4"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"clipping": {
+						"start": 0,
+						"duration": 10
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 200
+				}
+			}
+		},{
+			"id": "102",
+			"content": {
+				"type": "text",
+				"value": "Next >"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"bottom": "8%",
+						"right": "2%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "rgba(0, 0, 0, 0.7)"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		}]
+	}, {
+		"name": "Page xiv",
+		"id": "xiv",
+		"actions": [{
+			"id": "xiv*901d",
+			"tailID": "xiv",
+			"headID": "viii-xii",
+			"trigger": "time",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv901d",
+			"tailID": "xiv",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "xiv901d",
+			"tailID": "xiv",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "play",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv901d",
+			"tailID": "xiv",
+			"headID": "701",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 2,
+			"conditions": []
+		}, {
+			"id": "xiv001d",
+			"tailID": "xiv",
+			"headID": "001",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "901",
+			"headID": "001",
+			"trigger": "onEnd",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001D",
+			"tailID": "901",
+			"headID": "003",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701002D",
+			"tailID": "901",
+			"headID": "002",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701102D",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "701102C",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "701102C",
+			"tailID": "102",
+			"headID": "xvi-xx",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}],
+		"contents": [{
+			"id": "701",
+			"content": {
+				"type": "audio",
+				"value": "audio/full_reading_v200.mp3"
+			},
+			"effects": {
+				"general": {
+					"clipping": {
+						"start": 41,
+						"end": 46.5
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		},{
+			"id": "102",
+			"content": {
+				"type": "text",
+				"value": "Next >"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"bottom": "8%",
+						"right": "2%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "#000"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		}, {
+			"id": "001",
+			"content": {
+				"type": "transcriptBox",
+				"alignWith": "audio/full_reading_v200.mp3",
+				"source": "transcript",
+				"offsets":{
+					"start":0,
+					"end":1.5,
+					"all":2.5
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "5%",
+						"left": "8%"
+					},
+					"dimensions": {
+						"width": "84%",
+						"height": "15%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.0362
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 201
+					},
+					"fill": {
+						"color": "#f00"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "003",
+			"content": {
+				"type": "textBox",
+				"rangeType": "times",
+				"source": "transcript",
+				"rangeInfo": {
+					"start": 43,
+					"end": 48
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"dimensions": {
+						"width": "45%",
+						"height": "5%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.025
+					},
+					"text-align": {
+						"value": "left"
+					},
+					"background-fill": {
+						"color": "rgba(0,0,0,.3)"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "rgba(255,255,255,.7)"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "002",
+			"content": {
+				"type": "panBar",
+				"target": 901
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"right": "-5px"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.020
+					},
+					"dimensions": {
+						"width": "2%",
+						"height": "100%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "901",
+			"content": {
+				"type": "video",
+				"value": "video/xiv.mp4"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"clipping": {
+						"start": 0,
+						"duration": 10
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 200
+				}
+			}
+		}]
+	},{
+		"name": "Page xvi-xx",
+		"id": "xvi-xx",
+		"actions": [{
+			"id": "xvi-xx*901d",
+			"tailID": "xvi-xx",
+			"headID": "xiv",
+			"trigger": "time",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv901d",
+			"tailID": "xvi-xx",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "xiv901d",
+			"tailID": "xvi-xx",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "play",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv901d",
+			"tailID": "xvi-xx",
+			"headID": "701",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 1,
+			"conditions": []
+		}, {
+			"id": "xiv001d",
+			"tailID": "xvi-xx",
+			"headID": "001",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "901",
+			"headID": "001",
+			"trigger": "onEnd",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001D",
+			"tailID": "901",
+			"headID": "003",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701002D",
+			"tailID": "901",
+			"headID": "002",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701102D",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "701102C",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "701102C",
+			"tailID": "102",
+			"headID": "xxii",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}],
+		"contents": [{
+			"id": "701",
+			"content": {
+				"type": "audio",
+				"value": "audio/full_reading_v200.mp3"
+			},
+			"effects": {
+				"general": {
+					"clipping": {
+						"start": 46.5,
+						"end": 70
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		},{
+			"id": "102",
+			"content": {
+				"type": "text",
+				"value": "Next >"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"bottom": "8%",
+						"right": "2%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "#000"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		}, {
+			"id": "001",
+			"content": {
+				"type": "transcriptBox",
+				"alignWith": "audio/full_reading_v200.mp3",
+				"source": "transcript",
+				"offsets":{
+					"start":0,
+					"end":1.5,
+					"all":2.5
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "5%",
+						"left": "8%"
+					},
+					"dimensions": {
+						"width": "84%",
+						"height": "15%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.0362
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 201
+					},
+					"fill": {
+						"color": "#f00"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "003",
+			"content": {
+				"type": "textBox",
+				"rangeType": "times",
+				"source": "transcript",
+				"rangeInfo": {
+					"start": 43,
+					"end": 48
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"dimensions": {
+						"width": "45%",
+						"height": "5%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.025
+					},
+					"text-align": {
+						"value": "left"
+					},
+					"background-fill": {
+						"color": "rgba(0,0,0,.3)"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "rgba(255,255,255,.7)"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "002",
+			"content": {
+				"type": "panBar",
+				"target": 901
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"right": "-5px"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.020
+					},
+					"dimensions": {
+						"width": "2%",
+						"height": "100%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "901",
+			"content": {
+				"type": "video",
+				"value": "video/xvi-xx.mp4"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"clipping": {
+						"start": 0,
+						"duration": 10
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 200
+				}
+			}
+		}]
+	},{
+		"name": "Page xxii",
+		"id": "xxii",
+		"actions": [{
+			"id": "xvi-xx*901d",
+			"tailID": "xxii",
+			"headID": "xvi-xx",
+			"trigger": "time",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv901d",
+			"tailID": "xxii",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "xiv901d",
+			"tailID": "xxii",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "play",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv901d",
+			"tailID": "xxii",
+			"headID": "701",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "xiv001d",
+			"tailID": "xxii",
+			"headID": "001",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "701",
+			"headID": "001",
+			"trigger": "onEnd",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001D",
+			"tailID": "701",
+			"headID": "003",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701002D",
+			"tailID": "901",
+			"headID": "002",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701102D",
+			"tailID": "701",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "701102C",
+			"tailID": "701",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		}],
+		"contents": [{
+			"id": "701",
+			"content": {
+				"type": "audio",
+				"value": "audio/full_reading_v200.mp3"
+			},
+			"effects": {
+				"general": {
+					"clipping": {
+						"start": 72,
+						"end": 85
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		},{
+			"id": "102",
+			"content": {
+				"type": "text",
+				"value": "Next >"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"bottom": "8%",
+						"right": "2%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.04
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "#000"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		}, {
+			"id": "001",
+			"content": {
+				"type": "transcriptBox",
+				"alignWith": "audio/full_reading_v200.mp3",
+				"source": "transcript",
+				"offsets":{
+					"start":0,
+					"end":1.5,
+					"all":0
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "5%",
+						"left": "8%"
+					},
+					"dimensions": {
+						"width": "84%",
+						"height": "15%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.0362
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 201
+					},
+					"fill": {
+						"color": "#f00"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "003",
+			"content": {
+				"type": "textBox",
+				"rangeType": "times",
+				"source": "transcript",
+				"rangeInfo": {
+					"start": 72,
+					"end": 85
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"dimensions": {
+						"width": "56%",
+						"height": "15%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.025
+					},
+					"text-align": {
+						"value": "left"
+					},
+					"background-fill": {
+						"color": "rgba(0,0,0,.3)"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "rgba(255,255,255,.7)"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "002",
+			"content": {
+				"type": "panBar",
+				"target": 901
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"right": "-5px"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.020
+					},
+					"dimensions": {
+						"width": "2%",
+						"height": "100%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"text-align": {
+						"value": "center"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
+		}, {
+			"id": "901",
+			"content": {
+				"type": "video",
+				"value": "video/xxii.mp4"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"clipping": {
+						"start": 0,
+						"duration": 10
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 200
+				}
+			}
+		}]
+	}]
+}
