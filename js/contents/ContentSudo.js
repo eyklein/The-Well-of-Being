@@ -32,6 +32,15 @@ class SudoContent extends Content{
 		//this.createNode();
 	}
 
+	// reset(){
+		
+	// }
+
+	// end(){
+		
+	// }
+
+
 	createFrontEndHTML(){
 		
 	}

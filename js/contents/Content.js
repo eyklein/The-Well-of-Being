@@ -100,6 +100,30 @@ class Content{
 		
 	}
 
+	reset(){
+		// if(!this.html.fe.paused){
+		// 	this.html.fe.pause();
+		// }
+		// this.html.fe.currentTime=this.start+.1;
+		// console.log("!!!!!!!!!!!!!! reset: " + this.id)
+
+		this.delete();
+		this.createFrontEndHTML();
+		// console.log(this)
+		this.addEffects();
+	}
+	delete(){
+		this.html.fe.remove()
+	}
+
+	addEffects(){
+		//console.log("this.createEffects();")
+		this.createEffects();
+		
+		this.applyGeneralEffects();
+	}
+
+
 	shifBackendTo(xPos_){
 		if(!this.isCopyFromUni ){ //|| this.parentScene.id=="uni"
 			this.backEndXPos.pos.x = xPos_

@@ -35,6 +35,9 @@ class TextBoxContent extends Content{
 		
 	}
 
+	
+	
+
 	close(){
 		this.html.fe.classList.remove("open");
 		this.html.closingOpeningTabArrow.classList.remove("open");

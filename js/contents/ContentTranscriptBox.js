@@ -19,6 +19,36 @@ class TranscriptBoxContent extends Content{
 		this.cNode=new ContentNode(this);
 	}
 
+
+	
+
+	resetText(){
+
+		if(this.offsetTimes.start){
+			var t1=this.alignMedia[0].start + this.offsetTimes.start;
+		}else{
+			var t1=this.alignMedia[0].start;
+		}
+
+		if(this.offsetTimes.end){
+			var t2=this.alignMedia[0].start + this.alignMedia[0].duration + this.offsetTimes.end;
+		}else{
+			var t2=this.alignMedia[0].start + this.alignMedia[0].duration;
+		}
+
+
+		this.html.fe.style.display="block";
+		this.hidenLines=[];
+		this.currentLine;
+		this.displayedLines=[];
+		this.addAvalibleTranscriptLine(t1, t2);
+		
+	}
+
+	end(){
+		this.html.fe.style.display="none";
+	}
+
 	createFrontEndHTML(){
 		super.createFrontEndHTML();
 
@@ -56,34 +86,8 @@ class TranscriptBoxContent extends Content{
 
 
 
-		
-		// console.log(this.offsetTimes.start)
 
-		if(this.offsetTimes.start){
-			var t1=this.alignMedia[0].start + this.offsetTimes.start;
-		}else{
-			var t1=this.alignMedia[0].start;
-		}
-
-		if(this.offsetTimes.end){
-			var t2=this.alignMedia[0].start + this.alignMedia[0].duration + this.offsetTimes.end;
-		}else{
-			var t2=this.alignMedia[0].start + this.alignMedia[0].duration;
-		}
-		
-
-		// var t1=this.alignMedia[0].start;
-		// let t2=this.alignMedia[0].start + this.alignMedia[0].duration;
-		
-		console.log(this.parentScene.id)
-		console.log(this.alignMedia)
-		console.log(t1)
-		console.log(t2)
-
-		this.hidenLines=[];
-		this.currentLine;
-		this.displayedLines=[];
-		this.addAvalibleTranscriptLine(t1, t2);
+		this.resetText()
 
 		
 

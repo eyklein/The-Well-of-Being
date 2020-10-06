@@ -3,6 +3,12 @@
 	"scenes": [{
 		"name": "universal",
 		"id": "uni",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":false,
+			"orderX":0,
+			"orderY":0
+		},
 		"actions": [],
 		"contents": [{
 			"id": "799",
@@ -53,6 +59,12 @@
 	}, {
 		"name": "instuctions",
 		"id": "INSTUCTIONS",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":false,
+			"orderX":-1,
+			"orderY":0
+		},
 		"actions": [{
 			"id": "01",
 			"tailID": "INSTUCTIONS",
@@ -486,6 +498,13 @@
 	}, {
 		"name": "intro",
 		"id": "INTRO",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":true,
+			"orderX":0,
+			"orderY":1
+		},
+		"pause":true,
 		"actions": [{
 			"id": "INTRO101d",
 			"tailID": "INTRO",
@@ -565,7 +584,7 @@
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": ["this.activations<1"]
+			"conditions": []
 		}, {
 			"id": "INTRO901",
 			"tailID": "INTRO",
@@ -746,6 +765,12 @@
 	}, {
 		"name": "Pages viii-xii",
 		"id": "viii-xii",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":true,
+			"orderX":0,
+			"orderY":2
+		},
 		"actions": [{
 			"id": "viii-xii*901d",
 			"tailID": "viii-xii",
@@ -1132,6 +1157,12 @@
 	}, {
 		"name": "Page xiv",
 		"id": "xiv",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":true,
+			"orderX":0,
+			"orderY":3
+		},
 		"actions": [{
 			"id": "xiv*901d",
 			"tailID": "xiv",
@@ -1518,6 +1549,12 @@
 	},{
 		"name": "Page xvi-xx",
 		"id": "xvi-xx",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":true,
+			"orderX":0,
+			"orderY":4
+		},
 		"actions": [{
 			"id": "xvi-xx*901d",
 			"tailID": "xvi-xx",
@@ -1904,6 +1941,12 @@
 	},{
 		"name": "Page xxii",
 		"id": "xxii",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":true,
+			"orderX":0,
+			"orderY":5
+		},
 		"actions": [{
 			"id": "xvi-xx*901d",
 			"tailID": "xxii",
@@ -2290,6 +2333,12 @@
 	},{
 		"name": "PreFace",
 		"id": "p0",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":true,
+			"orderX":0,
+			"orderY":6
+		},
 		"actions": [{
 			"id": "p0*901d",
 			"tailID": "p0",

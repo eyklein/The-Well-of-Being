@@ -10,6 +10,9 @@ class TextContent extends Content{
 		this.cNode=new ContentNode(this);
 	}
 
+
+
+
 	createFrontEndHTML(){
 		super.createFrontEndHTML();
 		// this.frontEndCreated=true;
@@ -20,6 +23,8 @@ class TextContent extends Content{
 		this.applyEffects();
 		
 	}
+
+
 
 
 	createEffects(){

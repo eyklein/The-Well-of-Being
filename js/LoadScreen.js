@@ -240,7 +240,7 @@ class LoadScreen{
 
 
 
-		console.log(this.loadedPercent);
+		// console.log(this.loadedPercent);
 
 		// if(this.html.netVideo.currentTime>this.loadedPercent*8){
 		// 	this.html.netVideo.pause()

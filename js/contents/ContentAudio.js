@@ -21,6 +21,23 @@ class AudioContent extends Content{
 
 	}
 
+	reset(){
+		this.stop();
+		super.reset();
+		this.isDonePlaying=false;
+	}
+
+	end(){
+		// if(!this.html.fe.paused){
+		// 	this.html.fe.pause();
+		// }
+		// console.log(this);
+		// console.log(this.start)
+		// console.log(this.duration)
+		this.stop();
+
+	}
+
 	
 
 
@@ -196,7 +213,8 @@ class AudioContent extends Content{
 
 	}
 	stop(){
-		this.html.fe.currentTime=this.html.fe.duration;
+		this.html.fe.currentTime=this.start + this.html.fe.duration;
+		this.pause()
 	}
 	skip(skipTime_){
 		if(skipTime_==null){

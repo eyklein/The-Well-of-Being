@@ -2,9 +2,60 @@ var selectedNodes=[];
 var shiftPressed=false
 
 
+// $(window).scroll($.debounce( 250, true, function(e){
+//     $('#scrollMsg').html('SCROLLING!');
+//     console.log("scrolling")
+
+// }));
+// $(window).scroll($.debounce( 250, function(e){
+//     $('#scrollMsg').html('DONE!');
+//     console.log("DONE!!")
+//     console.log(e)
+// }));
+
+
+// Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
+
+// let last_known_scroll_position = 0;
+// let ticking = false;
+
+// function doSomething(scroll_pos) {
+//   console.log(scroll_pos)
+// }
+
+// window.addEventListener('scroll', function(e) {
+//   last_known_scroll_position = window.scrollY;
+
+//   if (!ticking) {
+//     window.requestAnimationFrame(function() {
+//       doSomething(last_known_scroll_position);
+//       ticking = false;
+//     });
+
+//     ticking = true;
+//   }else{
+//   	console.log("?????????????????????")
+//   }
+// });
+
+
+addScrollingDiv=function(){
+	// let scrollWindow=document.getElementById("scrolling-window").querySelectorAll(".wrapper")[0];
+
+	// let div=document.createElement("div");
+	// div.classList.add("scroll-section");
+
+	// scrollWindow.append(div);
+	// return div;
+
+}
+
+
+
 document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 37:
+        	 currentStory.restartScene();
             break;
         case 38:// up arrow 
             currentStory.togglePlayPause();
@@ -40,6 +91,10 @@ document.onkeyup = function(e) {
 	    shiftPressed=false;
 	}
 }
+
+// window.onscroll = function(e) {
+// 	console.log(e)
+// };
 
 
 
@@ -269,3 +324,5 @@ function download(filename, text) {
 
   document.body.removeChild(element);
 }
+
+

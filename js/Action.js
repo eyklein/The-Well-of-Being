@@ -21,6 +21,11 @@ class Action{
 		this.occurrence=actionJSON_.occurrence
 		this.passOnInheritance=undefined;
 
+
+		this.isActive=false;
+		this.wasActivated=false;
+
+
 		this.conditionals=[];
 
 		if(actionJSON_.conditions != undefined){
@@ -121,6 +126,13 @@ class Action{
 			this.timer.skip(skipTime_)
 		}
 	}
+
+	reset(){
+		this.bePositionSet=false;
+		this.isActive=false;
+		this.wasActivated=false;
+	}
+
 	onEvent(){
 		
 		this.activate();
@@ -133,7 +145,7 @@ class Action{
 	addEventListener(){
 		//console.log("adding EL to " + this.tail.id + " tigger " + this.head.id)
 		this.onEventBind = this.onEvent.bind(this)
-		this.onEventBindConditional = this.onEventConditioanl.bind(this)
+		//this.onEventBindConditional = this.onEventConditioanl.bind(this)
 		
 		if(this.trigger=="click"){
 			this.tail.html.fe.addEventListener("click", this.onEventBind);
@@ -148,6 +160,8 @@ class Action{
 		this.tail.html.fe.removeEventListener("click", this.onEventBind );
 	}
 	activate(){
+
+		this.isActive=true;
 		// console.log(this.id);
 		//console.log(this.conditionals)
 		
@@ -183,6 +197,9 @@ class Action{
 	}
 
 	activateNow(){
+		// console.log("activateNow " + this.id) 
+		// console.log(this.elicit) 
+		this.wasActivated=true;
 		this.activations++;
 
 		if(this.elicit=="display"){
@@ -311,6 +328,8 @@ class Action{
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
 				
+				
+
 				
 				this.head.play();
 				

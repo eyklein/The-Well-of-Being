@@ -4,6 +4,7 @@ class VideoContent extends Content{
 	constructor(contentJson_,parentScene_){ //,url_, content_, propertiesJSON_
 		super(contentJson_,parentScene_)
 		this.isDonePlaying=false;
+		this.start=0;
 		this.duration=0;
 
 		this.name=this.content.value;
@@ -20,6 +21,29 @@ class VideoContent extends Content{
 	   	
 
 	}
+
+	reset(){
+		// this.stop();
+		super.reset();
+		this.isDonePlaying=false;
+
+	}
+
+	
+
+	
+	end(){
+		// if(!this.html.fe.paused){
+		// 	this.html.fe.pause();
+		// }
+		// console.log(this);
+		// console.log(this.start)
+		// console.log(this.duration)
+		this.stop();
+
+	}
+
+
 
 	getEffect(effectName_,effectJSON_){
 		//console.log("getEffect ************")
@@ -124,7 +148,7 @@ class VideoContent extends Content{
 
 				
 				this.html.fe.ondurationchange = function(e) {
-					console.log("++++");
+					// console.log("++++");
 					this.duration=this.html.fe.duration;
 				}.bind(this);
 				
@@ -194,11 +218,20 @@ class VideoContent extends Content{
 
 		this.activateOnEndEvents()
 
+		this.html.fe.addEventListener('pause', function(e){
+			if(this.html.fe.currentTime>=(this.start+this.duration)){
+				//force ended event
+				let event = new Event('ended');
+				this.html.fe.dispatchEvent(event);
+			}
+		}.bind(this));
+
 		// this.html.fe.play();
 
 	}
 	stop(){
-		this.html.fe.currentTime=this.html.fe.duration;
+		this.html.fe.currentTime=this.start+this.html.fe.duration;
+		this.pause();
 	}
 	skip(skipTime_){
 		if(skipTime_==null){
@@ -226,6 +259,8 @@ class VideoContent extends Content{
 		currentStory.updatePlayPause()
 	}
 
+
+
 	play(){
 		this.isPlaying=true;
 		
@@ -249,9 +284,15 @@ class VideoContent extends Content{
 
 		
 	}
+	stop(){
+		this.html.fe.currentTime=this.html.fe.duration;
+	}
+
 	pause(){
 		this.isPlaying=false;
 		this.html.fe.pause();
+
+
 	}
 
 	adjustSize(){ //????

@@ -7,7 +7,7 @@ class ClippingAudioEffect extends AudioEffect{
 
 		if(this.vareables.end && ! this.vareables.duration){
 			this.vareables.duration=this.vareables.end-this.vareables.start;
-			console.log(this.vareables.duration)
+			
 		}
 
 		// this.vareables.start==0;
@@ -63,6 +63,8 @@ class ClippingAudioEffect extends AudioEffect{
 
 	apply(){
 		// console.log("apply clipping property")
+		if(this.parentContent instanceof VideoContent)
+		console.log(parseFloat(this.vareables.start));
 		this.parentContent.start=parseFloat(this.vareables.start);
 		this.parentContent.duration=parseFloat(this.vareables.duration);
 

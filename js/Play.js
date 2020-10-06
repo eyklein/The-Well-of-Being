@@ -1,4 +1,15 @@
 
+function logActiveContentActions(){
+	console.log("Active Video:")
+	for(let id in currentStory.activeMainVideo){
+		console.log(id + " : " + currentStory.activeMainVideo[id].html.fe.currentTime);
+	}
+
+	console.log("Active Audio:")
+	for(let id in currentStory.activeMainAudio){
+		console.log(id + " : " + currentStory.activeMainAudio[id].html.fe.currentTime);
+	}
+}
 var currentStory;
 
 var timeDelays={};
@@ -85,6 +96,9 @@ class Story{
 		this.baseSceneNodes=[]
 		this.rootEndNodes=[]
 
+
+		this.scrollOrderArray=[];
+
 		//this.setLeftOffsets()
 		
 	}
@@ -157,6 +171,7 @@ class Story{
 	  	// set which scenes lead into which scenes
 	  	this.setLastAndNextSceneNodes();
 	  	this.setSceneIndexNumbers();
+	  	this.addScrollDivs();
 	  	this.setSceneFullWidth()
 	  	this.setRelativePositionIndex();
 	  	this.setPositionIndex();
@@ -195,6 +210,34 @@ class Story{
 
 
 
+	}
+
+	restartScene(){
+		let wasPlaying= this.isPlaying()
+		this.currentScene.goToStart();
+
+
+		console.log(this.currentScene)
+		this.displayCurrentScene();
+
+		updateContentSize();
+
+		setTimeout(function(){this.pause()}.bind(this),600);
+
+
+		//this.pause();
+		// if(wasPlaying){
+		// 	this.play()
+		// }else{
+		// 	this.pause();
+		// }
+
+		
+	}
+
+	endScene(){
+		this.currentScene.goToEnd();
+		
 	}
 
 
@@ -274,11 +317,6 @@ class Story{
 
 
 	setSceneIndexNumbers(){
-		
-
-		//get base scenes
-
-		
 
 		//find the scenes with no parent nodes those are the base nodes
 		for(let scene in this.scenesLib){
@@ -301,14 +339,20 @@ class Story{
 
 			this.baseSceneNodes[i].assignDescendentsIndexes(0);
 		}
-
-
-		// for(let scene in baseScenes){
-		// 	//console.log(baseScenes[scene]);
-		// 	baseScenes[scene].setIndexNumberRecusive(0,[])
-		// }
-
 	}
+
+	addScrollDivs(){
+		// this.scrollOrder=[];
+		for(let scene in this.scenesLib){
+			let scrollIndex=this.scenesLib[scene].addScroll();
+			if(scrollIndex !=false){
+				this.scrollOrderArray[scrollIndex] = this.scenesLib[scene];
+			}
+			//this.scrollOrder
+		}
+	}
+
+
 	setSceneFullWidth(){//sets the width the the children nodes will take up
 		for(let i in this.rootEndNodes){
 			this.rootEndNodes[i].setFullWidthCascadeUp(1)

@@ -8,6 +8,15 @@ class Scene{
 		this.activatedWithScene=[];
 		this.id=this.sceneData.id;
 		this.name=this.sceneData.name;
+
+		this.scroll=this.sceneData.scroll;
+		// "scroll":{
+		// 	"height":"100vw",
+		// 	"scrollable":false,
+		// 	"orderX":-1,
+		// 	"orderY":0
+		// }
+
 		this.play=play_;
 		this.html={};
 		this.contentsIndexes={};
@@ -41,18 +50,52 @@ class Scene{
 		//this.setPositionActions();
 	}
 
+	addScroll(){
+		if(this.scroll.scrollable){
+			// console.log(this.scroll.orderY)
+			this.scrollDiv=addScrollingDiv();
+			return this.scroll.orderY;
+		}
+		else{
+			return false;
+		}
+	}
+
 	displayFrontEnd(){
 
 		this.html.fe.container.style.display="block";
 		
 		for(let i=0;i<this.actionsOut.length;i++){
+
+			// console.log(this.actionsOut[i])
 		
 			this.actionsOut[i].activate();
+
 
 		}
 	}
 	hide(){
 		this.html.fe.container.style.display="none";
+	}
+
+	goToEnd(){
+		for(let id in this.contentsLib){
+			this.contentsLib[id].end();
+		}
+	}
+
+	goToStart(){
+		for(let id in this.contentsLib){
+			console.log(id)
+			this.contentsLib[id].reset();
+		}
+
+		for(let id in this.actionsLib){
+			this.actionsLib[id].reset();
+		}
+
+
+		//this.displayFrontEnd();
 	}
 
 	addContents(sceneJson_){

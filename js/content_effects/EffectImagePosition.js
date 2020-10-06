@@ -5,7 +5,6 @@ class PositionImageEffect extends ImageEffect{
 		this.type="position";
 	}
 	apply(){
-
 		//console.log("apply PositionImageEffect")
 
 		//console.log("POSITIONING!!!!!!!!! " + this.parentContent.id + " in scene "+ this.parentContent.parentScene.id)

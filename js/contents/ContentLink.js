@@ -20,6 +20,20 @@ class TextContent extends Content{
 		
 	}
 
+	
+	// reset(){
+	// 	// if(!this.html.fe.paused){
+	// 	// 	this.html.fe.pause();
+	// 	// }
+	// 	// this.html.fe.currentTime=this.start+.1;
+	// 	this.delete();
+	// 	this.createFrontEndHTML();
+	// 	addEffects();
+	// }
+	// delete(){
+	// 	this.html.fe.remove()
+	// }
+
 
 	createEffects(){
 		// console.log(this.JSONData)

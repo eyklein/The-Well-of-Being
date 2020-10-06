@@ -56,6 +56,20 @@ class PanBarContent extends Content{
 		this.cNode=new ContentNode(this);
 	}
 
+
+	// reset(){
+	// 	// if(!this.html.fe.paused){
+	// 	// 	this.html.fe.pause();
+	// 	// }
+	// 	// this.html.fe.currentTime=this.start+.1;
+	// 	this.delete();
+	// 	this.createFrontEndHTML();
+	// 	this.applyEffects();
+	// }
+	// delete(){
+	// 	this.html.fe.remove()
+	// }
+
 	createFrontEndHTML(){
 		super.createFrontEndHTML();
 		this.target=this.parentScene.contentsLib[this.targetID]
