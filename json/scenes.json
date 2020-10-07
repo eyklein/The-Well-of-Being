@@ -792,7 +792,7 @@
 			"tailID": "viii-xii",
 			"headID": "701",
 			"trigger": "time",
-			"elicit": "display",
+			"elicit": "play",
 			"delay": 0,
 			"conditions": []
 		}, {
@@ -857,7 +857,7 @@
 			"headID": "901",
 			"trigger": "time",
 			"elicit": "play",
-			"delay": 5,
+			"delay": 10,
 			"conditions": []
 		}],
 		"contents": [{
@@ -1192,7 +1192,7 @@
 			"tailID": "xiv",
 			"headID": "701",
 			"trigger": "time",
-			"elicit": "display",
+			"elicit": "play",
 			"delay": 2,
 			"conditions": []
 		}, {
@@ -1584,7 +1584,7 @@
 			"tailID": "xvi-xx",
 			"headID": "701",
 			"trigger": "time",
-			"elicit": "display",
+			"elicit": "play",
 			"delay": 1,
 			"conditions": []
 		}, {
@@ -1976,7 +1976,7 @@
 			"tailID": "xxii",
 			"headID": "701",
 			"trigger": "time",
-			"elicit": "display",
+			"elicit": "play",
 			"delay": 0,
 			"conditions": []
 		}, {

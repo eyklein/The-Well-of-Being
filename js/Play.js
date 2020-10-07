@@ -258,18 +258,20 @@ class Story{
 	restartScene(){
 		//let wasPlaying = this.isPlaying()
 		//this.currentScene.goToStart();
-	console.log("--------------------------------------------*---------------------------------------------")
-	console.log("---------------------- before clear")
-	logActiveContentActions()
+	// console.log("--------------------------------------------*---------------------------------------------")
+	// console.log("---------------------- before clear")
+	// logActiveContentActions()
 
-		this.clearScene();
+		
 
-		console.log("********************* after clear")
-	logActiveContentActions()
+	// 	console.log("********************* after clear")
+	// logActiveContentActions()
 
 
 		// console.log(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time)
 
+		this.pause();
+		this.clearScene();
 
 
 
@@ -291,7 +293,7 @@ class Story{
 
 		updateContentSize();
 
-		setTimeout(function(){this.pause()}.bind(this),600);
+		setTimeout(function(){this.pause()}.bind(this),100);
 
 
 		//this.pause();
@@ -620,8 +622,9 @@ class Story{
 		// this.updateVolume();
 
 		// console.log("PLAYING!!!!!!!!")
-		startDraw();
 		this.playing=true;
+		startDraw();
+		
 
 		//restart all the action timers
 		this.windowManager.displayPauseButton();
@@ -662,9 +665,10 @@ class Story{
 	}
 
 	pause(){
+		this.playing=false;
 		stopDraw();
 		// console.log("DONE PLAYING!!!!!!!!")
-		this.playing=false;
+		
 
 	 	this.windowManager.displayPlayButton();
 		

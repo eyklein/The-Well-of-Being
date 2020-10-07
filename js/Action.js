@@ -195,6 +195,19 @@ class Action{
 		this.html.svg.classList.remove("selected-out")
 	}
 
+
+	resumeTimer(type_,delay_){
+		console.log("PLAYING ???  " + currentStory.playing)
+		
+		if(type_=="play" && currentStory.playing==false){
+
+		}else{
+			this.timer.resume();
+		}
+		
+		
+	}
+
 	activateNow(autoPlay_){
 		// console.log("activateNow " + this.id) 
 		// console.log(this.elicit) 
@@ -229,6 +242,7 @@ class Action{
 	}
 
 	displayContent(delay_, autoPlay_){
+		console.log(autoPlay_)
 
 		if(delay_==null){
 			delay_=0;
@@ -266,14 +280,13 @@ class Action{
 		
 
 		
-
-		this.timer.resume();
-		
+		this.resumeTimer("display",delay_)
 		
 		
 
 	}
 	hideContent(delay_,autoPlay_){
+		console.log(autoPlay_)
 		
 		if(delay_==null){
 			delay_=0;
@@ -297,12 +310,13 @@ class Action{
 		// }else{
 		// 	this.timer.pause();
 		// }
-		this.timer.resume();
+		this.resumeTimer("hide",delay_)
 	}
 
 
 
 	cueContent(delay_,autoPlay_){
+		console.log(autoPlay_)
 
 		
 		if(delay_==null){
@@ -322,14 +336,15 @@ class Action{
 		}.bind(this), delay_*1000,this);
 		
 
-	
-		this.timer.resume();
+		this.resumeTimer("cue",delay_)
+		
 		
 		
 		
 
 	}
 	playContent(delay_,autoPlay_){
+		//console.log(autoPlay_)
 
 		
 		if(delay_==null){
@@ -353,13 +368,15 @@ class Action{
 		}.bind(this), delay_*1000,this);
 		
 		
-		this.timer.resume();
+		this.resumeTimer("play",delay_)
 		
 
 	}
 	
 
 	activateContent(delay_,autoPlay_){
+		console.log(autoPlay_)
+
 		if(delay_==null){
 			delay_=0;
 		}
@@ -369,11 +386,12 @@ class Action{
 			this.removeTimer()
 		}.bind(this), delay_*1000,this);
 
-		
-		this.timer.resume();
+		this.resumeTimer("activate",delay_)
 	}
 
 	deactivateContent(delay_,autoPlay_){
+		console.log(autoPlay_)
+
 		if(delay_==null){
 			delay_=0; 
 		}
@@ -388,7 +406,7 @@ class Action{
 		// }else{
 		// 	this.timer.pause();
 		// }
-		this.timer.resume();
+		this.resumeTimer("deactivate",delay_)
 	}
 
 	makeClickableContent(){

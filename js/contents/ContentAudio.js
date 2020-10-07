@@ -145,6 +145,22 @@ class AudioContent extends Content{
 
 		
 				this.activateOnEndEvents()
+
+
+				this.html.fe.addEventListener('ended', function(e){
+					this.removeFromActiveAudio();
+					this.isDonePlaying=true;
+				
+				}.bind(this));
+
+
+				this.html.fe.addEventListener('pause', function(e){
+					if(this.html.fe.currentTime>=(this.start+this.duration)){
+						//force ended event
+						let event = new Event('ended');
+						this.html.fe.dispatchEvent(event);
+					}
+				}.bind(this));
 		
 				
 
@@ -171,47 +187,22 @@ class AudioContent extends Content{
 
 	displayFrontEndHTML(){
 
-		
-		//document.getElementById("background_img").append(this.html.fe);
-
-		// console.log("Display Audio")
-		// super.displayFrontEndHTML();
-		// this.htmlParent.append(this.html.fe);
-		this.applyEntranceEffects();
-		// this.html.fe.style.display="block";
-		// this.html.fe.style.preload="metadata";//show first frame
-
-		// this.play();
-
-		this.play();
-
-
-
-		// this.html.fe.currentTime=.09;
-
-		this.html.fe.addEventListener('ended', function(e){
-			this.removeFromActiveAudio();
-			this.isDonePlaying=true;
-		
-		}.bind(this));
-
-
-		this.html.fe.addEventListener('pause', function(e){
-			if(this.html.fe.currentTime>=(this.start+this.duration)){
-				//force ended event
-				let event = new Event('ended');
-				this.html.fe.dispatchEvent(event);
-			}
-		}.bind(this));
-
 
 		
 
-		
 
-		// this.html.fe.play();
+		
 
 	}
+
+	// playFirstTime(){
+	// 	this.applyEntranceEffects();
+		
+	// 	this.play();
+
+		
+	// }
+
 	stop(){
 
 		if(this.html.fe.duration){
@@ -254,7 +245,7 @@ class AudioContent extends Content{
 		      	// Automatic playback started!
 		      	// Show playing UI.
 		      	this.addToActiveAudio();
-		      	console.log("Audio Playing!!!")
+		      	// console.log("Audio Playing!!!")
 		    })
 		    .catch(error => {
 		      	// Auto-play was prevented
