@@ -45,6 +45,8 @@ class Scene{
 		document.getElementById("content").append(this.html.fe.container)
 
 
+
+
 		//this.backEnd.arrows=[];
 
 		//this.setPositionActions();
@@ -61,19 +63,20 @@ class Scene{
 		}
 	}
 
-	displayFrontEnd(){
+	display(autoPlay_){
 
 		this.html.fe.container.style.display="block";
 		
 		for(let i=0;i<this.actionsOut.length;i++){
-
-			// console.log(this.actionsOut[i])
-		
-			this.actionsOut[i].activate();
-
-
+			this.actionsOut[i].activate(autoPlay_);
 		}
 	}
+
+	// play(){
+
+	// }
+
+
 	hide(){
 		this.html.fe.container.style.display="none";
 	}
@@ -84,9 +87,9 @@ class Scene{
 		}
 	}
 
-	goToStart(){
+	clear(){
 		for(let id in this.contentsLib){
-			console.log(id)
+			//console.log(id)
 			this.contentsLib[id].reset();
 		}
 

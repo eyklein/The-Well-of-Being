@@ -4,6 +4,7 @@ class VideoContent extends Content{
 	constructor(contentJson_,parentScene_){ //,url_, content_, propertiesJSON_
 		super(contentJson_,parentScene_)
 		this.isDonePlaying=false;
+		this.isPlaying=false;
 		this.start=0;
 		this.duration=0;
 
@@ -23,7 +24,7 @@ class VideoContent extends Content{
 	}
 
 	reset(){
-		// this.stop();
+		this.stop();
 		super.reset();
 		this.isDonePlaying=false;
 
@@ -229,10 +230,7 @@ class VideoContent extends Content{
 		// this.html.fe.play();
 
 	}
-	stop(){
-		this.html.fe.currentTime=this.start+this.html.fe.duration;
-		this.pause();
-	}
+	
 	skip(skipTime_){
 		if(skipTime_==null){
 			this.html.fe.currentTime=this.html.fe.duration;
@@ -273,7 +271,7 @@ class VideoContent extends Content{
 		      	// Automatic playback started!
 		      	// Show playing UI.
 		      	this.addToActiveVideo();
-		      	console.log("Video Playing!!!")
+		      	// console.log("Video Playing!!!")
 		    })
 		    .catch(error => {
 		      	// Auto-play was prevented
@@ -284,10 +282,21 @@ class VideoContent extends Content{
 
 		
 	}
-	stop(){
-		this.html.fe.currentTime=this.html.fe.duration;
-	}
+	// stop(){
+	// 	this.html.fe.currentTime=this.html.fe.duration;
+	// }
 
+	stop(){
+		if(this.html.fe.duration){
+			this.html.fe.currentTime=this.start + this.html.fe.duration;
+		}else{
+			console.log("durration is not defined")
+			console.log(this.html)
+		}
+
+
+		this.pause();
+	}
 	pause(){
 		this.isPlaying=false;
 		this.html.fe.pause();

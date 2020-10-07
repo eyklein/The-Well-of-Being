@@ -63,7 +63,7 @@
 			"height":"100vw",
 			"scrollable":false,
 			"orderX":-1,
-			"orderY":0
+			"orderY":-1
 		},
 		"actions": [{
 			"id": "01",
@@ -502,7 +502,7 @@
 			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
-			"orderY":1
+			"orderY":0
 		},
 		"pause":true,
 		"actions": [{
@@ -769,7 +769,7 @@
 			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
-			"orderY":2
+			"orderY":1
 		},
 		"actions": [{
 			"id": "viii-xii*901d",
@@ -857,7 +857,7 @@
 			"headID": "901",
 			"trigger": "time",
 			"elicit": "play",
-			"delay": 5,
+			"delay": 10,
 			"conditions": []
 		}],
 		"contents": [{
@@ -1161,7 +1161,7 @@
 			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
-			"orderY":3
+			"orderY":2
 		},
 		"actions": [{
 			"id": "xiv*901d",
@@ -1553,7 +1553,7 @@
 			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
-			"orderY":4
+			"orderY":3
 		},
 		"actions": [{
 			"id": "xvi-xx*901d",
@@ -1945,7 +1945,7 @@
 			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
-			"orderY":5
+			"orderY":4
 		},
 		"actions": [{
 			"id": "xvi-xx*901d",
@@ -2337,7 +2337,7 @@
 			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
-			"orderY":6
+			"orderY":5
 		},
 		"actions": [{
 			"id": "p0*901d",

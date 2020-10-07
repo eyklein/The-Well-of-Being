@@ -2,14 +2,35 @@
 function logActiveContentActions(){
 	console.log("Active Video:")
 	for(let id in currentStory.activeMainVideo){
-		console.log(id + " : " + currentStory.activeMainVideo[id].html.fe.currentTime);
+		console.log(id + " : " + currentStory.activeMainVideo[id].html.fe.currentTime  + " - " + currentStory.activeMainVideo[id].isPlaying);
 	}
 
 	console.log("Active Audio:")
 	for(let id in currentStory.activeMainAudio){
-		console.log(id + " : " + currentStory.activeMainAudio[id].html.fe.currentTime);
+		console.log(id + " : " + currentStory.activeMainAudio[id].html.fe.currentTime + " - " + currentStory.activeMainAudio[id].isPlaying);
 	}
 }
+
+function logActiveTimers(){
+	for(let action in currentStory.currentScene.actionsLib){
+
+		if(currentStory.currentScene.actionsLib[action].timer!=undefined){
+			console.log(currentStory.currentScene.actionsLib[action].id);
+			console.log(currentStory.currentScene.actionsLib[action].timer);
+		}
+	}
+}
+
+function pauseActiveTimers(){
+	for(let action in currentStory.currentScene.actionsLib){
+
+		if(currentStory.currentScene.actionsLib[action].timer!=undefined){
+			currentStory.currentScene.actionsLib[action].timer.pause()
+		}
+	}
+}
+
+
 var currentStory;
 
 var timeDelays={};
@@ -98,6 +119,7 @@ class Story{
 
 
 		this.scrollOrderArray=[];
+		this.activePath=[];
 
 		//this.setLeftOffsets()
 		
@@ -212,13 +234,60 @@ class Story{
 
 	}
 
+	clearScene(){
+		this.currentScene.clear();
+
+		this.clearActive();
+		
+
+	}
+	clearActive(){
+		for(let id in this.activeMainVideo){
+
+			this.activeMainVideo[id].stop();
+		}
+		for(let id in this.activeMainAudio){
+
+			this.activeMainAudio[id].stop();
+		}
+
+		this.activeMainVideo={};
+		this.activeMainAudio={};
+	}
+
 	restartScene(){
-		let wasPlaying= this.isPlaying()
-		this.currentScene.goToStart();
+		//let wasPlaying = this.isPlaying()
+		//this.currentScene.goToStart();
+	console.log("--------------------------------------------*---------------------------------------------")
+	console.log("---------------------- before clear")
+	logActiveContentActions()
+
+		this.clearScene();
+
+		console.log("********************* after clear")
+	logActiveContentActions()
 
 
-		console.log(this.currentScene)
-		this.displayCurrentScene();
+		// console.log(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time)
+
+
+
+
+
+		if(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time < 3000 && this.activePath.length>=2){
+
+			this.newScene(this.activePath[this.activePath.length-2], false, "back");
+		}else{
+
+			this.newScene(this.currentScene, false,"back");
+		}
+
+		console.log("xxxxxxxxxxxxx after SET")
+		logActiveContentActions()
+
+		console.log("--------------------------------------------***---------------------------------------------")
+		
+		// this.displayCurrentScene();
 
 		updateContentSize();
 
@@ -344,12 +413,17 @@ class Story{
 	addScrollDivs(){
 		// this.scrollOrder=[];
 		for(let scene in this.scenesLib){
+			// console.log(scene)
 			let scrollIndex=this.scenesLib[scene].addScroll();
-			if(scrollIndex !=false){
+			// console.log(scrollIndex)
+			if(scrollIndex != false || scrollIndex===0){
 				this.scrollOrderArray[scrollIndex] = this.scenesLib[scene];
 			}
+			// console.log(this.scrollOrderArray)
 			//this.scrollOrder
 		}
+		//add one extra
+		addScrollingDiv();
 	}
 
 
@@ -466,7 +540,7 @@ class Story{
 	}
 
 	updatePlayPause(){
-		console.log("update play pause")
+		// console.log("update play pause")
 		if(this.isPlayable()){
 			
 			this.windowManager.activatePlayPause();
@@ -545,7 +619,7 @@ class Story{
 		// console.log("PLAYING *********************")
 		// this.updateVolume();
 
-		console.log("PLAYING!!!!!!!!")
+		// console.log("PLAYING!!!!!!!!")
 		startDraw();
 		this.playing=true;
 
@@ -589,7 +663,7 @@ class Story{
 
 	pause(){
 		stopDraw();
-		console.log("DONE PLAYING!!!!!!!!")
+		// console.log("DONE PLAYING!!!!!!!!")
 		this.playing=false;
 
 	 	this.windowManager.displayPlayButton();
@@ -692,20 +766,24 @@ class Story{
 	}
 
 
-	displayCurrentScene(){
-		this.currentScene.displayFrontEnd();
+	displayCurrentScene(autoPlay_){
+		this.currentScene.display(autoPlay_);
 	}
 
 
 
 	//loads the new scene and tracks path (maybe just use this to start and track elseware?)
-	newScene(newScene_){
-		// console.log(newScene_)
+	newScene(newScene_, autoPlay_,type_){
+
+
+		
 
 		if(newScene_ instanceof Scene){
 
-			console.log("Loaing Scene: " + newScene_.id)
-			console.log(newScene_)
+			console.log(newScene_.id + ", " + autoPlay_ + ", "+ type_)
+
+			// console.log("Loaing Scene: " + newScene_.id)
+			// console.log(newScene_)
 
 
 			//newScene_.addInheritance(inheritedContent_)
@@ -716,6 +794,21 @@ class Story{
 				"time":Date.now()
 			});
 
+
+			if(type_=="default" || type_==undefined){
+
+				this.activePath.push(newScene_);
+			}else if(type_=="back"){
+				this.activePath.splice(this.activePath.indexOf(newScene_)+1);
+			}else if(type_=="goTo"){
+				//fill in with primary parents??
+			}
+
+			// if(this.uniqueSceneOrder.length ==0 || this.uniqueSceneOrder[this.uniqueSceneOrder.length-1] != newScene_){
+			// 	this.uniqueSceneOrder.push(newScene_);
+			// }
+			
+
 			//if(newScene_.id != "CONSTRUCT" && newScene_.id != "INSTUCTIONS" && newScene_.id != "INTRO"){
 				cookie.set("scene", newScene_.id)
 			// }else{
@@ -724,6 +817,9 @@ class Story{
 			
 
 			this.currentScene=newScene_;
+
+
+
 			dataLayer.push({
 				'pathScenes': newScene_.id,
 				'pathTimes': Date.now(),
@@ -733,15 +829,17 @@ class Story{
 
 			
 
-			this.displayCurrentScene();
+			this.displayCurrentScene(autoPlay_);
+
+
 		}else if(typeof(newScene_) == "string"){
-			this.newScene(this.scenesLib[newScene_])
+			this.newScene(this.scenesLib[newScene_],autoPlay_,type_)
 		}
 	}
 
 	start(){
 		console.log("StartingScene: " + this.startingScene)
-		this.newScene(this.startingScene);
+		this.newScene(this.startingScene, false,"default");
 
 		//currentStory.windowManager=new WindowManager();
 		

@@ -16,37 +16,55 @@ var shiftPressed=false
 
 // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
 
-// let last_known_scroll_position = 0;
-// let ticking = false;
+let last_known_scroll_position = 0;
+let ticking = false;
 
-// function doSomething(scroll_pos) {
-//   console.log(scroll_pos)
-// }
+function doSomething(scroll_pos) {
+	// console.log(currentStory.scrollOrderArray.length);
+	let heightSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetHeight
+	//console.log()
+  	// console.log(Math.round(scroll_pos/heightSection*10)/10);
 
-// window.addEventListener('scroll', function(e) {
-//   last_known_scroll_position = window.scrollY;
+  	document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
+  	if(Math.round(scroll_pos/heightSection*10)/10==Math.round(scroll_pos/heightSection)){
+  		// console.log("to to scene")
+  		// console.log(currentStory.scrollOrderArray);
+  	// 	console.log(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id);
 
-//   if (!ticking) {
-//     window.requestAnimationFrame(function() {
-//       doSomething(last_known_scroll_position);
-//       ticking = false;
-//     });
+  	// 	//check if it is a new scene
+  	// 	if(currentStory.currentScene != currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)]){
+			// currentStory.clearScene();
+			// // currentStory.newScene(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)])
+  	// 	}
+  		
+  	}
+  	
+}
 
-//     ticking = true;
-//   }else{
-//   	console.log("?????????????????????")
-//   }
-// });
+window.addEventListener('scroll', function(e) {
+  last_known_scroll_position = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(last_known_scroll_position);
+      ticking = false;
+    });
+
+    ticking = true;
+  }else{
+  	console.log("?????????????????????")
+  }
+});
 
 
 addScrollingDiv=function(){
-	// let scrollWindow=document.getElementById("scrolling-window").querySelectorAll(".wrapper")[0];
+	let scrollWindow=document.getElementById("scrolling-window")//.querySelectorAll(".wrapper")[0];
 
-	// let div=document.createElement("div");
-	// div.classList.add("scroll-section");
+	let div=document.createElement("section");
+	div.classList.add("scroll-section");
 
-	// scrollWindow.append(div);
-	// return div;
+	scrollWindow.append(div);
+	return div;
 
 }
 

@@ -213,7 +213,14 @@ class AudioContent extends Content{
 
 	}
 	stop(){
-		this.html.fe.currentTime=this.start + this.html.fe.duration;
+
+		if(this.html.fe.duration){
+			this.html.fe.currentTime=this.start + this.html.fe.duration;
+		}else{
+			console.log("durration is not defined")
+			console.log(this.html)
+		}
+		
 		this.pause()
 	}
 	skip(skipTime_){

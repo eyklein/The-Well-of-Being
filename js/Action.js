@@ -159,8 +159,7 @@ class Action{
 	removeEventListener(){
 		this.tail.html.fe.removeEventListener("click", this.onEventBind );
 	}
-	activate(){
-
+	activate(autoPlay_){
 		this.isActive=true;
 		// console.log(this.id);
 		//console.log(this.conditionals)
@@ -173,10 +172,10 @@ class Action{
 						return;
 					}	
 				}
-				this.activateNow();
+				this.activateNow(autoPlay_);
 			}else{
 
-				this.activateNow();
+				this.activateNow(autoPlay_);
 			}
 		//}
 
@@ -196,31 +195,36 @@ class Action{
 		this.html.svg.classList.remove("selected-out")
 	}
 
-	activateNow(){
+	activateNow(autoPlay_){
 		// console.log("activateNow " + this.id) 
 		// console.log(this.elicit) 
 		this.wasActivated=true;
 		this.activations++;
 
 		if(this.elicit=="display"){
-			this.displayContent(this.delay);
+			this.displayContent(this.delay,autoPlay_);
 		}else if(this.elicit=="play"){
-			
-			this.playContent(this.delay)
+			this.playContent(this.delay,autoPlay_)
+			// console.log(autoPlay_)
+			// if(autoPlay_==false){
+			// 	this.cueContent(this.delay)
+			// }else{
+			// 	this.playContent(this.delay)
+			// }
 		}else if(this.elicit=="cue"){
-			this.cueContent(this.delay)
+			this.cueContent(this.delay,autoPlay_)
 		}else if(this.elicit=="hide"){
-			this.hideContent(this.delay);
+			this.hideContent(this.delay,autoPlay_);
 		}
 		else if(this.elicit=="clickable"){
-			this.activateContent(this.delay)
+			this.activateContent(this.delay,autoPlay_)
 			
 		}else if(this.elicit=="unclickable"){
-			this.deactivateContent(this.delay);
+			this.deactivateContent(this.delay,autoPlay_);
 		}
 	}
 
-	displayContent(delay_){
+	displayContent(delay_, autoPlay_){
 
 		if(delay_==null){
 			delay_=0;
@@ -238,7 +242,10 @@ class Action{
 				this.head.activateActionsOut();
 			}else if(this.head instanceof Scene){
 				//console.log(this.head.displayFrontEndHTML())
-				currentStory.newScene(this.head,this.passOnInheritance);
+				currentStory.clearActive();
+				currentStory.play();
+
+				currentStory.newScene(this.head,true,"default");
 			}
 			this.removeTimer()
 
@@ -249,12 +256,21 @@ class Action{
 
 		//i need the line below if the play is paused ?????
 		// setTimeout(function(){this.timer.resume();}.bind(this), 0)
-		this.timer.resume(); //why doent this work all the time ???????????
+
+
+		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
+		// 	this.timer.resume(); //why doent this work all the time ???????????
+		// }else{
+		// 	this.timer.pause();
+		// }
+
+		this.timer.resume();
+		
 		
 		
 
 	}
-	hideContent(delay_){
+	hideContent(delay_,autoPlay_){
 		
 		if(delay_==null){
 			delay_=0;
@@ -273,12 +289,17 @@ class Action{
 
 		}.bind(this), delay_*1000,this);
 
+		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
+		// 	this.timer.resume(); //why doent this work all the time ???????????
+		// }else{
+		// 	this.timer.pause();
+		// }
 		this.timer.resume();
 	}
 
 
 
-	cueContent(delay_){
+	cueContent(delay_,autoPlay_){
 
 		
 		if(delay_==null){
@@ -299,6 +320,13 @@ class Action{
 		
 
 		
+		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
+		// 	console.log(this.head.id + " resume        -" + this.is);
+		// 	this.timer.resume(); //why doent this work all the time ???????????
+		// }else{
+		// 	console.log(this.head.id + " pause      - " + this.is);
+		// 	this.timer.pause();
+		// }
 		this.timer.resume();
 		
 		// console.log(this.timer.status)
@@ -313,7 +341,7 @@ class Action{
 		
 
 	}
-	playContent(delay_){
+	playContent(delay_,autoPlay_){
 
 		
 		if(delay_==null){
@@ -344,7 +372,14 @@ class Action{
 
 		//i need the line below if the play is paused ?????
 		// setTimeout(function(){this.timer.resume();}.bind(this), 0)
-		this.timer.resume(); //why doent this work all the time ???????????
+		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
+		// 	console.log(this.head.id + " resume        -" + this.is);
+		// 	this.timer.resume(); //why doent this work all the time ???????????
+		// }else{
+		// 	console.log(this.head.id + " pause      - " + this.is);
+		// 	this.timer.pause();
+		// }
+		this.timer.resume();
 		
 		// console.log(this.timer.status)
 		// this.timer.status="resumed"
@@ -360,7 +395,7 @@ class Action{
 	}
 	
 
-	activateContent(delay_){
+	activateContent(delay_,autoPlay_){
 		if(delay_==null){
 			delay_=0;
 		}
@@ -370,10 +405,15 @@ class Action{
 			this.removeTimer()
 		}.bind(this), delay_*1000,this);
 
+		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
+		// 	this.timer.resume(); //why doent this work all the time ???????????
+		// }else{
+		// 	this.timer.pause();
+		// }
 		this.timer.resume();
 	}
 
-	deactivateContent(delay_){
+	deactivateContent(delay_,autoPlay_){
 		if(delay_==null){
 			delay_=0; 
 		}
@@ -383,6 +423,11 @@ class Action{
 			this.removeTimer()
 		}.bind(this), delay_*1000,this);
 
+		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
+		// 	this.timer.resume(); //why doent this work all the time ???????????
+		// }else{
+		// 	this.timer.pause();
+		// }
 		this.timer.resume();
 	}
 

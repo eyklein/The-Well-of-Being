@@ -6,11 +6,9 @@ class Timer{
 
 
     constructor(callback_, delay_,action_){
-        // console.log(arguments)
+        //callback is the function to call when timer is up
 
-        // if(delay_>0){
-        //     console.log(this)
-        // }
+        
         this.callback=callback_;
         this.delay=delay_;
         this.id;
@@ -30,8 +28,13 @@ class Timer{
     }
 
     pause(){
+        console.log("PASUE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        console.log(this.id)
+        
         window.clearTimeout(this.id);
         this.remaining -= Date.now() - this.start;
+
+        console.log(this.remaining)
         this.status="paused";
     }
 
