@@ -5,7 +5,7 @@ class Action{
 	constructor(actionJSON_,scene_){
 		
 
-
+		this.random=Math.random();
 		this.JSON=actionJSON_;
 		//actionJSON_.id=Math.random();
 		this.id=actionJSON_.id;
@@ -202,6 +202,10 @@ class Action{
 		this.activations++;
 
 		if(this.elicit=="display"){
+			if(this.head instanceof Scene){
+				console.log("activate now display " + this.head.id)
+			}
+			
 			this.displayContent(this.delay,autoPlay_);
 		}else if(this.elicit=="play"){
 			this.playContent(this.delay,autoPlay_)
@@ -233,8 +237,18 @@ class Action{
 		// if(this.head instanceof AudioContent){
 		// 	premature=false
 		// }
+		if(this.head instanceof Scene){
+			console.log("Create timer for display ")
+		}
 		
 		
+		//prevent loosing timers behind that are not assigned
+		if(this.timer != undefined){
+			this.timer.pause()
+			console.log("You should not be wringing timers")
+		}
+
+
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
 				this.head.displayFrontEndHTML();
@@ -243,8 +257,7 @@ class Action{
 			}else if(this.head instanceof Scene){
 				//console.log(this.head.displayFrontEndHTML())
 				currentStory.clearActive();
-				currentStory.play();
-
+				// currentStory.play();
 				currentStory.newScene(this.head,true,"default");
 			}
 			this.removeTimer()
@@ -252,17 +265,7 @@ class Action{
 		}.bind(this), delay_*1000,this);
 		
 
-		//console.log(this.timer)
-
-		//i need the line below if the play is paused ?????
-		// setTimeout(function(){this.timer.resume();}.bind(this), 0)
-
-
-		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
-		// 	this.timer.resume(); //why doent this work all the time ???????????
-		// }else{
-		// 	this.timer.pause();
-		// }
+		
 
 		this.timer.resume();
 		
@@ -319,25 +322,10 @@ class Action{
 		}.bind(this), delay_*1000,this);
 		
 
-		
-		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
-		// 	console.log(this.head.id + " resume        -" + this.is);
-		// 	this.timer.resume(); //why doent this work all the time ???????????
-		// }else{
-		// 	console.log(this.head.id + " pause      - " + this.is);
-		// 	this.timer.pause();
-		// }
+	
 		this.timer.resume();
 		
-		// console.log(this.timer.status)
-		// this.timer.status="resumed"
-		// console.log(this.timer.status)
 		
-		
-		// this.timer.resume();
-		
-
-		//console.log(this.timer)
 		
 
 	}
@@ -347,10 +335,7 @@ class Action{
 		if(delay_==null){
 			delay_=0;
 		}
-		// let premature=true;
-		// if(this.head instanceof AudioContent){
-		// 	premature=false
-		// }
+		
 		
 		
 		this.timer=new Timer(function(){
@@ -367,29 +352,8 @@ class Action{
 
 		}.bind(this), delay_*1000,this);
 		
-
-		//console.log(this.timer)
-
-		//i need the line below if the play is paused ?????
-		// setTimeout(function(){this.timer.resume();}.bind(this), 0)
-		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
-		// 	console.log(this.head.id + " resume        -" + this.is);
-		// 	this.timer.resume(); //why doent this work all the time ???????????
-		// }else{
-		// 	console.log(this.head.id + " pause      - " + this.is);
-		// 	this.timer.pause();
-		// }
+		
 		this.timer.resume();
-		
-		// console.log(this.timer.status)
-		// this.timer.status="resumed"
-		// console.log(this.timer.status)
-		
-		
-		// this.timer.resume();
-		
-
-		//console.log(this.timer)
 		
 
 	}
@@ -405,11 +369,7 @@ class Action{
 			this.removeTimer()
 		}.bind(this), delay_*1000,this);
 
-		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
-		// 	this.timer.resume(); //why doent this work all the time ???????????
-		// }else{
-		// 	this.timer.pause();
-		// }
+		
 		this.timer.resume();
 	}
 
