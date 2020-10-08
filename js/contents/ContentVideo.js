@@ -199,7 +199,7 @@ class VideoContent extends Content{
 		
 		//document.getElementById("background_img").append(this.html.fe);
 
-		console.log("Display Video")
+		// console.log("Display Video")
 		super.displayFrontEndHTML();
 		this.htmlParent.append(this.html.fe);
 		this.applyEntranceEffects();

@@ -561,11 +561,19 @@
 			"elicit": "display",
 			"delay": 0,
 			"conditions": ["this.scene.contentsLib[901].isDonePlaying"]
-		}, {
+		},{
 			"id": "INTRO002",
 			"tailID": "INTRO",
 			"headID": "102",
 			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": ["this.scene.contentsLib[901].isDonePlaying"]
+		}, {
+			"id": "INTRO002",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
 			"elicit": "clickable",
 			"delay": 0,
 			"conditions": []
@@ -750,6 +758,8 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
+						},"alternateKeyPress":{
+							"keyCodes":[39]
 						}
 					},
 					"hover": {},
@@ -857,7 +867,7 @@
 			"headID": "901",
 			"trigger": "time",
 			"elicit": "play",
-			"delay": 10,
+			"delay": 5,
 			"conditions": []
 		}],
 		"contents": [{
@@ -1142,6 +1152,8 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
+						},"alternateKeyPress":{
+							"keyCodes":[39]
 						}
 					},
 					"hover": {},
@@ -1319,6 +1331,8 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
+						},"alternateKeyPress":{
+							"keyCodes":[39]
 						}
 					},
 					"hover": {},
@@ -1597,7 +1611,7 @@
 			"conditions": []
 		}, {
 			"id": "701001h",
-			"tailID": "901",
+			"tailID": "701",
 			"headID": "001",
 			"trigger": "onEnd",
 			"elicit": "hide",
@@ -1605,7 +1619,7 @@
 			"conditions": []
 		}, {
 			"id": "701001D",
-			"tailID": "901",
+			"tailID": "701",
 			"headID": "003",
 			"trigger": "onEnd",
 			"elicit": "display",
@@ -1613,7 +1627,7 @@
 			"conditions": []
 		}, {
 			"id": "701002D",
-			"tailID": "901",
+			"tailID": "701",
 			"headID": "002",
 			"trigger": "onEnd",
 			"elicit": "display",
@@ -1621,7 +1635,7 @@
 			"conditions": []
 		}, {
 			"id": "701102D",
-			"tailID": "901",
+			"tailID": "701",
 			"headID": "102",
 			"trigger": "onEnd",
 			"elicit": "display",
@@ -1629,7 +1643,7 @@
 			"conditions": []
 		},{
 			"id": "701102C",
-			"tailID": "901",
+			"tailID": "701",
 			"headID": "102",
 			"trigger": "onEnd",
 			"elicit": "clickable",
@@ -1711,6 +1725,8 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
+						},"alternateKeyPress":{
+							"keyCodes":[39]
 						}
 					},
 					"hover": {},
@@ -1786,7 +1802,7 @@
 				"rangeType": "times",
 				"source": "transcript",
 				"rangeInfo": {
-					"start": 46.5,
+					"start": 48,
 					"end": 70
 				},
 				"hideInfo":{
@@ -1804,7 +1820,7 @@
 					},
 					"dimensions": {
 						"width": "45%",
-						"height": "35%"
+						"height": "27%"
 					},
 					"font": {
 						"font-family": "indieFlower"
@@ -2103,6 +2119,8 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
+						},"alternateKeyPress":{
+							"keyCodes":[39]
 						}
 					},
 					"hover": {},
@@ -2463,6 +2481,8 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
+						},"alternateKeyPress":{
+							"keyCodes":[39]
 						}
 					},
 					"hover": {},

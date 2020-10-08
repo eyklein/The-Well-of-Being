@@ -10,6 +10,11 @@ class Scene{
 		this.name=this.sceneData.name;
 
 		this.scroll=this.sceneData.scroll;
+
+
+		
+
+
 		// "scroll":{
 		// 	"height":"100vw",
 		// 	"scrollable":false,
@@ -44,6 +49,9 @@ class Scene{
 		this.html.fe.container.classList.add("scene-container")
 		document.getElementById("content").append(this.html.fe.container)
 
+		this.started=false;
+		this.startTimer;
+
 
 
 
@@ -70,6 +78,26 @@ class Scene{
 		for(let i=0;i<this.actionsOut.length;i++){
 			this.actionsOut[i].activate(autoPlay_);
 		}
+
+
+		this.startTimer=new Timer(function(){
+			// console.log("scene timer started");
+			// console.log(this)
+			this.started=true;
+			this.startTimer=undefined;
+		}.bind(this),2000)
+
+		if(currentStory.playing){
+			this.startTimer.resume();
+		}
+		
+
+
+
+
+	
+
+
 	}
 
 	// play(){
@@ -88,6 +116,7 @@ class Scene{
 	}
 
 	clear(){
+		this.started=false;
 		for(let id in this.contentsLib){
 			//console.log(id)
 			this.contentsLib[id].reset();
@@ -133,6 +162,8 @@ class Scene{
 			return new VideoContent(content_,this)
 		}else if(content_.content.type=="img"){
 			return new ImageContent(content_,this)
+		}else if(content_.content.type=="key"){
+			return new KeyContent(content_,this)
 		}else{
 			return new Content(content_,this)
 		}

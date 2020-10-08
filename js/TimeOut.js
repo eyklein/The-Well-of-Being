@@ -16,7 +16,7 @@ class Timer{
         this.id;
         this.action=action_;//this is probobly not necisary
 
-        this.start = this.delay;
+        this.start = Date.now();
         this.remaining = this.delay;
 
         this.status="paused";
@@ -24,16 +24,19 @@ class Timer{
 
     resume(){
         this.start = Date.now();
-        window.clearTimeout(this.id);
+
+        if(this.id!=undefined){
+            window.clearTimeout(this.id);
+        }
 
         this.id=setTimeout(this.callback,this.remaining);
-        console.log("add " + this.id + "   "+ this.action.random)
+        // console.log("add " + this.id + "   "+ this.action.random)
         this.status="resumed";
     }
 
     pause(){
         window.clearTimeout(this.id);
-        console.log("pause " + this.id + "   "+ this.action.random)
+        // console.log("pause " + this.id + "   "+ this.action.random)
         this.remaining -= Date.now() - this.start;
         this.status="paused";
     }
@@ -42,6 +45,7 @@ class Timer{
         if(skipTime_==null){
             window.clearTimeout(this.id);
             this.callback();
+            // return true;
         }else{
             
             if(this.status=="resumed"){

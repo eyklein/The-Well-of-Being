@@ -81,6 +81,7 @@ class WindowManager{
 		this.playPause= document.createElement("div");
 		this.playPause.id="play-pause";
 		this.playPause.classList.add("deactivated");
+		this.playPause.style.opacity=.8;
 
 		
 

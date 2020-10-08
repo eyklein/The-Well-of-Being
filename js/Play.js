@@ -271,23 +271,33 @@ class Story{
 		// console.log(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time)
 
 		this.pause();
-		this.clearScene();
+		// this.clearScene();
+
+		console.log("1. Clear " + this.currentScene.id);
 
 
 
 
-		if(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time < 3000 && this.activePath.length>=2){
+		// if(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time < 1000 && this.activePath.length>=2){
+		// 	this.activePath[this.activePath.length-2].clear();
+		// 	console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
+		// 	this.newScene(this.activePath[this.activePath.length-2], false, "back");
+		// }
 
+		if(!this.currentScene.started && this.activePath.length>=2){
+			this.clearScene();
+			this.activePath[this.activePath.length-2].clear();
+			console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
 			this.newScene(this.activePath[this.activePath.length-2], false, "back");
 		}else{
-
+			this.clearScene();
 			this.newScene(this.currentScene, false,"back");
 		}
 
-		console.log("xxxxxxxxxxxxx after SET")
-		logActiveContentActions()
+		//console.log("xxxxxxxxxxxxx after SET")
+		//logActiveContentActions()
 
-		console.log("--------------------------------------------***---------------------------------------------")
+		//console.log("--------------------------------------------***---------------------------------------------")
 		
 		// this.displayCurrentScene();
 
@@ -636,6 +646,11 @@ class Story{
 			}
 		}
 
+		//mesures how far into scene we are threshhold
+		if(this.currentScene.startTimer){
+			this.currentScene.startTimer.resume();
+		}
+
 		//play all the main audio
 		//console.log("PLAY???")
 		for(let audioContent in this.activeMainAudio){
@@ -678,6 +693,10 @@ class Story{
 			if(currentStory.currentScene.actionsLib[action].timer!=undefined){
 				currentStory.currentScene.actionsLib[action].timer.pause();
 			}
+		}
+
+		if(this.currentScene.startTimer){
+			this.currentScene.startTimer.pause();
 		}
 
 		//pause all the main audio
@@ -724,17 +743,55 @@ class Story{
 	skip(){
 		// console.log("SKIP")
 		// console.log(this.play)
+		let skipWasMade=false;
+
 		this.pause();
 		this.playing=false;
+
+		currentStory.currentScene.started=true;
+
+
 		for(let action in currentStory.currentScene.actionsLib){
-			currentStory.currentScene.actionsLib[action].skip();
+			if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
+				// console.log(" 0 SOMEthing to skip")
+
+				// currentStory.currentScene.actionsLib[action].skip();
+				// skipWasMade=true;
+			}
+			
+		}
+		for(let action in currentStory.currentScene.actionsLib){
+			if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
+
+				currentStory.currentScene.actionsLib[action].skip();
+				skipWasMade=true;
+			}
+			
 		}
 		stopAudio()
 		stopVideo()
 
+		// for(let action in currentStory.currentScene.actionsLib){
+		// 	if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
+		// 		// console.log("SOMEthing to skip")
+
+		// 		// currentStory.currentScene.actionsLib[action].skip();
+		// 		// skipWasMade=true;
+		// 	}
+			
+		// }
+
+		//keep skipping until it can't
+		if(skipWasMade){
+			setTimeout(function(){this.skip()}.bind(this),10);
+		}
+
 
 		//this is incase it was pause so that the next iterm wilplay when clicked
 		this.play();
+
+
+
 	}
 
 	addEffectEditors(){
@@ -784,7 +841,7 @@ class Story{
 
 		if(newScene_ instanceof Scene){
 
-			console.log(newScene_.id + ", " + autoPlay_ + ", "+ type_)
+			// console.log(newScene_.id + ", " + autoPlay_ + ", "+ type_)
 
 			// console.log("Loaing Scene: " + newScene_.id)
 			// console.log(newScene_)
@@ -842,7 +899,7 @@ class Story{
 	}
 
 	start(){
-		console.log("StartingScene: " + this.startingScene)
+		// console.log("StartingScene: " + this.startingScene)
 		this.newScene(this.startingScene, false,"default");
 
 		//currentStory.windowManager=new WindowManager();

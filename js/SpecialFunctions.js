@@ -25,7 +25,8 @@ function doSomething(scroll_pos) {
 	//console.log()
   	// console.log(Math.round(scroll_pos/heightSection*10)/10);
 
-  	document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
+  	//document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
+
   	if(Math.round(scroll_pos/heightSection*10)/10==Math.round(scroll_pos/heightSection)){
   		// console.log("to to scene")
   		// console.log(currentStory.scrollOrderArray);
@@ -68,41 +69,89 @@ addScrollingDiv=function(){
 
 }
 
-
+let insertFunction=function(){
+  
+}
 
 document.onkeydown = function(e) {
-    switch (e.keyCode) {
-        case 37:
-        	 currentStory.restartScene();
-            break;
-        case 38:// up arrow 
-            currentStory.togglePlayPause();
-            break;
-        case 39:
-        	currentStory.skip();
-            break;
-        case 40:// down arrow 
-            currentStory.togglePlayPause();
-            break;
-        case 83://'s'
-            currentStory.skip();
-            break;
-        case 32://' ' - space bar
-            currentStory.togglePlayPause();
-            break;
-        case 81:
-        	currentStory.printActiveDelays();
-        	break;
-        case 66:
-        	currentStory.backEnd.display();
-        	break;
-        case 16://shift
-        	shiftPressed=true;
-        	break;
-        default:
-    		console.log(e.keyCode)
-    }
+    pseudoSwitch(e.keyCode);
+    console.log(e.keyCode)
+    // switch (e.keyCode) {
+
+    //     case 37:
+    //     	 currentStory.restartScene();
+    //         break;
+    //     case 38:// up arrow 
+    //         currentStory.togglePlayPause();
+    //         break;
+    //     case 39:
+    //     	currentStory.skip();
+    //         break;
+    //     case 40:// down arrow 
+    //         currentStory.togglePlayPause();
+    //         break;
+    //     case 83://'s'
+    //         currentStory.skip();
+    //         break;
+    //     case 32://' ' - space bar
+    //         currentStory.togglePlayPause();
+    //         break;
+    //     case 81:
+    //     	currentStory.printActiveDelays();
+    //     	break;
+    //     case 66:
+    //     	currentStory.backEnd.display();
+    //     	break;
+    //     case 16://shift
+    //     	shiftPressed=true;
+    //     	break;
+    //     default:
+    // 		console.log(e.keyCode)
+    // }
 };
+
+
+
+
+
+var keyCallbacks = {};
+
+function addKeyFunction(keyCode_, fn_) {
+   keyCallbacks[keyCode_] = keyCallbacks[keyCode_] || [];
+   keyCallbacks[keyCode_].push(fn_);
+}
+function removeKeyFunction(keyCode_, fn_) {
+   if(keyCallbacks[keyCode_] != undefined){
+      keyCallbacks[keyCode_].splice(keyCallbacks[keyCode_].indexOf(fn_),1);
+   }
+   
+}
+
+function pseudoSwitch(keyCode_) {
+   if (keyCallbacks[keyCode_]) {
+      keyCallbacks[keyCode_].forEach(function(fn) {
+          fn();
+      });
+   }
+}
+
+function createKeyPresses(){
+  addKeyFunction(37, function(){currentStory.restartScene();});
+  addKeyFunction(38, function(){currentStory.togglePlayPause();});
+  addKeyFunction(39, function(){currentStory.skip();});
+  addKeyFunction(40, function(){currentStory.togglePlayPause();});
+  addKeyFunction(83, function(){currentStory.skip();});
+  addKeyFunction(32, function(){currentStory.togglePlayPause();});
+  addKeyFunction(81, function(){currentStory.printActiveDelays();});
+  addKeyFunction(66, function(){currentStory.backEnd.display();});
+  addKeyFunction(16, function(){shiftPressed=true;});
+}
+createKeyPresses();
+
+
+
+
+
 
 document.onkeyup = function(e) {
 	if(shiftPressed){

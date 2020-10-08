@@ -100,7 +100,12 @@ class Action{
 			this.tail=this.scene;
 			
 			//this.tail.addActionOut(this) //need to add this function the scene object ???
+			
+			//this adds actions out to all contand AND SCENES
 			this.tail.actionsOut.push(this)
+
+			
+			
 		}
 
 
@@ -118,6 +123,10 @@ class Action{
 
 		
 
+	}
+
+	timerOutstanding(){
+		return this.timer!=undefined;
 	}
 
 	skip(skipTime_){
@@ -197,7 +206,7 @@ class Action{
 
 
 	resumeTimer(type_,delay_){
-		console.log("PLAYING ???  " + currentStory.playing)
+		// console.log("PLAYING ???  " + currentStory.playing)
 		
 		if(type_=="play" && currentStory.playing==false){
 
@@ -215,9 +224,6 @@ class Action{
 		this.activations++;
 
 		if(this.elicit=="display"){
-			if(this.head instanceof Scene){
-				console.log("activate now display " + this.head.id)
-			}
 			
 			this.displayContent(this.delay,autoPlay_);
 		}else if(this.elicit=="play"){
@@ -242,7 +248,7 @@ class Action{
 	}
 
 	displayContent(delay_, autoPlay_){
-		console.log(autoPlay_)
+		
 
 		if(delay_==null){
 			delay_=0;
@@ -286,7 +292,7 @@ class Action{
 
 	}
 	hideContent(delay_,autoPlay_){
-		console.log(autoPlay_)
+		// console.log(autoPlay_)
 		
 		if(delay_==null){
 			delay_=0;
@@ -316,7 +322,7 @@ class Action{
 
 
 	cueContent(delay_,autoPlay_){
-		console.log(autoPlay_)
+		// console.log(autoPlay_)
 
 		
 		if(delay_==null){
@@ -353,6 +359,7 @@ class Action{
 		
 		
 		
+		// console.log("new timer " + delay_)
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
 				
@@ -375,7 +382,7 @@ class Action{
 	
 
 	activateContent(delay_,autoPlay_){
-		console.log(autoPlay_)
+		// console.log(autoPlay_)
 
 		if(delay_==null){
 			delay_=0;
@@ -390,7 +397,7 @@ class Action{
 	}
 
 	deactivateContent(delay_,autoPlay_){
-		console.log(autoPlay_)
+		// console.log(autoPlay_)
 
 		if(delay_==null){
 			delay_=0; 
