@@ -66,7 +66,15 @@ canvas{
   color:#999;
   opacity: .8;
 }*/
-
+.next-timer{
+  height: 5vw;
+  width: 15vw;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: .1;
+}
 
 .pan-bar{
   transform:translate(-50%,0);
@@ -106,14 +114,23 @@ canvas{
   transition: all 1s linear;
 }
 .transcript-box .word.reading{
-  opacity: 1;
-  padding-right: 10px;
+  opacity: .8;
+  padding-right: 2px;
   
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
   -o-transition: all 1s linear;
   transition: all 1s linear;
   
+}
+
+.transcript-box .word.read{
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+  
+  opacity: .6;
 }
 
 .word:hover{
@@ -187,14 +204,7 @@ canvas{
 
 
 
-.transcript-box .word.read{
-  -webkit-transition: all 1s linear;
-  -moz-transition: all 1s linear;
-  -o-transition: all 1s linear;
-  transition: all 1s linear;
-  
-  opacity: .8;
-}
+
 
 
 

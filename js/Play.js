@@ -121,6 +121,9 @@ class Story{
 		this.scrollOrderArray=[];
 		this.activePath=[];
 
+
+		this.autoRun=true;
+
 		//this.setLeftOffsets()
 		
 	}

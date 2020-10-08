@@ -77,6 +77,8 @@ class TextContent extends Content{
 				this.effects.clickable.generic[effect]=new GlowTextEffect(this.JSONData.effects.clickable.generic[effect],this)
 			}else if(effect=="alternateKeyPress"){
 				this.effects.clickable.generic[effect]=new AlternateKeyEffect(this.JSONData.effects.clickable.generic[effect],this)
+			}else if(effect=="autoClick"){
+				this.effects.clickable.generic[effect]=new AutoClickEffect(this.JSONData.effects.clickable.generic[effect],this)
 			}else{
 				this.effects.clickable.generic[effect]=new ContentEffect(this.JSONData.effects.clickable.generic[effect],this)
 			}

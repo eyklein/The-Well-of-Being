@@ -157,7 +157,7 @@ class TranscriptBoxContent extends Content{
 			if(word.read==false){
 				if(word.inRange(time_)==1){
 					// this.html.read.append(word.html)
-					word.html.classList.remove("reading");
+					// word.html.classList.remove("reading");
 					word.html.classList.add("read");
 				}else if(word.inRange(time_)==0){
 					// this.html.reading.append(word.html)

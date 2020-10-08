@@ -760,6 +760,9 @@
 							"className": "glow"
 						},"alternateKeyPress":{
 							"keyCodes":[39]
+						},"autoClick":{
+							"time":6,
+							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
 					"hover": {},
@@ -1154,6 +1157,9 @@
 							"className": "glow"
 						},"alternateKeyPress":{
 							"keyCodes":[39]
+						},"autoClick":{
+							"time":6,
+							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
 					"hover": {},
@@ -1333,6 +1339,9 @@
 							"className": "glow"
 						},"alternateKeyPress":{
 							"keyCodes":[39]
+						},"autoClick":{
+							"time":6,
+							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
 					"hover": {},
@@ -1727,6 +1736,9 @@
 							"className": "glow"
 						},"alternateKeyPress":{
 							"keyCodes":[39]
+						},"autoClick":{
+							"time":6,
+							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
 					"hover": {},
@@ -2121,6 +2133,9 @@
 							"className": "glow"
 						},"alternateKeyPress":{
 							"keyCodes":[39]
+						},"autoClick":{
+							"time":6,
+							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
 					"hover": {},
@@ -2483,6 +2498,9 @@
 							"className": "glow"
 						},"alternateKeyPress":{
 							"keyCodes":[39]
+						},"autoClick":{
+							"time":6,
+							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
 					"hover": {},
