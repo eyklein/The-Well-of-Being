@@ -45,6 +45,8 @@ class PriorityLoader{
 	loadBucket(bucketIndex_){
 		if(bucketIndex_>=this.threshhold && currentStory.currentScene== null){
 
+			currentStory.displayAll();
+
 			currentStory.start();
 		}
 		//console.log("LOADING BUCKET :   - " + bucketIndex_)

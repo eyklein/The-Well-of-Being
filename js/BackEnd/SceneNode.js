@@ -3,7 +3,7 @@ class SceneNode extends Node{ //not to be confused with nodejs
 	constructor(scene_){
 		super(scene_);
 		this.scene=scene_;
-		this.enclosingStructure=this.scene.play;
+		this.enclosingStructure=this.scene.story;
 		this.id=this.scene.id
 
 
@@ -227,7 +227,7 @@ class SceneNode extends Node{ //not to be confused with nodejs
 		}else{// if(this.isBase){// for the base nodes without a parent        this.scene.play.baseSceneNodes.indexOf(this) != -1){
 
 			for(let i in this.enclosingStructure.baseSceneNodes){
-				if(this.scene.play.baseSceneNodes[i]==this){
+				if(this.scene.story.baseSceneNodes[i]==this){
 					break;
 				}else{
 					this.posIndex.xRelative+=this.enclosingStructure.baseSceneNodes[i].widthFull;

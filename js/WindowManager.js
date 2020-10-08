@@ -50,14 +50,25 @@ class WindowManager{
 	}
 
 	displayPlayButton(){
-		this.explandPlayPause()
+		// this.explandPlayPause()
+		this.forceBottomVisible();
+		this.playPause.classList.add("play");
+		this.playPause.classList.remove("pause");
 		this.play.style.display="block";
 		this.pause.style.display="none";
 	}
 	displayPauseButton(){
-		this.contractPlayPause();
+
+		// this.contractPlayPause();
+		this.playPause.classList.add("pause");
+		this.playPause.classList.remove("play");
 		this.play.style.display="none";
 		this.pause.style.display="block";
+	}
+	forceBottomVisible(){
+		if(!this.html.bottomBar.classList.contains("explaned")){
+			this.html.bottomBar.classList.add("explaned");
+		}
 	}
 	explandPlayPause(){
 		if(!this.playPause.classList.contains("explaned")){
@@ -82,6 +93,8 @@ class WindowManager{
 		this.playPause.id="play-pause";
 		this.playPause.classList.add("deactivated");
 		this.playPause.style.opacity=.8;
+		// this.playPause.style.position="fixed";
+		
 
 		
 

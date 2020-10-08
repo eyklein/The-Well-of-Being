@@ -23,14 +23,14 @@ function doSomething(scroll_pos) {
 	// console.log(currentStory.scrollOrderArray.length);
 	let heightSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetHeight
 	//console.log()
-  	// console.log(Math.round(scroll_pos/heightSection*10)/10);
+  	console.log(Math.round(scroll_pos/heightSection*10)/10);
 
   	//document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
 
   	if(Math.round(scroll_pos/heightSection*10)/10==Math.round(scroll_pos/heightSection)){
-  		// console.log("to to scene")
-  		// console.log(currentStory.scrollOrderArray);
-  	// 	console.log(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id);
+  	// 	console.log("to to scene")
+  	// 	console.log(currentStory.scrollOrderArray);
+  	//console.log(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id);
 
   	// 	//check if it is a new scene
   	// 	if(currentStory.currentScene != currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)]){
@@ -61,10 +61,13 @@ window.addEventListener('scroll', function(e) {
 addScrollingDiv=function(){
 	let scrollWindow=document.getElementById("scrolling-window")//.querySelectorAll(".wrapper")[0];
 
+
 	let div=document.createElement("section");
 	div.classList.add("scroll-section");
 
-	scrollWindow.append(div);
+  div.style['background-color'] = "hsl(" + Math.random()*360 + ", 100%, 50%)";
+
+	// scrollWindow.append(div);
 	return div;
 
 }
@@ -225,9 +228,9 @@ function updateContentSize(){
 	document.getElementById("bottom_bar").style.height=height*.05+'px';
 	document.getElementById("bottom_bar").style.display='block';
 	//currentStory.windowManager.playPause.style['padding-top']=height*.01+'px';
-	currentStory.windowManager.playPause.style['position']='absolute';
-	currentStory.windowManager.playPause.style['left']=width*.5+'px';
-	currentStory.windowManager.playPause.style['padding']=height*.01+'px';
+	// currentStory.windowManager.playPause.style['position']='absolute';
+	// currentStory.windowManager.playPause.style['left']=width*.5+'px';
+	// currentStory.windowManager.playPause.style['padding']=height*.01+'px';
 
 	currentStory.windowManager.playPause.style.height=height*.03+'px';
 	currentStory.windowManager.playPause.style.width=height*.03+'px';

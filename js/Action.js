@@ -115,7 +115,7 @@ class Action{
 
 			this.head.addActionIn(this)
 		}else{
-			this.head=this.scene.play.scenesLib[actionJSON_.headID];
+			this.head=this.scene.story.scenesLib[actionJSON_.headID];
 
 			//this.head.addActionIn(this) //need to add this function the scene object ???
 			this.head.actionsIn.push(this)

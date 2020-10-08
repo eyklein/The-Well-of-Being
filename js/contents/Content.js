@@ -762,8 +762,8 @@ Content.prototype.getJSON=function(){
 
 	if(this.parentScene.id=="uni"){
 		jsonContent.backend={};
-		for(let idScene in this.parentScene.play.scenesLib){
-			jsonContent.backend=this.parentScene.play.scenesLib[idScene].contentsLib[this.id].backEndXPos
+		for(let idScene in this.parentScene.story.scenesLib){
+			jsonContent.backend=this.parentScene.story.scenesLib[idScene].contentsLib[this.id].backEndXPos
 		}
 	}
 

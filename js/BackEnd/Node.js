@@ -96,10 +96,10 @@ class Node{ //not to be confused with nodejs
 					
 				}
 			}
-		}else if(this.isBase){// for the base nodes without a parent        this.scene.play.baseSceneNodes.indexOf(this) != -1){
+		}else if(this.isBase){// for the base nodes without a parent        this.scene.story.baseSceneNodes.indexOf(this) != -1){
 
 			for(let i in this.enclosingStructure.baseSceneNodes){
-				if(this.scene.play.baseSceneNodes[i]==this){
+				if(this.scene.story.baseSceneNodes[i]==this){
 					break;
 				}else{
 					this.posIndex.xRelative+=this.enclosingStructure.baseSceneNodes[i].widthFull;
@@ -290,7 +290,7 @@ class Node{ //not to be confused with nodejs
 
 	// 		if(rootEnd){ //this.children.length=0 ||   if any of the children have a hight index
 	// 			this.isRootEnd=true;
-	// 			this.scene.play.rootEndSceneNodes.push(this);
+	// 			this.scene.story.rootEndSceneNodes.push(this);
 	// 		}else{
 	// 			this.isRootEnd=false;
 	// 		}

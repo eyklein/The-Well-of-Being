@@ -785,14 +785,6 @@
 			"orderY":1
 		},
 		"actions": [{
-			"id": "viii-xii*901d",
-			"tailID": "viii-xii",
-			"headID": "INTRO",
-			"trigger": "time",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
 			"id": "viii-xii901d",
 			"tailID": "viii-xii",
 			"headID": "901",
@@ -1182,14 +1174,6 @@
 			"orderY":2
 		},
 		"actions": [{
-			"id": "xiv*901d",
-			"tailID": "xiv",
-			"headID": "viii-xii",
-			"trigger": "time",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
 			"id": "xiv901d",
 			"tailID": "xiv",
 			"headID": "901",
@@ -1579,14 +1563,6 @@
 			"orderY":3
 		},
 		"actions": [{
-			"id": "xvi-xx*901d",
-			"tailID": "xvi-xx",
-			"headID": "xiv",
-			"trigger": "time",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
 			"id": "xiv901d",
 			"tailID": "xvi-xx",
 			"headID": "901",
@@ -1976,14 +1952,6 @@
 			"orderY":4
 		},
 		"actions": [{
-			"id": "xvi-xx*901d",
-			"tailID": "xxii",
-			"headID": "xvi-xx",
-			"trigger": "time",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
 			"id": "xiv901d",
 			"tailID": "xxii",
 			"headID": "901",
@@ -2373,14 +2341,6 @@
 			"orderY":5
 		},
 		"actions": [{
-			"id": "p0*901d",
-			"tailID": "p0",
-			"headID": "xxii",
-			"trigger": "time",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
 			"id": "xiv901d",
 			"tailID": "p0",
 			"headID": "901",

@@ -39,7 +39,7 @@ class PositionImageEffect extends ImageEffect{
 
 			//this.parentContent.htmlParent=document.getElementById("content")
 			this.parentContent.htmlParent=this.parentContent.parentScene.html.fe.container;
-			this.parentContent.html.fe.classList.add('icon-img')
+			this.parentContent.html.fe.classList.add('img-absolute')
 
 		}
 		// else if(this.vareables.type == "translate"){

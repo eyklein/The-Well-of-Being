@@ -1,5 +1,5 @@
 class Scene{
-	constructor(sceneJson_,play_){
+	constructor(sceneJson_,story_){
 		this.sceneData=sceneJson_;
 		this.contentsLib={};
 		this.actionsLib={};
@@ -22,7 +22,7 @@ class Scene{
 		// 	"orderY":0
 		// }
 
-		this.play=play_;
+		this.story=story_;
 		this.html={};
 		this.contentsIndexes={};
 
@@ -44,10 +44,10 @@ class Scene{
 
 
 		this.html.fe={}
-		this.html.fe.container=document.createElement("div");
+		this.html.fe.container=document.createElement("section");
 		this.html.fe.container.id="scene-"+this.id;
 		this.html.fe.container.classList.add("scene-container")
-		document.getElementById("content").append(this.html.fe.container)
+		document.getElementById("scenes").append(this.html.fe.container)
 
 		this.started=false;
 		this.startTimer;
@@ -76,7 +76,23 @@ class Scene{
 		this.html.fe.container.style.display="block";
 		
 		for(let i=0;i<this.actionsOut.length;i++){
-			this.actionsOut[i].activate(autoPlay_);
+			if(this.actionsOut[i].elicit=="display"){
+				this.actionsOut[i].activate(autoPlay_);
+			}
+			
+		}
+
+	}
+	play(autoPlay_){
+
+		this.html.fe.container.style.display="block";
+
+		this.html.fe.container.scrollIntoView();
+		
+		for(let i=0;i<this.actionsOut.length;i++){
+			if(this.actionsOut[i].elicit!="display"){
+				this.actionsOut[i].activate(autoPlay_);
+			}
 		}
 
 
@@ -90,14 +106,6 @@ class Scene{
 		if(currentStory.playing){
 			this.startTimer.resume();
 		}
-		
-
-
-
-
-	
-
-
 	}
 
 	// play(){
@@ -549,19 +557,6 @@ class Scene{
 }
 
 
-//this creates the buttons to go the the back end of that scene
-// Scene.prototype.createBackEndButton=function(){
-
-
-// 	this.html.be.sceneButton=document.createElement("button");
-// 	this.html.be.sceneButton.innerHTML = this.name;
-// 	this.html.be.sceneButton.refrenceScene=this;
-// 	this.html.be.sceneButton.addEventListener ("click", function() {
-// 		this.refrenceScene.updateIconContent();
-// 		this.refrenceScene.play.windowManager.sceneModual.display(this.refrenceScene);
-// 	});
-
-// }
 
 Scene.prototype.updateIconContent=function(){
 

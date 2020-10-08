@@ -237,13 +237,11 @@ class Story{
 
 	}
 
-	clearScene(){
-		this.currentScene.clear();
+	// clearScene(){
+	// 	this.currentScene.clear();
 
-		this.clearActive();
-		
-
-	}
+	// 	this.clearActive();
+	// }
 	clearActive(){
 		for(let id in this.activeMainVideo){
 
@@ -288,12 +286,17 @@ class Story{
 		// }
 
 		if(!this.currentScene.started && this.activePath.length>=2){
-			this.clearScene();
+			// this.clearScene();
+			this.clearActive();
+			this.currentScene.clear();
+			this.currentScene.display();
 			this.activePath[this.activePath.length-2].clear();
 			console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
 			this.newScene(this.activePath[this.activePath.length-2], false, "back");
 		}else{
-			this.clearScene();
+			this.clearActive();
+			this.currentScene.clear();
+			this.currentScene.display();
 			this.newScene(this.currentScene, false,"back");
 		}
 
@@ -430,10 +433,14 @@ class Story{
 		for(let scene in this.scenesLib){
 			// console.log(scene)
 			let scrollIndex=this.scenesLib[scene].addScroll();
-			// console.log(scrollIndex)
+
+			console.log(scrollIndex);
+
 			if(scrollIndex != false || scrollIndex===0){
 				this.scrollOrderArray[scrollIndex] = this.scenesLib[scene];
 			}
+
+			console.log(this.scrollOrderArray);
 			// console.log(this.scrollOrderArray)
 			//this.scrollOrder
 		}
@@ -830,8 +837,18 @@ class Story{
 	}
 
 
-	displayCurrentScene(autoPlay_){
+	displayScene(autoPlay_){
 		this.currentScene.display(autoPlay_);
+	}
+
+	playCurrentScene(autoPlay_){
+		this.currentScene.play(autoPlay_);
+	}
+
+	displayAll(){
+		for(let id in this.scenesLib){
+			this.scenesLib[id].display();
+		}
 	}
 
 
@@ -893,7 +910,7 @@ class Story{
 
 			
 
-			this.displayCurrentScene(autoPlay_);
+			this.playCurrentScene(autoPlay_);
 
 
 		}else if(typeof(newScene_) == "string"){
