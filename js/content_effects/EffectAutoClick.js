@@ -33,7 +33,8 @@ class AutoClickEffect extends ContentEffect{
 		//console.log(eval(this.vareables.conditional));
 		if(eval(this.vareables.conditional)){
 			this.parentContent.html.fe.append(this.html)
-			this.drawTimeLeft = setInterval(this.draw.bind(this),30)
+			this.html.style.display="block";
+			this.drawTimeLeft = setInterval(this.draw.bind(this),15)
 			this.startTime=Date.now();
 
 			this.timeOut = setTimeout(function(){
@@ -67,6 +68,7 @@ class AutoClickEffect extends ContentEffect{
 
 	manualPageTurn(){
 		console.log("Switch to manuel ")
+			this.html.style.display="none";
 			this.mouseClicked=true;
 			clearInterval(this.drawTimeLeft)
 			window.clearTimeout(this.timeOut)
