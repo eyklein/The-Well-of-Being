@@ -182,9 +182,7 @@ class Action{
 		//this.onEventBindConditional = this.onEventConditioanl.bind(this)
 		
 		if(this.trigger=="click"){
-
 			this.tail.html.fe.addEventListener("click", this.onEventBind);
-			// this.tail.parentScene.addActiveClickableContent(this.tail);
 		}else if(this.trigger=="onEnd"){
 			console.log("ON end")
 			// this.tail.html.fe.addEventListener("ended", this.onEventBind);
@@ -200,7 +198,7 @@ class Action{
 	removeEventListener(){
 		this.tail.html.fe.removeEventListener("click", this.onEventBind );
 	}
-	activate(autoPlay_){ //should is play automaticly or wait for a play 
+	activate(autoPlay_){
 		this.isActive=true;
 		
 		
@@ -279,9 +277,9 @@ class Action{
 		if(delay_==null){
 			delay_=0;
 		}
-		// if(this.head instanceof Scene){
-		// 	console.log("Create timer for display ")
-		// }
+		if(this.head instanceof Scene){
+			console.log("Create timer for display ")
+		}
 		
 		
 		//prevent loosing timers behind that are not assigned

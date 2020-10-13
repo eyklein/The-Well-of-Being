@@ -86,9 +86,7 @@ let insertFunction=function(){
 
 document.onkeydown = function(e) {
     pseudoSwitch(e.keyCode);
-
-    currentStory.currentScene.checkAlternateKeys(e.keyCode)
-    // console.log(e.keyCode)
+    console.log(e.keyCode)
     // switch (e.keyCode) {
 
     //     case 37:
@@ -158,8 +156,6 @@ function createKeyPresses(){
   addKeyFunction(81, function(){currentStory.printActiveDelays();});
   addKeyFunction(66, function(){currentStory.backEnd.display();});
   addKeyFunction(16, function(){shiftPressed=true;});
-
-  // addKeyFunction(80, function(){currentStory.currentScene.checkAlternateKeys()});
 }
 createKeyPresses();
 
