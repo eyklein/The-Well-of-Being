@@ -50,22 +50,24 @@ canvas{
 /* width */
 ::-webkit-scrollbar {
   width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
 }
 
-/* Track */
+/* Track 
 ::-webkit-scrollbar-track {
   background: rgba(0,0,0,0); 
 }
  
-/* Handle */
+ Handle 
 ::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0); 
 }
 
-/* Handle on hover */
+/* Handle on hover 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0,0,0,0); 
-}
+}*/
 
 
 
@@ -79,7 +81,7 @@ section {
   scroll-snap-align: start;
   text-align: center;
   position: relative;
-}*/
+}
 
 /*.unread{
   color:#999;
@@ -98,7 +100,7 @@ section {
 .read{
   color:#999;
   opacity: .8;
-}*/
+}
 .next-timer{
   height: 5vw;
   width: 15vw;
@@ -252,8 +254,10 @@ section {
     overflow-x: none;*/
     overflow:auto;
   /*outline: 1px dashed red;*/
-  height: 100%
-  width: 100%;
+ /* height: 100%
+  width: 100%;*/
+
+   background-color: blue;
 
   transform: rotate(-90deg);
 
@@ -578,6 +582,8 @@ body, html {
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y mandatory;
+
+  background-color: red;
 
   
 

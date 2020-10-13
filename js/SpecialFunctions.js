@@ -253,6 +253,8 @@ function updateContentSize(){
 
   //these are flipped because of the rotates
   // document.getElementById("scenes").style.width=height+'px';
+  // document.getElementById("scenes").style.height=width+'px';
+// document.getElementById("scenes").style.width=height+'px';
   document.getElementById("scenes").style.height=width+'px';
 
 
@@ -268,7 +270,7 @@ function updateContentSize(){
 	currentStory.windowManager.fullScreenButton.style.height=height*.03+'px';
 	currentStory.windowManager.fullScreenButton.style.width=height*.03+'px';
 
-	document.getElementById("main_text").style['font-size']=width*.02+'px';
+	// document.getElementById("main_text").style['font-size']=width*.02+'px';
 
 	currentStory.windowManager.mainVolumeLable.style['font-size']=height*.02+"px";
 	// currentStory.windowManager.mainVolumeLable.style['color']="red";
