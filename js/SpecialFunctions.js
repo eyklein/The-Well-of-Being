@@ -253,9 +253,9 @@ function updateContentSize(){
 
   //these are flipped because of the rotates
   // document.getElementById("scenes").style.width=height+'px';
-  // document.getElementById("scenes").style.height=width+'px';
-// document.getElementById("scenes").style.width=height+'px';
   document.getElementById("scenes").style.height=width+'px';
+// document.getElementById("scenes").style.width=height+'px';
+  // document.getElementById("scenes").style.height=width+'px';
 
 
 

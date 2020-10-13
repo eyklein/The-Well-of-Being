@@ -249,7 +249,7 @@ section {
 
 
 .scenes {
-  /*display: flex;*/
+  display: flex;
       /*overflow-y: scroll;
     overflow-x: none;*/
     overflow:auto;
@@ -259,7 +259,7 @@ section {
 
    background-color: blue;
 
-  transform: rotate(-90deg);
+  /*transform: rotate(-90deg);*/
 
 }
 
@@ -272,7 +272,7 @@ section {
 
 /* scroll-snap */
 .x.mandatory-scroll-snapping {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: x mandatory;
   /*scroll-snap-type: x mandatory;*/
 }
 
@@ -282,8 +282,8 @@ section {
   height: 100%;
   width: 100%;
   /*marg*/
-  transform: rotate(90deg);
-  /*flex: none;*/
+  /*transform: rotate(90deg);*/
+  flex: none;
 }
 
 .x.scenes > .scene-container {
