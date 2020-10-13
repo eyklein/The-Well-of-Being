@@ -802,7 +802,7 @@ class Story{
 	//loads the new scene and tracks path (maybe just use this to start and track elseware?)
 	newScene(newScene_, autoPlay_,type_){
 
-		console.log("NEW SCENE " + newScene_.id)
+		// console.log("NEW SCENE " + newScene_.id)
 
 
 		
@@ -851,7 +851,15 @@ class Story{
 			
 
 			// this.playCurrentScene(autoPlay_);
-			this.currentScene.start(autoPlay_);
+			if(this.currentScene.getCurrentPlayTime()>300){
+				this.currentScene.clear();
+			}
+			
+			
+			// if(!this.currentScene.started){
+				this.currentScene.start(autoPlay_);
+			// }
+
 			this.currentScene.play();
 
 

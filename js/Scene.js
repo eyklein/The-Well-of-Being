@@ -68,6 +68,8 @@ class Scene{
 		this.timePlayingScene=0;
 		this.lastPlayTime=undefined;
 
+		this.alternateKeyEffects={};
+
 
 
 
@@ -89,6 +91,28 @@ class Scene{
 	// 		return false;
 	// 	}
 	// }
+
+	addAlternateKeyEffect(effect_){
+		for(let keyCode of effect_.vareables.keyCodes){
+			if(this.alternateKeyEffects[keyCode] == undefined){
+				this.alternateKeyEffects[keyCode]=[]
+			}
+			if(this.alternateKeyEffects[keyCode].indexOf(effect_)==-1){
+				this.alternateKeyEffects[keyCode].push(effect_)
+			}
+		}
+	}
+	removeAlternateKeyEffect(effect_){
+		for(let keyCode of effect_.vareables.keyCodes){
+			if(this.alternateKeyEffects[keyCode] != undefined){
+				let index = this.alternateKeyEffects[keyCode].indexOf(effect_);
+				if(index!=-1){
+					this.alternateKeyEffects[keyCode].splice(index,1)
+				}
+			}
+			
+		}	
+	}
 
 	display(){
 
@@ -374,6 +398,18 @@ class Scene{
 
 
 		//this.displayFrontEnd();
+	}
+
+	checkAlternateKeys(keyCode_){
+		// console.log("hi")
+		// console.log(this.alternateKeyEffects)
+		for(let keyCode in this.alternateKeyEffects){
+			if(keyCode_ == keyCode){
+				for(let i in this.alternateKeyEffects[keyCode]){
+					this.alternateKeyEffects[keyCode][i].forceClick();
+				}
+			}
+		}
 	}
 
 	addContents(sceneJson_){
