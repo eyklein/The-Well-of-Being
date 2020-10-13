@@ -10,6 +10,9 @@ class BackgroundFillEffect extends TextEffect{
 	apply(){
 		this.parentContent.html.fe.style["background-color"]=this.vareables.color;
 	}
+	unapply(){
+		this.parentContent.html.fe.style["background-color"]="none";
+	}
 
 	createEditorHTML(){
   		this.setHTMLEditorForm("background-fill");

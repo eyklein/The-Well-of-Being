@@ -7,7 +7,6 @@ class Action{
 
 		this.random=Math.random();
 		this.JSON=actionJSON_;
-		//actionJSON_.id=Math.random();
 		this.id=actionJSON_.id;
 		this.tempId=Math.round(Math.random(0, 1)*100);
 		this.tail;//either the scene itself or content object
@@ -20,6 +19,8 @@ class Action{
 		this.delay=actionJSON_.delay;//time/click are the basic but could be any sensable action...
 		this.occurrence=actionJSON_.occurrence
 		this.passOnInheritance=undefined;
+
+		this.onEventBind = this.onEvent.bind(this)
 
 
 		this.isActive=false;
@@ -121,8 +122,32 @@ class Action{
 			this.head.actionsIn.push(this)
 		}
 
+
+
 		
 
+	}
+
+	rewind(){
+		if(this.wasActivated){
+			this.wasActivated=false;
+			this.activations--;
+
+			if(this.elicit=="display"){
+				this.undisplayContent();
+			}else if(this.elicit=="play"){
+				this.unplayContent();
+			}else if(this.elicit=="cue"){
+				this.uncueContent()
+			}else if(this.elicit=="hide"){
+				this.unhideContent();
+			}
+			else if(this.elicit=="clickable"){
+				this.unactivateContent()
+			}else if(this.elicit=="unclickable"){
+				this.undeactivateContent();
+			}
+		}
 	}
 
 	timerOutstanding(){
@@ -144,7 +169,7 @@ class Action{
 
 	onEvent(){
 		
-		this.activate();
+		this.activate(true);
 	}
 	onEventConditioanl(){
 		// if(this.tail.)
@@ -153,13 +178,18 @@ class Action{
 
 	addEventListener(){
 		//console.log("adding EL to " + this.tail.id + " tigger " + this.head.id)
-		this.onEventBind = this.onEvent.bind(this)
+		
 		//this.onEventBindConditional = this.onEventConditioanl.bind(this)
 		
 		if(this.trigger=="click"){
 			this.tail.html.fe.addEventListener("click", this.onEventBind);
 		}else if(this.trigger=="onEnd"){
-			this.tail.html.fe.addEventListener("ended", this.onEventBind);
+			console.log("ON end")
+			// this.tail.html.fe.addEventListener("ended", this.onEventBind);
+			this.tail.html.fe.addEventListener("ended", function(){
+
+				this.activate(true);
+			}.bind(this));
 
 			
 		}
@@ -170,23 +200,19 @@ class Action{
 	}
 	activate(autoPlay_){
 		this.isActive=true;
-		// console.log(this.id);
-		//console.log(this.conditionals)
 		
-
-		//if(activateThisTime){
-			if(this.conditionals != undefined){
-				for(let conditional of this.conditionals){
-					if(eval(conditional.variableString) == false){
-						return;
-					}	
-				}
-				this.activateNow(autoPlay_);
-			}else{
-
-				this.activateNow(autoPlay_);
+		
+		if(this.conditionals != undefined){
+			for(let conditional of this.conditionals){
+				if(eval(conditional.variableString) == false){
+					return;
+				}	
 			}
-		//}
+			this.activateNow(autoPlay_);
+		}else{
+
+			this.activateNow(autoPlay_);
+		}
 
 	}
 
@@ -218,13 +244,11 @@ class Action{
 	}
 
 	activateNow(autoPlay_){
-		// console.log("activateNow " + this.id) 
-		// console.log(this.elicit) 
+
 		this.wasActivated=true;
 		this.activations++;
 
 		if(this.elicit=="display"){
-			
 			this.displayContent(this.delay,autoPlay_);
 		}else if(this.elicit=="play"){
 			this.playContent(this.delay,autoPlay_)
@@ -245,18 +269,14 @@ class Action{
 		}else if(this.elicit=="unclickable"){
 			this.deactivateContent(this.delay,autoPlay_);
 		}
+	
 	}
 
 	displayContent(delay_, autoPlay_){
 		
-
 		if(delay_==null){
 			delay_=0;
 		}
-		// let premature=true;
-		// if(this.head instanceof AudioContent){
-		// 	premature=false
-		// }
 		if(this.head instanceof Scene){
 			console.log("Create timer for display ")
 		}
@@ -264,19 +284,19 @@ class Action{
 		
 		//prevent loosing timers behind that are not assigned
 		if(this.timer != undefined){
-			this.timer.pause()
-			console.log("You should not be wringing timers")
+			this.removeTimer()
 		}
 
 
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
-				this.head.displayFrontEndHTML();
+				this.head.display();
+				
+				
 				//these should just be the actions out not the clickable **
 				this.head.activateActionsOut();
 			}else if(this.head instanceof Scene){
-				//console.log(this.head.displayFrontEndHTML())
-				currentStory.clearActive();
+				// currentStory.clearActive();
 				// currentStory.play();
 				currentStory.newScene(this.head,true,"default");
 			}
@@ -285,15 +305,26 @@ class Action{
 		}.bind(this), delay_*1000,this);
 		
 
+		if(autoPlay_){
+			this.resumeTimer("display",delay_)
+		}
 		
-		this.resumeTimer("display",delay_)
-		
-		
-
 	}
+
+	undisplayContent(){
+		if(this.timer != undefined){
+			this.timer.pause();
+			this.removeTimer()
+		}
+
+		if(this.head instanceof Content){
+
+			this.head.undisplay();
+		}
+	}
+
+
 	hideContent(delay_,autoPlay_){
-		// console.log(autoPlay_)
-		
 		if(delay_==null){
 			delay_=0;
 		}
@@ -311,20 +342,25 @@ class Action{
 
 		}.bind(this), delay_*1000,this);
 
-		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
-		// 	this.timer.resume(); //why doent this work all the time ???????????
-		// }else{
-		// 	this.timer.pause();
-		// }
-		this.resumeTimer("hide",delay_)
+		if(autoPlay_){
+			this.resumeTimer("hide",delay_)
+		}
+	}
+
+	unhideContent(){
+		if(this.timer != undefined){
+			this.timer.pause();
+			this.removeTimer()
+		}
+
+		if(this.head instanceof Content){
+			this.head.unhide();
+		}
 	}
 
 
 
 	cueContent(delay_,autoPlay_){
-		// console.log(autoPlay_)
-
-		
 		if(delay_==null){
 			delay_=0;
 		}
@@ -341,45 +377,51 @@ class Action{
 
 		}.bind(this), delay_*1000,this);
 		
-
-		this.resumeTimer("cue",delay_)
-		
-		
-		
-		
-
+		if(autoPlay_){
+			this.resumeTimer("cue",delay_);
+		}
 	}
-	playContent(delay_,autoPlay_){
-		//console.log(autoPlay_)
 
-		
+	uncueContent(){
+		if(this.timer != undefined){
+			this.timer.pause();
+			this.removeTimer()
+		}
+
+		if(this.head instanceof Content){
+			this.head.removeFromActiveVideo();
+		}
+	}
+
+	playContent(delay_,autoPlay_){
 		if(delay_==null){
 			delay_=0;
 		}
-		
-		
-		
-		// console.log("new timer " + delay_)
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
-				
-				
-
-				
 				this.head.play();
-				
 			}
 			
 			this.removeTimer()
-
 		}.bind(this), delay_*1000,this);
-		
-		
-		this.resumeTimer("play",delay_)
-		
 
+		if(autoPlay_){
+			this.resumeTimer("play",delay_)
+		}
 	}
 	
+	unplayContent(){
+		if(this.timer != undefined){
+			this.timer.pause();
+			this.removeTimer()
+		}
+
+		if(this.head instanceof Content){
+			console.log(this.head)
+
+			this.head.unplay();
+		}
+	}
 
 	activateContent(delay_,autoPlay_){
 		// console.log(autoPlay_)
@@ -393,12 +435,23 @@ class Action{
 			this.removeTimer()
 		}.bind(this), delay_*1000,this);
 
-		this.resumeTimer("activate",delay_)
+		if(autoPlay_){
+			this.resumeTimer("activate",delay_)
+		}
+	}
+
+	unactivateContent(){
+		if(this.timer != undefined){
+			this.timer.pause();
+			this.removeTimer()
+		}
+
+		if(this.head instanceof Content){
+			this.head.unactivateClickable();
+		}
 	}
 
 	deactivateContent(delay_,autoPlay_){
-		// console.log(autoPlay_)
-
 		if(delay_==null){
 			delay_=0; 
 		}
@@ -408,12 +461,20 @@ class Action{
 			this.removeTimer()
 		}.bind(this), delay_*1000,this);
 
-		// if(autoPlay_==undefined || autoPlay_ || delay_<=0){
-		// 	this.timer.resume(); //why doent this work all the time ???????????
-		// }else{
-		// 	this.timer.pause();
-		// }
-		this.resumeTimer("deactivate",delay_)
+		if(autoPlay_){
+			this.resumeTimer("deactivate",delay_)
+		}
+	}
+
+	undeactivateContent(){
+		if(this.timer != undefined){
+			this.timer.pause();
+			this.removeTimer()
+		}
+
+		if(this.head instanceof Content){
+			this.head.undeactivateClickable();
+		}
 	}
 
 	makeClickableContent(){
@@ -646,6 +707,9 @@ class Action{
 
 	removeTimer(){
 		// console.log(this)
+		if(this.timer!=undefined){
+			this.timer.pause();
+		}
 		
 		this.timer=undefined;
 	}

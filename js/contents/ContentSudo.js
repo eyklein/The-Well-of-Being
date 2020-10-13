@@ -60,7 +60,7 @@ class SudoContent extends Content{
 	
 	
 
-	displayFrontEndHTML(){
+	display(){
 
 	
 		

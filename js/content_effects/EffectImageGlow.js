@@ -9,6 +9,9 @@ class GlowImageEffect extends ImageEffect{
 		// console.log("applying glow image effect with class " + this.vareables.className)
 		this.parentContent.html.fe.classList.add(this.vareables.className)
 	}
+	unapply(){
+		this.parentContent.html.fe.classList.remove(this.vareables.className)
+	}
 	remove(){
 		this.parentContent.html.fe.classList.remove(this.vareables.className)
 	}

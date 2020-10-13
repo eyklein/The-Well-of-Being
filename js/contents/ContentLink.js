@@ -109,7 +109,7 @@ class TextContent extends Content{
 	
 	
 
-	displayFrontEndHTML(){
+	display(){
 
 		super.displayFrontEndHTML();
 		

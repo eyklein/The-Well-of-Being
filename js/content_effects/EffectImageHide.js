@@ -7,10 +7,13 @@ class HideImageEffect extends ImageEffect{
 	}
 
 	apply(){
-		console.log(this);
-		console.log(this.vareables)
 		if(this.vareables.isOn){
 			this.parentContent.html.fe.style.display="none";//="hidden";
+		}
+	}
+	unapply(){
+		if(this.vareables.isOn){
+			this.parentContent.html.fe.style.display="block";//="hidden";
 		}
 	}
 

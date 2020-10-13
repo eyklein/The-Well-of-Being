@@ -16,61 +16,69 @@ var shiftPressed=false
 
 // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
 
-let last_known_scroll_position = 0;
-let ticking = false;
+// let last_known_scroll_position = 0;
+// let ticking = false;
 
-function doSomething(scroll_pos) {
-	// console.log(currentStory.scrollOrderArray.length);
-	let heightSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetHeight
-	//console.log()
-  	console.log(Math.round(scroll_pos/heightSection*10)/10);
+// function doSomething(scroll_pos) {
+// 	// console.log(currentStory.scrollOrderArray.length);
+// 	let heightSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetHeight
+// 	//console.log()
+//   	console.log(Math.round(scroll_pos/heightSection*10)/10);
 
-  	//document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
+//   	//document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
 
-  	if(Math.round(scroll_pos/heightSection*10)/10==Math.round(scroll_pos/heightSection)){
-  	// 	console.log("to to scene")
-  	// 	console.log(currentStory.scrollOrderArray);
-  	//console.log(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id);
+//   	if(Math.round(scroll_pos/heightSection*10)/10==Math.round(scroll_pos/heightSection)){
+//   	// 	console.log("to to scene")
+//   	// 	console.log(currentStory.scrollOrderArray);
+//   	//console.log(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id);
 
-  	// 	//check if it is a new scene
-  	// 	if(currentStory.currentScene != currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)]){
-			// currentStory.clearScene();
-			// // currentStory.newScene(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)])
-  	// 	}
+//   	// 	//check if it is a new scene
+//   	// 	if(currentStory.currentScene != currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)]){
+// 			// currentStory.clearScene();
+// 			// // currentStory.newScene(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)])
+//   	// 	}
   		
-  	}
+//   	}
   	
-}
+// }
 
-window.addEventListener('scroll', function(e) {
-  last_known_scroll_position = window.scrollY;
+// document.getElementById("scenes").addEventListener('scroll', function(e) {
+//   console.log("HI")
+//   last_known_scroll_position = window.scrollY;
 
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      doSomething(last_known_scroll_position);
-      ticking = false;
-    });
+//   if (!ticking) {
+//     window.requestAnimationFrame(function() {
+//       doSomething(last_known_scroll_position);
+//       ticking = false;
+//     });
 
-    ticking = true;
-  }else{
-  	console.log("?????????????????????")
-  }
-});
+//     ticking = true;
+//   }else{
+//   	console.log("?????????????????????")
+//   }
+// });
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 
-addScrollingDiv=function(){
-	let scrollWindow=document.getElementById("scrolling-window")//.querySelectorAll(".wrapper")[0];
+
+// addScrollingDiv=function(){
+// 	let scrollWindow=document.getElementById("scrolling-window")//.querySelectorAll(".wrapper")[0];
 
 
-	let div=document.createElement("section");
-	div.classList.add("scroll-section");
+// 	let div=document.createElement("div");
+// 	div.classList.add("scroll-div");
 
-  div.style['background-color'] = "hsl(" + Math.random()*360 + ", 100%, 50%)";
+//   div.style['background-color'] = "hsl(" + Math.random()*360 + ", 100%, 50%)";
 
-	// scrollWindow.append(div);
-	return div;
+// 	// scrollWindow.append(div);
+// 	return div;
 
-}
+// }
 
 let insertFunction=function(){
   
@@ -85,19 +93,19 @@ document.onkeydown = function(e) {
     //     	 currentStory.restartScene();
     //         break;
     //     case 38:// up arrow 
-    //         currentStory.togglePlayPause();
+    //         currentStory.togglePlayPauseRewind();
     //         break;
     //     case 39:
     //     	currentStory.skip();
     //         break;
     //     case 40:// down arrow 
-    //         currentStory.togglePlayPause();
+    //         currentStory.togglePlayPauseRewind();
     //         break;
     //     case 83://'s'
     //         currentStory.skip();
     //         break;
     //     case 32://' ' - space bar
-    //         currentStory.togglePlayPause();
+    //         currentStory.togglePlayPauseRewind();
     //         break;
     //     case 81:
     //     	currentStory.printActiveDelays();
@@ -201,7 +209,8 @@ function deleteCookie(name) {
     document.cookie = name+'=; Max-Age=-99999999;';  
 }
 
-var scalableTextEffects=[];
+//var scalableTextEffects=[];
+//var globalWidthVareable;
 function updateContentSize(){
 	
 	let contentDiv=document.getElementById("content");
@@ -258,9 +267,16 @@ function updateContentSize(){
 	//currentStory.windowManager.playPause.style.width=height*.03+'px';
 
 	//update all text font size effects
-	for(let effect in scalableTextEffects){
-		scalableTextEffects[effect].updateSize(width);
-	}
+	
+
+ //  for(let effect in scalableTextEffects){
+	// 	scalableTextEffects[effect].updateSize(width);
+	// }
+  for(let scene in currentStory.scenesLib){
+    for(let effect in currentStory.scenesLib[scene].scalableTextEffects){
+      currentStory.scenesLib[scene].scalableTextEffects[effect].updateSize(width);
+    }
+  }
 
 
 	// for(let id in currentStory.scenesLib){
@@ -394,5 +410,8 @@ function download(filename, text) {
 
   document.body.removeChild(element);
 }
+
+
+
 
 

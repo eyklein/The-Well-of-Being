@@ -64,19 +64,19 @@ window.AudioContext = window.AudioContext||window.webkitAudioContext;
 
 var context = new AudioContext();
 
-function stopAudio(){
+// function stopAudio(){
 
-	for(let audioID in currentStory.activeMainAudio){
-		currentStory.activeMainAudio[audioID].skip();
-	}
-}
+// 	for(let audioID in currentStory.activeMainAudio){
+// 		currentStory.activeMainAudio[audioID].skip();
+// 	}
+// }
 
-function stopVideo(){
+// function stopVideo(){
 
-	for(let videoID in currentStory.activeMainVideo){
-		currentStory.activeMainVideo[videoID].skip();
-	}
-}
+// 	for(let videoID in currentStory.activeMainVideo){
+// 		currentStory.activeMainVideo[videoID].skip();
+// 	}
+// }
 
 function clearTimeOut(){
 	for(let listenerID in timeDelays){
@@ -257,67 +257,34 @@ class Story{
 	}
 
 	restartScene(){
-		//let wasPlaying = this.isPlaying()
-		//this.currentScene.goToStart();
-	// console.log("--------------------------------------------*---------------------------------------------")
-	// console.log("---------------------- before clear")
-	// logActiveContentActions()
-
+		this.currentScene.rewind()
 		
+		// this.pause();
 
-	// 	console.log("********************* after clear")
-	// logActiveContentActions()
-
-
-		// console.log(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time)
-
-		this.pause();
-		// this.clearScene();
-
-		console.log("1. Clear " + this.currentScene.id);
+		// console.log("1. Clear " + this.currentScene.id);
 
 
 
 
-		// if(Date.now() - this.sceneTimesArray[this.sceneTimesArray.length-1].time < 1000 && this.activePath.length>=2){
+		// if(!this.currentScene.started && this.activePath.length>=2){
+		// 	this.clearActive();
+		// 	this.currentScene.clear();
+		// 	this.currentScene.display();
 		// 	this.activePath[this.activePath.length-2].clear();
 		// 	console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
 		// 	this.newScene(this.activePath[this.activePath.length-2], false, "back");
-		// }
-
-		if(!this.currentScene.started && this.activePath.length>=2){
-			// this.clearScene();
-			this.clearActive();
-			this.currentScene.clear();
-			this.currentScene.display();
-			this.activePath[this.activePath.length-2].clear();
-			console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
-			this.newScene(this.activePath[this.activePath.length-2], false, "back");
-		}else{
-			this.clearActive();
-			this.currentScene.clear();
-			this.currentScene.display();
-			this.newScene(this.currentScene, false,"back");
-		}
-
-		//console.log("xxxxxxxxxxxxx after SET")
-		//logActiveContentActions()
-
-		//console.log("--------------------------------------------***---------------------------------------------")
-		
-		// this.displayCurrentScene();
-
-		updateContentSize();
-
-		setTimeout(function(){this.pause()}.bind(this),100);
-
-
-		//this.pause();
-		// if(wasPlaying){
-		// 	this.play()
 		// }else{
-		// 	this.pause();
+		// 	this.clearActive();
+		// 	this.currentScene.clear();
+		// 	this.currentScene.display();
+		// 	this.newScene(this.currentScene, false,"back");
 		// }
+
+	
+
+		// updateContentSize();
+
+		// setTimeout(function(){this.pause()}.bind(this),100);
 
 		
 	}
@@ -429,23 +396,32 @@ class Story{
 	}
 
 	addScrollDivs(){
-		// this.scrollOrder=[];
-		for(let scene in this.scenesLib){
-			// console.log(scene)
-			let scrollIndex=this.scenesLib[scene].addScroll();
-
-			console.log(scrollIndex);
-
-			if(scrollIndex != false || scrollIndex===0){
-				this.scrollOrderArray[scrollIndex] = this.scenesLib[scene];
-			}
-
-			console.log(this.scrollOrderArray);
-			// console.log(this.scrollOrderArray)
-			//this.scrollOrder
+		console.log("addScrollDivs")
+		console.log(this.scrollOrderArray)
+		for(let i in this.scrollOrderArray){
+			console.log(this.scrollOrderArray[i].id)
+			document.getElementById("scenes").append(this.scrollOrderArray[i].html.fe.container)
 		}
+		
+		// this.scrollOrder=[];
+		// for(let scene in this.scenesLib){
+		// 	// console.log(scene)
+
+		// 	let scrollIndex=this.scenesLib[scene].addScroll();
+
+		// 	console.log(scene + " : " + scrollIndex);
+			
+
+		// 	if(scrollIndex != false){
+		// 		this.scrollOrderArray[scrollIndex] = this.scenesLib[scene];
+		// 	}
+
+		// 	// console.log(this.scrollOrderArray);
+		// 	// console.log(this.scrollOrderArray)
+		// 	//this.scrollOrder
+		// }
 		//add one extra
-		addScrollingDiv();
+		//addScrollingDiv();
 	}
 
 
@@ -562,63 +538,55 @@ class Story{
 	}
 
 	updatePlayPause(){
+		console.log("UNDATING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		this.windowManager.updatePlayPauseButton();
 		// console.log("update play pause")
-		if(this.isPlayable()){
+		// if(this.isPlayable()){
 			
-			this.windowManager.activatePlayPause();
-		}else{
-			stopDraw();
-			this.windowManager.deactivatePlayPause();
-		}
+		// 	this.windowManager.activatePlayPause();
+		// }else{
+		// 	stopDraw();
+		// 	this.windowManager.deactivatePlayPause();
+		// }
 
-		if(this.isPlaying()){
-			startDraw();
-		}
+		// if(this.isPlaying()){
+		// 	startDraw();
+		// }
+	}
+	getStatus(){
+		return this.currentScene.getStatus();
 	}
 	isPlaying(){
-		for(let audioContent in this.activeMainAudio){
-			if(this.activeMainAudio[audioContent].isPlaying){
-				return true;
-			}
-			//should also check if there are delays...
-		}
-		for(let videoContent in this.activeMainVideo){
-			if(this.activeMainVideo[videoContent].isPlaying){
-				return true;
-			}
-		}
-		return false;
+		return this.currentScene.isPlaying();
 	}
 	isPlayable(){
-		// console.log(this.activeMainVideo)
-		for(let audioContent in this.activeMainAudio){
-			//if this has any length there are active audio files
-			return true;
-			
-			//should also check if there are delays...
-		}for(let videoContent in this.activeMainVideo){
-			//if this has any length there are active audio files
-			return true;
-			
-			//should also check if there are delays...
-		}
-		return false;
-
+		return this.currentScene.isPlayable();
 	}
-
 	togglePlayPause(){
-		// console.log("TOGGLE PLAY     is playing " + this.playing)
-		if(this.isPlaying()){
-			// console.log("pause")
+		let status = this.getStatus()
+		if(status=="playing"){
 			this.pause();
-		}else{
+		}else if(status == "paused"){
 			this.play();
-			// console.log("play")
 		}
 		
 
-		this.windowManager.updatePlayPauseButton()
-		// console.log("End TOGGLE PLAY     is playing " + this.playing)
+		//this.windowManager.updatePlayPauseButton()
+
+	}
+
+	executePlayPauseRewind(){
+		let status = this.getStatus()
+		if(status=="playing"){
+			this.pause();
+		}else if(status == "paused"){
+			this.play();
+		}else if(status == "ended"){
+			this.rewind();
+		}
+		
+
+		//this.windowManager.updatePlayPauseButton()
 	}
 
 
@@ -661,35 +629,32 @@ class Story{
 			this.currentScene.startTimer.resume();
 		}
 
-		//play all the main audio
-		//console.log("PLAY???")
-		for(let audioContent in this.activeMainAudio){
-			this.activeMainAudio[audioContent].play();
-		}
-
-		for(let videoContent in this.activeMainVideo){
-			this.activeMainVideo[videoContent].play();
-		}
-
-		//play the background audio
-		// for(let audioContent in this.activeBackgroundAudio){
-		// 	this.activeBackgroundAudio[audioContent].play();
+		// for(let audioContent in this.activeMainAudio){
+		// 	this.activeMainAudio[audioContent].play();
 		// }
 
+		// for(let videoContent in this.activeMainVideo){
+		// 	this.activeMainVideo[videoContent].play();
+		// }
 
-		// context.resume().then(function() {
-		// 	for(let action in currentStory.currentScene.actionsLib){
-		// 		this.windowManager.play.style.display="none";
-		// 		this.windowManager.pause.style.display="block";
-		// 		if(currentStory.currentScene.actionsLib[action].timer!=undefined){
-		// 			currentStory.currentScene.actionsLib[action].timer.resume();
-		// 		}
-		// 	}
-	 //       console.log('Resume context');
-	 //    }.bind(this))
+		this.currentScene.play();
+
+		
+	}
+
+	rewind(){
+		this.currentScene.rewind();
+
+		this.play();
+
+		//this.currentScene.play();
+
+		
 	}
 
 	pause(){
+
+		
 		this.playing=false;
 		stopDraw();
 		// console.log("DONE PLAYING!!!!!!!!")
@@ -709,24 +674,16 @@ class Story{
 			this.currentScene.startTimer.pause();
 		}
 
-		//pause all the main audio
-		for(let audioContent in this.activeMainAudio){
-			this.activeMainAudio[audioContent].pause();
-		}
-		//pause all the main video
-		for(let videoContent in this.activeMainVideo){
-			this.activeMainVideo[videoContent].pause();
-		}
-
-		//pause all the main video
+		// //pause all the main audio
+		// for(let audioContent in this.activeMainAudio){
+		// 	this.activeMainAudio[audioContent].pause();
+		// }
+		// //pause all the main video
 		// for(let videoContent in this.activeMainVideo){
 		// 	this.activeMainVideo[videoContent].pause();
 		// }
 
-		//pause the background audio
-		// for(let audioContent in this.activeBackgroundAudio){
-		// 	this.activeBackgroundAudio[audioContent].pause();
-		// }
+		this.currentScene.pause();
 	}
 	setMainVolume(volume_){
 		
@@ -756,30 +713,19 @@ class Story{
 		let skipWasMade=false;
 
 		this.pause();
-		this.playing=false;
-
+		// this.playing=false;
+		
+		//if the scene has not started set to to started because we are skipping to th end (unless negative ?)
 		currentStory.currentScene.started=true;
 
 
-		for(let action in currentStory.currentScene.actionsLib){
-			if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
-				// console.log(" 0 SOMEthing to skip")
 
-				// currentStory.currentScene.actionsLib[action].skip();
-				// skipWasMade=true;
-			}
-			
-		}
-		for(let action in currentStory.currentScene.actionsLib){
-			if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
+		skipWasMade = this.currentScene.skip();
 
-				currentStory.currentScene.actionsLib[action].skip();
-				skipWasMade=true;
-			}
-			
-		}
-		stopAudio()
-		stopVideo()
+
+		// console.log(1)
+		// stopAudio()
+		// stopVideo()
 
 		// for(let action in currentStory.currentScene.actionsLib){
 		// 	if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
@@ -841,9 +787,9 @@ class Story{
 		this.currentScene.display(autoPlay_);
 	}
 
-	playCurrentScene(autoPlay_){
-		this.currentScene.play(autoPlay_);
-	}
+	// playCurrentScene(autoPlay_){
+	// 	this.currentScene.start(autoPlay_);
+	// }
 
 	displayAll(){
 		for(let id in this.scenesLib){
@@ -856,18 +802,12 @@ class Story{
 	//loads the new scene and tracks path (maybe just use this to start and track elseware?)
 	newScene(newScene_, autoPlay_,type_){
 
+		console.log("NEW SCENE " + newScene_.id)
+
 
 		
 
 		if(newScene_ instanceof Scene){
-
-			// console.log(newScene_.id + ", " + autoPlay_ + ", "+ type_)
-
-			// console.log("Loaing Scene: " + newScene_.id)
-			// console.log(newScene_)
-
-
-			//newScene_.addInheritance(inheritedContent_)
 
 			this.sceneTimesArray.push(
 			{
@@ -910,7 +850,10 @@ class Story{
 
 			
 
-			this.playCurrentScene(autoPlay_);
+			// this.playCurrentScene(autoPlay_);
+			this.currentScene.start(autoPlay_);
+			this.currentScene.play();
+
 
 
 		}else if(typeof(newScene_) == "string"){

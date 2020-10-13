@@ -38,6 +38,17 @@ class ReplaceImageEffect extends ImageEffect{
 		
 
 	}
+	unapply(){
+
+
+		//this.oldImageURL=this.parentContent.html.fe.src;//=this.content.value;
+
+		if(this.oldImageURL != undefined){
+				this.parentContent.html.fe.src=this.oldImageURL;
+			}
+		
+
+	}
 	remove(){
 		
 		this.parentContent.html.fe.src=this.oldImageURL;

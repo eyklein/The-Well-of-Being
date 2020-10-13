@@ -118,13 +118,17 @@ class TextContent extends Content{
 	
 	
 
-	displayFrontEndHTML(){
-
-		super.displayFrontEndHTML();
-		
+	display(log_){	
+		super.display();
 		this.htmlParent.append(this.html.fe);
+		// break();
 
-		this.html.fe.style.display="block";
+		// this.html.fe.style.display="block";
+		
+	}
+	undisplay(log_){	
+		super.undisplay();
+		this.htmlParent.removeChild(this.html.fe);
 		
 	}
 

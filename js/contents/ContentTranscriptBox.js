@@ -261,9 +261,9 @@ class TranscriptBoxContent extends Content{
 	
 	
 
-	displayFrontEndHTML(){
+	display(){
 
-		super.displayFrontEndHTML();
+		super.display();
 		
 		this.htmlParent.append(this.html.fe);
 

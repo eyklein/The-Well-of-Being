@@ -50,8 +50,8 @@ class ContentEffect{
 
 	
 	apply(){
-		// console.log(this)
-		// console.log("Has no apply function")
+	}
+	unapply(){
 	}
 
 

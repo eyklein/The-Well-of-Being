@@ -9,9 +9,11 @@ class OpacityImageEffect extends ImageEffect{
 	apply(){
 		this.parentContent.html.fe.style.opacity=this.vareables.opacity;
 	}
+	unapply(){
+		this.parentContent.html.fe.style.opacity=1;
+	}
 	remove(){
 		this.parentContent.html.fe.style.opacity=1;
-		//this.parentContent.html.fe.classList.remove(this.vareables.className)
 	}
 	createEditorHTML(){
 		this.editor={}

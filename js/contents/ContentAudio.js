@@ -5,6 +5,7 @@ class AudioContent extends Content{
 		super(contentJson_,parentScene_)
 		this.isDonePlaying=false;
 		this.duration=0;
+		this.endTime=this.start+this.duration;
 
 		this.name=this.content.value;
 	
@@ -128,10 +129,29 @@ class AudioContent extends Content{
 				this.addEffects();
 
 				
-				this.html.fe.ondurationchange = function(e) {
-					// console.log("++++");
+				this.html.fe.addEventListener("timeupdate", function(e) {
+
+					if(this.html.fe.currentTime>(this.duration+this.start)){
+						this.pause();
+						console.log("FORCE PASUE!!!!!!!!!!!")
+					}
 					// this.duration=this.html.fe.duration;
-				}.bind(this);
+				}.bind(this));
+
+
+				// this.html.fe.ontimeupdate = function(e) {
+				// 	console.log("playing from : " + this.parentScene.id);		
+				// 	if(this.html.fe != e.target){
+				// 		console.log("DELETE!!!!!!!! audio no longer asoseated with object")
+				// 	}	
+				// 	if(this.parentScene != currentStory.currentScene){
+				// 		this.pause()
+				// 		console.log("Pause!!!!!!!! no longer in that scene")
+				// 	}	
+				// 	if(this.html.fe.currentTime>(this.start*1+this.duration*1)){
+				// 		e.target.remove();
+				// 	}
+				// }.bind(this);
 				
 				this.html.fe.src=absoluteLocation + this.content.value + '#t=' + this.start + ',' + (this.start+this.duration);
 				
@@ -185,7 +205,7 @@ class AudioContent extends Content{
 
 
 
-	displayFrontEndHTML(){
+	display(){
 
 
 		
@@ -202,8 +222,13 @@ class AudioContent extends Content{
 
 		
 	// }
+	unplay(){ //audio at start
+		this.html.fe.currentTime=this.start;
+		this.pause();
 
-	stop(){
+	}
+	
+	stop(){ //audio at end
 
 		if(this.html.fe.duration){
 			this.html.fe.currentTime=this.start + this.html.fe.duration;
@@ -224,16 +249,24 @@ class AudioContent extends Content{
 	}
 	removeFromActiveAudio(){
 		// console.log("REMOVE!!!!!!!")
-		delete currentStory.activeMainAudio[currentStory.currentScene.id+this.id];
+		// delete currentStory.activeMainAudio[currentStory.currentScene.id+this.id];
+
+		//scene
+		this.parentScene.playingMediaObjects.splice(this.parentScene.playingMediaObjects.indexOf(this),1);
 
 		currentStory.updatePlayPause()
 	}
 
 	addToActiveAudio(){
-		currentStory.activeMainAudio[currentStory.currentScene.id+this.id]=this;
+		// currentStory.activeMainAudio[currentStory.currentScene.id+this.id]=this;
+
+		if(this.parentScene.playingMediaObjects.indexOf(this) == -1){
+			this.parentScene.playingMediaObjects.push(this)
+		}
 
 		currentStory.updatePlayPause()
 	}
+
 
 	play(){
 		this.isPlaying=true;
@@ -266,6 +299,8 @@ class AudioContent extends Content{
 
 	changeDuration(time_){
 		this.duration=time_;
+		this.endTime=this.start+this.duration;
+
 		this.setInitalTimeVars()
 		this.cNode.update()
 		// this.updateAudioDisplay()

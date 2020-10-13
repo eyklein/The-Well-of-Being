@@ -53,8 +53,7 @@ class ImageContent extends Content{
 
 
 	createEffects(){
-		//console.log("createEffects **********!!!!!**")
-		//console.log("createEffects image");
+		
 		for(let effect in this.JSONData.effects.general){
 			this.effects.general[effect] = this.getEffect(effect,this.JSONData.effects.general[effect])
 		}
@@ -144,13 +143,13 @@ class ImageContent extends Content{
 		this.applyGeneralEffects();
 	}
 
-	displayFrontEndHTML(){
+	display(){
 
 		
 		//document.getElementById("background_img").append(this.html.fe);
 
 
-		super.displayFrontEndHTML();
+		super.display();
 		this.htmlParent.append(this.html.fe);
 		this.applyEntranceEffects();
 		this.html.fe.style.display="block";

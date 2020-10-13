@@ -7,7 +7,9 @@ class SizeTextEffect extends TextEffect{
 	apply(){
 		if(this.vareables.type == "scalable"){
 
-			scalableTextEffects.push(this)
+			//scalableTextEffects.push(this)
+			this.parentContent.parentScene.scalableTextEffects.push(this)
+			this.updateSize(document.width);
 		}
 		
 	}

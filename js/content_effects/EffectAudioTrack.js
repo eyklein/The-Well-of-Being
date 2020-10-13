@@ -6,11 +6,13 @@ class TrackAudioEffect extends AudioEffect{
 	}
 
 	apply(){
-		//console.log(this.vareables)
 		this.parentContent.track=this.vareables.value;
 
 		this.parentContent.updateVolume()
+	}
 
-
+	unapply(){
+		this.parentContent.track="";
+		this.parentContent.updateVolume()
 	}
 }

@@ -266,7 +266,7 @@ class Content{
 
 	onClickEvent(action_){//this and action must be bound
 		this.activateExitEffects();
-		action_.activate();
+		action_.activate(true);
 	}
 
 	attachEventToTailContent(action_){
@@ -274,6 +274,9 @@ class Content{
 		
 		action_.addEventListener();
 
+	}
+	removeEventFromTailContent(action_){
+		action_.addEventListener();
 	}
 
 	activateOnEndEvents(){
@@ -292,6 +295,9 @@ class Content{
 		this.elicits.clickable=true;
 
 		for(let effect in this.effects.clickable.generic){
+			//glow /alternateKeyPress/autoClick
+			// console.log(effect)
+			if(effect=="glow" || effect=="alternateKeyPress" || effect=="autoClick")
 			this.effects.clickable.generic[effect].apply();
 		}
 		for(let action in this.actionsOut){
@@ -300,6 +306,25 @@ class Content{
 				if(this.actionsOut[action].trigger=="click"){
 					this.attachEventToTailContent(this.actionsOut[action])
 					// this.actionsOut[action].addEventListener();
+				}
+			}
+		}
+	}
+
+	unactivateClickable(){
+		this.isClickable=false;
+
+		this.elicits.clickable=false;
+
+		for(let effect in this.effects.clickable.generic){
+			this.effects.clickable.generic[effect].unapply();
+		}
+		for(let action in this.actionsOut){
+
+			//should not need this should only activate events at this piont not all events out ????
+			if(this.actionsOut[action].scene==currentStory.currentScene){
+				if(this.actionsOut[action].trigger=="click"){
+					this.removeEventFromTailContent(this.actionsOut[action]);
 				}
 			}
 		}
@@ -322,8 +347,13 @@ class Content{
 	}
 
 
-	displayFrontEndHTML(){
+	display(){
 		this.elicits.display=true;
+	}
+
+	undisplay(){
+		this.elicits.display=false;
+
 	}
 }
 

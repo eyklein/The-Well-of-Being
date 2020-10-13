@@ -62,16 +62,17 @@ class ClippingAudioEffect extends AudioEffect{
 	
 
 	apply(){
-		// console.log("apply clipping property")
-		if(this.parentContent instanceof VideoContent)
-		console.log(parseFloat(this.vareables.start));
 		this.parentContent.start=parseFloat(this.vareables.start);
 		this.parentContent.duration=parseFloat(this.vareables.duration);
-
-		//console.log(this.parentContent)
-
 		this.parentContent.setInitalTimeVars();
 
 
+	}
+
+	unapply(){
+		//no need to unapply
+		// this.parentContent.start=0;
+		// this.parentContent.duration=this.parentContent.html.fe.duration
+		// this.parentContent.setInitalTimeVars();
 	}
 }

@@ -6,7 +6,10 @@ class SizeImageEffect extends ImageEffect{
 	}
 	apply(){
 
-		SizeImageEffect
+		// SizeImageEffect
+	}
+	unapply(){
+		
 	}
 
 	createEditorHTML(){

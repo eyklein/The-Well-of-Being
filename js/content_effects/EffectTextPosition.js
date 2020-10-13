@@ -4,7 +4,7 @@ class PositionTextEffect extends TextEffect{
 
 		this.type="position";
 	}
-	apply(){
+	apply(log_){
 		if(this.vareables.type == "appendIn"){
 			
 			// console.log(this.parentContent.id)
@@ -20,6 +20,28 @@ class PositionTextEffect extends TextEffect{
 			}
 			
 			this.parentContent.htmlParent=this.parentContent.parentScene.html.fe.container;
+
+
+		}
+	
+
+	}
+	unapply(){
+		if(this.vareables.type == "appendIn"){
+			
+			// console.log(this.parentContent.id)
+			this.parentContent.htmlParent=null
+			// console.log(typeof(this.parentContent.htmlParent.append))
+
+		}
+		else if(this.vareables.type == "absolute"){
+			this.parentContent.html.fe.style.position="stativ";
+
+			for(let vareable in this.vareables){
+				this.parentContent.html.fe.style[vareable]='block';
+			}
+			
+			this.parentContent.htmlParent=null;//this.parentContent.parentScene.html.fe.container;
 
 
 		}

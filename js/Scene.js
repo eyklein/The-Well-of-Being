@@ -1,5 +1,7 @@
+var myCounter=0;
 class Scene{
 	constructor(sceneJson_,story_){
+		this.playingMediaObjects=[]
 		this.sceneData=sceneJson_;
 		this.contentsLib={};
 		this.actionsLib={};
@@ -10,6 +12,8 @@ class Scene{
 		this.name=this.sceneData.name;
 
 		this.scroll=this.sceneData.scroll;
+
+		this.scalableTextEffects=[];
 
 
 		
@@ -44,13 +48,26 @@ class Scene{
 
 
 		this.html.fe={}
-		this.html.fe.container=document.createElement("section");
+		this.html.fe.container=document.createElement("div");
 		this.html.fe.container.id="scene-"+this.id;
 		this.html.fe.container.classList.add("scene-container")
-		document.getElementById("scenes").append(this.html.fe.container)
 
+		console.log(this.scroll.scrollable)
+		if(this.scroll.scrollable){
+			//document.getElementById("scenes").append(this.html.fe.container)
+
+			currentStory.scrollOrderArray[this.scroll.orderY]=this;
+
+		}
+
+		this.played=false;
 		this.started=false;
+		this.paused=true;
 		this.startTimer;
+
+		this.timePlayingScene=0;
+		this.lastPlayTime=undefined;
+
 
 
 
@@ -60,46 +77,170 @@ class Scene{
 		//this.setPositionActions();
 	}
 
-	addScroll(){
-		if(this.scroll.scrollable){
-			// console.log(this.scroll.orderY)
-			this.scrollDiv=addScrollingDiv();
-			return this.scroll.orderY;
-		}
-		else{
-			return false;
-		}
-	}
+	// addScroll(){
+	// 	if(this.scroll.scrollable){
+	// 		// console.log(this.scroll.orderY)
+	// 		//this.scrollDiv=addScrollingDiv();
+	// 		return this.scroll.orderY;
+	// 	}
+	// 	else{
+	// 		console.log("POOOP")
+	// 		console.log(this.id)
+	// 		return false;
+	// 	}
+	// }
 
-	display(autoPlay_){
+	display(){
 
 		this.html.fe.container.style.display="block";
 		
 		for(let i=0;i<this.actionsOut.length;i++){
 			if(this.actionsOut[i].elicit=="display"){
-				this.actionsOut[i].activate(autoPlay_);
+				this.actionsOut[i].activate(true);
 			}
 			
 		}
 
 	}
-	play(autoPlay_){
 
-		this.html.fe.container.style.display="block";
+	scrollTo(behavior_){
+		this.html.fe.container.scrollIntoView({behavior: behavior_});
+		// behavior: auto / smooth. Defaults to auto.
+		// block (vertical alignment): start, center, end, or nearest. Defaults to start.
+		// inline (horizontal alignment): start, center, end, or nearest. Defaults to nearest.
 
-		this.html.fe.container.scrollIntoView();
+	}
+
+	rewind(){
+
+		//should i rewind the actions 
+		// console.log(this.html)
+
+		// for(let action in this.actionsLib){
+		// 	this.actionsLib[action].rewind();
+		// }
+		// this.display()
+		// this.start(false)
+
+		this.timePlayingScene=0;
+		this.lastPlayTime=undefined;
+
+		//or reset the objects
+		for(let id in this.contentsLib){
+			this.contentsLib[id].reset()
+		}
+
+		//not su
+		// for(let id in this.contentsLib){
+		// 	this.contentsLib[id].createEffects()
+		// }
+		
+
+
+		// this.logTimers();
+		this.removeTimers();
+		this.playingMediaObjects=[];
+		// this.logTimers()
+		this.display()
+		this.start(false)
+		currentStory.pause()
+
+
+
+		// this.pause();
+
+		// if(!this.currentScene.started && this.activePath.length>=2){
+		// 	this.clearActive();
+		// 	this.currentScene.clear();
+		// 	this.currentScene.display();
+		// 	this.activePath[this.activePath.length-2].clear();
+		// 	console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
+		// 	this.newScene(this.activePath[this.activePath.length-2], false, "back");
+		// }else{
+		// 	this.clearActive();
+		// 	this.currentScene.clear();
+		// 	this.currentScene.display();
+		// 	this.newScene(this.currentScene, false,"back");
+		// }
+
+		// updateContentSize();
+
+		// setTimeout(function(){this.pause()}.bind(this),100);
+	}
+
+	pauseTimers(){
+		for(let action in this.actionsLib){
+
+			if(currentStory.currentScene.actionsLib[action].timer!=undefined){
+				currentStory.currentScene.actionsLib[action].timer.pause()
+			}
+		}
+	}
+
+	playTimers(){
+		for(let action in this.actionsLib){
+
+			if(currentStory.currentScene.actionsLib[action].timer!=undefined){
+				currentStory.currentScene.actionsLib[action].timer.resume()
+			}
+		}
+	}
+
+	removeTimers(){
+		for(let action in this.actionsLib){
+
+			if(this.actionsLib[action].timer!=undefined){
+				this.actionsLib[action].timer.pause();
+				this.actionsLib[action].timer=undefined;
+			}
+		}
+	}
+
+	logTimers(){
+		for(let action in this.actionsLib){
+
+			if(this.actionsLib[action].timer!=undefined){
+				console.log(this.actionsLib[action].id);
+				console.log(this.actionsLib[action].timer);
+			}
+		}
+	}
+
+
+	start(autoPlay_){
+
+		this.started=true;
+
+		// this.html.fe.container.style.display="block";
+		autoScrolling=true;
+		this.scrollTo("smooth");
+		setTimeout(function(){
+			if(scrollTimeout==undefined){
+				autoScrolling=false;
+			}
+		},1)
+
+		console.log("START " + this.id);
+		// this.paused=false;
+
+		
+
+
+
+		
 		
 		for(let i=0;i<this.actionsOut.length;i++){
-			if(this.actionsOut[i].elicit!="display"){
-				this.actionsOut[i].activate(autoPlay_);
-			}
+			// if(this.actionsOut[i].elicit!="display"){
+				this.actionsOut[i].activate(false);
+				// this.actionsOut[i].activate(autoPlay_);
+			// }
 		}
 
 
 		this.startTimer=new Timer(function(){
 			// console.log("scene timer started");
 			// console.log(this)
-			this.started=true;
+			this.played=true;
 			this.startTimer=undefined;
 		}.bind(this),2000)
 
@@ -108,9 +249,106 @@ class Scene{
 		}
 	}
 
-	// play(){
+	getStatus(){
+		if(this.isPlaying()==true){
+			return "playing";
+		}
+		else if(this.isPlayable()==false){ //if it is not playable and nothing is playing that meens it is done
+			return "ended";
+		}
+		else{
+			return "paused";
+		}
+	}
 
-	// }
+
+
+	isPlaying(){
+		for(let media in this.playingMediaObjects){
+			if(this.playingMediaObjects[media].isPlaying){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	isPlayable(){
+		// console.log(this.activeMainVideo)
+
+		for(let content in this.playingMediaObjects){
+			// console.log(this.playingMediaObjects[content])
+			
+			return true;
+		}
+		if(this.played==false){
+			return true;
+		}
+
+		//should check actions
+		// for(let action in this.actionsLib){
+		// 	if(this.actionsLib[action].timerOutstanding()){
+		// 		console.log(this.actionsLib[action])
+		// 		return true;
+		// 	}
+		// }
+
+		return false;
+
+	}
+
+	getCurrentPlayTime(){
+		if(this.lastPlayTime != undefined){
+			return this.timePlayingScene + (Date.now() - this.lastPlayTime)
+		}else{
+			return this.timePlayingScene
+		}
+		
+	}
+
+	play(){
+		console.log("play " + this.id + "XXXXXXXXXXXXXX");
+
+		
+		this.lastPlayTime=Date.now();
+		this.paused=false;
+
+		this.playTimers();
+		for(let media in this.playingMediaObjects){
+			this.playingMediaObjects[media].play();
+		}
+	}
+
+	pause(){
+		// console.log("PAUSE SCENE")
+		if(this.lastPlayTime!=undefined){
+			this.timePlayingScene += Date.now() - this.lastPlayTime;
+			this.lastPlayTime=undefined;
+		}
+		
+
+		console.log("pause " + this.id);
+		this.paused=true;
+		this.pauseTimers();
+		for(let media in this.playingMediaObjects){
+			this.playingMediaObjects[media].pause();
+		}
+	}
+
+	skip(){
+		let skipWasMade=false;
+		for(let action in this.actionsLib){
+			if(this.actionsLib[action].timerOutstanding()){
+
+				this.actionsLib[action].skip();
+				skipWasMade=true;
+			}
+		}
+
+		for(let media in this.playingMediaObjects){
+			this.playingMediaObjects[media].stop();
+		}
+		return skipWasMade;
+	}
 
 
 	hide(){
@@ -124,7 +362,7 @@ class Scene{
 	}
 
 	clear(){
-		this.started=false;
+		this.played=false;
 		for(let id in this.contentsLib){
 			//console.log(id)
 			this.contentsLib[id].reset();

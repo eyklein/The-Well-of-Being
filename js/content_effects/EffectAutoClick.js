@@ -29,11 +29,12 @@ class AutoClickEffect extends ContentEffect{
 	}
 
 	apply(){
+		console.log(this.vareables.conditional);
+		console.log(eval(this.vareables.conditional));
 
-		//console.log(eval(this.vareables.conditional));
 		if(eval(this.vareables.conditional)){
 			this.parentContent.html.fe.append(this.html)
-			this.html.style.display="block";
+			// this.html.style.display="block";
 			this.drawTimeLeft = setInterval(this.draw.bind(this),15)
 			this.startTime=Date.now();
 
@@ -42,15 +43,21 @@ class AutoClickEffect extends ContentEffect{
 	        		clearInterval(this.drawTimeLeft)
 
 	        		this.parentContent.html.fe.dispatchEvent(this.clickEvent);
-	        		console.log("Create FIRED!!!!!!!!")
 	        	}
 	        }.bind(this),this.vareables.time*1000);
 
 
-	        console.log("Create Autoclick")
-
-
 	        document.addEventListener("click", this.boundManualPageTurn);
+	    }
+
+	}
+
+	unapply(){
+		if(eval(this.vareables.conditional)){
+			this.parentContent.html.fe.remove(this.html);
+
+			clearTimeout(this.timeOut)
+	        document.removeEventListener("click", this.boundManualPageTurn);
 	    }
 
 	}

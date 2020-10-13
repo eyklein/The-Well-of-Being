@@ -231,11 +231,11 @@ class TextBoxContent extends Content{
 	
 	
 
-	displayFrontEndHTML(){
+	display(){
 
 
 
-		super.displayFrontEndHTML();
+		super.display();
 
 		if(this.rangeType=="times"){
 			for(let line of this.textLines){

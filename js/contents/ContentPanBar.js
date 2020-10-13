@@ -276,11 +276,11 @@ class PanBarContent extends Content{
 	
 	
 
-	displayFrontEndHTML(){
+	display(){
 
 
 
-		super.displayFrontEndHTML();
+		super.display();
 
 		// console.log("PAN BAR FRON END")
 		// console.log(this.htmlParent)

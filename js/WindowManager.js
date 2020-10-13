@@ -54,17 +54,30 @@ class WindowManager{
 		this.forceBottomVisible();
 		this.playPause.classList.add("play");
 		this.playPause.classList.remove("pause");
+		this.playPause.classList.remove("rewind");
 		this.play.style.display="block";
 		this.pause.style.display="none";
+		this.rewind.style.display="none";
 	}
 	displayPauseButton(){
 
 		// this.contractPlayPause();
 		this.playPause.classList.add("pause");
 		this.playPause.classList.remove("play");
+		this.playPause.classList.remove("rewind");
 		this.play.style.display="none";
+		this.rewind.style.display="none";
 		this.pause.style.display="block";
 	}
+	displayRewindButton(){
+		this.playPause.classList.add("rewind");
+		this.playPause.classList.remove("pause");
+		this.playPause.classList.remove("play");
+		this.play.style.display="none";
+		this.pause.style.display="none";
+		this.rewind.style.display="block";
+	}
+
 	forceBottomVisible(){
 		if(!this.html.bottomBar.classList.contains("explaned")){
 			this.html.bottomBar.classList.add("explaned");
@@ -98,26 +111,30 @@ class WindowManager{
 
 		
 
-		this.play= document.createElement("img");
-		//this.play.src="img/special/play-w.png";
+		this.play= document.createElement("img"); //this.play.src="img/special/play-w.png";
 		this.play.src="img/special/play.png";
 		this.play.id="play";
 		this.play.classList.add("play-pause");
 		this.playPause.appendChild(this.play);
 
-		this.pause= document.createElement("img");
-		//this.pause.src="img/special/pause-w.png";
+		this.pause= document.createElement("img");//this.pause.src="img/special/pause-w.png";
 		this.pause.src="img/special/pause.png";
 		this.pause.id="pause";
 		this.pause.classList.add("play-pause");
 		this.playPause.appendChild(this.pause);
 		this.pause.style.display="none";
 
+		this.rewind= document.createElement("img");
+		this.rewind.src="img/special/rewind.png";
+		this.rewind.id="rewind";
+		this.rewind.classList.add("play-pause");
+		this.playPause.appendChild(this.rewind);
+
 		document.getElementById("bottom_bar").appendChild(this.playPause);
 		
 
 		this.playPause.addEventListener('click',function(){
-			this.togglePlayPause();
+			this.executePlayPauseRewind();
 		}.bind(this))
 
 		//this.playPause.style.height='50px'
@@ -216,6 +233,9 @@ class WindowManager{
 		//     //counter = parseInt(this.value);
 		// });
 	}
+	executePlayPauseRewind(){
+		currentStory.executePlayPauseRewind();
+	}
 
 	togglePlayPause(){
 		currentStory.togglePlayPause();
@@ -223,18 +243,25 @@ class WindowManager{
 		//console.log(currentStory.playing)
 		
 
-		// currentStory.togglePlayPause();
+		// currentStory.togglePlayPauseRewind();
 		// let srcTemp = currentStory.windowManager.playPause.src;
 		// currentStory.windowManager.playPause.src = currentStory.windowManager.playPause.altSrc;
 		// currentStory.windowManager.playPause.altSrc = srcTemp;
 	}
 	updatePlayPauseButton(){
-		if(currentStory.playing==false){
-			this.playPause.src=this.playPause.srcPlay;
+		let status = currentStory.getStatus();
+		console.log("***************************************** " + status)
+		if(status=="paused"){
+			// this.playPause.src=this.playPause.srcPlay;
+			this.displayPlayButton();
 
 			//console.log(this.playPause.src)
-		}else{
-			this.playPause.src=this.playPause.srcPause;
+		}else if(status=="playing"){
+			//this.playPause.src=this.playPause.srcPause;
+			this.displayPauseButton();
+		}else if(status=="ended"){
+			// this.togglePlayPauseRewind()
+			this.displayRewindButton();
 		}
 	}
 

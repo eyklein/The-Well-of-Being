@@ -546,7 +546,7 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "INTRO002",
+			"id": "901-102d",
 			"tailID": "901",
 			"headID": "102",
 			"trigger": "onEnd",
@@ -554,23 +554,7 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "INTRO002",
-			"tailID": "INTRO",
-			"headID": "102",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": ["this.scene.contentsLib[901].isDonePlaying"]
-		},{
-			"id": "INTRO002",
-			"tailID": "INTRO",
-			"headID": "102",
-			"trigger": "time",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": ["this.scene.contentsLib[901].isDonePlaying"]
-		}, {
-			"id": "INTRO002",
+			"id": "901-102c",
 			"tailID": "901",
 			"headID": "102",
 			"trigger": "onEnd",

@@ -13,4 +13,9 @@ class RepeatAudioEffect extends AudioEffect{
 		}
 
 	}
+	unapply(){
+		if(this.vareables.isOn){
+			this.parentContent.loop=false;
+		}
+	}
 }

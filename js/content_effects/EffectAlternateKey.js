@@ -19,8 +19,11 @@ class AlternateKeyEffect extends ContentEffect{
 	apply(){
 
 			document.addEventListener("keydown", this.boundClickFunction);
-		
-		
+	}
+
+	unapply(){
+
+			document.removeEventListener("keydown", this.boundClickFunction);
 	}
 
 	createEditorHTML(){

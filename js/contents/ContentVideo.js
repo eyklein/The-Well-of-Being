@@ -19,15 +19,17 @@ class VideoContent extends Content{
 		this.backEndCreated=false;
 	    this.videoLoaded=false
 
+	    this.boundDonePlayingEvent=this.donePlayingEvent.bind(this)
+
 	   	
 
 	}
 
 	reset(){
-		this.stop();
-		super.reset();
+		this.unplay();
+		this.createFrontEndHTML()
+		// super.reset();
 		this.isDonePlaying=false;
-
 	}
 
 	
@@ -158,27 +160,25 @@ class VideoContent extends Content{
 				
 
 				
-				this.html.fe.onload =function(){ // can only adjust the size after it is loaded and therefore knows the natural size
+				// this.html.fe.onload =function(){ // can only adjust the size after it is loaded and therefore knows the natural size
 					
-					this.adjustSize();
-					console.log("VIDEO LOADED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-					console.log(this.html.fe.duration);
-					this.duration=this.html.fe.duration;
-					this.html.fe.onload=null;
-				}.bind(this)
+				// 	this.adjustSize();
+				// 	console.log("VIDEO LOADED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				// 	console.log(this.html.fe.duration);
+				// 	this.duration=this.html.fe.duration;
+				// 	this.html.fe.onload=null;
+				// }.bind(this)
 
 
+				this.html.fe.addEventListener('ended', this.boundDonePlayingEvent);
 
-		
-		
-				
-
-				// super.addEffectEditors();
-				
-				//this.html.fe.classList.add('icon-img')
-		
-				// this.createEffects();
-				// this.applyGeneralEffects();
+				this.html.fe.addEventListener('pause', function(e){
+					if(this.html.fe.currentTime>=(this.start+this.duration)){
+						//force ended event
+						let event = new Event('ended');
+						this.html.fe.dispatchEvent(event);
+					}
+				}.bind(this));
 		
 		
 		}
@@ -193,41 +193,40 @@ class VideoContent extends Content{
 	}
 
 
+	donePlayingEvent(){
+		this.removeFromActiveVideo();
+		this.isDonePlaying=true;
+	}
 
-	displayFrontEndHTML(){
 
-		
-		//document.getElementById("background_img").append(this.html.fe);
 
-		// console.log("Display Video")
-		super.displayFrontEndHTML();
+
+
+	display(){
+		super.display();
 		this.htmlParent.append(this.html.fe);
 		this.applyEntranceEffects();
-		this.html.fe.style.display="block";
-		this.html.fe.style.preload="metadata";//show first frame
+		//this.html.fe.style.display="block";
+		// this.html.fe.style.preload="metadata";//show first frame
 
-		// this.play();
-
-
-
+		
 		this.html.fe.currentTime=.09;
 
-		this.html.fe.addEventListener('ended', function(e){
-			this.removeFromActiveVideo();
-			this.isDonePlaying=true;
-		}.bind(this));
+
+
+
+		
 
 		this.activateOnEndEvents()
 
-		this.html.fe.addEventListener('pause', function(e){
-			if(this.html.fe.currentTime>=(this.start+this.duration)){
-				//force ended event
-				let event = new Event('ended');
-				this.html.fe.dispatchEvent(event);
-			}
-		}.bind(this));
 
-		// this.html.fe.play();
+	}
+
+	undisplay(){
+		super.display();
+		// this.html.fe.remove()
+		this.htmlParent.removeChild(this.html.fe);
+		//this.unapplyEntranceEffects(); //???
 
 	}
 	
@@ -240,19 +239,39 @@ class VideoContent extends Content{
 
 	}
 	pan(percent_){
-		// console.log((percent_))
-		// console.log((percent_*this.html.fe.duration))
 		this.html.fe.currentTime=(percent_*parseFloat(this.html.fe.duration));
 	}
 	removeFromActiveVideo(){
 		// console.log("REMOVE!!!!!!!")
-		delete currentStory.activeMainVideo[currentStory.currentScene.id+this.id];
+		//story
+		// delete currentStory.activeMainVideo[currentStory.currentScene.id+this.id];
+
+		//scene
+		this.parentScene.playingMediaObjects.splice(this.parentScene.playingMediaObjects.indexOf(this),1);
+
+		//currentStory.updatePlayPause()
+	}
+
+	addToActiveVideo(){
+		// currentStory.activeMainVideo[currentStory.currentScene.id+this.id]=this;
+
+
+		if(this.parentScene.playingMediaObjects.indexOf(this) == -1){
+			this.parentScene.playingMediaObjects.push(this)
+		}
+		
 
 		currentStory.updatePlayPause()
 	}
 
-	addToActiveVideo(){
-		currentStory.activeMainVideo[currentStory.currentScene.id+this.id]=this;
+	removeFromActiveVideo(){
+		// currentStory.activeMainVideo[currentStory.currentScene.id+this.id]=this;
+
+
+		if(this.parentScene.playingMediaObjects.indexOf(this) != -1){
+			this.parentScene.playingMediaObjects.splice(this.parentScene.playingMediaObjects.indexOf(this),1);
+		}
+		
 
 		currentStory.updatePlayPause()
 	}
@@ -282,11 +301,13 @@ class VideoContent extends Content{
 
 		
 	}
-	// stop(){
-	// 	this.html.fe.currentTime=this.html.fe.duration;
-	// }
+	unplay(){ //movie at start
+		this.html.fe.currentTime=this.start;
+		this.pause();
 
-	stop(){
+	}
+	
+	stop(){ //movie at end
 		if(this.html.fe.duration){
 			this.html.fe.currentTime=this.start + this.html.fe.duration;
 		}else{
