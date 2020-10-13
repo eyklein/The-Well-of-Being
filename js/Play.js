@@ -122,7 +122,7 @@ class Story{
 		this.activePath=[];
 
 
-		this.autoRun=false;
+		this.autoRun=true;
 
 		//this.setLeftOffsets()
 		

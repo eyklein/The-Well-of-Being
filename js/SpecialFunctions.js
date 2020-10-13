@@ -232,32 +232,18 @@ function updateContentSize(){
 	}
 	document.width=width;
 
-	// document.getElementById("content").style.width=width+'px';
-	// document.getElementById("content").style.height=height+'px';
+	document.getElementById("content").style.width=width+'px';
+	document.getElementById("content").style.height=height+'px';
 
-	// document.getElementById("content").style.top=(window.innerHeight-height)/2+'px';
-	// document.getElementById("content").style.left=0+'px';
+	document.getElementById("content").style.top=(window.innerHeight-height)/2+'px';
+	document.getElementById("content").style.left=0+'px';
 
-	// document.getElementById("bottom_bar").style.height=height*.05+'px';
-	// document.getElementById("bottom_bar").style.display='block';
-
-
-  document.getElementById("content").style.width=width+'px';
-  document.getElementById("content").style.height=height+'px';
-
-  document.getElementById("content").style.top=(window.innerHeight-height)/2+'px';
-  document.getElementById("content").style.left=0+'px';
-
-  document.getElementById("bottom_bar").style.height=height*.05+'px';
-  document.getElementById("bottom_bar").style.display='block';
-
-  //these are flipped because of the rotates
-  // document.getElementById("scenes").style.width=height+'px';
-  document.getElementById("scenes").style.height=width+'px';
-// document.getElementById("scenes").style.width=height+'px';
-  // document.getElementById("scenes").style.height=width+'px';
-
-
+	document.getElementById("bottom_bar").style.height=height*.05+'px';
+	document.getElementById("bottom_bar").style.display='block';
+	//currentStory.windowManager.playPause.style['padding-top']=height*.01+'px';
+	// currentStory.windowManager.playPause.style['position']='absolute';
+	// currentStory.windowManager.playPause.style['left']=width*.5+'px';
+	// currentStory.windowManager.playPause.style['padding']=height*.01+'px';
 
 	currentStory.windowManager.playPause.style.height=height*.03+'px';
 	currentStory.windowManager.playPause.style.width=height*.03+'px';
@@ -270,7 +256,7 @@ function updateContentSize(){
 	currentStory.windowManager.fullScreenButton.style.height=height*.03+'px';
 	currentStory.windowManager.fullScreenButton.style.width=height*.03+'px';
 
-	// document.getElementById("main_text").style['font-size']=width*.02+'px';
+	document.getElementById("main_text").style['font-size']=width*.02+'px';
 
 	currentStory.windowManager.mainVolumeLable.style['font-size']=height*.02+"px";
 	// currentStory.windowManager.mainVolumeLable.style['color']="red";

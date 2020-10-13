@@ -128,39 +128,22 @@ window.onload=function(){
 	//     // console.log(e)
 	// }));
 
-	// $(window).scroll(
-	//     function() {
-	//         if ($(window).scrollTop() + $(window).height() > $(document).height()) return;
-	//         updateScroll(); // my own function to do my parallaxing stuff
-	//     }
-	// );
-
 	
 	
-	// document.getElementById("scenes").addEventListener('scroll', function(e) {
-	// 	// autoScrolling=true;
-	//     clearTimeout(scrollTimeout);
-	//     scrollTimeout = setTimeout(function() {
-	//     	autoScrolling=false
-	//         console.log('Scroll ended');
-	//         scrollTimeout=undefined;
-	//     }, 100);
-	// });
-
-	// window.addEventListener("wheel", function(e){
-	// 	shiftScroll(e.deltaY)
-	// })
-
-
-
-	// scrollTraget=document.getElementById("scenes").scrollLeft;
+	document.getElementById("scenes").addEventListener('scroll', function(e) {
+		// autoScrolling=true;
+	    clearTimeout(scrollTimeout);
+	    scrollTimeout = setTimeout(function() {
+	    	autoScrolling=false
+	        console.log('Scroll ended');
+	        scrollTimeout=undefined;
+	    }, 100);
+	});
 
 
 	document.getElementById("scenes").addEventListener('scroll', function(e) {
-	  
-	  scenesLastScrollPosition = e.target.scrollTop;
-
-	  // console.log(e)
+	  // console.log("HI")
+	  scenesLastScrollPosition = e.target.scrollLeft;
 	  // console.log(scenesLastScrollPosition)
 
 	  if (!scenesTicking) {
@@ -176,24 +159,20 @@ window.onload=function(){
 	});
 
 };
-
-// var scrollTraget
-// function shiftScroll(deltaX_){
-// 	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0,"behavior": "smooth"});
-// 	// document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
-
-// }
-// function scrollToTarget(targetX_){
-// 	document.getElementById("scenes").scrollTo({"left":targetX_,"top":0,"behavior": "smooth"});
-// 	console.log(targetX_)
-// 	// document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
-
-// }
-
 var scrollTimeout;
 var scenesLastScrollPosition=0;
 let scenesTicking = false; 
 function scrollScenes(scrollPos_) {
+	// console.log(currentStory.scrollOrderArray.length);
+	// let widthSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetWidth
+	//console.log()
+
+	// console.log($(selector))
+	// console.log($(selector).data)
+	// console.log($(selector).data.mCS)
+	// console.log($(selector).data("mCS").trigger)
+
+	// console.log(scrollPos_)
 
 	
 	let wasPlaying = currentStory.playing;
@@ -272,22 +251,6 @@ function handler(e){
 	}
 
 window.addEventListener('resize', updateContentSize);
-
-
-// function replaceVerticalScrollByHorizontal(event) {
-// 	if (event.deltaY != 0) {
-//   	// manually scroll horizonally instead
-//   	let scenesDiv=document.getElementById("scenes")
-//     // scenesDiv.scroll(scenesDiv.scrollX + event.deltaY * 5, scenesDiv.scrollY);
-    
-//     // prevent vertical scroll
-//   	// event.preventDefault();
-//   }
-//   return;
-// }
-
-// /* Listener on window once we start scrolling, we run our function 💨 */
-// window.addEventListener('wheel', replaceVerticalScrollByHorizontal);
 
 
 
