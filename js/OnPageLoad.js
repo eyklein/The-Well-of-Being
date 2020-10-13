@@ -128,6 +128,16 @@ window.onload=function(){
 	//     // console.log(e)
 	// }));
 
+	window.addEventListener("wheel", function(e){
+		console.log(e.deltaY)
+		if(Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
+			shiftScroll(e.deltaY)
+		}else{
+			shiftScroll(e.deltaX)
+		}
+		
+	})
+
 	
 	
 	document.getElementById("scenes").addEventListener('scroll', function(e) {
@@ -159,6 +169,22 @@ window.onload=function(){
 	});
 
 };
+
+var scrollTraget
+function shiftScroll(deltaX_){
+	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0,"behavior": "smooth"});
+	// document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
+
+}
+function scrollToTarget(targetX_){
+	document.getElementById("scenes").scrollTo({"left":targetX_,"top":0,"behavior": "smooth"});
+	console.log(targetX_)
+	// document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
+
+}
+
+
+
 var scrollTimeout;
 var scenesLastScrollPosition=0;
 let scenesTicking = false; 
