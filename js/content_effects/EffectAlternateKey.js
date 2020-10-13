@@ -18,12 +18,20 @@ class AlternateKeyEffect extends ContentEffect{
 
 	apply(){
 
-			document.addEventListener("keydown", this.boundClickFunction);
+			// document.addEventListener("keydown", this.boundClickFunction);
+			this.parentContent.parentScene.addAlternateKeyEffect(this);
+
 	}
 
 	unapply(){
 
-			document.removeEventListener("keydown", this.boundClickFunction);
+		this.parentContent.parentScene.removeAlternateKeyEffect(this);
+
+			// document.removeEventListener("keydown", this.boundClickFunction);
+	}
+
+	forceClick(){
+		this.parentContent.html.fe.dispatchEvent(this.clickEvent);
 	}
 
 	createEditorHTML(){

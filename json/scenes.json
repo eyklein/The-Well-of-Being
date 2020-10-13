@@ -562,7 +562,7 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "INTRO102",
+			"id": "102viiid",
 			"tailID": "102",
 			"headID": "viii-xii",
 			"trigger": "click",

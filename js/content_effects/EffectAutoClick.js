@@ -39,7 +39,7 @@ class AutoClickEffect extends ContentEffect{
 			this.startTime=Date.now();
 
 			this.timeOut = setTimeout(function(){
-	        	if(this.mouseClicked == false){
+	        	if(this.mouseClicked == false && currentStory.currentScene == this.parentContent.parentScene){
 	        		clearInterval(this.drawTimeLeft)
 
 	        		this.parentContent.html.fe.dispatchEvent(this.clickEvent);
@@ -75,13 +75,13 @@ class AutoClickEffect extends ContentEffect{
 
 	manualPageTurn(){
 		console.log("Switch to manuel ")
-			this.html.style.display="none";
-			this.mouseClicked=true;
-			clearInterval(this.drawTimeLeft)
-			window.clearTimeout(this.timeOut)
-			document.removeEventListener("click", this.boundManualPageTurn);
+		this.html.style.display="none";
+		this.mouseClicked=true;
+		clearInterval(this.drawTimeLeft)
+		window.clearTimeout(this.timeOut)
+		document.removeEventListener("click", this.boundManualPageTurn);
 
-		}
+	}
 
 	
 
