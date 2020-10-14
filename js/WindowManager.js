@@ -7,7 +7,60 @@ class WindowManager{
 		this.html={};
 		this.html.topBar=document.getElementById('top-bar');
 		this.html.content=document.getElementById('content');
-		this.html.bottomBar=document.getElementById("bottom_bar");
+		this.html.bottomBar=document.getElementById("bottom-bar");
+
+		this.html.scrollbarX=document.getElementById('scrollbarX');
+		this.html.scrollbarThumbX=document.getElementById('scrollbarX-thumb');
+
+
+
+
+		$(this.html.scrollbarThumbX).draggable({
+		    axis: "x"
+		});
+
+
+		$(this.html.scrollbarThumbX).on('mousedown', function() {
+				$( this.html.scrollbarThumbX ).draggable({
+
+				    stop: function (){
+				    	
+				    var widthBar=parseFloat($(this).parent().css("width"));
+				    var widthThumb=parseFloat($(this).css("width"));
+				     var l = parseFloat($(this).css("left")) ;
+				     var r = parseFloat($(this).css("left"))+widthThumb;  //) / (parseFloat($(this).parent().css("width"))) ) 
+				     
+				     if(l<0){
+				     	
+				     	$(this).css("left" , "0px");
+
+				     }else if(r>widthBar){
+				     	l=widthBar-widthThumb;
+				     	l=l+'px'
+				     	$(this).css("left" , l);
+				     }else{
+				     	l=l+"px";
+				     	$(this).css("left" , l);
+				     }
+				     
+				     }
+				});
+
+
+			}.bind(this));
+
+		$(this.html.scrollbarThumbX).on('drag', function(e) {
+			let thumb = this.html.scrollbarThumbX;
+			let l = parseFloat($(thumb).css("left"));
+			let rounded= Math.round(l/100)*100
+			rounded=rounded+'px';
+			// console.log(rounded)
+			$(thumb).css("left",rounded+'px')
+			// console.log(e.target.offsetLeft)
+			// this.target.pan((e.target.offsetLeft) /document.width);
+
+		}.bind(this));
+
 
 		this.addFullScreen();
 		this.addPlayPauseButton();
@@ -130,7 +183,7 @@ class WindowManager{
 		this.rewind.classList.add("play-pause");
 		this.playPause.appendChild(this.rewind);
 
-		document.getElementById("bottom_bar").appendChild(this.playPause);
+		document.getElementById("bottom-bar").appendChild(this.playPause);
 		
 
 		this.playPause.addEventListener('click',function(){
@@ -150,7 +203,7 @@ class WindowManager{
 		this.volumes.style.width="25%";
 	
 
-		document.getElementById("bottom_bar").appendChild(this.volumes);
+		document.getElementById("bottom-bar").appendChild(this.volumes);
 
 
 
@@ -281,7 +334,7 @@ class WindowManager{
 
 		//this.fullScreenButton.id="fullScreenButton";
 
-		document.getElementById("bottom_bar").append(this.fullScreenButton);
+		document.getElementById("bottom-bar").append(this.fullScreenButton);
 		
 		// this.fullScreenButton.innerHTML=fullScreenSVG(25,22,6);
 		// this.html.bottomBar.append(this.fullScreenButton)

@@ -184,15 +184,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
-    <div id="top-bar">
-    <!-- <button type="button" id="go_to_scene_veiw">Go to Scenes</button>
-
-      <script type="text/javascript">
-       
-      </script> -->
-
-
-    </div>
+  
 
     <div id='page-number' >
 
@@ -238,7 +230,12 @@
 
 
       <div id='content'>
-        <div id='bottom_bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'></div>
+        <div id='top-bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'>
+          <div id='scrollbarX' >
+          <div id='scrollbarX-thumb' class='draggable' ></div>
+          </div>
+        </div>
+        <div id='bottom-bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'></div>
         <div id='scenes' class="scenes x mandatory-scroll-snapping">
 
 
@@ -260,11 +257,7 @@
         
 
       </div>
-      <div id='scrolling-window' class = 'x-scroll x-mandatory'>
-        <div class="wrapper">
-
-        </div>
-      </div>
+      
 
       
 

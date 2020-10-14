@@ -232,14 +232,43 @@ function updateContentSize(){
 	}
 	document.width=width;
 
+
 	document.getElementById("content").style.width=width+'px';
 	document.getElementById("content").style.height=height+'px';
 
 	document.getElementById("content").style.top=(window.innerHeight-height)/2+'px';
 	document.getElementById("content").style.left=0+'px';
 
-	document.getElementById("bottom_bar").style.height=height*.05+'px';
-	document.getElementById("bottom_bar").style.display='block';
+
+
+
+  document.getElementById("top-bar").style.height=height*.05+'px';
+  document.getElementById("top-bar").style.display='block';
+  document.getElementById("top-bar").style.width=width+'px';
+
+  if(window.innerHeight-height>document.getElementById("top-bar").offsetHeight*2){
+    document.getElementById("top-bar").style.top="-30px";
+    // document.getElementById("top-bar").style["background-color"]="red";
+  }
+  else{
+    document.getElementById("top-bar").style.top="0px";
+    // document.getElementById("top-bar").style["background-color"]="blue";
+  }
+
+
+
+
+
+	document.getElementById("bottom-bar").style.height=height*.05+'px';
+	document.getElementById("bottom-bar").style.display='block';
+  document.getElementById("bottom-bar").style.width=width+'px';
+
+  if(window.innerHeight-height>document.getElementById("bottom-bar").offsetHeight*2){
+    document.getElementById("bottom-bar").style.bottom="-30px";
+  }else{
+    document.getElementById("bottom-bar").style.bottom="0px";
+  }
+
 	//currentStory.windowManager.playPause.style['padding-top']=height*.01+'px';
 	// currentStory.windowManager.playPause.style['position']='absolute';
 	// currentStory.windowManager.playPause.style['left']=width*.5+'px';
@@ -255,6 +284,8 @@ function updateContentSize(){
 	
 	currentStory.windowManager.fullScreenButton.style.height=height*.03+'px';
 	currentStory.windowManager.fullScreenButton.style.width=height*.03+'px';
+  
+
 
 	// document.getElementById("main_text").style['font-size']=width*.02+'px';
 

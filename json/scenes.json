@@ -846,7 +846,7 @@
 			"headID": "901",
 			"trigger": "time",
 			"elicit": "play",
-			"delay": 5,
+			"delay": 6,
 			"conditions": []
 		}],
 		"contents": [{
