@@ -131,12 +131,12 @@ window.onload=function(){
 		// console.log(e.deltaY)
 		if(Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
 			if(e.deltaY!=0){
-				scrollBy(e.deltaY*1)
+				scrollBy(e.deltaY*2)
 			}
 						
 		}else{
 			if(e.deltaX!=0){
-				scrollBy(e.deltaX*1)
+				scrollBy(e.deltaX*2)
 			}
 		}
 		
