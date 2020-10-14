@@ -132,12 +132,12 @@ window.onload=function(){
 		// console.log(e.deltaY)
 		if(Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
 			if(e.deltaY!=0){
-				scrollBy(e.deltaY)
+				scrollBy(e.deltaY*1)
 			}
 						
 		}else{
 			if(e.deltaX!=0){
-				scrollBy(e.deltaX)
+				scrollBy(e.deltaX*1)
 			}
 		}
 		
@@ -145,22 +145,24 @@ window.onload=function(){
 
 	
 	
-	// document.getElementById("scenes").addEventListener('scroll', function(e) {
-	// 	// autoScrolling=true;
-	//     clearTimeout(scrollTimeout);
-	//     scrollTimeout = setTimeout(function() {
-	//     	autoScrolling=false
-	//         console.log('Scroll ended');
-	//         scrollTimeout=undefined;
-	//     }, 100);
-	// });
+	document.getElementById("scenes").addEventListener('scroll', function(e) {
+		// autoScrolling=true;
+	    clearTimeout(scrollTimeout);
+	    scrollTimeout = setTimeout(function() {
+	    	// document.getElementById("scenes").classList.add("mandatory-scroll-snapping");
+	    	// autoScrolling=false
+	        // console.log('Scroll endedx');
+	        easeToSceneFrame();
+	        // scrollTimeout=undefined;
+	    }, 100);
+	});
 
 
 	// document.getElementById("scenes").addEventListener('scroll', function(e) {
 	//   // console.log("HI")
 	//   scenesLastScrollPosition = e.target.scrollLeft;
 	//   // console.log(scenesLastScrollPosition)
-
+	//   console.log(scenesTicking);
 	//   if (!scenesTicking) {
 	//     window.requestAnimationFrame(function() {
 	//       scrollScenes(scenesLastScrollPosition);
@@ -177,13 +179,17 @@ window.onload=function(){
 
 var scrollTraget=0;
 function scrollBy(deltaX_){
+	// document.getElementById("scenes").classList.remove("mandatory-scroll-snapping");
 	// console.log((scrollTraget -1) +" <= " + document.getElementById("scenes").scrollLeft)
 	// if(scrollTraget <= document.getElementById("scenes").scrollLeft){
 		// scrollTraget = document.getElementById("scenes").scrollLeft+deltaX_;
-		document.getElementById("scenes").scrollTo({"left":deltaX_,"top":0,"behavior": "smooth"});
+		// document.getElementById("scenes").scrollTo({"left":deltaX_,"top":0,"behavior": "smooth"});
+
+	// console.log(deltaX_)
+	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
 	// }
 	
-	console.log(deltaX_)
+	// console.log(deltaX_)
 	// document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
 
 }
@@ -199,23 +205,16 @@ function scrollTo(targetX_){
 var scrollTimeout;
 var scenesLastScrollPosition=0;
 let scenesTicking = false; 
-function scrollScenes(scrollPos_) {
-	// console.log(currentStory.scrollOrderArray.length);
-	// let widthSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetWidth
-	//console.log()
+function startScrolledToScene(scrollPos_) {
 
-	// console.log($(selector))
-	// console.log($(selector).data)
-	// console.log($(selector).data.mCS)
-	// console.log($(selector).data("mCS").trigger)
 
-	// console.log(scrollPos_)
+	
 
 	
 	let wasPlaying = currentStory.playing;
 
 
-  	if(scrollTimeout==undefined || !autoScrolling){
+  	// if(scrollTimeout==undefined || !autoScrolling){
 
   		
 
@@ -247,7 +246,7 @@ function scrollScenes(scrollPos_) {
 	  		}
 	  		
 	  	}
-	 }
+	 // }
 
   
   	
@@ -276,6 +275,42 @@ function populateStory(sceneData_){
 
 
 
+
+}
+
+function easeToSceneFrame(pos_){
+	if(pos_==undefined){
+		pos_=document.getElementById("scenes").scrollLeft;
+	}
+	let decScenePos = pos_/document.width;// 120/50=2.4 			80/50=1.6         
+	let rounded= Math.round(decScenePos);// 2							2
+	let shiftPercent = rounded - decScenePos ; 	// -0.4				`	0.4`
+
+	if(Math.abs(shiftPercent)>.015 ){
+
+		// console.log((shiftPercent*document.width)*.01)
+		scrollBy((shiftPercent*document.width)*.1);	//-0.4*50 = -20			0.4*50=20 yes
+		setTimeout(easeToSceneFrame,10);
+	}else{
+		// console.log("go")
+		toSceneFrame();
+	}
+
+}
+
+function toSceneFrame(pos_){
+	if(pos_==undefined){
+		pos_=document.getElementById("scenes").scrollLeft;
+	}
+	let decScenePos = pos_/document.width;// 120/50=2.4 			80/50=1.6         
+	let rounded= Math.round(decScenePos);// 2							2
+	let shiftPercent = rounded - decScenePos ; 	// -0.4				`	0.4`
+
+
+	scrollBy(shiftPercent*document.width)	//-0.4*50 = -20			0.4*50=20 yes
+
+	console.log(pos_)
+	startScrolledToScene(pos_);
 
 }
 
