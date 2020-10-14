@@ -129,51 +129,61 @@ window.onload=function(){
 	// }));
 
 	window.addEventListener("wheel", function(e){
-		console.log(e.deltaY)
+		// console.log(e.deltaY)
 		if(Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
-			scrollBy(e.deltaY)
+			if(e.deltaY!=0){
+				scrollBy(e.deltaY)
+			}
+						
 		}else{
-			scrollBy(e.deltaX)
+			if(e.deltaX!=0){
+				scrollBy(e.deltaX)
+			}
 		}
 		
 	})
 
 	
 	
-	document.getElementById("scenes").addEventListener('scroll', function(e) {
-		// autoScrolling=true;
-	    clearTimeout(scrollTimeout);
-	    scrollTimeout = setTimeout(function() {
-	    	autoScrolling=false
-	        console.log('Scroll ended');
-	        scrollTimeout=undefined;
-	    }, 100);
-	});
+	// document.getElementById("scenes").addEventListener('scroll', function(e) {
+	// 	// autoScrolling=true;
+	//     clearTimeout(scrollTimeout);
+	//     scrollTimeout = setTimeout(function() {
+	//     	autoScrolling=false
+	//         console.log('Scroll ended');
+	//         scrollTimeout=undefined;
+	//     }, 100);
+	// });
 
 
-	document.getElementById("scenes").addEventListener('scroll', function(e) {
-	  // console.log("HI")
-	  scenesLastScrollPosition = e.target.scrollLeft;
-	  // console.log(scenesLastScrollPosition)
+	// document.getElementById("scenes").addEventListener('scroll', function(e) {
+	//   // console.log("HI")
+	//   scenesLastScrollPosition = e.target.scrollLeft;
+	//   // console.log(scenesLastScrollPosition)
 
-	  if (!scenesTicking) {
-	    window.requestAnimationFrame(function() {
-	      scrollScenes(scenesLastScrollPosition);
-	      scenesTicking = false;
-	    });
+	//   if (!scenesTicking) {
+	//     window.requestAnimationFrame(function() {
+	//       scrollScenes(scenesLastScrollPosition);
+	//       scenesTicking = false;
+	//     });
 
-	    scenesTicking = true;
-	  }else{
-	  	console.log("?????????????????????")
-	  }
-	});
+	//     scenesTicking = true;
+	//   }else{
+	//   	console.log("?????????????????????")
+	//   }
+	// });
 
 };
 
-var scrollTraget
+var scrollTraget=0;
 function scrollBy(deltaX_){
-	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0,"behavior": "smooth"});
-	se
+	// console.log((scrollTraget -1) +" <= " + document.getElementById("scenes").scrollLeft)
+	// if(scrollTraget <= document.getElementById("scenes").scrollLeft){
+		// scrollTraget = document.getElementById("scenes").scrollLeft+deltaX_;
+		document.getElementById("scenes").scrollTo({"left":deltaX_,"top":0,"behavior": "smooth"});
+	// }
+	
+	console.log(deltaX_)
 	// document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
 
 }
