@@ -488,7 +488,7 @@ section {
 
 }
 
-.slider:hover {
+/*.slider:hover {
   opacity: 1;
   transition: opacity 1s;
 }
@@ -498,24 +498,24 @@ section {
 
   }
 
-.slider::-webkit-slider-thumb {
+/*.slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 0px;
   height: 8px;
-  /*background: #000;*/
+  background: #000;
   cursor: pointer;
- /*cursor: ew-resize;*/
-  /*background: #434343;*/
+ /*cursor: ew-resize;
+  /*background: #434343;
   box-shadow: -300px 0 0 300px #fff;
-}
+}*/
 
-.slider::-moz-range-thumb {
+/*.slider::-moz-range-thumb {
   width: 4px;
   height: 8px;
   background: #4CAF50;
   cursor: pointer;
-}
+}*/
 
 
 
@@ -553,7 +553,7 @@ body, html {
   font-family: 'indieFlower', cursive;
 }
 #scrollbarX{
-    background-color: blue;
+    /*background-color: blue;*/
     height: 10px;
     width: 100%;
     bottom:0px;
@@ -561,7 +561,7 @@ body, html {
 
   }
 #scrollbarX-thumb{
-    background-color: green;
+    background-color: gray;
     height: 100%;
     width: 50px;
     border-radius: 10px;
@@ -575,8 +575,8 @@ body, html {
   height: 60px;
   /*background-color: white;*/
   /*opacity: 0;*/
-  opacity: .2;
-  transition: opacity 3s
+  opacity: 0;
+  transition: opacity 5s
 }
 #top-bar:hover{
 
@@ -587,7 +587,7 @@ body, html {
     -o-animation: fadeInFromNone 0.5s;*/
 
     opacity: .8;
-    transition: opacity 1s
+    transition: opacity .5s
     /*animation: fadeInFromNone 0.5s;*/
 }
 

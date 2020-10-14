@@ -109,26 +109,23 @@ window.onload=function(){
 
 
 	// $('#scenes').scroll($.debounce( 250, true, function(e){
-	//     // $('#scrollMsg').html('SCROLLING!');
-	//     preScrollWasPlaying=currentStory.playing;
-	//     if(preScrollWasPlaying){
-	//     	// currentStory.pause();
-	//     }
-	//     // currentStory.pause();
-	//     // console.log("start scrolling debounce")
-	//     // console.log(e)
+	//     console.log("start scolling")
 
 	// }));
 	$('#scenes').scroll($.debounce( 250, function(e){
 	    // $('#scrollMsg').html('DONE!');
-	    console.log("DONE Scroll!!!!!!!!!!");
-	    easeToSceneFrame();
+	    // console.log("DONE Scroll!!!!!!!!!!");
+	    // if($(currentStory.windowManager.html.scrollbarThumbX).data('pressed') == false){//not scrolling with bar
+
+	    	easeToSceneFrame();
+	    // }
+	    
 	    // console.log("DONE!!")
 	    // console.log(e)
 	}));
 
 	window.addEventListener("wheel", function(e){
-		// console.log(e.deltaY)
+		
 		if(Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
 			if(e.deltaY!=0){
 				scrollBy(e.deltaY*2)
@@ -144,17 +141,17 @@ window.onload=function(){
 
 	
 	
-	document.getElementById("scenes").addEventListener('scroll', function(e) {
-		// autoScrolling=true;
-	    clearTimeout(scrollTimeout);
-	    scrollTimeout = setTimeout(function() {
-	    	// document.getElementById("scenes").classList.add("mandatory-scroll-snapping");
-	    	// autoScrolling=false
-	        // console.log('Scroll endedx');
-	        // easeToSceneFrame();
-	        // scrollTimeout=undefined;
-	    }, 100);
-	});
+	// document.getElementById("scenes").addEventListener('scroll', function(e) {
+	// 	// autoScrolling=true;
+	//     clearTimeout(scrollTimeout);
+	//     scrollTimeout = setTimeout(function() {
+	//     	// document.getElementById("scenes").classList.add("mandatory-scroll-snapping");
+	//     	// autoScrolling=false
+	//         // console.log('Scroll endedx');
+	//         // easeToSceneFrame();
+	//         // scrollTimeout=undefined;
+	//     }, 100);
+	// });
 
 
 	// document.getElementById("scenes").addEventListener('scroll', function(e) {
@@ -186,6 +183,8 @@ function scrollBy(deltaX_){
 
 	// console.log(deltaX_)
 	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
+
+	currentStory.windowManager.updateScrollBar();
 	// }
 	
 	// console.log(deltaX_)
@@ -193,8 +192,8 @@ function scrollBy(deltaX_){
 
 }
 function scrollTo(targetX_){
-	document.getElementById("scenes").scrollTo({"left":targetX_,"top":0,"behavior": "smooth"});
-	console.log(targetX_)
+	document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
+	// console.log(targetX_)
 	// document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
 
 }

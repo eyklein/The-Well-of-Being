@@ -12,6 +12,16 @@ class WindowManager{
 		this.html.scrollbarX=document.getElementById('scrollbarX');
 		this.html.scrollbarThumbX=document.getElementById('scrollbarX-thumb');
 
+		this.html.scrollbarThumbX.addEventListener("mousedown",function(){
+			
+		    $(this.html.scrollbarThumbX).data('pressed', true);
+		}.bind(this));
+		this.html.scrollbarThumbX.addEventListener("mouseup",function(){
+			
+		    $(this.html.scrollbarThumbX).data('pressed', false);
+		}.bind(this));
+
+
 
 
 
@@ -21,9 +31,14 @@ class WindowManager{
 
 
 		$(this.html.scrollbarThumbX).on('mousedown', function() {
+			
+				$(this.html.scrollbarThumbX).data('pressed', true);
+
+
 				$( this.html.scrollbarThumbX ).draggable({
 
 				    stop: function (){
+				    	 $(this).data('pressed', false);
 				    	
 				    var widthBar=parseFloat($(this).parent().css("width"));
 				    var widthThumb=parseFloat($(this).css("width"));
@@ -42,7 +57,6 @@ class WindowManager{
 				     	l=l+"px";
 				     	$(this).css("left" , l);
 				     }
-				     
 				     }
 				});
 
@@ -51,12 +65,22 @@ class WindowManager{
 
 		$(this.html.scrollbarThumbX).on('drag', function(e) {
 			let thumb = this.html.scrollbarThumbX;
-			let l = parseFloat($(thumb).css("left"));
-			let rounded= Math.round(l/100)*100
-			rounded=rounded+'px';
-			// console.log(rounded)
-			$(thumb).css("left",rounded+'px')
-			// console.log(e.target.offsetLeft)
+			let lThumb = parseFloat($(thumb).css("left"));
+
+			let wThumb = parseFloat($(thumb).css("width"));
+
+			let wBar = parseFloat($(this.html.scrollbarX).css("width"));
+
+
+
+			let percent=lThumb/(wBar-wThumb)
+			// let rounded= Math.round(l/100)*100
+			// rounded=rounded+'px';
+			// // console.log(rounded)
+			// $(thumb).css("left",rounded+'px')
+
+			scrollTo(percent*document.width*(currentStory.scrollOrderArray.length-1))
+			// console.log(percent)
 			// this.target.pan((e.target.offsetLeft) /document.width);
 
 		}.bind(this));
@@ -76,6 +100,18 @@ class WindowManager{
 
 
 
+	}
+
+	updateScrollBar(){
+		let percent = (100*document.getElementById("scenes").scrollLeft/(document.width*(currentStory.scrollOrderArray.length-1)));
+		// console.log(percent)
+
+		let thumbPercent = parseFloat($(this.html.scrollbarThumbX).css("width"))/parseFloat($(this.html.scrollbarX).css("width"))
+
+		percent=percent*(1-thumbPercent)
+
+		// console.log(parseFloat($(this.html.scrollbarThumbX).css("width")))
+		$(this.html.scrollbarThumbX).css("left", percent+"%")
 	}
 	
 	createMainButtons(){
