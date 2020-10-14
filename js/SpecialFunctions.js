@@ -446,6 +446,10 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
+function isTouchDevice() {
+  return !!('ontouchstart' in window);
+}
+
 
 
 

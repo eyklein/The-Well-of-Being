@@ -221,10 +221,9 @@ section {
 
 .scenes {
   display: flex;
-  overflow: hidden;
+  overflow: auto;
   /*outline: 1px dashed red;*/
   height: 100%
-
 }
 
 
