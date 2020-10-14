@@ -131,9 +131,9 @@ window.onload=function(){
 	window.addEventListener("wheel", function(e){
 		console.log(e.deltaY)
 		if(Math.abs(e.deltaY)>=Math.abs(e.deltaX)){
-			shiftScroll(e.deltaY)
+			scrollBy(e.deltaY)
 		}else{
-			shiftScroll(e.deltaX)
+			scrollBy(e.deltaX)
 		}
 		
 	})
@@ -171,12 +171,13 @@ window.onload=function(){
 };
 
 var scrollTraget
-function shiftScroll(deltaX_){
+function scrollBy(deltaX_){
 	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0,"behavior": "smooth"});
+	se
 	// document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
 
 }
-function scrollToTarget(targetX_){
+function scrollTo(targetX_){
 	document.getElementById("scenes").scrollTo({"left":targetX_,"top":0,"behavior": "smooth"});
 	console.log(targetX_)
 	// document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
