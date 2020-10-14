@@ -119,14 +119,13 @@ window.onload=function(){
 	//     // console.log(e)
 
 	// }));
-	// $('#scenes').scroll($.debounce( 250, function(e){
-	//     // $('#scrollMsg').html('DONE!');
-	//     if(preScrollWasPlaying){
-	//     	// currentStory.play();
-	//     }
-	//     // console.log("DONE!!")
-	//     // console.log(e)
-	// }));
+	$('#scenes').scroll($.debounce( 250, function(e){
+	    // $('#scrollMsg').html('DONE!');
+	    console.log("DONE Scroll!!!!!!!!!!");
+	    easeToSceneFrame();
+	    // console.log("DONE!!")
+	    // console.log(e)
+	}));
 
 	window.addEventListener("wheel", function(e){
 		// console.log(e.deltaY)
@@ -152,7 +151,7 @@ window.onload=function(){
 	    	// document.getElementById("scenes").classList.add("mandatory-scroll-snapping");
 	    	// autoScrolling=false
 	        // console.log('Scroll endedx');
-	        easeToSceneFrame();
+	        // easeToSceneFrame();
 	        // scrollTimeout=undefined;
 	    }, 100);
 	});
