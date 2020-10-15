@@ -382,7 +382,7 @@
 						},"alternateKeyPress":{
 							"keyCodes":[39]
 						},"autoClick":{
-							"time":6,
+							"time":0,
 							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
@@ -725,7 +725,7 @@
 						},"alternateKeyPress":{
 							"keyCodes":[39]
 						},"autoClick":{
-							"time":6,
+							"time":0,
 							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
@@ -899,7 +899,7 @@
 						},"alternateKeyPress":{
 							"keyCodes":[39]
 						},"autoClick":{
-							"time":6,
+							"time":0,
 							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
@@ -1234,7 +1234,7 @@
 						},"alternateKeyPress":{
 							"keyCodes":[39]
 						},"autoClick":{
-							"time":6,
+							"time":0,
 							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
@@ -1569,7 +1569,7 @@
 						},"alternateKeyPress":{
 							"keyCodes":[39]
 						},"autoClick":{
-							"time":6,
+							"time":0,
 							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
@@ -1864,7 +1864,7 @@
 						},"alternateKeyPress":{
 							"keyCodes":[39]
 						},"autoClick":{
-							"time":6,
+							"time":0,
 							"conditional":"currentStory.autoRun==true && currentStory.playing==true"
 						}
 					},
