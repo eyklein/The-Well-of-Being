@@ -25,6 +25,11 @@ class MediaContent extends Content{
 	mute(isMute_){
 		this.html.fe.muted=isMute_;
 	}
+
+	setVolume(volume_){
+		this.html.fe.volume=volume_;
+	}
+
 }
 
 

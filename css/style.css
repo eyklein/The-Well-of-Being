@@ -197,6 +197,7 @@ section {
     top: 25%;
     width: 0px;
     height: 0px;
+    color:white;
 }
 .tab-arrow.open{
   -webkit-transition: all 1s linear;
@@ -207,6 +208,7 @@ section {
     transform: rotate(-180deg) translate(.5vw, 0vw);
      position: absolute;
     top: 25%;
+    color:white;
     
 }
 
@@ -218,6 +220,7 @@ section {
    transform: rotate(0deg) translate(.5vw, 0vw);
     position: absolute;
     top: 25%;
+    color:white;
 }
 
 

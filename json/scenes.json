@@ -14,7 +14,7 @@
 			"id": "799",
 			"content": {
 				"type": "audio",
-				"value": "audio/Background Noise.mp3"
+				"value": "audio/ES_Night In Burma - Joseph Beg.mp3"
 			},
 			"effects": {
 				"general": {
@@ -994,7 +994,7 @@
 					},
 					"dimensions": {
 						"width": "45%",
-						"height": "5%"
+						"height": "15%"
 					},
 					"font": {
 						"font-family": "indieFlower"

@@ -260,6 +260,8 @@ class Story{
 		this.activeMainAudio={};
 	}
 
+
+
 	restartScene(){
 		this.currentScene.rewind()
 		
@@ -726,11 +728,17 @@ class Story{
 	setBackgroundVolume(volume_){
 		
 		//set volume for all the main audio
-		this.volume['background']=volume_;
-		for(let audioContent in this.activeBackgroundAudio){
-			this.activeBackgroundAudio[audioContent].updateVolume();
-		}
+		this.scenesLib['uni'].contentsLib['799'].setVolume(volume_)
 	}
+
+	playBackground(){
+		this.scenesLib['uni'].contentsLib['799'].play()
+	}
+	pauseBackground(){
+		this.scenesLib['uni'].contentsLib['799'].pause();
+	}
+
+
 
 	skip(){
 		// console.log("SKIP")

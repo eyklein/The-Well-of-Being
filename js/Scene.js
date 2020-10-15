@@ -197,7 +197,11 @@ class Scene{
 
 		//or reset the objects
 		for(let id in this.contentsLib){
-			this.contentsLib[id].reset()
+
+			if(!this.contentsLib[id].isCopyFromUni){
+				this.contentsLib[id].reset()
+			}
+			
 		}
 
 		//not su
@@ -411,6 +415,12 @@ class Scene{
 
 	play(){
 		// console.log("play " + this.id + "XXXXXXXXXXXXXX");
+
+		if(currentStory.scrollOrderArray.indexOf(this)>=1){
+			currentStory.playBackground();
+		}else{
+			currentStory.pauseBackground();
+		}
 
 		if(currentStory.captionsOn==false){
 			this.hideCaptions()

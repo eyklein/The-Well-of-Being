@@ -49,9 +49,9 @@ class VideoContent extends MediaContent{
 
 	}
 
-	setVolume(volume_){
-		this.html.fe.volume=volume_;
-	}
+	// setVolume(volume_){
+	// 	this.html.fe.volume=volume_;
+	// }
 
 
 

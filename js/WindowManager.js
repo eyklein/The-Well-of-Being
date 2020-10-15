@@ -402,7 +402,7 @@ class WindowManager{
 			this.displayPauseButton();
 		}else if(status=="ended"){
 			// this.togglePlayPauseRewind()
-			console.log("rewind!")
+			// console.log("rewind!")
 			this.displayRewindButton();
 		}
 	}
