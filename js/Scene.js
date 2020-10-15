@@ -114,9 +114,25 @@ class Scene{
 		}	
 	}
 
+	hideCaptions(){
+		for(let id in this.contentsLib){
+			if(this.contentsLib[id] instanceof TranscriptBoxContent){
+				this.contentsLib[id].displayNone();
+			}
+		}
+	}
+
+	showCaptions(){
+		for(let id in this.contentsLib){
+			if(this.contentsLib[id] instanceof TranscriptBoxContent){
+				this.contentsLib[id].displayBlock();
+			}
+		}
+	}
+
 	display(){
 
-		this.html.fe.container.style.display="block";
+		// this.html.fe.container.style.display="block";
 		
 		for(let i=0;i<this.actionsOut.length;i++){
 			if(this.actionsOut[i].elicit=="display"){
@@ -328,18 +344,33 @@ class Scene{
 		}
 		
 	}
+	setVolume(volume_){
+		for(let i in this.contentsLib){
+			// console.log(this.playingMediaObjects[i])
+			if(this.contentsLib[i] instanceof MediaContent){
+				if(this.contentsLib[i].effects.general.track == undefined || this.contentsLib[i].effects.general.track.vareables.value != "background"){
+				// if(this.contentsLib[i].effects.general)
+					this.contentsLib[i].setVolume(volume_);
+				}
+			}
+			// console.log(this.playingMediaObjects[i].volume)
+		}
+	}
 
 	play(){
-		console.log("play " + this.id + "XXXXXXXXXXXXXX");
+		// console.log("play " + this.id + "XXXXXXXXXXXXXX");
 
-		
+		this.setVolume(currentStory.volume['main']);
 		this.lastPlayTime=Date.now();
 		this.paused=false;
 
 		this.playTimers();
-		for(let media in this.playingMediaObjects){
-			this.playingMediaObjects[media].play();
-		}
+		// if(currentStory.readingIsOn){
+			for(let media in this.playingMediaObjects){
+
+				this.playingMediaObjects[media].play();
+			}
+		// }
 	}
 
 	pause(){

@@ -118,6 +118,7 @@ window.onload=function(){
 	    // if($(currentStory.windowManager.html.scrollbarThumbX).data('pressed') == false){//not scrolling with bar
 
 	    	easeToSceneFrame();
+	    	currentStory.windowManager.html.scrollbarThumbX.classList.remove("scrolling");
 	    // }
 	    
 	    // console.log("DONE!!")
@@ -183,6 +184,7 @@ function scrollBy(deltaX_){
 
 	// console.log(deltaX_)
 	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
+
 
 	currentStory.windowManager.updateScrollBar();
 	// }

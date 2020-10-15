@@ -1,0 +1,171 @@
+.switch {
+  position: relative;
+  float: left;
+  margin: 5px;
+  display: inline-block;
+  width: 30px;
+  height: 12px;
+  color:white;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-div{
+  position: absolute;
+  /*width:100%;*/
+   width: 30px;
+  height:100%;
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #777;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #333;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .switch-slider {
+  background-color: #68bd6b; /*green*/
+}
+
+input:focus + .switch-slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .switch-slider:before {
+  left: 20px;
+}
+
+/*input:checked + .switch-slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}*/
+
+/* Rounded sliders */
+.switch-slider.round {
+  border-radius: 12px;
+}
+
+.switch-slider.round:before {
+  border-radius: 50%;
+}
+
+
+#top-bar:hover .dropbtn{
+
+    opacity: .8;
+    transition: opacity .5s
+}
+
+
+/*#outside-top:hover .dropbtn{
+
+    opacity: .8;
+    transition: opacity .5s
+}*/
+
+
+.dropbtn {
+  background-color: rgba(0,0,0,0);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+
+  border: none;
+
+  width:60px;
+  height:60px;
+
+  opacity: 0;
+  transition: opacity 5s
+}
+
+.dropbtn img{
+  width:100%;
+}
+
+
+.dropdown {
+  /*position: relative;*/
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 120px;
+
+  right: 0px;
+  font-family: 'indieFlower', cursive;
+  /*color:white;*/
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+
+
+.dropdown-content .setting {
+  color: white;
+  padding: 10px 6px;
+  text-decoration: none;
+  display: block;
+  /*filter: blur(.5px);*/
+  /*background-color: red*/
+}
+
+.dropdown-content > .setting:nth-child(even) {
+  background-color: rgba(100,100,100,.3);
+
+}
+
+.dropdown-content > .setting:nth-child(odd) {
+  background-color: rgba(80,80,80,.3);
+}
+
+.dropdown-content .setting:hover{
+  background-color: rgba(80,80,80,.6);
+  /*filter: blur(0px);*/
+}
+
+
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+.dropdown:hover .dropbtn {
+  opacity: 1;
+  /*background-color: rgba(100,100,100,.2);*/
+}

@@ -809,14 +809,6 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "701002h",
-			"tailID": "701",
-			"headID": "002",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
 			"id": "701102D",
 			"tailID": "701",
 			"headID": "102",
@@ -999,61 +991,7 @@
 					"x": 100
 				}
 			}
-		}, {
-			"id": "002",
-			"content": {
-				"type": "panBar",
-				"target": 901
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"right": "-5px"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.020
-					},
-					"dimensions": {
-						"width": "2%",
-						"height": "100%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
+		},  {
 			"id": "901",
 			"content": {
 				"type": "video",
@@ -1201,14 +1139,6 @@
 			"id": "701001D",
 			"tailID": "901",
 			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701002D",
-			"tailID": "901",
-			"headID": "002",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
@@ -1445,61 +1375,7 @@
 					"x": 100
 				}
 			}
-		}, {
-			"id": "002",
-			"content": {
-				"type": "panBar",
-				"target": 901
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"right": "-5px"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.020
-					},
-					"dimensions": {
-						"width": "2%",
-						"height": "100%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
+		},  {
 			"id": "901",
 			"content": {
 				"type": "video",
@@ -1590,14 +1466,6 @@
 			"id": "701001D",
 			"tailID": "701",
 			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701002D",
-			"tailID": "701",
-			"headID": "002",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
@@ -1834,61 +1702,7 @@
 					"x": 100
 				}
 			}
-		}, {
-			"id": "002",
-			"content": {
-				"type": "panBar",
-				"target": 901
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"right": "-5px"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.020
-					},
-					"dimensions": {
-						"width": "2%",
-						"height": "100%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
+		},  {
 			"id": "901",
 			"content": {
 				"type": "video",
@@ -1979,14 +1793,6 @@
 			"id": "701001D",
 			"tailID": "701",
 			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701002D",
-			"tailID": "901",
-			"headID": "002",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
@@ -2223,61 +2029,7 @@
 					"x": 100
 				}
 			}
-		}, {
-			"id": "002",
-			"content": {
-				"type": "panBar",
-				"target": 901
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"right": "-5px"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.020
-					},
-					"dimensions": {
-						"width": "2%",
-						"height": "100%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
+		},  {
 			"id": "901",
 			"content": {
 				"type": "video",
@@ -2348,15 +2100,7 @@
 			"elicit": "display",
 			"delay": 0,
 			"conditions": []
-		}, {
-			"id": "701002D",
-			"tailID": "p0",
-			"headID": "002",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
+		},  {
 			"id": "701102D",
 			"tailID": "p0",
 			"headID": "102",
@@ -2580,61 +2324,7 @@
 					"x": 100
 				}
 			}
-		}, {
-			"id": "002",
-			"content": {
-				"type": "panBar",
-				"target": 901
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"right": "-5px"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.020
-					},
-					"dimensions": {
-						"width": "2%",
-						"height": "100%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
+		},  {
 			"id": "901",
 			"content": {
 				"type": "video",

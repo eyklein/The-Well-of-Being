@@ -49,6 +49,13 @@ class TranscriptBoxContent extends Content{
 		this.html.fe.style.display="none";
 	}
 
+	displayNone(){
+		this.html.fe.style.display="none";
+	}
+	displayBlock(){
+		this.html.fe.style.display="block";
+	}
+
 	createFrontEndHTML(){
 		super.createFrontEndHTML();
 
@@ -267,7 +274,7 @@ class TranscriptBoxContent extends Content{
 		
 		this.htmlParent.append(this.html.fe);
 
-		this.html.fe.style.display="block";
+		// this.html.fe.style.display="block";
 		
 	}
 

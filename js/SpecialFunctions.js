@@ -216,6 +216,8 @@ function deleteCookie(name) {
 //var scalableTextEffects=[];
 //var globalWidthVareable;
 function updateContentSize(){
+
+
 	
 	let contentDiv=document.getElementById("content");
 
@@ -247,11 +249,11 @@ function updateContentSize(){
   document.getElementById("top-bar").style.width=width+'px';
 
   if(window.innerHeight-height>document.getElementById("top-bar").offsetHeight*2){
-    document.getElementById("top-bar").style.top="-30px";
+    document.getElementById("top-bar").style.top="-130px"; //bar extends up 300 for hover purposes
     // document.getElementById("top-bar").style["background-color"]="red";
   }
   else{
-    document.getElementById("top-bar").style.top="0px";
+    document.getElementById("top-bar").style.top="-100px";
     // document.getElementById("top-bar").style["background-color"]="blue";
   }
 
@@ -320,7 +322,7 @@ function updateContentSize(){
 
 
 
-	
+	currentStory.currentScene.html.fe.container.scrollIntoView()
 
 }
 
@@ -449,6 +451,34 @@ function download(filename, text) {
 function isTouchDevice() {
   return !!('ontouchstart' in window);
 }
+
+function shake(div_){
+  console.log(div_)
+  var times = 4;
+  var duration = 100;
+  for (var i = 0; i < times; i++){
+
+      $(div_).animate({
+          left: (i % 2 === 0 ? "-" : "+") + "=5"
+      }, duration);
+    }
+
+
+
+    // $(div_).animate({
+    //     'margin-left': '-=5px',
+    //     'margin-right': '+=5px'
+    // }, 200, function() {
+    //     $('#div').animate({
+    //         'margin-left': '+=5px',
+    //         'margin-right': '-=5px'
+    //     }, 200, function() {
+    //         //and so on...
+    //     });
+    // });
+}
+
+
 
 
 

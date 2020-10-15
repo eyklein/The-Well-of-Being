@@ -71,7 +71,7 @@
     <script src="js/ContentEditorOverlay.js"></script>
   -->
 
-
+  <script src="js/contents/MediaContent.js"></script>
   <script src="js/contents/ContentAudio.js"></script>
   <script src="js/contents/ContentText.js"></script>
   <script src="js/contents/ContentTextBox.js"></script>
@@ -182,58 +182,54 @@
 
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/switch.css">
+    <link rel="stylesheet" type="text/css" href="css/videoControl.css">
 
 
   
-
-    <div id='page-number' >
-
-    </div>
-    <div id='scrolling-window' >
+<!-- 
+    <div id='outside-top' class='outside' style="z-index: 1; width: 100vw; height: 50vw;" >
 
     </div>
+    <div id='outside-bottom' class='outside' style="z-index: 1; width: 100vw; height: 50vw;" > -->
 
-
-    <!-- <div id='media-window' > -->
-
-   <!--  <section>
-      <h1>Section One</h1>
-    </section>
-    <section>
-      <h1>Section One</h1>
-    </section>
-    <section>
-      <h1>Section One</h1>
-    </section>
-    <section>
-      <h1>Section One</h1>
-    </section>
-    <section>
-      <h1>Section One</h1>
-    </section>
-    <section>
-      <h1>Section One</h1>
-    </section> -->
-
-  
-
-  <!-- <div class="scrolling-window y-scroll y-mandatory">
-    <div class="wrapper">
-      <div class="element">1</div>
-      <div class="element">2</div>
-      <div class="element">3</div>
-      <div class="element">4</div>
     </div>
-  </div> -->
-
-  
-
-
       <div id='content'>
-        <div id='top-bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'>
-          <div id='scrollbarX' >
+        <div id='top-bar' onmousedown = 'return false' onselectstart = 'return false' style='display:none' alt='text'>
+          <div id='scrollbarX'  onmousedown = 'return true' onselectstart = 'return true'>
           <div id='scrollbarX-thumb' class='draggable' ></div>
           </div>
+
+          <div class="dropdown">
+            <button class="dropbtn"><img src="img/special/setting.png"></img></button>
+            <div class="dropdown-content">
+
+
+              <div class="setting">Reading
+                <label class="switch">
+                  <div class="switch-div">
+                  <input id='reading-switch' type="checkbox" checked>
+                  <span class="switch-slider round"></span>
+                </div>
+                </label>
+              </div>
+
+
+
+              <div class="setting">Captions
+                <label class="switch">
+                  <div class="switch-div">
+                  <input id='captions-switch' type="checkbox" checked>
+                  <span class="switch-slider round"></span>
+                </div>
+                </label>
+              </div>
+
+
+            </div>
+          </div>
+
+          
         </div>
         <div id='bottom-bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'></div>
         <div id='scenes' class="scenes x mandatory-scroll-snapping">

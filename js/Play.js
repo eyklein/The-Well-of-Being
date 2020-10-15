@@ -123,6 +123,9 @@ class Story{
 
 
 		this.autoRun=true;
+		this.readingIsOn=true;
+		this.captionsOn=true;
+
 
 		//this.setLeftOffsets()
 		
@@ -686,17 +689,19 @@ class Story{
 		this.currentScene.pause();
 	}
 	setMainVolume(volume_){
+		console.log(volume_)
 		
 		//set volume for all the main audio
 		this.volume['main']=volume_;
-		for(let audioContent in this.activeMainAudio){
-			//this.activeMainAudio[audioContent].setVolume(volume_);
-			this.activeMainAudio[audioContent].updateVolume();
-		}
-		for(let videoContent in this.activeMainVideo){
-			//this.activeMainAudio[audioContent].setVolume(volume_);
-			this.activeMainVideo[videoContent].updateVolume();
-		}
+		this.currentScene.setVolume(volume_)
+		// for(let audioContent in this.activeMainAudio){
+		// 	//this.activeMainAudio[audioContent].setVolume(volume_);
+		// 	this.activeMainAudio[audioContent].updateVolume();
+		// }
+		// for(let videoContent in this.activeMainVideo){
+		// 	//this.activeMainAudio[audioContent].setVolume(volume_);
+		// 	this.activeMainVideo[videoContent].updateVolume();
+		// }
 	}
 	setBackgroundVolume(volume_){
 		
@@ -885,6 +890,20 @@ class Story{
 		setTimeout(function(){loadScreen.hide()},300);
 		setTimeout(function(){this.pause()}.bind(this),400);
 		//updateContentSize();
+	}
+
+	hideCaptions(){
+		for(let id in this.scenesLib){
+			this.scenesLib[id].hideCaptions();
+		}
+		this.captionsOn=false;
+
+	}
+	showCaptions(){
+	  for(let id in this.scenesLib){
+			this.scenesLib[id].showCaptions();
+		}
+		this.captionsOn=true;
 	}
 
 

@@ -1,6 +1,6 @@
 let priorityAudioLoader=new PriorityLoader();
 
-class AudioContent extends Content{
+class AudioContent extends MediaContent{
 	constructor(contentJson_,parentScene_){ //,url_, content_, propertiesJSON_
 		super(contentJson_,parentScene_)
 		this.isDonePlaying=false;
@@ -37,6 +37,10 @@ class AudioContent extends Content{
 		// console.log(this.duration)
 		this.stop();
 
+	}
+
+	setVolume(volume_){
+		this.html.fe.volume=volume_;
 	}
 
 	

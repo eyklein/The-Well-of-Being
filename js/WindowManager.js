@@ -16,10 +16,66 @@ class WindowManager{
 			
 		    $(this.html.scrollbarThumbX).data('pressed', true);
 		}.bind(this));
+
+
+
 		this.html.scrollbarThumbX.addEventListener("mouseup",function(){
 			
 		    $(this.html.scrollbarThumbX).data('pressed', false);
 		}.bind(this));
+
+
+		this.html.captionsSwitch = document.getElementById("captions-switch");
+		this.captionsWasOn=this.html.captionsSwitch.checked; // where captions on before reading was turned off
+		
+		this.html.readingSwitch = document.getElementById("reading-switch");
+		
+
+		//captions
+		this.html.captionsSwitch.addEventListener("change",function(){
+			if(this.html.readingSwitch.checked==true){
+				this.captionsWasOn=this.html.captionsSwitch.checked
+			}else{
+				this.html.captionsSwitch.checked=false;
+				shake(this.html.readingSwitch.parentElement.parentElement);
+			}
+
+
+
+			if(this.html.captionsSwitch.checked){
+				currentStory.showCaptions();
+			}else{
+				currentStory.hideCaptions();
+			}
+			
+		}.bind(this));
+
+
+		//reading
+		this.html.readingSwitch.addEventListener("change",function(){
+			
+			if(this.html.readingSwitch.checked==false){//turn off captions (no captions if not reading)
+				if(this.captionsWasOn){
+					this.html.captionsSwitch.checked=false;
+					currentStory.hideCaptions();
+				}
+			}else{
+				if(this.captionsWasOn){
+					this.html.captionsSwitch.checked=true;
+					currentStory.showCaptions();
+				}
+				
+			}
+
+			currentStory.autoRun = this.html.readingSwitch.checked;
+			currentStory.readingIsOn = this.html.readingSwitch.checked;
+		}.bind(this));
+
+
+		
+
+
+
 
 
 
@@ -31,37 +87,32 @@ class WindowManager{
 
 
 		$(this.html.scrollbarThumbX).on('mousedown', function() {
-			
-				$(this.html.scrollbarThumbX).data('pressed', true);
+			// $(this.html.scrollbarThumbX).data('pressed', true);
+
+			$( this.html.scrollbarThumbX ).draggable({
+			    stop: function (){
+			    	$(this).data('pressed', false);
+			    	
+					var widthBar=parseFloat($(this).parent().css("width"));
+					var widthThumb=parseFloat($(this).css("width"));
+					var l = parseFloat($(this).css("left")) ;
+					var r = parseFloat($(this).css("left"))+widthThumb;  //) / (parseFloat($(this).parent().css("width"))) ) 
+
+					if(l<0){
+						$(this).css("left" , "0px");
+					}else if(r>widthBar){
+						l=widthBar-widthThumb;
+						l=l+'px'
+						$(this).css("left" , l);
+					}else{
+						l=l+"px";
+						$(this).css("left" , l);
+					}
+			    }
+			});
 
 
-				$( this.html.scrollbarThumbX ).draggable({
-
-				    stop: function (){
-				    	 $(this).data('pressed', false);
-				    	
-				    var widthBar=parseFloat($(this).parent().css("width"));
-				    var widthThumb=parseFloat($(this).css("width"));
-				     var l = parseFloat($(this).css("left")) ;
-				     var r = parseFloat($(this).css("left"))+widthThumb;  //) / (parseFloat($(this).parent().css("width"))) ) 
-				     
-				     if(l<0){
-				     	
-				     	$(this).css("left" , "0px");
-
-				     }else if(r>widthBar){
-				     	l=widthBar-widthThumb;
-				     	l=l+'px'
-				     	$(this).css("left" , l);
-				     }else{
-				     	l=l+"px";
-				     	$(this).css("left" , l);
-				     }
-				     }
-				});
-
-
-			}.bind(this));
+		}.bind(this));
 
 		$(this.html.scrollbarThumbX).on('drag', function(e) {
 			let thumb = this.html.scrollbarThumbX;
@@ -71,25 +122,15 @@ class WindowManager{
 
 			let wBar = parseFloat($(this.html.scrollbarX).css("width"));
 
+			let percent=lThumb/(wBar-wThumb);
 
-
-			let percent=lThumb/(wBar-wThumb)
-			// let rounded= Math.round(l/100)*100
-			// rounded=rounded+'px';
-			// // console.log(rounded)
-			// $(thumb).css("left",rounded+'px')
-
-			scrollTo(percent*document.width*(currentStory.scrollOrderArray.length-1))
-			// console.log(percent)
-			// this.target.pan((e.target.offsetLeft) /document.width);
+			scrollTo(percent*document.width*(currentStory.scrollOrderArray.length-1));
 
 		}.bind(this));
 
 
 		this.addFullScreen();
 		this.addPlayPauseButton();
-		
-
 		this.displayPauseButton();
 		//this.displayPlayButton();
 		// currentStory.updatePlayPause();
@@ -103,6 +144,8 @@ class WindowManager{
 	}
 
 	updateScrollBar(){
+
+		this.html.scrollbarThumbX.classList.add("scrolling");
 		let percent = (100*document.getElementById("scenes").scrollLeft/(document.width*(currentStory.scrollOrderArray.length-1)));
 		// console.log(percent)
 
@@ -245,6 +288,7 @@ class WindowManager{
 
 
 		this.mainVolumeSlider= document.createElement("input");
+		this.mainVolumeSlider.id="main-volume"
 		this.mainVolumeSlider.type="range";
 		this.mainVolumeSlider.classList.add("slider");
 		// this.mainVolumeSlider.orient="vertical";
@@ -273,6 +317,7 @@ class WindowManager{
 
 
 		this.backgroundVolumeSlider= document.createElement("input");
+		this.backgroundVolumeSlider.id="background-volume"
 		this.backgroundVolumeSlider.type="range";
 		this.backgroundVolumeSlider.classList.add("slider");
 		this.backgroundVolumeSlider.style.position="absolute";

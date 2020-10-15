@@ -29,6 +29,7 @@ class AutoClickEffect extends ContentEffect{
 	}
 
 	apply(){
+		
 		console.log(this.vareables.conditional);
 		console.log(eval(this.vareables.conditional));
 

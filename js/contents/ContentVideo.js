@@ -1,6 +1,6 @@
 let priorityVideoLoader=new PriorityLoader();
 
-class VideoContent extends Content{
+class VideoContent extends MediaContent{
 	constructor(contentJson_,parentScene_){ //,url_, content_, propertiesJSON_
 		super(contentJson_,parentScene_)
 		this.isDonePlaying=false;
@@ -20,6 +20,9 @@ class VideoContent extends Content{
 	    this.videoLoaded=false
 
 	    this.boundDonePlayingEvent=this.donePlayingEvent.bind(this)
+
+	    this.stopPanBound=this.stopPan.bind(this)
+	    this.startPanBound=this.startPan.bind(this)
 
 	   	
 
@@ -44,6 +47,10 @@ class VideoContent extends Content{
 		// console.log(this.duration)
 		this.stop();
 
+	}
+
+	setVolume(volume_){
+		this.html.fe.volume=volume_;
 	}
 
 
@@ -140,8 +147,10 @@ class VideoContent extends Content{
 				// }else{
 				// 	this.html.fe = document.createElement("img");
 				// }
-
+				this.html.container=document.createElement("div");
 				this.html.fe = document.createElement("video");
+
+				this.html.container.append(this.html.fe)
 				
 				this.html.fe.setAttribute('draggable', false);
 				//console.log(this.id)
@@ -179,12 +188,60 @@ class VideoContent extends Content{
 						this.html.fe.dispatchEvent(event);
 					}
 				}.bind(this));
-		
+
+
+
+
+
+
+				this.html.progressBar=document.createElement("div");
+				this.html.progressBar.classList.add("progressBar");
+				this.html.progressSpan=document.createElement("div");
+				this.html.progressSpan.classList.add("progressSpan");
+				this.html.progressBar.append(this.html.progressSpan);
+
+				this.html.container.append(this.html.progressBar)
+
+				// this.updateProgressBound=this.
+				this.html.fe.addEventListener("timeupdate", this.updateProgress.bind(this), false);
+
+				this.html.progressBar.addEventListener("mousedown", this.startPanBound.bind(this), false);
+
+				
 		
 		}
 		
 
 	}
+
+
+	updateProgress() {
+	   var video=this.html.fe;
+	   var progress = this.html.progressSpan;
+	   var value = 0;
+	   if (video.currentTime > this.start) {
+	      value = Math.floor((100 / this.duration) * video.currentTime);
+	   }
+	   progress.style.width = value + "%";
+	}
+
+	startPan(e){
+		currentStory.pause();
+		this.html.progressBar.addEventListener("mouseleave", this.stopPanBound, false);
+		this.html.progressBar.addEventListener("mouseup", this.stopPanBound, false);
+		
+		if(this.parentScene.playingMediaObjects.indexOf(this)==-1){
+			this.parentScene.playingMediaObjects.push(this)
+		}
+		this.html.fe.currentTime = (e.clientX/document.width)*this.duration+this.start;
+	}
+
+	stopPan(){
+		this.html.progressBar.removeEventListener("mouseleave", this.stopPanBound, false);
+		this.html.progressBar.removeEventListener("mouseup", this.stopPanBound, false);
+		currentStory.play();
+	}
+
 	addEffects(){
 		//console.log("this.createEffects();")
 		this.createEffects();
@@ -204,7 +261,7 @@ class VideoContent extends Content{
 
 	display(){
 		super.display();
-		this.htmlParent.append(this.html.fe);
+		this.htmlParent.append(this.html.container);
 		this.applyEntranceEffects();
 		//this.html.fe.style.display="block";
 		// this.html.fe.style.preload="metadata";//show first frame
