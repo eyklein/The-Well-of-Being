@@ -161,11 +161,11 @@ section {
   visibility: visible;
 }
 .text-box.closed{
-  transform: translate(0px, -100%);
+  transform: translate(-100%, 0%);
   visibility: hidden;
 }
 .tab{
-  width:8vw;
+  /*width:8vw;
   height:2vw;
   background-color: inherit;
   position: absolute;
@@ -173,19 +173,18 @@ section {
   right: 0px;
   border-radius: 0 0 1vw 1vw;
   transform: translate(0px, 100%);
+  visibility: visible;*/
+  width: 2vw;
+  height: 8vw;
+  background-color: inherit;
+  position: absolute;
+  right: -2vw;
+  bottom: 0px;
+  border-radius: 0 1vw 1vw 0;
+  /* transform: translate(0px, 100%); */
   visibility: visible;
 }
 
-.
-  /*border-radius: 20%;
- 
-}
-.tab.closed{
-  
-  /*transform: translate(0px, 0px);*/
-  /*border-radius: 20%;*/
-
-  
 
 }
 .tab-arrow{
@@ -193,8 +192,9 @@ section {
     -moz-transition: all 1s linear;
     -o-transition: all 1s linear;
     transition: all 1s linear;
+    /*top: 0px;*/
     position: absolute;
-    top: 0px;
+    top: 25%;
     width: 0px;
     height: 0px;
 }
@@ -204,7 +204,9 @@ section {
     -o-transition: all 1s linear;
     transition: all 1s linear;
    
-    transform: rotate(-90deg) translate(4.3vw, 0vw);
+    transform: rotate(-180deg) translate(.5vw, 0vw);
+     position: absolute;
+    top: 25%;
     
 }
 
@@ -213,7 +215,9 @@ section {
     -moz-transition: all 1s linear;
     -o-transition: all 1s linear;
     transition: all 1s linear;
-   transform: rotate(90deg) translate(2.5vw, 0vw);
+   transform: rotate(0deg) translate(.5vw, 0vw);
+    position: absolute;
+    top: 25%;
 }
 
 

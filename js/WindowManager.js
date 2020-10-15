@@ -69,6 +69,14 @@ class WindowManager{
 
 			currentStory.autoRun = this.html.readingSwitch.checked;
 			currentStory.readingIsOn = this.html.readingSwitch.checked;
+
+			if(currentStory.readingIsOn){
+				currentStory.turnReadingOn();
+				// currentStory.unmute();
+			}else{
+				currentStory.turnReadingOff();
+				// currentStory.mute();
+			}
 		}.bind(this));
 
 
@@ -384,7 +392,6 @@ class WindowManager{
 	}
 	updatePlayPauseButton(){
 		let status = currentStory.getStatus();
-		console.log("***************************************** " + status)
 		if(status=="paused"){
 			// this.playPause.src=this.playPause.srcPlay;
 			this.displayPlayButton();
@@ -395,6 +402,7 @@ class WindowManager{
 			this.displayPauseButton();
 		}else if(status=="ended"){
 			// this.togglePlayPauseRewind()
+			console.log("rewind!")
 			this.displayRewindButton();
 		}
 	}

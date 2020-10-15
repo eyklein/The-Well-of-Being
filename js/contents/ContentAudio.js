@@ -16,10 +16,7 @@ class AudioContent extends MediaContent{
 		this.cNode=new ContentNode(this);
 
 		this.backEndCreated=false;
-	    this.audioLoaded=false
-
-	   	
-
+	    this.audioLoaded=false;
 	}
 
 	reset(){
@@ -137,7 +134,6 @@ class AudioContent extends MediaContent{
 
 					if(this.html.fe.currentTime>(this.duration+this.start)){
 						this.pause();
-						console.log("FORCE PASUE!!!!!!!!!!!")
 					}
 					// this.duration=this.html.fe.duration;
 				}.bind(this));
@@ -172,6 +168,7 @@ class AudioContent extends MediaContent{
 
 
 				this.html.fe.addEventListener('ended', function(e){
+					this.endTime=this.parentScene.timePlayingScene;
 					this.removeFromActiveAudio();
 					this.isDonePlaying=true;
 				
@@ -232,17 +229,17 @@ class AudioContent extends MediaContent{
 
 	}
 	
-	stop(){ //audio at end
+	// stop(){ //audio at end
 
-		if(this.html.fe.duration){
-			this.html.fe.currentTime=this.start + this.html.fe.duration;
-		}else{
-			console.log("durration is not defined")
-			console.log(this.html)
-		}
+	// 	if(this.html.fe.duration){
+	// 		this.html.fe.currentTime=this.start + this.html.fe.duration;
+	// 	}else{
+	// 		console.log("durration is not defined")
+	// 		console.log(this.html)
+	// 	}
 		
-		this.pause()
-	}
+	// 	this.pause()
+	// }
 	skip(skipTime_){
 		if(skipTime_==null){
 			this.html.fe.currentTime=this.html.fe.duration;
@@ -274,6 +271,10 @@ class AudioContent extends MediaContent{
 
 	play(){
 		this.isPlaying=true;
+
+		if(this.startTime == undefined){
+			this.startTime=this.parentScene.timePlayingScene;
+		}
 		
 		var playPromise = this.html.fe.play();
 

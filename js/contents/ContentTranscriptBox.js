@@ -269,11 +269,12 @@ class TranscriptBoxContent extends Content{
 	
 
 	display(){
-
-		super.display();
+		// if(currentStory.captionsOn){
 		
-		this.htmlParent.append(this.html.fe);
-
+				super.display();
+				
+				this.htmlParent.append(this.html.fe);
+		// }
 		// this.html.fe.style.display="block";
 		
 	}

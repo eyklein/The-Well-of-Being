@@ -124,6 +124,7 @@ class Story{
 
 		this.autoRun=true;
 		this.readingIsOn=true;
+		this.muted=false;
 		this.captionsOn=true;
 
 
@@ -291,6 +292,8 @@ class Story{
 
 		
 	}
+
+
 
 	endScene(){
 		this.currentScene.goToEnd();
@@ -541,7 +544,7 @@ class Story{
 	}
 
 	updatePlayPause(){
-		console.log("UNDATING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		// console.log("UNDATING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 		this.windowManager.updatePlayPauseButton();
 		// console.log("update play pause")
 		// if(this.isPlayable()){
@@ -688,8 +691,25 @@ class Story{
 
 		this.currentScene.pause();
 	}
+	turnReadingOn(){
+		this.unmute();
+		this.currentScene.turnReadingOn()
+	}
+	turnReadingOff(){
+		this.mute();
+		this.currentScene.turnReadingOff()
+	}
+	mute(){
+		this.muted=true;
+		this.currentScene.mute()
+	}
+	unmute(){
+		this.muted=false;
+		this.currentScene.unmute()
+	}
+
 	setMainVolume(volume_){
-		console.log(volume_)
+		
 		
 		//set volume for all the main audio
 		this.volume['main']=volume_;
@@ -715,7 +735,7 @@ class Story{
 	skip(){
 		// console.log("SKIP")
 		// console.log(this.play)
-		let skipWasMade=false;
+		let maxSkipMade=0;
 
 		this.pause();
 		// this.playing=false;
@@ -725,7 +745,7 @@ class Story{
 
 
 
-		skipWasMade = this.currentScene.skip();
+		maxSkipMade = this.currentScene.skip();
 
 
 		// console.log(1)
@@ -743,7 +763,7 @@ class Story{
 		// }
 
 		//keep skipping until it can't
-		if(skipWasMade){
+		if(maxSkipMade){
 			setTimeout(function(){this.skip()}.bind(this),10);
 		}
 
@@ -856,7 +876,7 @@ class Story{
 			
 
 			// this.playCurrentScene(autoPlay_);
-			if(this.currentScene.getCurrentPlayTime()>300){
+			if(this.currentScene.getPlayedTime()>300){
 				this.currentScene.clear();
 			}
 			

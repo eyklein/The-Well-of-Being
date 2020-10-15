@@ -4,9 +4,11 @@ class Transcriptor{
 		// console.log(data_.results)
 		// console.log(data_.results.items)
 		this.words=[];
+		// this.wordsTB=[]
 		for(let dataElement of data_.results.items){
 			if(dataElement.type == "pronunciation"){
 				this.words.push(new WordElement(dataElement))
+
 			}else if(dataElement.type == "punctuation"){
 
 				this.words[this.words.length-1].addPunctuation(dataElement.alternatives[0].content);
@@ -124,6 +126,22 @@ class WordElement extends TranscribedElement{
 			}
 		}
 		this.html.innerHTML += " "
+
+
+		this.htmlTB=document.createElement("span");
+		this.htmlTB.classList.add("word");
+
+		this.htmlTB.innerHTML=this.word;
+
+		for(let i in this.punctuation){
+			this.htmlTB.innerHTML += this.punctuation[i]
+
+			// if(this.punctuation[i]=="<br>"){
+
+			// 	this.lineEnd=true;
+			// }
+		}
+		this.htmlTB.innerHTML += " "
 		
 
 
@@ -140,6 +158,7 @@ class WordElement extends TranscribedElement{
 class LineElement{
 	constructor(){
 		this.words=[];
+		this.words2=[]
 
 	}
 
@@ -178,6 +197,17 @@ class LineElement{
 
 			
 		}
+
+		this.htmlTB=document.createElement("span");
+
+		
+
+		for(let i in this.words){
+			this.htmlTB.append(this.words[i].htmlTB);
+
+			
+		}
+
 
 		
 	}

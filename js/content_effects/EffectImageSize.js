@@ -6,6 +6,14 @@ class SizeImageEffect extends ImageEffect{
 	}
 	apply(){
 
+		
+		for(let vareable in this.vareables){
+			console.log(vareable + " :  " + this.parentContent.html.fe.style[vareable])
+			this.parentContent.html.fe.style[vareable] = this.vareables[vareable];
+			console.log(vareable + " :  " + this.parentContent.html.fe.style[vareable])
+		}
+		
+
 		// SizeImageEffect
 	}
 	unapply(){

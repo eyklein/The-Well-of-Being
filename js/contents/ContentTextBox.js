@@ -240,7 +240,7 @@ class TextBoxContent extends Content{
 		if(this.rangeType=="times"){
 			for(let line of this.textLines){
 				
-				this.html.fe.append(line.html)
+				this.html.fe.append(line.htmlTB)
 			}
 		}else{
 			this.html.fe.innerHTML=bookInfo
@@ -249,7 +249,14 @@ class TextBoxContent extends Content{
 		this.htmlParent.append(this.html.fe);
 
 		this.html.fe.style.display="block";
+
+		if(currentStory.readingIsOn==false){
+			this.open();
+		}
 		
+	}
+	hide(){
+		this.html.fe.style.display="none";
 	}
 
 }
@@ -260,7 +267,7 @@ var bookInfo=
 "This story is part of a new family of stories under <a href='https://www.Aeaea.co/' target='_blank'>aeaea.co</a>. Aeaea brings together authors, actors, producers, coders, and creators of all kind, to explore what the medium of podcasting can be."+
 "<br> " + 
 "<br> " + 
-"This is the preface to <strong>The Well of Being: a children's book for adults</strong>. The first chapter will arive here Oct 14th 2020. "+
+"This is the preface to <strong>The Well of Being: a children's book for adults</strong>. The first chapter will arive here shortly. "+
 "For more info go to <a href='http://www.thewellofbeing.co/about/' target='_blank'>thewellofbeing.co</a>" +
 "<br>"+
 "To purchase the book go to <a href='https://www.amazon.com/Well-Being-Childrens-Book-Adults/dp/1250092701/ref=sr_1_2?crid=1S83WC5GGD5ZQ&dchild=1&keywords=the+well+of+being&qid=1601397434&sprefix=the+well+of+being%2Caps%2C153&sr=8-2' target='_blank'>amazon.com</a>"

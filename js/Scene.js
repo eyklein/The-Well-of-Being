@@ -63,10 +63,11 @@ class Scene{
 		this.played=false;
 		this.started=false;
 		this.paused=true;
+
+
 		this.startTimer;
 
-		this.timePlayingScene=0;
-		this.lastPlayTime=undefined;
+		this.resetOnSceneTimer()
 
 		this.alternateKeyEffects={};
 
@@ -114,18 +115,48 @@ class Scene{
 		}	
 	}
 
-	hideCaptions(){
+	turnReadingOn(){
+		if(this.getStatus()!="ended"){
+			for(let id in this.contentsLib){
+				if(this.contentsLib[id] instanceof TextBoxContent){
+					if(id != "101"){ //remove this this is pre prevent hiding of text always shown???????????
+						this.contentsLib[id].close();
+						this.contentsLib[id].hide();
+					}
+					
+				}
+			}
+		}
+
+	}
+	turnReadingOff(){
 		for(let id in this.contentsLib){
-			if(this.contentsLib[id] instanceof TranscriptBoxContent){
-				this.contentsLib[id].displayNone();
+			if(this.contentsLib[id] instanceof TextBoxContent){
+				this.contentsLib[id].display();
+				this.contentsLib[id].open();
+			}
+		}
+	}
+
+	hideCaptions(){
+		if(this.getStatus() != 'ended'){
+			for(let id in this.contentsLib){
+				if(this.contentsLib[id] instanceof TranscriptBoxContent){
+					this.contentsLib[id].displayNone();
+				}
 			}
 		}
 	}
 
 	showCaptions(){
-		for(let id in this.contentsLib){
-			if(this.contentsLib[id] instanceof TranscriptBoxContent){
-				this.contentsLib[id].displayBlock();
+		if(this.getStatus() != 'ended'){
+			for(let id in this.contentsLib){
+				if(this.contentsLib[id] instanceof TranscriptBoxContent){
+					this.contentsLib[id].displayBlock();
+				}
+				else if(this.contentsLib[id] instanceof TextBoxContent){
+					this.contentsLib[id].close();
+				}
 			}
 		}
 	}
@@ -162,8 +193,7 @@ class Scene{
 		// this.display()
 		// this.start(false)
 
-		this.timePlayingScene=0;
-		this.lastPlayTime=undefined;
+		this.resetOnSceneTimer()
 
 		//or reset the objects
 		for(let id in this.contentsLib){
@@ -236,6 +266,19 @@ class Scene{
 		}
 	}
 
+	timersActive(){
+		for(let action in this.actionsLib){
+
+			if(this.actionsLib[action].timer!=undefined){
+				if(this.actionsLib[action].timer.remaining >100){
+
+					return  true;
+				}
+			}
+		}
+		return false;
+	}
+
 	logTimers(){
 		for(let action in this.actionsLib){
 
@@ -271,22 +314,22 @@ class Scene{
 		
 		for(let i=0;i<this.actionsOut.length;i++){
 			// if(this.actionsOut[i].elicit!="display"){
-				this.actionsOut[i].activate(false);
+			this.actionsOut[i].activate(false);
 				// this.actionsOut[i].activate(autoPlay_);
 			// }
 		}
 
 
-		this.startTimer=new Timer(function(){
-			// console.log("scene timer started");
-			// console.log(this)
-			this.played=true;
-			this.startTimer=undefined;
-		}.bind(this),2000)
+		// this.startTimer=new Timer(function(){
+		// 	// console.log("scene timer started");
+		// 	// console.log(this)
+		// 	this.played=true;
+		// 	this.startTimer=undefined;
+		// }.bind(this),2000)
 
-		if(currentStory.playing){
-			this.startTimer.resume();
-		}
+		// if(currentStory.playing){
+		// 	this.startTimer.resume();
+		// }
 	}
 
 	getStatus(){
@@ -294,9 +337,11 @@ class Scene{
 			return "playing";
 		}
 		else if(this.isPlayable()==false){ //if it is not playable and nothing is playing that meens it is done
+			this.stopOnSceneTimer();
 			return "ended";
 		}
 		else{
+			console.log(this.isPlayable())
 			return "paused";
 		}
 	}
@@ -304,8 +349,8 @@ class Scene{
 
 
 	isPlaying(){
-		for(let media in this.playingMediaObjects){
-			if(this.playingMediaObjects[media].isPlaying){
+		for(let i in this.playingMediaObjects){
+			if(this.playingMediaObjects[i].isPlaying){
 				return true;
 			}
 		}
@@ -317,10 +362,12 @@ class Scene{
 
 		for(let content in this.playingMediaObjects){
 			// console.log(this.playingMediaObjects[content])
-			
+			console.log("dood")
 			return true;
 		}
-		if(this.played==false){
+		if(this.timersActive()){
+			console.log(this.timersActive())
+			console.log("ppop")
 			return true;
 		}
 
@@ -336,15 +383,20 @@ class Scene{
 
 	}
 
-	getCurrentPlayTime(){
+	getPlayedTime(){
 		if(this.lastPlayTime != undefined){
-			return this.timePlayingScene + (Date.now() - this.lastPlayTime)
+			return this.timePlayingScene + (Date.now() - this.lastPlayTime);
 		}else{
-			return this.timePlayingScene
+			return this.timePlayingScene;
 		}
 		
 	}
 	setVolume(volume_){
+		if(currentStory.muted){
+			this.mute();
+		}else{
+			this.unmute();
+		}
 		for(let i in this.contentsLib){
 			// console.log(this.playingMediaObjects[i])
 			if(this.contentsLib[i] instanceof MediaContent){
@@ -360,49 +412,117 @@ class Scene{
 	play(){
 		// console.log("play " + this.id + "XXXXXXXXXXXXXX");
 
+		if(currentStory.captionsOn==false){
+			this.hideCaptions()
+		}
+
 		this.setVolume(currentStory.volume['main']);
-		this.lastPlayTime=Date.now();
+		this.startOnSceneTimer();// not to be confused with startTimers
 		this.paused=false;
 
 		this.playTimers();
 		// if(currentStory.readingIsOn){
-			for(let media in this.playingMediaObjects){
+			for(let i in this.playingMediaObjects){
 
-				this.playingMediaObjects[media].play();
+				this.playingMediaObjects[i].play();
 			}
 		// }
 	}
 
-	pause(){
-		// console.log("PAUSE SCENE")
-		if(this.lastPlayTime!=undefined){
-			this.timePlayingScene += Date.now() - this.lastPlayTime;
-			this.lastPlayTime=undefined;
+	mute(){
+		for(let i in this.contentsLib){
+			// console.log(this.playingMediaObjects[i])
+			if(this.contentsLib[i] instanceof AudioContent){//MediaContent){
+				// if(this.contentsLib[i].effects.general.track == undefined || this.contentsLib[i].effects.general.track.vareables.value != "background"){
+				// if(this.contentsLib[i].effects.general)
+					this.contentsLib[i].mute(true);
+				// }
+			}
 		}
+	}
+
+	unmute(){
+		for(let i in this.contentsLib){
+			// console.log(this.playingMediaObjects[i])
+			if(this.contentsLib[i] instanceof MediaContent){
+				// if(this.contentsLib[i].effects.general.track == undefined || this.contentsLib[i].effects.general.track.vareables.value != "background"){
+				// if(this.contentsLib[i].effects.general)
+					this.contentsLib[i].mute(false);
+				// }
+			}
+		}
+	}
+
+	pause(){
+		this.stopOnSceneTimer()
 		
 
 		console.log("pause " + this.id);
 		this.paused=true;
 		this.pauseTimers();
-		for(let media in this.playingMediaObjects){
-			this.playingMediaObjects[media].pause();
+		for(let i in this.playingMediaObjects){
+			this.playingMediaObjects[i].pause();
+		}
+	}
+	resetOnSceneTimer(){
+		this.timePlayingScene=0;
+		this.lastPlayTime=undefined;
+	}
+
+	startOnSceneTimer(){
+		this.lastPlayTime=Date.now();
+	}
+
+	stopOnSceneTimer(){
+		if(this.lastPlayTime!=undefined){
+			this.timePlayingScene += Date.now() - this.lastPlayTime;
+			this.lastPlayTime=undefined;
 		}
 	}
 
+
+
+	skipAmount(time_){
+		// for(let action in this.actionsLib){
+		// 	if(this.actionsLib[action].timerOutstanding()){
+
+		// 		this.actionsLib[action].skip();
+		// 		skipWasMade=true;
+		// 	}
+		// }
+
+		for(let i in this.playingMediaObjects){
+			this.playingMediaObjects[i].skip(time_);
+		}
+		// return skipWasMade;
+	}
+
+
+
 	skip(){
-		let skipWasMade=false;
+		
+		// let skipWasMade=false;
+		let maxSkipPosition=0; //will be 0 if no skip is made
 		for(let action in this.actionsLib){
 			if(this.actionsLib[action].timerOutstanding()){
 
-				this.actionsLib[action].skip();
-				skipWasMade=true;
+				maxSkipPosition=Math.max(maxSkipPosition, this.actionsLib[action].skip());
+				// console.log(maxSkip)
+				// skipWasMade=true;
 			}
 		}
 
-		for(let media in this.playingMediaObjects){
-			this.playingMediaObjects[media].stop();
+		for(let i in this.playingMediaObjects){
+			maxSkipPosition=Math.max(maxSkipPosition,this.playingMediaObjects[i].stop());
 		}
-		return skipWasMade;
+
+		if(maxSkipPosition>this.timePlayingScene){
+			this.timePlayingScene = maxSkipPosition;
+			return maxSkipPosition;
+		}else{
+			return 0;
+
+		}
 	}
 
 

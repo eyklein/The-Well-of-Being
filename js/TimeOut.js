@@ -5,18 +5,17 @@
 class Timer{
 
 
-    constructor(callback_, delay_,action_){
+    constructor(callback_, delay_, action_){
         // console.log(arguments)
 
-        // if(delay_>0){
-        //     console.log(this)
-        // }
+
         this.callback=callback_;
         this.delay=delay_;
         this.id;
         this.action=action_;//this is probobly not necisary
 
         this.start = Date.now();
+        // this.startSceneTime = this.action.scene.getPlayedTime();
         this.remaining = this.delay;
 
         this.status="paused";
@@ -24,6 +23,7 @@ class Timer{
 
     resume(){
         this.start = Date.now();
+        this.startSceneTime = this.action.scene.getPlayedTime();
 
         if(this.id!=undefined){
             window.clearTimeout(this.id);
@@ -41,11 +41,14 @@ class Timer{
         this.status="paused";
     }
 
-    skip(skipTime_){
+    skip(skipTime_){ //millis?
+        console.log("skip timer for : " + this.action.id)
         if(skipTime_==null){
             window.clearTimeout(this.id);
+            console.log(this.callback)
             this.callback();
-            // return true;
+            let skipped = (this.remaining - (Date.now() - this.start))
+            return skipped + this.startSceneTime;//millis
         }else{
             
             if(this.status=="resumed"){
@@ -55,6 +58,7 @@ class Timer{
             }else if(this.status=="paused"){
                 this.remaining -= skipTime_;
             }
+            return skipTime_ + this.startSceneTime;
         }
     }
 

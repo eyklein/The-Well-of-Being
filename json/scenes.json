@@ -45,453 +45,12 @@
 					"uni": {
 						"pos": {}
 					},
-					"INSTUCTIONS": {
-						"pos": {}
-					},
+					
 					"INTRO": {
 						"pos": {
 							"x": 527
 						}
 					}
-				}
-			}
-		}]
-	}, {
-		"name": "instuctions",
-		"id": "INSTUCTIONS",
-		"scroll":{
-			"height":"100vw",
-			"scrollable":false,
-			"orderX":-1,
-			"orderY":-1
-		},
-		"actions": [{
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "101",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "005",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "002",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "002",
-			"trigger": "time",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "002",
-			"headID": "002",
-			"trigger": "click",
-			"elicit": "unclickable",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "002",
-			"headID": "003",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "004",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "004",
-			"trigger": "time",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "004INTRO",
-			"tailID": "004",
-			"headID": "INTRO",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "004",
-			"headID": "101",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "004",
-			"headID": "002",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "004",
-			"headID": "003",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "004",
-			"headID": "004",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "004",
-			"headID": "005",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "004",
-			"headID": "501",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "01",
-			"tailID": "INSTUCTIONS",
-			"headID": "501",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}],
-		"contents": [{
-			"id": "501",
-			"content": {
-				"type": "img",
-				"value": "img/black.jpg"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"left": "0%"
-					},
-					"opacity": {
-						"opacity": "0.7"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {},
-					"hover": {},
-					"pressed": {}
-				},
-				"hover": {},
-				"pressed": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 613
-				}
-			}
-		}, {
-			"id": "101",
-			"content": {
-				"type": "text",
-				"value": "This is an experimental story telling platform. You can click on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            text or objects to move the reader through the story."
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "10%",
-						"left": "10%"
-					},
-					"dimensions": {
-						"width": "80%",
-						"height": "80%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 724
-				}
-			}
-		}, {
-			"id": "005",
-			"content": {
-				"type": "text",
-				"value": "Click here to go full screen &#x2193;"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"bottom": "2%",
-						"right": "1.1%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 839
-				}
-			}
-		}, {
-			"id": "002",
-			"content": {
-				"type": "text",
-				"value": "highlighted"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "20.2%",
-						"left": "37.39%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"z-index": {
-						"index": 102
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 332
-				}
-			}
-		}, {
-			"id": "003",
-			"content": {
-				"type": "text",
-				"value": "highlighted"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "20.2%",
-						"left": "37.39%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"z-index": {
-						"index": 103
-					},
-					"fill": {
-						"color": "#6aca4d"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 458
-				}
-			}
-		}, {
-			"id": "004",
-			"content": {
-				"type": "text",
-				"value": "<u>START</u>"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "60%",
-						"left": "37.39%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"z-index": {
-						"index": 103
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 179
 				}
 			}
 		}]
@@ -522,9 +81,49 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "101INSTUCTIONSd",
+			"id": "101601",
 			"tailID": "101",
-			"headID": "INSTUCTIONS",
+			"headID": "601",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "101601",
+			"tailID": "101",
+			"headID": "601",
+			"trigger": "click",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "101601",
+			"tailID": "601",
+			"headID": "101",
+			"trigger": "click",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "101601",
+			"tailID": "601",
+			"headID": "101",
+			"trigger": "click",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "101601",
+			"tailID": "601",
+			"headID": "601",
+			"trigger": "click",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "101601",
+			"tailID": "601",
+			"headID": "101",
 			"trigger": "click",
 			"elicit": "display",
 			"delay": 0,
@@ -612,6 +211,44 @@
 					"x": 100
 				}
 			}
+		},{
+			"id": "601",
+			"content": {
+				"type": "img",
+				"value": "img/instructions.png"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"left": "0%"
+					},
+					"size": {
+						"type":"normal",
+						"width": "100%",
+						"height": "100%"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				},
+				"hover": {},
+				"pressed": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 200
+				}
+			}
 		}, {
 			"id": "901",
 			"content": {
@@ -659,7 +296,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "2%",
+						"top": "20%",
 						"left": "2%"
 					},
 					"size": {
@@ -802,12 +439,20 @@
 			"conditions": []
 		}, {
 			"id": "701001h",
+			"tailID": "viii-xii",
+			"headID": "003",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": ["currentStory.readingIsOn==false"]
+		},{
+			"id": "701001h",
 			"tailID": "701",
 			"headID": "003",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": []
+			"conditions": ["currentStory.readingIsOn==true"]
 		}, {
 			"id": "701102D",
 			"tailID": "701",
@@ -838,8 +483,16 @@
 			"headID": "901",
 			"trigger": "time",
 			"elicit": "play",
+			"delay": 0,
+			"conditions": ["currentStory.readingIsOn==false"]
+		},{
+			"id": "viii-xii901p",
+			"tailID": "viii-xii",
+			"headID": "901",
+			"trigger": "time",
+			"elicit": "play",
 			"delay": 6,
-			"conditions": []
+			"conditions": ["currentStory.readingIsOn"]
 		}],
 		"contents": [{
 			"id": "701",
@@ -948,8 +601,8 @@
 						"left": "0%"
 					},
 					"dimensions": {
-						"width": "45%",
-						"height": "40%"
+						"width": "50%",
+						"height": "40.5%"
 					},
 					"font": {
 						"font-family": "indieFlower"
@@ -1136,13 +789,21 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "701001D",
-			"tailID": "901",
+			"id": "701001h",
+			"tailID": "xiv",
+			"headID": "003",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": ["currentStory.readingIsOn==false"]
+		},{
+			"id": "701001h",
+			"tailID": "701",
 			"headID": "003",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": []
+			"conditions": ["currentStory.readingIsOn==true"]
 		}, {
 			"id": "701102D",
 			"tailID": "901",
@@ -1463,13 +1124,21 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "701001D",
+			"id": "701001h",
+			"tailID": "xvi-xx",
+			"headID": "003",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": ["currentStory.readingIsOn==false"]
+		},{
+			"id": "701001h",
 			"tailID": "701",
 			"headID": "003",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": []
+			"conditions": ["currentStory.readingIsOn==true"]
 		}, {
 			"id": "701102D",
 			"tailID": "701",
@@ -1660,7 +1329,7 @@
 					},
 					"dimensions": {
 						"width": "45%",
-						"height": "27%"
+						"height": "28.5%"
 					},
 					"font": {
 						"font-family": "indieFlower"
@@ -1790,13 +1459,21 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "701001D",
+			"id": "701001h",
+			"tailID": "xxii",
+			"headID": "003",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": ["currentStory.readingIsOn==false"]
+		},{
+			"id": "701001h",
 			"tailID": "701",
 			"headID": "003",
 			"trigger": "onEnd",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": []
+			"conditions": ["currentStory.readingIsOn==true"]
 		}, {
 			"id": "701102D",
 			"tailID": "701",
@@ -1986,8 +1663,8 @@
 						"left": "0%"
 					},
 					"dimensions": {
-						"width": "56%",
-						"height": "15%"
+						"width": "58%",
+						"height": "16%"
 					},
 					"font": {
 						"font-family": "indieFlower"
@@ -2147,7 +1824,7 @@
 			"id": "102",
 			"content": {
 				"type": "text",
-				"value": "Oct 14 th"
+				"value": "..."
 			},
 			"effects": {
 				"general": {

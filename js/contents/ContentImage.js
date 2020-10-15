@@ -131,8 +131,10 @@ class ImageContent extends Content{
 				// this.createEffects();
 				// this.applyGeneralEffects();
 		
-		
+			
 		}
+
+
 		
 
 	}
@@ -148,6 +150,8 @@ class ImageContent extends Content{
 		
 		//document.getElementById("background_img").append(this.html.fe);
 
+		
+
 
 		super.display();
 		this.htmlParent.append(this.html.fe);
@@ -155,17 +159,23 @@ class ImageContent extends Content{
 		this.html.fe.style.display="block";
 	}
 
+	hide(){
+		this.html.fe.style.display="none";
+	}
+
 	adjustSize(){
-		for(let i in this.effects.general){
-			if(this.effects.general[i] instanceof SizeImageEffect){
-				if(this.effects.general[i].vareables.type=="scalable"){
-					this.html.fe.style.width=(this.html.fe.naturalWidth / 1920)*100*this.effects.general[i].vareables.value + "%";
-					return;
+		if(this.effects.general.size != undefined && this.effects.general.type == "relative"){
+			for(let i in this.effects.general){
+				if(this.effects.general[i] instanceof SizeImageEffect){
+					if(this.effects.general[i].vareables.type=="scalable"){
+						this.html.fe.style.width=(this.html.fe.naturalWidth / 1920)*100*this.effects.general[i].vareables.value + "%";
+						return;
+					}
 				}
 			}
+			
+			this.html.fe.style.width=(this.html.fe.naturalWidth / 1920)*100 + "%";
 		}
-		
-		this.html.fe.style.width=(this.html.fe.naturalWidth / 1920)*100 + "%";
 	}
 
 

@@ -157,8 +157,9 @@ class Action{
 	skip(skipTime_){
 		if(this.timer!=undefined){
 			//console.log("skip: " + this.id + " : " + this.timer)
-			this.timer.skip(skipTime_)
+			return this.timer.skip(skipTime_); //returns the time in scene after skip
 		}
+		return 0;
 	}
 
 	reset(){
@@ -292,6 +293,7 @@ class Action{
 
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
+				console.log("display: " + this.head.id+ " ++++++++++++++++++++")
 				this.head.display();
 				
 				
@@ -304,7 +306,7 @@ class Action{
 			}
 			this.removeTimer()
 
-		}.bind(this), delay_*1000,this);
+		}.bind(this), delay_*1000, this);
 		
 
 		if(autoPlay_){
@@ -401,6 +403,7 @@ class Action{
 		}
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
+				console.log("play: " + this.head.id + " --------------------")
 				this.head.play();
 			}
 			

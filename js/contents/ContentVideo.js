@@ -233,6 +233,10 @@ class VideoContent extends MediaContent{
 		if(this.parentScene.playingMediaObjects.indexOf(this)==-1){
 			this.parentScene.playingMediaObjects.push(this)
 		}
+
+		var skipBack = (e.clientX/document.width)*this.duration+this.start - this.html.fe.currentTime;
+		// console.log(skipBack);
+		// this.parentScene.skipAmount(skipBack);
 		this.html.fe.currentTime = (e.clientX/document.width)*this.duration+this.start;
 	}
 
@@ -251,6 +255,7 @@ class VideoContent extends MediaContent{
 
 
 	donePlayingEvent(){
+		this.endTime=this.parentScene.timePlayingScene;
 		this.removeFromActiveVideo();
 		this.isDonePlaying=true;
 	}
@@ -317,7 +322,6 @@ class VideoContent extends MediaContent{
 			this.parentScene.playingMediaObjects.push(this)
 		}
 		
-
 		currentStory.updatePlayPause()
 	}
 
@@ -329,15 +333,19 @@ class VideoContent extends MediaContent{
 			this.parentScene.playingMediaObjects.splice(this.parentScene.playingMediaObjects.indexOf(this),1);
 		}
 		
-
-		currentStory.updatePlayPause()
+		currentStory.updatePlayPause();
 	}
 
 
 
 	play(){
+		if(this.parentScene.playingMediaObjects.indexOf(this)==-1){
+			this.parentScene.playingMediaObjects.push(this)
+		}
 		this.isPlaying=true;
-		
+		if(this.startTime == undefined){
+			this.startTime=this.parentScene.timePlayingScene;
+		}
 		// this.html.fe.play();
 
 		this.playPromise = this.html.fe.play();
@@ -364,17 +372,16 @@ class VideoContent extends MediaContent{
 
 	}
 	
-	stop(){ //movie at end
-		if(this.html.fe.duration){
-			this.html.fe.currentTime=this.start + this.html.fe.duration;
-		}else{
-			console.log("durration is not defined")
-			console.log(this.html)
-		}
+	// stop(){ //movie at end
+	// 	if(this.html.fe.duration){
+	// 		this.html.fe.currentTime=this.start + this.html.fe.duration;
+	// 	}else{
+	// 		console.log("durration is not defined")
+	// 		console.log(this.html)
+	// 	}
+	// 	this.pause();
+	// }
 
-
-		this.pause();
-	}
 	pause(){
 		this.isPlaying=false;
 		this.html.fe.pause();

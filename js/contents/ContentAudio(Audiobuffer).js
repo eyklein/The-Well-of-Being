@@ -338,6 +338,7 @@ class AudioContent extends Content{
 		//currentStory.enablePlayPause();
 
 		currentStory.audioCount++;
+		console.log(1)
 		currentStory.updatePlayPause();
 		if (context.state === 'suspended') {
 		    context.resume();
@@ -392,13 +393,14 @@ class AudioContent extends Content{
 
 
 		    this.source.onended=function(event_){
+		    	console.log(2)
 		    	currentStory.audioCount--;
 		    	currentStory.updatePlayPause();
 		    	this.endOfPlayback();
 		 		// this.isPlaying=false;
 			}.bind(this);
 		}
-
+		console.log(3)
 		currentStory.updatePlayPause();
 	}
 
