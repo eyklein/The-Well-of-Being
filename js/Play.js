@@ -102,7 +102,7 @@ class Story{
 
 		this.volume={};
 		this.volume['main']=1;
-		this.volume['background']=.8;
+		this.volume['background']=.2;
 		this.currentScene=null;
 
 
@@ -126,6 +126,12 @@ class Story{
 		this.readingIsOn=true;
 		this.muted=false;
 		this.captionsOn=true;
+
+		this.backgroundPlaying=false;
+
+
+
+		
 
 
 		//this.setLeftOffsets()
@@ -650,14 +656,29 @@ class Story{
 		
 	}
 
+	backButton(){
+
+		let wasPlaying = this.playing;
+		if(this.currentScene.getPlayedTime() < 2000){
+			this.currentScene.pause();
+			let index = this.scrollOrderArray.indexOf(this.currentScene);
+			index = Math.max(index,0);
+			this.newScene(this.scrollOrderArray[index-1])
+			// if(!wasPlaying){
+			// 	this.pause()
+			// }
+		}else{
+			this.rewind();
+			// if(!wasPlaying){
+			// 	this.pause()
+			// }
+		}
+	}
+
 	rewind(){
 		this.currentScene.rewind();
 
 		this.play();
-
-		//this.currentScene.play();
-
-		
 	}
 
 	pause(){
@@ -728,32 +749,34 @@ class Story{
 	setBackgroundVolume(volume_){
 		
 		//set volume for all the main audio
-		this.scenesLib['uni'].contentsLib['799'].setVolume(volume_)
+		this.scenesLib['background'].contentsLib['799'].setVolume(volume_)
 	}
 
+	
 	playBackground(){
-		this.scenesLib['uni'].contentsLib['799'].play()
+		if(!this.backgroundPlaying){
+			this.setBackgroundVolume(this.volume['background'])
+			this.backgroundPlaying=true;
+			this.scenesLib['background'].contentsLib['799'].play()
+		}
 	}
 	pauseBackground(){
-		this.scenesLib['uni'].contentsLib['799'].pause();
+		this.backgroundPlaying=false;
+		this.scenesLib['background'].contentsLib['799'].pause();
 	}
 
 
 
-	skip(){
-		// console.log("SKIP")
-		// console.log(this.play)
+	skip(scene_){
+
 		let maxSkipMade=0;
 
 		this.pause();
-		// this.playing=false;
-		
-		//if the scene has not started set to to started because we are skipping to th end (unless negative ?)
-		currentStory.currentScene.started=true;
+		this.currentScene.started=true;
 
+		this.currentScene.skip(true);
 
-
-		maxSkipMade = this.currentScene.skip();
+		// maxSkipMade = this.currentScene.skip();
 
 
 		// console.log(1)
@@ -771,9 +794,9 @@ class Story{
 		// }
 
 		//keep skipping until it can't
-		if(maxSkipMade){
-			setTimeout(function(){this.skip()}.bind(this),10);
-		}
+		// if(maxSkipMade){
+			// setTimeout(function(){this.skip()}.bind(this),10,scene_);
+		// }
 
 
 		//this is incase it was pause so that the next iterm wilplay when clicked
@@ -932,6 +955,14 @@ class Story{
 			this.scenesLib[id].showCaptions();
 		}
 		this.captionsOn=true;
+	}
+
+	setCurrentScene(scene_){
+		if(this.scrollOrderArray.indexOf(scene_)>=1){
+			currentStory.playBackground();
+		}else{
+			currentStory.pauseBackground();
+		}
 	}
 
 

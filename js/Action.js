@@ -293,7 +293,6 @@ class Action{
 
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
-				console.log("display: " + this.head.id+ " ++++++++++++++++++++")
 				this.head.display();
 				
 				
@@ -403,7 +402,6 @@ class Action{
 		}
 		this.timer=new Timer(function(){
 			if(this.head instanceof Content){
-				console.log("play: " + this.head.id + " --------------------")
 				this.head.play();
 			}
 			

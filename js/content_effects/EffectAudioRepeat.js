@@ -9,6 +9,7 @@ class RepeatAudioEffect extends AudioEffect{
 
 	apply(){
 		if(this.vareables.isOn){
+			console.log("LOOPING!!!!!!!!")
 			this.parentContent.loop=true;
 		}
 

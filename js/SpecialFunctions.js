@@ -149,7 +149,7 @@ function pseudoSwitch(keyCode_) {
 }
 
 function createKeyPresses(){
-  addKeyFunction(37, function(){currentStory.restartScene();});
+  addKeyFunction(37, function(){currentStory.backButton();});
   addKeyFunction(38, function(){currentStory.togglePlayPause();});
   addKeyFunction(39, function(){currentStory.skip();});
   addKeyFunction(40, function(){currentStory.togglePlayPause();});

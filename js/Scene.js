@@ -305,10 +305,7 @@ class Scene{
 			if(scrollTimeout==undefined){
 				autoScrolling=false;
 			}
-		},1)
-
-		console.log("START " + this.id);
-		// this.paused=false;
+		},1);
 
 		
 
@@ -362,16 +359,11 @@ class Scene{
 	}
 
 	isPlayable(){
-		// console.log(this.activeMainVideo)
 
 		for(let content in this.playingMediaObjects){
-			// console.log(this.playingMediaObjects[content])
-			console.log("dood")
 			return true;
 		}
 		if(this.timersActive()){
-			console.log(this.timersActive())
-			console.log("ppop")
 			return true;
 		}
 
@@ -509,16 +501,12 @@ class Scene{
 
 
 
-	skip(){
-		
-		// let skipWasMade=false;
+	skip(toEnd_){
+
 		let maxSkipPosition=0; //will be 0 if no skip is made
 		for(let action in this.actionsLib){
 			if(this.actionsLib[action].timerOutstanding()){
-
 				maxSkipPosition=Math.max(maxSkipPosition, this.actionsLib[action].skip());
-				// console.log(maxSkip)
-				// skipWasMade=true;
 			}
 		}
 
@@ -528,10 +516,8 @@ class Scene{
 
 		if(maxSkipPosition>this.timePlayingScene){
 			this.timePlayingScene = maxSkipPosition;
-			return maxSkipPosition;
-		}else{
-			return 0;
-
+			// return maxSkipPosition;
+			this.skip(true);
 		}
 	}
 

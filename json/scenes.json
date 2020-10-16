@@ -10,6 +10,17 @@
 			"orderY":0
 		},
 		"actions": [],
+		"contents": []
+	}, {
+		"name": "background",
+		"id": "background",
+		"scroll":{
+			"height":"100vw",
+			"scrollable":false,
+			"orderX":0,
+			"orderY":0
+		},
+		"actions": [],
 		"contents": [{
 			"id": "799",
 			"content": {
@@ -54,7 +65,7 @@
 				}
 			}
 		}]
-	}, {
+	},{
 		"name": "intro",
 		"id": "INTRO",
 		"scroll":{
@@ -459,7 +470,7 @@
 			"headID": "102",
 			"trigger": "onEnd",
 			"elicit": "display",
-			"delay": 0,
+			"delay": 1,
 			"conditions": []
 		},{
 			"id": "701102C",
