@@ -264,12 +264,14 @@ function updateContentSize(){
 	document.getElementById("bottom-bar").style.height=height*.05+'px';
 	document.getElementById("bottom-bar").style.display='block';
   document.getElementById("bottom-bar").style.width=width+'px';
+  document.getElementById("bottom-bar").style.height=0+'px';
+  document.getElementById("bottom-bar").style.bottom="0px";
 
-  if(window.innerHeight-height>document.getElementById("bottom-bar").offsetHeight*2){
-    document.getElementById("bottom-bar").style.bottom="-30px";
-  }else{
-    document.getElementById("bottom-bar").style.bottom="0px";
-  }
+  // if(window.innerHeight-height>document.getElementById("bottom-bar").offsetHeight*2){
+  //   document.getElementById("bottom-bar").style.bottom="-30px";
+  // }else{
+  //   document.getElementById("bottom-bar").style.bottom="0px";
+  // }
 
 	//currentStory.windowManager.playPause.style['padding-top']=height*.01+'px';
 	// currentStory.windowManager.playPause.style['position']='absolute';
@@ -281,21 +283,23 @@ function updateContentSize(){
 
 
 
-	currentStory.windowManager.fullScreenButton.style['right']=width*.01+'px';
-	currentStory.windowManager.fullScreenButton.style['padding']=height*.01+'px';
+	// currentStory.windowManager.fullScreenButton.style['right']=width*.01+'px';
+	// currentStory.windowManager.fullScreenButton.style['padding']=height*.01+'px';
 	
-	currentStory.windowManager.fullScreenButton.style.height=height*.03+'px';
-	currentStory.windowManager.fullScreenButton.style.width=height*.03+'px';
+	// currentStory.windowManager.fullScreenButton.style.bottom=-height*.20+'px';
+
+ //  currentStory.windowManager.fullScreenButton.style.height=height*.06+'px';
+ //  currentStory.windowManager.fullScreenButton.style.width=height*.06+'px';
   
 
 
 	// document.getElementById("main_text").style['font-size']=width*.02+'px';
 
-	currentStory.windowManager.mainVolumeLable.style['font-size']=height*.02+"px";
-	// currentStory.windowManager.mainVolumeLable.style['color']="red";
+	// currentStory.windowManager.mainVolumeLable.style['font-size']=height*.02+"px";
+	// // currentStory.windowManager.mainVolumeLable.style['color']="red";
 
-	currentStory.windowManager.backgroundVolumeLable.style['font-size']=height*.02+"px";
-	currentStory.windowManager.backgroundVolumeLable.style['width']=width*.2+"px";
+	// currentStory.windowManager.backgroundVolumeLable.style['font-size']=height*.02+"px";
+	// currentStory.windowManager.backgroundVolumeLable.style['width']=width*.2+"px";
 	// currentStory.windowManager.backgroundVolumeLable.style['color']="blue";
 	// currentStory.windowManager.backgroundVolumeLable.style['font-size']=height*.03+"px";
 	//currentStory.windowManager.backgroundVolumeLable.style['font-size']=height*.4+"px";
@@ -476,6 +480,15 @@ function shake(div_){
     //         //and so on...
     //     });
     // });
+}
+
+
+function flipPage(deg_,increment_,delay_){
+ 
+    currentStory.currentScene.html.fe.container.style['transform'] = "rotateY("+ (-deg_) +"deg)";
+    if(increment_>0 && deg_< 90){
+      setTimeout(function(){flipPage(deg_+increment_,increment_,delay_);},delay_)
+    }
 }
 
 

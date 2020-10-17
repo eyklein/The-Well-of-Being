@@ -1,9 +1,18 @@
+.progressContainer { 
+   /*border:1px solid #aaa; */
+   /*color:#fff; */
+   width:100%; 
+   height:10vw;
+   z-index: 100;
+   position: absolute;
+   bottom: 0px;
+}
 .progressBar { 
    /*border:1px solid #aaa; */
    /*color:#fff; */
    width:100%; 
-   height:30px;
-   z-index: 999999999;
+   height:4vw;
+   /*z-index: 100;*/
    position: absolute;
    bottom: 0px;
 }

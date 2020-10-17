@@ -29,6 +29,11 @@ class WindowManager{
 		this.captionsWasOn=this.html.captionsSwitch.checked; // where captions on before reading was turned off
 		
 		this.html.readingSwitch = document.getElementById("reading-switch");
+
+		this.html.pageTurnSwitch = document.getElementById("pageTurn-switch");
+		this.pageTurnWasOn=this.html.readingSwitch.checked; // where captions on before reading was turned off
+
+		this.html.backgroundVolumeSwitch = document.getElementById("backgroundVolume-switch");
 		
 
 		//captions
@@ -51,6 +56,26 @@ class WindowManager{
 		}.bind(this));
 
 
+		//pageTurn
+		this.html.pageTurnSwitch.addEventListener("change",function(){
+			if(this.html.readingSwitch.checked==true){
+				this.pageTurnWasOn=this.html.pageTurnSwitch.checked
+			}else{
+				this.html.pageTurnSwitch.checked=false;
+				shake(this.html.readingSwitch.parentElement.parentElement);
+			}
+
+
+
+			if(this.html.pageTurnSwitch.checked){
+				// currentStory.showCaptions();
+			}else{
+				// currentStory.hideCaptions();
+			}
+			
+		}.bind(this));
+
+
 		//reading
 		this.html.readingSwitch.addEventListener("change",function(){
 			
@@ -59,15 +84,30 @@ class WindowManager{
 					this.html.captionsSwitch.checked=false;
 					currentStory.hideCaptions();
 				}
+
+				if(this.pageTurnWasOn){
+					this.html.pageTurnSwitch.checked=false;
+					currentStory.pageTurnOff();
+				}
+				this.html.captionsSwitch.parentElement.parentElement.parentElement.classList.add('disabled');
+				this.html.pageTurnSwitch.parentElement.parentElement.parentElement.classList.add('disabled');
+
 			}else{
 				if(this.captionsWasOn){
 					this.html.captionsSwitch.checked=true;
 					currentStory.showCaptions();
 				}
+				if(this.pageTurnWasOn){
+					this.html.pageTurnSwitch.checked=true;
+					// currentStory.pageTurnOn();
+				}
+
+				this.html.captionsSwitch.parentElement.parentElement.parentElement.classList.remove('disabled');
+				this.html.pageTurnSwitch.parentElement.parentElement.parentElement.classList.remove('disabled');
 				
 			}
 
-			currentStory.autoRun = this.html.readingSwitch.checked;
+			currentStory.pageTurnIsOn = this.html.readingSwitch.checked;
 			currentStory.readingIsOn = this.html.readingSwitch.checked;
 
 			if(currentStory.readingIsOn){
@@ -139,6 +179,7 @@ class WindowManager{
 
 		this.addFullScreen();
 		this.addPlayPauseButton();
+		this.addNextBackButtons();
 		this.displayPauseButton();
 		//this.displayPlayButton();
 		// currentStory.updatePlayPause();
@@ -151,6 +192,27 @@ class WindowManager{
 
 	}
 
+
+	// captionsTurnoff(){
+
+	// }
+	// readingTurnon(){
+
+	// }
+	// autoTurnTurnOn(){
+		
+	// }
+
+	// captionsTurnoff(){
+
+	// }
+	// readingTurnoff(){
+
+	// }
+	// autoTurnTurnOff(){
+
+	// }
+
 	updateScrollBar(){
 
 		this.html.scrollbarThumbX.classList.add("scrolling");
@@ -159,9 +221,7 @@ class WindowManager{
 
 		let thumbPercent = parseFloat($(this.html.scrollbarThumbX).css("width"))/parseFloat($(this.html.scrollbarX).css("width"))
 
-		percent=percent*(1-thumbPercent)
-
-		// console.log(parseFloat($(this.html.scrollbarThumbX).css("width")))
+		percent=percent*(1-thumbPercent);
 		$(this.html.scrollbarThumbX).css("left", percent+"%")
 	}
 	
@@ -246,9 +306,6 @@ class WindowManager{
 		this.playPause.id="play-pause";
 		this.playPause.classList.add("deactivated");
 		this.playPause.style.opacity=.8;
-		// this.playPause.style.position="fixed";
-		
-
 		
 
 		this.play= document.createElement("img"); //this.play.src="img/special/play-w.png";
@@ -277,88 +334,138 @@ class WindowManager{
 			this.executePlayPauseRewind();
 		}.bind(this))
 
-		//this.playPause.style.height='50px'
+
+	}
+	addNextBackButtons(){
+		
+
+		this.nextBackButtons= document.createElement("div");
+		this.nextBackButtons.id="next-back";
+		this.nextBackButtons.style.opacity=.8;
+		
+
+		this.back= document.createElement("img"); //this.play.src="img/special/play-w.png";
+		this.back.src="img/special/back.png";
+		this.back.id="back";
+		this.back.classList.add("next-back");
+		this.nextBackButtons.appendChild(this.back);
+
+		this.next= document.createElement("img"); //this.play.src="img/special/play-w.png";
+		this.next.src="img/special/next.png";
+		this.next.id="next";
+		this.next.classList.add("next-back");
+		this.nextBackButtons.appendChild(this.next);
+
+
+		document.getElementById("bottom-bar").appendChild(this.nextBackButtons);
+		
+
+		// this.playPause.addEventListener('click',function(){
+		// 	this.executePlayPauseRewind();
+		// }.bind(this))
+
 
 	}
 
 	addVolumeSliders(){
-		this.volumes= document.createElement("div");
-		this.volumes.style.position="absolute";
-		this.volumes.style.top="0px";
-		this.volumes.style.left="0px";
-		this.volumes.style.height="100%";
-		this.volumes.style.width="25%";
+		this.mainVolume = document.getElementById("main-volume");
+
+		this.mainVolume.value=100;
+
+		this.mainVolume.addEventListener('change',function(e){
+
+			currentStory.setMainVolume(e.target.value/100)
+
+		})
+
+
+
+		this.backgroundVolume = document.getElementById("background-volume");
+
+		this.backgroundVolume.value=20;
+
+		this.backgroundVolume.addEventListener('change',function(e){
+
+			currentStory.setBackgroundVolume(e.target.value/100)
+
+		})
+		// this.volumes= document.createElement("div");
+		// this.volumes.style.position="absolute";
+		// this.volumes.style.top="0px";
+		// this.volumes.style.left="0px";
+		// this.volumes.style.height="100%";
+		// this.volumes.style.width="25%";
 	
 
-		document.getElementById("bottom-bar").appendChild(this.volumes);
+		// document.getElementById("bottom-bar").appendChild(this.volumes);
 
 
 
 
-		this.mainVolumeSlider= document.createElement("input");
-		this.mainVolumeSlider.id="main-volume"
-		this.mainVolumeSlider.type="range";
-		this.mainVolumeSlider.classList.add("slider");
-		// this.mainVolumeSlider.orient="vertical";
-		this.mainVolumeSlider.style.position="absolute";
-		this.mainVolumeSlider.style.top="0px";
-		this.mainVolumeSlider.style.left="0px";
-		this.mainVolumeSlider.min=0 
-		this.mainVolumeSlider.max=100
-		this.mainVolumeSlider.step=1
-		this.mainVolumeSlider.value=currentStory.volume['main']*100;
+		// this.mainVolumeSlider= document.createElement("input");
+		// this.mainVolumeSlider.id="main-volume"
+		// this.mainVolumeSlider.type="range";
+		// this.mainVolumeSlider.classList.add("slider");
+		// // this.mainVolumeSlider.orient="vertical";
+		// this.mainVolumeSlider.style.position="absolute";
+		// this.mainVolumeSlider.style.top="0px";
+		// this.mainVolumeSlider.style.left="0px";
+		// this.mainVolumeSlider.min=0 
+		// this.mainVolumeSlider.max=100
+		// this.mainVolumeSlider.step=1
+		// this.mainVolumeSlider.value=currentStory.volume['main']*100;
 
-		this.mainVolumeSlider.addEventListener("input", function(){
-			currentStory.setMainVolume(this.mainVolumeSlider.value/100);
-		}.bind(this));
+		// this.mainVolumeSlider.addEventListener("input", function(){
+		// 	currentStory.setMainVolume(this.mainVolumeSlider.value/100);
+		// }.bind(this));
 		
 
-		this.volumes.appendChild(this.mainVolumeSlider);
+		// this.volumes.appendChild(this.mainVolumeSlider);
 
 
-		this.mainVolumeLable= document.createElement("lable");
-		this.mainVolumeLable.innerHTML="Main Volume"
-		this.mainVolumeLable.classList.add("volume-lable");
-		this.volumes.appendChild(this.mainVolumeLable);
+		// this.mainVolumeLable= document.createElement("lable");
+		// this.mainVolumeLable.innerHTML="Main Volume"
+		// this.mainVolumeLable.classList.add("volume-lable");
+		// this.volumes.appendChild(this.mainVolumeLable);
 
 
 
 
-		this.backgroundVolumeSlider= document.createElement("input");
-		this.backgroundVolumeSlider.id="background-volume"
-		this.backgroundVolumeSlider.type="range";
-		this.backgroundVolumeSlider.classList.add("slider");
-		this.backgroundVolumeSlider.style.position="absolute";
-		this.backgroundVolumeSlider.style.bottom="0px";
-		this.backgroundVolumeSlider.style.left="0px";
-		this.backgroundVolumeSlider.step=1
-		this.backgroundVolumeSlider.min=0 
+		// this.backgroundVolumeSlider= document.createElement("input");
+		// this.backgroundVolumeSlider.id="background-volume"
+		// this.backgroundVolumeSlider.type="range";
+		// this.backgroundVolumeSlider.classList.add("slider");
+		// this.backgroundVolumeSlider.style.position="absolute";
+		// this.backgroundVolumeSlider.style.bottom="0px";
+		// this.backgroundVolumeSlider.style.left="0px";
+		// this.backgroundVolumeSlider.step=1
+		// this.backgroundVolumeSlider.min=0 
 
-		this.backgroundVolumeSlider.max=100
+		// this.backgroundVolumeSlider.max=100
 		
-		this.backgroundVolumeSlider.value=currentStory.volume['background']*100;
+		// this.backgroundVolumeSlider.value=currentStory.volume['background']*100;
 
-		this.backgroundVolumeSlider.addEventListener("input", function(){
-			currentStory.setBackgroundVolume(this.backgroundVolumeSlider.value/100);
-		}.bind(this));
+		// this.backgroundVolumeSlider.addEventListener("input", function(){
+		// 	currentStory.setBackgroundVolume(this.backgroundVolumeSlider.value/100);
+		// }.bind(this));
 
-		// this.backgroundVolumeSlider.value=0.1;
-		// console.log(currentStory.volume['background'])
+		// // this.backgroundVolumeSlider.value=0.1;
+		// // console.log(currentStory.volume['background'])
 		
 
 
 
-		//this.mainVolumeSlider.
-		//this.mainVolumeSlider.value=75
-		this.backgroundVolumeSlider.step=1
+		// //this.mainVolumeSlider.
+		// //this.mainVolumeSlider.value=75
+		// this.backgroundVolumeSlider.step=1
 
-		this.volumes.appendChild(this.backgroundVolumeSlider);
+		// this.volumes.appendChild(this.backgroundVolumeSlider);
 
-		this.backgroundVolumeLable= document.createElement("lable");
-		this.backgroundVolumeLable.innerHTML="Background Volume"
-		this.backgroundVolumeLable.classList.add("volume-lable");
-		this.backgroundVolumeLable.style.bottom="0px"
-		this.volumes.appendChild(this.backgroundVolumeLable);
+		// this.backgroundVolumeLable= document.createElement("lable");
+		// this.backgroundVolumeLable.innerHTML="Background Volume"
+		// this.backgroundVolumeLable.classList.add("volume-lable");
+		// this.backgroundVolumeLable.style.bottom="0px"
+		// this.volumes.appendChild(this.backgroundVolumeLable);
 
 
 

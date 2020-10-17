@@ -117,7 +117,7 @@ input:checked + .switch-slider:before {
 .dropdown-content {
   display: none;
   position: absolute;
-  width: 120px;
+  width: 170px;
 
   right: 0px;
   font-family: 'indieFlower', cursive;
@@ -137,6 +137,12 @@ input:checked + .switch-slider:before {
   display: block;
   /*filter: blur(.5px);*/
   /*background-color: red*/
+}
+
+
+.dropdown-content .setting.disabled {
+  opacity: .5;
+  text-decoration: line-through;
 }
 
 .dropdown-content > .setting:nth-child(even) {

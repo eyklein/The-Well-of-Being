@@ -122,7 +122,7 @@ class Story{
 		this.activePath=[];
 
 
-		this.autoRun=true;
+		this.pageTurnIsOn=true;
 		this.readingIsOn=true;
 		this.muted=false;
 		this.captionsOn=true;
@@ -714,14 +714,7 @@ class Story{
 
 		this.currentScene.pause();
 	}
-	turnReadingOn(){
-		this.unmute();
-		this.currentScene.turnReadingOn()
-	}
-	turnReadingOff(){
-		this.mute();
-		this.currentScene.turnReadingOff()
-	}
+	
 	mute(){
 		this.muted=true;
 		this.currentScene.mute()
@@ -955,6 +948,22 @@ class Story{
 			this.scenesLib[id].showCaptions();
 		}
 		this.captionsOn=true;
+	}
+
+	pageTurnOn(){
+		this.pageTurnIsOn=true;
+	}
+
+	pageTurnOff(){
+		this.pageTurnIsOn=false;
+	}
+	turnReadingOn(){
+		this.unmute();
+		this.currentScene.turnReadingOn()
+	}
+	turnReadingOff(){
+		this.mute();
+		this.currentScene.turnReadingOff()
 	}
 
 	setCurrentScene(scene_){

@@ -1,7 +1,7 @@
-class TextContent extends Content{
+class FunctionContent extends Content{
 	constructor(contentJson_,parentScene_){ //,url_, content_, propertiesJSON_
 		super(contentJson_,parentScene_)
-		this.type="ContentText";
+		this.type="function";
 		this.htmlParent={};
 
 		this.name=this.content.value;

@@ -184,6 +184,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/switch.css">
     <link rel="stylesheet" type="text/css" href="css/videoControl.css">
+    <link rel="stylesheet" type="text/css" href="css/controls.css">
 
 
   
@@ -195,20 +196,34 @@
 
     </div>
       <div id='content'>
-        <div id='top-bar' onmousedown = 'return false' onselectstart = 'return false' style='display:none' alt='text'>
-          <div id='scrollbarX'  onmousedown = 'return true' onselectstart = 'return true'>
+
+        <div id='top-bar' onselectstart = 'return false'  style='display:none' alt='text'> <!-- onmousedown = 'return false'  --> <!-- onmouse down prevent dragging and highlighting ??
+ -->          <div id='scrollbarX'  onmousedown = 'return true' onselectstart = 'return true'>
           <div id='scrollbarX-thumb' class='draggable' ></div>
           </div>
+
+          
 
           <div class="dropdown">
             <button class="dropbtn"><img src="img/special/setting.png"></img></button>
             <div class="dropdown-content">
 
 
+              
+
               <div class="setting">Reading
                 <label class="switch">
                   <div class="switch-div">
                   <input id='reading-switch' type="checkbox" checked>
+                  <span class="switch-slider round"></span>
+                </div>
+                </label>
+              </div>
+
+              <div class="setting">Auto Page Turn
+                <label class="switch">
+                  <div class="switch-div">
+                  <input id='pageTurn-switch' type="checkbox" checked>
                   <span class="switch-slider round"></span>
                 </div>
                 </label>
@@ -225,13 +240,51 @@
                 </label>
               </div>
 
+              
+
+              <div class="setting">Background Music
+                <label class="switch">
+                  <div class="switch-div">
+                  <input id='backgroundVolume-switch' type="checkbox" checked>
+                  <span class="switch-slider round"></span>
+                </div>
+                </label>
+              </div>
+
+              <div class="setting">
+                <div>
+                  <p2>Main Volume</p2>
+                <input id='main-volume' class='slider' type="range" min="0" max="100" step="1">
+              </div>
+                Background Volume
+                <input id='background-volume' class='slider' type="range" min="0" max="100" step="1">
+              </div>
+
+
+
+
+
+   
+
+
+
+              
+
 
             </div>
           </div>
 
           
         </div>
-        <div id='bottom-bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'></div>
+        <div id='bottom-bar' onmousedown = 'return true' onselectstart = 'return true' style='display:none' alt='text'>
+         
+
+
+        
+        </div>
+
+
+
         <div id='scenes' class="scenes x mandatory-scroll-snapping">
 
 
