@@ -1,0 +1,85 @@
+.text-box{
+  -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+
+    border-radius: 0 1vw 1vw 0;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.text-box.open{
+  transform: translate(0px, 0px);
+}
+.text-box.closed{
+  transform: translate(-100%, 0%);
+}
+
+.text-box.closed.pullOut{
+  transform: translate(-95%, 0%);
+}
+.text-box.closed:hover{
+  transform: translate(-80%, 0%);
+  
+}
+
+.tab{
+  /*width:8vw;
+  height:2vw;
+  background-color: inherit;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 0 0 1vw 1vw;
+  transform: translate(0px, 100%);
+  visibility: visible;*/
+  width: 2vw;
+  height: 8vw;
+  background-color: inherit;
+  position: absolute;
+  right: -2vw;
+  bottom: 0px;
+  border-radius: 0 1vw 1vw 0;
+  /* transform: translate(0px, 100%); */
+  visibility: visible;
+}
+
+
+}
+/*.tab-arrow{
+  -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    
+    position: absolute;
+    top: 25%;
+    width: 0px;
+    height: 0px;
+    color:white;
+}
+.tab-arrow.open{
+  -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+   
+    transform: rotate(-180deg) translate(.5vw, 0vw);
+     position: absolute;
+    top: 25%;
+    color:gray;
+    
+}
+
+.tab-arrow.closed{
+  -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+   transform: rotate(0deg) translate(.5vw, 0vw);
+    position: absolute;
+    top: 25%;
+    color:white;
+}*/

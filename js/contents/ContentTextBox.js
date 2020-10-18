@@ -40,17 +40,17 @@ class TextBoxContent extends Content{
 
 	close(){
 		this.html.fe.classList.remove("open");
-		this.html.closingOpeningTabArrow.classList.remove("open");
+		// this.html.closingOpeningTabArrow.classList.remove("open");
 		this.html.fe.classList.add("closed");
-		this.html.closingOpeningTabArrow.classList.add("closed");
+		// this.html.closingOpeningTabArrow.classList.add("closed");
 		this.isOpen=false;
 		
 	}
 	open(){
 		this.html.fe.classList.remove("closed");
-		this.html.closingOpeningTabArrow.classList.remove("closed");
+		// this.html.closingOpeningTabArrow.classList.remove("closed");
 		this.html.fe.classList.add("open");
-		this.html.closingOpeningTabArrow.classList.add("open");
+		// this.html.closingOpeningTabArrow.classList.add("open");
 		this.isOpen=true;
 	}
 
@@ -82,15 +82,15 @@ class TextBoxContent extends Content{
 		this.html.fe.classList.add("closed");
 
 
-		this.html.closingOpeningTab=document.createElement("div");
-		this.html.closingOpeningTab.classList.add("tab");
-		this.html.fe.append(this.html.closingOpeningTab);
+		// this.html.closingOpeningTab=document.createElement("div");
+		// this.html.closingOpeningTab.classList.add("tab");
+		// this.html.fe.append(this.html.closingOpeningTab);
 
-		this.html.closingOpeningTabArrow=document.createElement("div");
-		this.html.closingOpeningTabArrow.classList.add("tab-arrow");
-		this.html.closingOpeningTabArrow.classList.add("closed");
-		this.html.closingOpeningTab.append(this.html.closingOpeningTabArrow);
-		this.html.closingOpeningTabArrow.innerHTML=">";
+		// this.html.closingOpeningTabArrow=document.createElement("div");
+		// this.html.closingOpeningTabArrow.classList.add("tab-arrow");
+		// this.html.closingOpeningTabArrow.classList.add("closed");
+		// this.html.closingOpeningTab.append(this.html.closingOpeningTabArrow);
+		// this.html.closingOpeningTabArrow.innerHTML=">";
 
 		if(this.isOpen){
 			// console.log("**********************TEXTBOX OPEN-------------------")
@@ -98,10 +98,10 @@ class TextBoxContent extends Content{
 		}
 
 
-		this.html.closingOpeningTab.addEventListener("click",function(){
-			this.toggle();
+		// this.html.closingOpeningTab.addEventListener("click",function(){
+		// 	this.toggle();
 
-		}.bind(this))
+		// }.bind(this))
 
 
 
@@ -111,6 +111,14 @@ class TextBoxContent extends Content{
 		this.createEffects();
 
 		this.applyEffects();
+
+
+		this.html.fe.addEventListener("click",function(){
+			this.toggle();
+
+		}.bind(this))
+
+
 
 
 		

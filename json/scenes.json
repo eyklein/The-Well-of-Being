@@ -455,15 +455,7 @@
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==false"]
-		},{
-			"id": "701001h",
-			"tailID": "701",
-			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==true"]
+			"conditions": []
 		}, {
 			"id": "701102D",
 			"tailID": "701",
@@ -608,7 +600,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "0%",
+						"top": "20%",
 						"left": "0%"
 					},
 					"dimensions": {
@@ -806,16 +798,8 @@
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==false"]
+			"conditions": []
 		},{
-			"id": "701001h",
-			"tailID": "701",
-			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==true"]
-		}, {
 			"id": "701102D",
 			"tailID": "901",
 			"headID": "102",
@@ -1000,7 +984,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "0%",
+						"top": "20%",
 						"left": "0%"
 					},
 					"dimensions": {
@@ -1141,16 +1125,8 @@
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==false"]
+			"conditions": []
 		},{
-			"id": "701001h",
-			"tailID": "701",
-			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==true"]
-		}, {
 			"id": "701102D",
 			"tailID": "701",
 			"headID": "102",
@@ -1335,7 +1311,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "0%",
+						"top": "20%",
 						"left": "0%"
 					},
 					"dimensions": {
@@ -1476,15 +1452,7 @@
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==false"]
-		},{
-			"id": "701001h",
-			"tailID": "701",
-			"headID": "003",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": ["currentStory.readingIsOn==true"]
+			"conditions": []
 		}, {
 			"id": "701102D",
 			"tailID": "701",
@@ -1670,7 +1638,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "0%",
+						"top": "20%",
 						"left": "0%"
 					},
 					"dimensions": {
@@ -1965,7 +1933,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "0%",
+						"top": "20%",
 						"left": "0%"
 					},
 					"dimensions": {

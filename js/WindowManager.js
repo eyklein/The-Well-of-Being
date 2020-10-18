@@ -190,6 +190,30 @@ class WindowManager{
 
 
 
+
+		this.leftPanel=document.getElementById("left-panel");
+		this.rightPanel=document.getElementById("right-panel");
+
+		this.leftPanel.addEventListener("mouseover",function(){
+			let currentTextBox = currentStory.currentScene.contentsLib["003"];
+
+			if(currentTextBox != undefined){
+				currentTextBox.html.fe.classList.add("pullOut")
+			}
+		});
+
+		this.leftPanel.addEventListener("mouseout",function(){
+
+			let currentTextBox = currentStory.currentScene.contentsLib["003"];
+
+			if(currentTextBox != undefined){
+				currentTextBox.html.fe.classList.remove("pullOut")
+			}
+		});
+
+
+
+
 	}
 
 

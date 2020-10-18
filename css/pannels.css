@@ -1,0 +1,26 @@
+#left-panel{
+   background: rgb(0,0,0);
+   background: linear-gradient(90deg, rgba(100,100,100,1) 0%, rgba(100,100,100,0) 100%);
+}
+
+#right-panel{
+   background: rgb(0,0,0);
+   background: linear-gradient(90deg, rgba(100,100,100,0) 0%, rgba(100,100,100,1) 100%);
+
+   right:0px;
+}
+.panel{
+   /*background-color: gray;*/
+   width:10%;
+   height:100%;
+   position: absolute;
+   top:0px;
+   z-index: 20;
+   opacity: 0;
+
+}
+.panel:hover{
+   opacity: .2;
+}
+
+

@@ -171,6 +171,9 @@
   transform: translateX(60%)  scale(1.4);
   
 }
+#play{
+  opacity: .8;
+}
 
 
 /*#play-pause.rewind{
