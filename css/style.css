@@ -30,9 +30,10 @@
 
 body {
   background-color: #000;
-  cursor: url("../img/mouse/Cursor-(blue).png"), default;
+  /*cursor: url("../img/mouse/Cursor-(blue).png"), default;*/
   overflow: hidden;
   margin: 0px;
+  box-sizing:border-box;
   
 }
 
@@ -42,6 +43,7 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
 }
 canvas{
   pointer-events: none;
+  box-sizing:border-box;
 }
 
 /*html {
@@ -73,6 +75,10 @@ section {
   color:#999;
   opacity: .8;
 }*/
+
+.text{
+  box-sizing: border-box
+}
 .next-timer{
   height: 5vw;
   width: 15vw;
@@ -511,9 +517,9 @@ div#main_text{
 .text-clickable{
   background-color:#5c6f91;
 }
-.text{
+/*.text{
   background-color:#a8b8f7;
-}
+}*/
 .img-background{
   /*background-color:#d63636;*/
   /*border-style: groove;*/

@@ -175,29 +175,16 @@ window.onload=function(){
 };
 
 var scrollTraget=0;
-function scrollBy(deltaX_){
-	// document.getElementById("scenes").classList.remove("mandatory-scroll-snapping");
-	// console.log((scrollTraget -1) +" <= " + document.getElementById("scenes").scrollLeft)
-	// if(scrollTraget <= document.getElementById("scenes").scrollLeft){
-		// scrollTraget = document.getElementById("scenes").scrollLeft+deltaX_;
-		// document.getElementById("scenes").scrollTo({"left":deltaX_,"top":0,"behavior": "smooth"});
-
-	// console.log(deltaX_)
-	document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
-
-
+function scrollBy(deltaX_, smooth_){
+	if(smooth_){
+		document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0, behavior: 'smooth'});
+	}else{
+		document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
+	}
 	currentStory.windowManager.updateScrollBar();
-	// }
-	
-	// console.log(deltaX_)
-	// document.getElementById("scenes").scrollBy({"left":deltaX_,"top":0});
-
 }
 function scrollTo(targetX_){
 	document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
-	// console.log(targetX_)
-	// document.getElementById("scenes").scrollTo({"left":targetX_,"top":0});
-
 }
 
 
@@ -207,17 +194,7 @@ var scenesLastScrollPosition=0;
 let scenesTicking = false; 
 function startScrolledToScene(scrollPos_) {
 
-
-	
-
-	
 	let wasPlaying = currentStory.playing;
-
-
-  	// if(scrollTimeout==undefined || !autoScrolling){
-
-  		
-
 	  	let scrollingSceneValue=Math.round(scrollPos_/document.width*10)/10;
 
 	  	console.log(scrollingSceneValue);
@@ -228,26 +205,12 @@ function startScrolledToScene(scrollPos_) {
 	  			// console.log("Pausing " + currentStory.currentScene.id)
 	  			currentStory.currentScene.pause();
 
-	  			currentStory.currentScene = currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)];
-
-	  			
-	  			if(currentStory.currentScene.started == false){
-	  				currentStory.currentScene.start();
-	  			}
-
-	  			if(wasPlaying){
-	  				currentStory.currentScene.play();
-	  			}
-	  			
-
-	  			currentStory.windowManager.updatePlayPauseButton()
-	  			// currentStory.newScene(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)]);
-	  			// console.log(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)].id)
+	  			currentStory.resumeScene(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)], wasPlaying);
+	  			console.log("XXXXXXX")
+	  			console.log(currentStory.currentScene.finishedPlaying)
 	  		}
 	  		
 	  	}
-	 // }
-
   
   	
 }
@@ -286,7 +249,7 @@ function easeToSceneFrame(pos_){
 	let rounded= Math.round(decScenePos);// 2							2
 	let shiftPercent = rounded - decScenePos ; 	// -0.4				`	0.4`
 
-	if(Math.abs(shiftPercent)>.015 ){
+	if(Math.abs(shiftPercent)>.05 ){
 
 		// console.log((shiftPercent*document.width)*.01)
 		scrollBy((shiftPercent*document.width)*.1);	//-0.4*50 = -20			0.4*50=20 yes
@@ -309,7 +272,6 @@ function toSceneFrame(pos_){
 
 	scrollBy(shiftPercent*document.width)	//-0.4*50 = -20			0.4*50=20 yes
 
-	console.log(pos_)
 	startScrolledToScene(pos_);
 
 }

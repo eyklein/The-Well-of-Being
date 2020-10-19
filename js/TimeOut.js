@@ -42,10 +42,10 @@ class Timer{
     }
 
     skip(skipTime_){ //millis?
-        console.log("skip timer for : " + this.action.id)
+        // console.log("skip timer for : " + this.action.id)
         if(skipTime_==null){
             window.clearTimeout(this.id);
-            console.log(this.callback)
+            // console.log(this.callback)
             this.callback();
             let skipped = (this.remaining - (Date.now() - this.start))
             return skipped + this.startSceneTime;//millis

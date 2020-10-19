@@ -4,7 +4,6 @@
 		"name": "universal",
 		"id": "uni",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":false,
 			"orderX":0,
 			"orderY":0
@@ -15,7 +14,6 @@
 		"name": "background",
 		"id": "background",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":false,
 			"orderX":0,
 			"orderY":0
@@ -69,16 +67,27 @@
 		"name": "intro",
 		"id": "INTRO",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
 			"orderY":0
 		},
 		"pause":true,
+		"next":{
+			"id":"viii",
+			"auto":false
+		},
 		"actions": [{
 			"id": "INTRO101d",
 			"tailID": "INTRO",
 			"headID": "101",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101d",
+			"tailID": "INTRO",
+			"headID": "003",
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
@@ -139,47 +148,7 @@
 			"elicit": "display",
 			"delay": 0,
 			"conditions": []
-		}, {
-			"id": "101101h",
-			"tailID": "101",
-			"headID": "101",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "101002h",
-			"tailID": "101",
-			"headID": "102",
-			"trigger": "click",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "901-102d",
-			"tailID": "901",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "901-102c",
-			"tailID": "901",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "102viiid",
-			"tailID": "102",
-			"headID": "viii-xii",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
+		},  {
 			"id": "INTRO901",
 			"tailID": "INTRO",
 			"headID": "901",
@@ -193,6 +162,54 @@
 			"headID": "901",
 			"trigger": "time",
 			"elicit": "cue",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101a",
+			"tailID": "901",
+			"headID": "103",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101a",
+			"tailID": "INTRO",
+			"headID": "103",
+			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101a",
+			"tailID": "901",
+			"headID": "102",
+			"trigger": "onEnd",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101a",
+			"tailID": "INTRO",
+			"headID": "102",
+			"trigger": "time",
+			"elicit": "clickable",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101a",
+			"tailID": "102",
+			"headID": "302",
+			"trigger": "click",
+			"elicit": "play",
+			"delay": 0,
+			"conditions": []
+		},{
+			"id": "INTRO101a",
+			"tailID": "103",
+			"headID": "303",
+			"trigger": "click",
+			"elicit": "play",
 			"delay": 0,
 			"conditions": []
 		}],
@@ -260,6 +277,73 @@
 					"x": 200
 				}
 			}
+		},{
+			"id": "003",
+			"content": {
+				"type": "textBox",
+				"rangeType": "string",
+				"source": "This is where text will be on each page. <br><br>When the mouse in near the left of the screen the tab will pop out. <br>Click it to pull it out all the way. <br>Click it again to hide it.",
+				"rangeInfo": {
+					"start": 0,
+					"duration": 0
+				},
+				"hideInfo":{
+					"startHidden":true,
+					"type":"translate",
+					"direction":"up"
+				}
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "20%",
+						"left": "0%"
+					},
+					"dimensions": {
+						"width": "50%",
+						"height": "40.5%"
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.025
+					},
+					"text-align": {
+						"value": "left"
+					},
+					"background-fill": {
+						"color": "rgba(100,100,100,.3)"
+					},
+					"z-index": {
+						"index": 101
+					},
+					"fill": {
+						"color": "rgba(255,255,255,1)"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"opacity": {
+						"opacity": "0.5"
+					}
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {}
+			},
+			"backend": {
+				"pos": {
+					"x": 100
+				}
+			}
 		}, {
 			"id": "901",
 			"content": {
@@ -301,14 +385,85 @@
 			"id": "101",
 			"content": {
 				"type": "text",
-				"value": "< Directions"
+				"value": "Tips"
 			},
 			"effects": {
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "20%",
-						"left": "2%"
+						"top": "8%",
+						"left": "8%"
+					},
+					"size": {
+						"type": "scalable",
+						"value": 0.03
+					},
+					"font": {
+						"font-family": "indieFlower"
+					},
+					"fill": {
+						"color": "#fff"
+					},
+					"stroke": {
+						"color": "#00ff00",
+						"thickness": "0px"
+					},
+					"z-index": {
+						"index": 20
+					},"css":[{
+						"style":"background-color",
+						"value":"rgba(255,255,255,.1)"
+					},{
+						"style":"height",
+						"value":"13%"
+					},{
+						"style":"width",
+						"value":"20%"
+					},{
+						"style":"padding-top",
+						"value":"2%"
+					},{
+						"style":"border-radius",
+						"value":"3px"
+					}
+
+
+					]
+					
+				},
+				"entrance": {},
+				"exit": {
+					"hide": {
+						"isOn": true
+					}
+				},
+				"clickable": {
+					"generic": {
+						"glow": {
+							"className": "glow"
+						}
+					},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		},{
+			"id": "102",
+			"content": {
+				"type": "text",
+				"value": "Read it myself"
+			},
+			"effects": {
+				"general": {
+					"position": {
+						"type": "absolute",
+						"top": "0%",
+						"right": "0%"
 					},
 					"size": {
 						"type": "scalable",
@@ -326,7 +481,23 @@
 					},
 					"z-index": {
 						"index": 20
-					}
+					},"css":[
+						{
+							"style":"padding-top",
+							"value":"12.5%"
+						},{
+							"style":"height",
+							"value":"50%"
+						},{
+							"style":"width",
+							"value":"15%"
+						},{
+							"style":"background-color",
+							"value":"rgba(100,100,100,.2)"
+						}
+					]
+	
+
 				},
 				"entrance": {},
 				"exit": {
@@ -340,7 +511,17 @@
 							"className": "glow"
 						}
 					},
-					"hover": {},
+					"hover": {
+						"css":[
+						{
+							"style":"background-color",
+							"value":"rgba(100,100,100,.3)"
+						},{
+							"style":"color",
+							"value":"#f0fff0"
+						}
+					]
+				},
 					"pressed": {}
 				}
 			},
@@ -349,22 +530,22 @@
 					"x": 426
 				}
 			}
-		}, {
-			"id": "102",
+		},{
+			"id": "103",
 			"content": {
 				"type": "text",
-				"value": "Start >"
+				"value": "Read it to me"
 			},
 			"effects": {
 				"general": {
 					"position": {
 						"type": "absolute",
-						"bottom": "20%",
-						"right": "2%"
+						"bottom": "0%",
+						"right": "0%"
 					},
 					"size": {
 						"type": "scalable",
-						"value": 0.04
+						"value": 0.02
 					},
 					"font": {
 						"font-family": "indieFlower"
@@ -378,7 +559,23 @@
 					},
 					"z-index": {
 						"index": 20
-					}
+					},"css":[
+						{
+							"style":"padding-top",
+							"value":"12.5%"
+						},{
+							"style":"height",
+							"value":"50%"
+						},{
+							"style":"width",
+							"value":"15%"
+						},{
+							"style":"background-color",
+							"value":"rgba(100,100,100,.2)"
+						}
+					]
+	
+
 				},
 				"entrance": {},
 				"exit": {
@@ -390,13 +587,60 @@
 					"generic": {
 						"glow": {
 							"className": "glow"
-						},"alternateKeyPress":{
-							"keyCodes":[39]
-						},"autoClick":{
-							"time":0,
-							"conditional":"currentStory.pageTurnIsOn==true && currentStory.playing==true"
 						}
 					},
+					"hover": {
+						"css":[
+						{
+							"style":"background-color",
+							"value":"rgba(100,100,100,.3)"
+						},{
+							"style":"color",
+							"value":"#f0fff0"
+						}
+					]
+				},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		},{
+			"id": "302",
+			"content": {
+				"type": "function",
+				"value": "currentStory.windowManager.turnReadingOff();currentStory.nextScene();"
+			},
+			"effects": {
+				"general": {},
+				"entrance": {},
+				"exit": {},
+				"clickable": {
+					"generic": {},
+					"hover": {},
+					"pressed": {}
+				}
+			},
+			"backend": {
+				"pos": {
+					"x": 426
+				}
+			}
+		},{
+			"id": "303",
+			"content": {
+				"type": "function",
+				"value": "currentStory.windowManager.turnReadingOn();currentStory.nextScene();"
+			},
+			"effects": {
+				"general": {},
+				"entrance": {},
+				"exit": {},
+				"clickable": {
+					"generic": {},
 					"hover": {},
 					"pressed": {}
 				}
@@ -411,10 +655,12 @@
 		"name": "Pages viii-xii",
 		"id": "viii-xii",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
 			"orderY":1
+		},"next":{
+			"id":"xiv",
+			"auto":true
 		},
 		"actions": [{
 			"id": "viii-xii901d",
@@ -457,30 +703,6 @@
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "701102D",
-			"tailID": "701",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 1,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "701",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701102C",
-			"tailID": "102",
-			"headID": "xiv",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
 			"id": "viii-xii901p",
 			"tailID": "viii-xii",
 			"headID": "901",
@@ -684,72 +906,17 @@
 					"x": 200
 				}
 			}
-		},{
-			"id": "102",
-			"content": {
-				"type": "text",
-				"value": "Next >"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"bottom": "20%",
-						"right": "2%"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"fill": {
-						"color": "rgba(0, 0, 0, 0.7)"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"z-index": {
-						"index": 20
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						},"alternateKeyPress":{
-							"keyCodes":[39]
-						},"autoClick":{
-							"time":0,
-							"conditional":"currentStory.pageTurnIsOn==true && currentStory.playing==true"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 426
-				}
-			}
 		}]
 	}, {
 		"name": "Page xiv",
 		"id": "xiv",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
 			"orderY":2
+		},"next":{
+			"id":"xvi-xx",
+			"auto":true
 		},
 		"actions": [{
 			"id": "xiv901d",
@@ -799,30 +966,6 @@
 			"elicit": "display",
 			"delay": 0,
 			"conditions": []
-		},{
-			"id": "701102D",
-			"tailID": "901",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "901",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "102",
-			"headID": "xvi-xx",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
 		}],
 		"contents": [{
 			"id": "701",
@@ -848,63 +991,6 @@
 			"backend": {
 				"pos": {
 					"x": 100
-				}
-			}
-		},{
-			"id": "102",
-			"content": {
-				"type": "text",
-				"value": "Next >"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"bottom": "20%",
-						"right": "2%"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"fill": {
-						"color": "#000"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"z-index": {
-						"index": 20
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						},"alternateKeyPress":{
-							"keyCodes":[39]
-						},"autoClick":{
-							"time":0,
-							"conditional":"currentStory.pageTurnIsOn==true && currentStory.playing==true"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 426
 				}
 			}
 		}, {
@@ -1073,10 +1159,12 @@
 		"name": "Page xvi-xx",
 		"id": "xvi-xx",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
 			"orderY":3
+		},"next":{
+			"id":"xxii",
+			"auto":true
 		},
 		"actions": [{
 			"id": "xiv901d",
@@ -1126,30 +1214,6 @@
 			"elicit": "display",
 			"delay": 0,
 			"conditions": []
-		},{
-			"id": "701102D",
-			"tailID": "701",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "701",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "102",
-			"headID": "xxii",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
 		}],
 		"contents": [{
 			"id": "701",
@@ -1175,63 +1239,6 @@
 			"backend": {
 				"pos": {
 					"x": 100
-				}
-			}
-		},{
-			"id": "102",
-			"content": {
-				"type": "text",
-				"value": "Next >"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"bottom": "20%",
-						"right": "2%"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"fill": {
-						"color": "#000"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"z-index": {
-						"index": 20
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						},"alternateKeyPress":{
-							"keyCodes":[39]
-						},"autoClick":{
-							"time":0,
-							"conditional":"currentStory.pageTurnIsOn==true && currentStory.playing==true"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 426
 				}
 			}
 		}, {
@@ -1400,10 +1407,13 @@
 		"name": "Page xxii",
 		"id": "xxii",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
 			"orderY":4
+		},
+		"next":{
+			"id":"p0",
+			"auto":true
 		},
 		"actions": [{
 			"id": "xiv901d",
@@ -1453,30 +1463,6 @@
 			"elicit": "display",
 			"delay": 0,
 			"conditions": []
-		}, {
-			"id": "701102D",
-			"tailID": "701",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "701",
-			"headID": "102",
-			"trigger": "onEnd",
-			"elicit": "clickable",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "102",
-			"headID": "p0",
-			"trigger": "click",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
 		}],
 		"contents": [{
 			"id": "701",
@@ -1502,63 +1488,6 @@
 			"backend": {
 				"pos": {
 					"x": 100
-				}
-			}
-		},{
-			"id": "102",
-			"content": {
-				"type": "text",
-				"value": "Next >"
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"bottom": "20%",
-						"right": "2%"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"fill": {
-						"color": "#000"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"z-index": {
-						"index": 20
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						},"alternateKeyPress":{
-							"keyCodes":[39]
-						},"autoClick":{
-							"time":0,
-							"conditional":"currentStory.pageTurnIsOn==true && currentStory.playing==true"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 426
 				}
 			}
 		}, {
@@ -1727,10 +1656,13 @@
 		"name": "PreFace",
 		"id": "p0",
 		"scroll":{
-			"height":"100vw",
 			"scrollable":true,
 			"orderX":0,
 			"orderY":5
+		},
+		"next":{
+			"id":"none",
+			"auto":false
 		},
 		"actions": [{
 			"id": "xiv901d",
@@ -1754,22 +1686,6 @@
 			"headID": "003",
 			"trigger": "time",
 			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},  {
-			"id": "701102D",
-			"tailID": "p0",
-			"headID": "102",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "701102C",
-			"tailID": "p0",
-			"headID": "102",
-			"trigger": "time",
-			"elicit": "clickable",
 			"delay": 0,
 			"conditions": []
 		}],
@@ -1797,63 +1713,6 @@
 			"backend": {
 				"pos": {
 					"x": 100
-				}
-			}
-		},{
-			"id": "102",
-			"content": {
-				"type": "text",
-				"value": "..."
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"bottom": "20%",
-						"right": "2%"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.04
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"fill": {
-						"color": "#000"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"z-index": {
-						"index": 20
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {
-						"glow": {
-							"className": "glow"
-						},"alternateKeyPress":{
-							"keyCodes":[39]
-						},"autoClick":{
-							"time":0,
-							"conditional":"currentStory.pageTurnIsOn==true && currentStory.playing==true"
-						}
-					},
-					"hover": {},
-					"pressed": {}
-				}
-			},
-			"backend": {
-				"pos": {
-					"x": 426
 				}
 			}
 		}, {
@@ -1917,7 +1776,7 @@
 			"id": "003",
 			"content": {
 				"type": "textBox",
-				"rangeType": "none",
+				"rangeType": "vareable",
 				"source": "bookInfo",
 				"rangeInfo": {
 					"start": 0,
@@ -1933,7 +1792,7 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "20%",
+						"top": "0%",
 						"left": "0%"
 					},
 					"dimensions": {

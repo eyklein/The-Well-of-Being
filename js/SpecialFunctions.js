@@ -2,61 +2,6 @@ var selectedNodes=[];
 var shiftPressed=false
 
 
-// $(window).scroll($.debounce( 250, true, function(e){
-//     $('#scrollMsg').html('SCROLLING!');
-//     console.log("scrolling")
-
-// }));
-// $(window).scroll($.debounce( 250, function(e){
-//     $('#scrollMsg').html('DONE!');
-//     console.log("DONE!!")
-//     console.log(e)
-// }));
-
-
-// Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
-
-// let last_known_scroll_position = 0;
-// let ticking = false;
-
-// function doSomething(scroll_pos) {
-// 	// console.log(currentStory.scrollOrderArray.length);
-// 	let heightSection = document.getElementById("scrolling-window").querySelectorAll(".scroll-section")[0].offsetHeight
-// 	//console.log()
-//   	console.log(Math.round(scroll_pos/heightSection*10)/10);
-
-//   	//document.getElementById("page-number").innerHTML=currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id
-
-//   	if(Math.round(scroll_pos/heightSection*10)/10==Math.round(scroll_pos/heightSection)){
-//   	// 	console.log("to to scene")
-//   	// 	console.log(currentStory.scrollOrderArray);
-//   	//console.log(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)].id);
-
-//   	// 	//check if it is a new scene
-//   	// 	if(currentStory.currentScene != currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)]){
-// 			// currentStory.clearScene();
-// 			// // currentStory.newScene(currentStory.scrollOrderArray[Math.round(scroll_pos/heightSection)])
-//   	// 	}
-  		
-//   	}
-  	
-// }
-
-// document.getElementById("scenes").addEventListener('scroll', function(e) {
-//   console.log("HI")
-//   last_known_scroll_position = window.scrollY;
-
-//   if (!ticking) {
-//     window.requestAnimationFrame(function() {
-//       doSomething(last_known_scroll_position);
-//       ticking = false;
-//     });
-
-//     ticking = true;
-//   }else{
-//   	console.log("?????????????????????")
-//   }
-// });
 window.addEventListener("keydown", function(e) {
     // space and arrow keys
     if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
@@ -64,21 +9,6 @@ window.addEventListener("keydown", function(e) {
     }
 }, false);
 
-
-
-// addScrollingDiv=function(){
-// 	let scrollWindow=document.getElementById("scrolling-window")//.querySelectorAll(".wrapper")[0];
-
-
-// 	let div=document.createElement("div");
-// 	div.classList.add("scroll-div");
-
-//   div.style['background-color'] = "hsl(" + Math.random()*360 + ", 100%, 50%)";
-
-// 	// scrollWindow.append(div);
-// 	return div;
-
-// }
 
 let insertFunction=function(){
   
@@ -88,7 +18,7 @@ document.onkeydown = function(e) {
     pseudoSwitch(e.keyCode);
 
     currentStory.currentScene.checkAlternateKeys(e.keyCode)
-    // console.log(e.keyCode)
+    console.log(e.keyCode)
     // switch (e.keyCode) {
 
     //     case 37:
@@ -150,11 +80,11 @@ function pseudoSwitch(keyCode_) {
 
 function createKeyPresses(){
   addKeyFunction(37, function(){currentStory.backButton();});
-  addKeyFunction(38, function(){currentStory.togglePlayPause();});
-  addKeyFunction(39, function(){currentStory.skip();});
-  addKeyFunction(40, function(){currentStory.togglePlayPause();});
+  addKeyFunction(38, function(){currentStory.togglePlayPause(true);});
+  addKeyFunction(39, function(){console.log("-39-"); currentStory.skip();});
+  addKeyFunction(40, function(){currentStory.togglePlayPause(true);});
   addKeyFunction(83, function(){currentStory.skip();});
-  addKeyFunction(32, function(){currentStory.togglePlayPause();});
+  addKeyFunction(32, function(){currentStory.togglePlayPause(true);});
   addKeyFunction(81, function(){currentStory.printActiveDelays();});
   addKeyFunction(66, function(){currentStory.backEnd.display();});
   addKeyFunction(16, function(){shiftPressed=true;});
@@ -248,14 +178,16 @@ function updateContentSize(){
   document.getElementById("top-bar").style.display='block';
   document.getElementById("top-bar").style.width=width+'px';
 
-  if(window.innerHeight-height>document.getElementById("top-bar").offsetHeight*2){
-    document.getElementById("top-bar").style.top="-130px"; //bar extends up 300 for hover purposes
-    // document.getElementById("top-bar").style["background-color"]="red";
-  }
-  else{
-    document.getElementById("top-bar").style.top="-100px";
-    // document.getElementById("top-bar").style["background-color"]="blue";
-  }
+  document.getElementById("top-bar").style.top="-100px";
+
+  // if(window.innerHeight-height>document.getElementById("top-bar").offsetHeight*2){
+  //   document.getElementById("top-bar").style.top="-130px"; //bar extends up 300 for hover purposes
+  //   // document.getElementById("top-bar").style["background-color"]="red";
+  // }
+  // else{
+  //   document.getElementById("top-bar").style.top="-100px";
+  //   // document.getElementById("top-bar").style["background-color"]="blue";
+  // }
 
 
 

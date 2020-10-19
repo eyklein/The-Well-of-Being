@@ -160,7 +160,7 @@
   /*width: 20px;*/
   position: absolute;
   right:50%;
-  transform: translateX(60%);
+  transform: translateX(50%);
   bottom:3vw;
   height:7vw;
   z-index: 20;
@@ -168,7 +168,7 @@
   
 }
 .play-pause:hover{
-  transform: translateX(60%)  scale(1.4);
+  transform: translateX(50%)  scale(1.4);
   
 }
 #play{

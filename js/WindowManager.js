@@ -48,9 +48,9 @@ class WindowManager{
 
 
 			if(this.html.captionsSwitch.checked){
-				currentStory.showCaptions();
+				currentStory.turnCaptionsOn(true);
 			}else{
-				currentStory.hideCaptions();
+				currentStory.turnCaptionsOn(false);
 			}
 			
 		}.bind(this));
@@ -65,12 +65,10 @@ class WindowManager{
 				shake(this.html.readingSwitch.parentElement.parentElement);
 			}
 
-
-
 			if(this.html.pageTurnSwitch.checked){
-				// currentStory.showCaptions();
+				currentStory.pageTurnOn(true);
 			}else{
-				// currentStory.hideCaptions();
+				currentStory.pageTurnOn(false);
 			}
 			
 		}.bind(this));
@@ -79,44 +77,14 @@ class WindowManager{
 		//reading
 		this.html.readingSwitch.addEventListener("change",function(){
 			
-			if(this.html.readingSwitch.checked==false){//turn off captions (no captions if not reading)
-				if(this.captionsWasOn){
-					this.html.captionsSwitch.checked=false;
-					currentStory.hideCaptions();
-				}
-
-				if(this.pageTurnWasOn){
-					this.html.pageTurnSwitch.checked=false;
-					currentStory.pageTurnOff();
-				}
-				this.html.captionsSwitch.parentElement.parentElement.parentElement.classList.add('disabled');
-				this.html.pageTurnSwitch.parentElement.parentElement.parentElement.classList.add('disabled');
-
+			if(this.html.readingSwitch.checked==false){
+				this.turnReadingOff();
 			}else{
-				if(this.captionsWasOn){
-					this.html.captionsSwitch.checked=true;
-					currentStory.showCaptions();
-				}
-				if(this.pageTurnWasOn){
-					this.html.pageTurnSwitch.checked=true;
-					// currentStory.pageTurnOn();
-				}
-
-				this.html.captionsSwitch.parentElement.parentElement.parentElement.classList.remove('disabled');
-				this.html.pageTurnSwitch.parentElement.parentElement.parentElement.classList.remove('disabled');
-				
+				this.turnReadingOn();
 			}
 
-			currentStory.pageTurnIsOn = this.html.readingSwitch.checked;
-			currentStory.readingIsOn = this.html.readingSwitch.checked;
+			
 
-			if(currentStory.readingIsOn){
-				currentStory.turnReadingOn();
-				// currentStory.unmute();
-			}else{
-				currentStory.turnReadingOff();
-				// currentStory.mute();
-			}
 		}.bind(this));
 
 
@@ -187,25 +155,22 @@ class WindowManager{
 		//this.createSceneModual();
 		this.createTopButtons();
 
+		this.createFlashButtons();
+
 
 
 
 
 		this.leftPanel=document.getElementById("left-panel");
-		this.rightPanel=document.getElementById("right-panel");
-
 		this.leftPanel.addEventListener("mouseover",function(){
 			let currentTextBox = currentStory.currentScene.contentsLib["003"];
-
 			if(currentTextBox != undefined){
 				currentTextBox.html.fe.classList.add("pullOut")
 			}
 		});
-
+		this.leftPanel.addEventListener("click",function(){currentStory.backButton()});
 		this.leftPanel.addEventListener("mouseout",function(){
-
 			let currentTextBox = currentStory.currentScene.contentsLib["003"];
-
 			if(currentTextBox != undefined){
 				currentTextBox.html.fe.classList.remove("pullOut")
 			}
@@ -213,6 +178,96 @@ class WindowManager{
 
 
 
+		this.rightPanel=document.getElementById("right-panel");
+
+		this.rightPanel.addEventListener("click",function(){
+			// currentStory.scenesLib[id].html.fe.container.classList.add("shift-left");
+			currentStory.skip();
+
+			// this.shiftScenesLeft(false);
+
+			setTimeout(
+				function(){
+					if(currentStory.currentScene.finishedPlaying==true && currentStory.currentScene.next.auto==true){
+						this.shiftScenesLeft(true);
+					}
+				}.bind(this),500);
+
+		}.bind(this));
+		this.rightPanel.addEventListener("mouseover",function(){
+
+			if(currentStory.currentScene.finishedPlaying==true){
+				this.shiftScenesLeft(true);
+			}
+		}.bind(this));
+
+		// this.rightPanel.addEventListener("mousemove",function(){
+		// 	for(let id in currentStory.scenesLib){
+		// 		if(currentStory.currentScene.finishedPlaying==true){
+		// 			currentStory.scenesLib[id].html.fe.container.classList.add("shift-left");
+		// 		}
+		// 	}
+		// });
+		this.rightPanel.addEventListener("mouseout",function(){
+			this.shiftScenesLeft(false);
+		}.bind(this));
+
+
+
+
+
+
+
+	}
+
+
+	turnReadingOn(){
+		if(this.captionsWasOn){
+			this.html.captionsSwitch.checked=true;
+			currentStory.turnCaptionsOn(true);
+		}
+		if(this.pageTurnWasOn){
+			this.html.pageTurnSwitch.checked=true;
+			currentStory.pageTurnOn(true);
+		}
+
+		this.html.captionsSwitch.parentElement.parentElement.parentElement.classList.remove('disabled');
+		this.html.pageTurnSwitch.parentElement.parentElement.parentElement.classList.remove('disabled');
+		
+		currentStory.pageTurnIsOn = this.html.readingSwitch.checked;
+		currentStory.readingIsOn = this.html.readingSwitch.checked;
+
+		if(this.html.readingSwitch.checked==false){
+			this.html.readingSwitch.checked=true;
+		}
+		
+
+		currentStory.turnReadingOn();
+	}
+
+	turnReadingOff(){
+		//turn off captions (no captions if not reading)
+		if(this.captionsWasOn){
+			this.html.captionsSwitch.checked=false;
+			currentStory.turnCaptionsOn(false);
+		}
+
+		if(this.pageTurnWasOn){
+			this.html.pageTurnSwitch.checked=false;
+			currentStory.pageTurnOn(false);
+		}
+		this.html.captionsSwitch.parentElement.parentElement.parentElement.classList.add('disabled');
+		this.html.pageTurnSwitch.parentElement.parentElement.parentElement.classList.add('disabled');
+
+		currentStory.pageTurnIsOn = false;
+		currentStory.readingIsOn = false;
+		if(this.html.readingSwitch.checked){
+			this.html.readingSwitch.checked=false;
+		}
+		
+
+	
+		currentStory.turnReadingOff();
 
 	}
 
@@ -237,11 +292,21 @@ class WindowManager{
 
 	// }
 
-	updateScrollBar(){
 
+	shiftScenesLeft(on_){
+		if(on_){
+			for(let id in currentStory.scenesLib){
+				currentStory.scenesLib[id].html.fe.container.classList.add("shift-left");
+			}
+		}else{
+			for(let id in currentStory.scenesLib){
+				currentStory.scenesLib[id].html.fe.container.classList.remove("shift-left");
+			}
+		}
+	}
+	updateScrollBar(){
 		this.html.scrollbarThumbX.classList.add("scrolling");
 		let percent = (100*document.getElementById("scenes").scrollLeft/(document.width*(currentStory.scrollOrderArray.length-1)));
-		// console.log(percent)
 
 		let thumbPercent = parseFloat($(this.html.scrollbarThumbX).css("width"))/parseFloat($(this.html.scrollbarX).css("width"))
 
@@ -266,8 +331,6 @@ class WindowManager{
 		}
 	}
 	activatePlayPause(){
-		// this.play.style.display="none";
-		// this.pause.style.display="block";
 		if(this.playPause.classList.contains("deactivated")){
 			this.playPause.classList.remove("deactivated")
 		}
@@ -284,7 +347,6 @@ class WindowManager{
 		this.rewind.style.display="none";
 	}
 	displayPauseButton(){
-
 		// this.contractPlayPause();
 		this.playPause.classList.add("pause");
 		this.playPause.classList.remove("play");
@@ -323,8 +385,6 @@ class WindowManager{
 	}
 
 	addPlayPauseButton(){
-		// this.playPauseExplander= document.createElement("div");
-		// this.playPause.id="play-pause-explander";
 
 		this.playPause= document.createElement("div");
 		this.playPause.id="play-pause";
@@ -356,7 +416,7 @@ class WindowManager{
 
 		this.playPause.addEventListener('click',function(){
 			this.executePlayPauseRewind();
-		}.bind(this))
+		}.bind(this));
 
 
 	}
@@ -389,6 +449,34 @@ class WindowManager{
 		// }.bind(this))
 
 
+	}
+
+	createFlashButtons(){
+		this.flashPlayButton=document.createElement("img")
+		this.flashPlayButton.src = "img/special/play-b.png";
+		this.flashPlayButton.id = "play-flash-button";
+		// this.flashPlayButton.onmousedown = 'return false'
+		// this.flashPlayButton.onselectstart = 'return false'
+
+		this.flashPauseButton=document.createElement("img")
+		this.flashPauseButton.src = "img/special/pause-b.png";
+		this.flashPauseButton.id = "pause-flash-button";
+		// this.flashPauseButton.onmousedown = 'return false'
+		// this.flashPauseButton.onselectstart = 'return false'
+
+		document.getElementById("content").append(this.flashPlayButton);
+		document.getElementById("content").append(this.flashPauseButton);
+
+	}
+
+	flashPlay(){
+
+		this.flashPlayButton.classList.add("flash")
+		setTimeout(function(){this.flashPlayButton.classList.remove("flash")}.bind(this),1000);
+	}
+	flashPause(){
+		this.flashPauseButton.classList.add("flash")
+		setTimeout(function(){this.flashPauseButton.classList.remove("flash")}.bind(this),1000);
 	}
 
 	addVolumeSliders(){
@@ -507,20 +595,26 @@ class WindowManager{
 		// });
 	}
 	executePlayPauseRewind(){
-		currentStory.executePlayPauseRewind();
+		currentStory.executePlayPauseRewind(false);
 	}
 
-	togglePlayPause(){
+	togglePlayPause(flash_){
 		currentStory.togglePlayPause();
+		ths.flashPlay();
 
-		//console.log(currentStory.playing)
+		if(flash_){
+			ths.flashPlay();
+		}
+
 		
-
-		// currentStory.togglePlayPauseRewind();
-		// let srcTemp = currentStory.windowManager.playPause.src;
-		// currentStory.windowManager.playPause.src = currentStory.windowManager.playPause.altSrc;
-		// currentStory.windowManager.playPause.altSrc = srcTemp;
 	}
+
+
+	playStory(){
+		currentStory.play();
+	}
+
+
 	updatePlayPauseButton(){
 		let status = currentStory.getStatus();
 		if(status=="paused"){
@@ -540,28 +634,14 @@ class WindowManager{
 
 
 	addFullScreen(){
-		//console.log("*************************************************************")
-		
-		// this.fullScreenButton= document.createElementNS("http://www.w3.org/2000/svg", "svg");
 		this.fullScreenButton= document.createElement("img");
 
 		this.fullScreenButton.id="fullScreenButton";
-		// this.fullScreenButton.style.width="60px";
-		// this.fullScreenButton.style.height="60";
-		//console.log(fullScreenSVG(20,20,2))
-		//this.fullScreenButton.src="img/special/fullScreen-w.png"
 		this.fullScreenButton.src="img/special/fullScreen.png"
 
 		//this.fullScreenButton.id="fullScreenButton";
 
 		document.getElementById("bottom-bar").append(this.fullScreenButton);
-		
-		// this.fullScreenButton.innerHTML=fullScreenSVG(25,22,6);
-		// this.html.bottomBar.append(this.fullScreenButton)
-		// this.fullScreenButton.id="svgFullScreen"
-		// this.fullScreenButton.style.top=5;
-		// this.fullScreenButton.style.right=5;
-		// this.fullScreenButton.style.position="absolute";
 
 		this.fullScreenButton.addEventListener('click',function(){
 			toggleFullscreen();

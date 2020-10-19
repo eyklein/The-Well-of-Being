@@ -11,8 +11,12 @@ class TextBoxContent extends Content{
 		this.htmlParent={};
 
 		this.name="textbox";
-		this.source=eval(this.content.source);
 		this.rangeType=this.content.rangeType
+		if(this.rangeType == "vareable"){
+			this.source=eval(this.content.source);
+		}else if(this.rangeType == "string"){
+			this.source=this.content.source;
+		}
 		//"range":"audio/full_reading_v200.mp3"
 		this.rangeInfo=this.content.rangeInfo;
 
@@ -250,8 +254,11 @@ class TextBoxContent extends Content{
 				
 				this.html.fe.append(line.htmlTB)
 			}
-		}else{
-			this.html.fe.innerHTML=bookInfo
+		}else if(this.rangeType=="vareable"){
+			this.html.fe.innerHTML=this.source
+		}else if(this.rangeType=="string"){
+			console.log(this.source)
+			this.html.fe.innerHTML=this.source
 		}
 		
 		this.htmlParent.append(this.html.fe);

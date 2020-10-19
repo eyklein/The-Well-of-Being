@@ -215,15 +215,21 @@ class VideoContent extends MediaContent{
 
 
 				this.html.progressContainer.addEventListener("mouseover", function(){
-					console.log("mouse in")
+					// console.log("mouse in")
 					document.getElementById("bottom-bar").classList.add("visible");
 				}, false);
 
 
 				this.html.progressContainer.addEventListener("mouseout", function(){
-					console.log("mouse out")
+					// console.log("mouse out")
 					document.getElementById("bottom-bar").classList.remove("visible");
 				}, false);
+
+
+
+				this.html.fe.addEventListener('click', function(e){
+					currentStory.togglePlayPause(true);
+				})
 				
 
 				

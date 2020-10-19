@@ -30,8 +30,8 @@ class AutoClickEffect extends ContentEffect{
 
 	apply(){
 		
-		console.log(this.vareables.conditional);
-		console.log(eval(this.vareables.conditional));
+		// console.log(this.vareables.conditional);
+		// console.log(eval(this.vareables.conditional));
 
 		if(eval(this.vareables.conditional)){
 			this.parentContent.html.fe.append(this.html)

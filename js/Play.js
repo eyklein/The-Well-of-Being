@@ -92,7 +92,6 @@ function playStory(){
 }
 
 class Story{
-
 	constructor(){
 		this.path="";//this will keep track of the path that has been taken
 		this.sceneTimesArray=[];
@@ -122,19 +121,16 @@ class Story{
 		this.activePath=[];
 
 
-		this.pageTurnIsOn=true;
+		
 		this.readingIsOn=true;
-		this.muted=false;
+		this.pageTurnIsOn=true;
 		this.captionsOn=true;
+
+		this.muted=false;
+		
 
 		this.backgroundPlaying=false;
 
-
-
-		
-
-
-		//this.setLeftOffsets()
 		
 	}
 	
@@ -269,43 +265,13 @@ class Story{
 
 
 	restartScene(){
-		this.currentScene.rewind()
-		
-		// this.pause();
-
-		// console.log("1. Clear " + this.currentScene.id);
-
-
-
-
-		// if(!this.currentScene.started && this.activePath.length>=2){
-		// 	this.clearActive();
-		// 	this.currentScene.clear();
-		// 	this.currentScene.display();
-		// 	this.activePath[this.activePath.length-2].clear();
-		// 	console.log("2. Clear " + this.activePath[this.activePath.length-2].id);
-		// 	this.newScene(this.activePath[this.activePath.length-2], false, "back");
-		// }else{
-		// 	this.clearActive();
-		// 	this.currentScene.clear();
-		// 	this.currentScene.display();
-		// 	this.newScene(this.currentScene, false,"back");
-		// }
-
-	
-
-		// updateContentSize();
-
-		// setTimeout(function(){this.pause()}.bind(this),100);
-
-		
+		this.currentScene.rewind();
 	}
 
 
 
 	endScene(){
 		this.currentScene.goToEnd();
-		
 	}
 
 
@@ -313,14 +279,8 @@ class Story{
 		for(let sceneID in this.scenesLib){
 	  		this.scenesLib[sceneID].createSceneBackEnd();
 	  	}
-
 	}
 
-	// setLastAndNextContentNodes(){
-	// 	for(let sceneID in this.scenesLib){
-	//   		this.scenesLib[sceneID].setLastAndNextContentNodes();
-	//   	}
-	// }
 	setContentIndexNumbers(){
 		for(let sceneID in this.scenesLib){
 	  		this.scenesLib[sceneID].setContentIndexNumbers();
@@ -329,14 +289,11 @@ class Story{
 
 	setContentFullWidth(){
 		for(let sceneID in this.scenesLib){
-			//console.log(sceneID)
 	  		this.scenesLib[sceneID].setContentFullWidth();
 	  	}
 	}
 
 	setLastAndNextSceneNodes(){
-		
-		
 		for(let scene in this.scenesLib){
 			for(let action in this.scenesLib[scene].actionsLib){
 				if(this.scenesLib[scene].actionsLib[action].head instanceof Scene){
@@ -344,20 +301,15 @@ class Story{
 					let trailingScene = this.scenesLib[scene].actionsLib[action].head;
 					
 					//set last scenes
-					//console.log(trailingScene.node.parents.indexOf(leadingScene))
 					if(trailingScene.node.parents.indexOf(leadingScene.node) == -1){ 
 						
 						trailingScene.node.parents.push(leadingScene.node);
-
 
 						trailingScene.node.parentsInfo[leadingScene.id]={};
 						trailingScene.node.parentsInfo[leadingScene.id].count=1;
 						trailingScene.node.parentsInfo[leadingScene.id].scene = leadingScene;
 						trailingScene.node.parentsInfo[leadingScene.id].node = leadingScene.node;
 						trailingScene.node.parentsInfo[leadingScene.id].order = trailingScene.node.parents.length-1;
-
-
-
 					}
 					else{
 						trailingScene.node.parentsInfo[leadingScene.id].count++;
@@ -373,7 +325,6 @@ class Story{
 						leadingScene.node.childrenInfo[trailingScene.id].node = trailingScene.node;
 						leadingScene.node.childrenInfo[trailingScene.id].order = leadingScene.node.children.length-1;
 					
-						
 					}else{
 						leadingScene.node.childrenInfo[trailingScene.id].count++;
 					}
@@ -410,32 +361,9 @@ class Story{
 	}
 
 	addScrollDivs(){
-		console.log("addScrollDivs")
-		console.log(this.scrollOrderArray)
 		for(let i in this.scrollOrderArray){
-			console.log(this.scrollOrderArray[i].id)
 			document.getElementById("scenes").append(this.scrollOrderArray[i].html.fe.container)
 		}
-		
-		// this.scrollOrder=[];
-		// for(let scene in this.scenesLib){
-		// 	// console.log(scene)
-
-		// 	let scrollIndex=this.scenesLib[scene].addScroll();
-
-		// 	console.log(scene + " : " + scrollIndex);
-			
-
-		// 	if(scrollIndex != false){
-		// 		this.scrollOrderArray[scrollIndex] = this.scenesLib[scene];
-		// 	}
-
-		// 	// console.log(this.scrollOrderArray);
-		// 	// console.log(this.scrollOrderArray)
-		// 	//this.scrollOrder
-		// }
-		//add one extra
-		//addScrollingDiv();
 	}
 
 
@@ -450,39 +378,21 @@ class Story{
 		}
 	}
 	setPositionIndex(){
-		//console.log("setPositionIndex")
 		for(let i in this.baseSceneNodes){ //cascades down
-			//console.log(this.baseSceneNodes[i])
 			this.baseSceneNodes[i].setPositionIndex();
 		}
 	}
 	setPosition(){
-		//console.log("setPositionIndex")
 		for(let i in this.baseSceneNodes){ //cascades down
-			//console.log(this.baseSceneNodes[i])
 			this.baseSceneNodes[i].setPosition();
 		}
 	}
 	createPathsArrows(){
 		for(let key in this.scenesLib){ //cascades down
-			//console.log(this.baseSceneNodes[i])
 			this.scenesLib[key].node.createPathsArrows();
 		}
 	}
-	// createPathArrows(){
-	// 	//console.log("setPositionIndex")
-	// 	for(let i in this.baseSceneNodes){ //cascades down
-	// 		//console.log(this.baseSceneNodes[i])
-	// 		this.baseSceneNodes[i].setPosition();
-	// 	}
-	// }
-
-	// addScenesBackEnd(){
-	// 	for(let scene in this.scenesLib){
-	// 		this.scenesLib[scene].addBackEnd();
-	// 	}
-
-	// }
+	
 	setWidthSceneNodes(){
 
 		for(let scene in this.scenesLib){
@@ -490,48 +400,7 @@ class Story{
 		}
 		
 	}
-	// setSceneNodeParents(){
-	// 	for(let scene in this.scenesLib){
-	// 		this.scenesLib[scene].node.setParents();
-	// 	}
-	// }
-	// setSceneNodeChildren(){
-	// 	for(let scene in this.scenesLib){
-	// 		this.scenesLib[scene].node.setChildren();
-	// 	}
-	// }
-	// setSceneNodePrevSiblings(){
-	// 	for(let scene in this.scenesLib){
-	// 		this.scenesLib[scene].node.setPrevSiblings();
-	// 	}
-	// }
-
-	// setSceneNodePositions(){
-	// 	for(let scene in this.scenesLib){
-	// 		this.scenesLib[scene].be.node.setPosition()
-	// 	}
-	// }
-
 	
-
-	// setLeftOffsets(){
-	// 	console.log("setLeftOffsets ----1----")
-	// 	for(let scene in this.scenesLib){
-	// 		let offset = 0;
-	// 		for(let i in this.scenesLib[scene].nextScenesArray){
-				
-	// 			this.scenesLib[scene].nextScenesArray[i].be.spacing.left = offset;
-
-	// 			this.scenesLib[scene].nextScenesArray[i].be.spacing.top=this.scenesLib[scene].nextScenesArray[i].index*40;
-				
-	// 			this.scenesLib[scene].nextScenesArray[i].setBackEndPosition();
-
-	// 			offset = offset+this.scenesLib[scene].nextScenesArray[i].be.spacing.unitWidths*40
-	// 		}
-			
-	// 	}
-	// }
-
 	loadAudio(){
 
 		priorityAudioLoader.rankPriority();
@@ -539,33 +408,10 @@ class Story{
 		priorityAudioLoader.populateHistogram();
 
 		priorityAudioLoader.loadBucket(0);
-
-		
-		// for(let audioUrl in priorityAudioLoader.files){
-			
-		// 	priorityAudioLoader.files[audioUrl].rankPriority();
-		// }
-		// for(let audioUrl in priorityAudioLoader.files){
-		// 	console.log(audioUrl)
-		// 	priorityAudioLoader.files[audioUrl].load();
-		// }
 	}
 
 	updatePlayPause(){
-		// console.log("UNDATING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 		this.windowManager.updatePlayPauseButton();
-		// console.log("update play pause")
-		// if(this.isPlayable()){
-			
-		// 	this.windowManager.activatePlayPause();
-		// }else{
-		// 	stopDraw();
-		// 	this.windowManager.deactivatePlayPause();
-		// }
-
-		// if(this.isPlaying()){
-		// 	startDraw();
-		// }
 	}
 	getStatus(){
 		return this.currentScene.getStatus();
@@ -576,25 +422,25 @@ class Story{
 	isPlayable(){
 		return this.currentScene.isPlayable();
 	}
-	togglePlayPause(){
+	togglePlayPause(flash_){
 		let status = this.getStatus()
 		if(status=="playing"){
-			this.pause();
+			this.pause(flash_);
 		}else if(status == "paused"){
-			this.play();
+			this.play(flash_);
+		}else{
+			 scrollBy(20, true)
 		}
-		
-
-		//this.windowManager.updatePlayPauseButton()
-
 	}
 
-	executePlayPauseRewind(){
+	executePlayPauseRewind(flash_){
 		let status = this.getStatus()
 		if(status=="playing"){
-			this.pause();
+			this.pause(flash_);
+			
 		}else if(status == "paused"){
-			this.play();
+			this.play(flash_);
+			// this.windowManager.flashPlay();
 		}else if(status == "ended"){
 			this.rewind();
 		}
@@ -619,7 +465,7 @@ class Story{
 
 	// }
 
-	play(){
+	play(flash_){
 		// console.log("PLAYING *********************")
 		// this.updateVolume();
 
@@ -643,17 +489,24 @@ class Story{
 			this.currentScene.startTimer.resume();
 		}
 
-		// for(let audioContent in this.activeMainAudio){
-		// 	this.activeMainAudio[audioContent].play();
-		// }
-
-		// for(let videoContent in this.activeMainVideo){
-		// 	this.activeMainVideo[videoContent].play();
-		// }
-
 		this.currentScene.play();
 
+		if(flash_){
+			this.windowManager.flashPlay();
+		}
+
 		
+	}
+
+	enableNext(){
+		this.windowManager.rightPanel.style.display="block";
+	}
+
+	disableNext(){
+
+		this.windowManager.rightPanel.style.display="none";
+		this.windowManager.shiftScenesLeft(false);
+		console.log("DISABLE NEXT !!!")
 	}
 
 	backButton(){
@@ -681,17 +534,17 @@ class Story{
 		this.play();
 	}
 
-	pause(){
+	pause(flash_){
 
 		
-		this.playing=false;
+		// this.playing=false;
 		stopDraw();
 		// console.log("DONE PLAYING!!!!!!!!")
 		
 
 	 	this.windowManager.displayPlayButton();
 		
-	 	//pause all the action timers
+	 	// pause all the action timers
 	 	for(let action in currentStory.currentScene.actionsLib){
 
 			if(currentStory.currentScene.actionsLib[action].timer!=undefined){
@@ -703,16 +556,11 @@ class Story{
 			this.currentScene.startTimer.pause();
 		}
 
-		// //pause all the main audio
-		// for(let audioContent in this.activeMainAudio){
-		// 	this.activeMainAudio[audioContent].pause();
-		// }
-		// //pause all the main video
-		// for(let videoContent in this.activeMainVideo){
-		// 	this.activeMainVideo[videoContent].pause();
-		// }
-
 		this.currentScene.pause();
+
+		if(flash_){
+			this.windowManager.flashPause();
+		}
 	}
 	
 	mute(){
@@ -760,39 +608,20 @@ class Story{
 
 
 
-	skip(scene_){
-
+	skip(){
+		console.log(1)
 		let maxSkipMade=0;
 
 		this.pause();
 		this.currentScene.started=true;
-
-		this.currentScene.skip(true);
-
-		// maxSkipMade = this.currentScene.skip();
-
-
-		// console.log(1)
-		// stopAudio()
-		// stopVideo()
-
-		// for(let action in currentStory.currentScene.actionsLib){
-		// 	if(currentStory.currentScene.actionsLib[action].timerOutstanding()){
-		// 		// console.log("SOMEthing to skip")
-
-		// 		// currentStory.currentScene.actionsLib[action].skip();
-		// 		// skipWasMade=true;
-		// 	}
-			
-		// }
-
-		//keep skipping until it can't
-		// if(maxSkipMade){
-			// setTimeout(function(){this.skip()}.bind(this),10,scene_);
-		// }
-
-
-		//this is incase it was pause so that the next iterm wilplay when clicked
+		
+		if(this.currentScene.getStatus()=="ended"){
+			this.windowManager.shiftScenesLeft(false);
+			this.nextScene();
+		}else{
+			this.currentScene.skip(true);
+		}
+		
 		this.play();
 
 
@@ -846,15 +675,18 @@ class Story{
 		}
 	}
 
+	nextScene(){
+		this.newScene(this.scrollOrderArray[this.scrollOrderArray.indexOf(this.currentScene) + 1],true);
+		// console.log("next Sceene")
+	}
+
 
 
 	//loads the new scene and tracks path (maybe just use this to start and track elseware?)
 	newScene(newScene_, autoPlay_,type_){
 
-		// console.log("NEW SCENE " + newScene_.id)
 
-
-		
+		this.windowManager.shiftScenesLeft(false);
 
 		if(newScene_ instanceof Scene){
 
@@ -888,6 +720,14 @@ class Story{
 
 			this.currentScene=newScene_;
 
+			if(this.currentScene.getPlayedTime()>1000){
+				this.currentScene.rewind();
+			}
+
+			if(this.readingIsOn == true){
+				this.currentScene.closeTextBox()
+			}
+
 
 
 			dataLayer.push({
@@ -916,9 +756,12 @@ class Story{
 		}else if(typeof(newScene_) == "string"){
 			this.newScene(this.scenesLib[newScene_],autoPlay_,type_)
 		}
+
+
 	}
 
 	start(){
+		console.log("start")
 		// console.log("StartingScene: " + this.startingScene)
 		this.newScene(this.startingScene, false,"default");
 
@@ -936,34 +779,89 @@ class Story{
 		//updateContentSize();
 	}
 
-	hideCaptions(){
-		for(let id in this.scenesLib){
-			this.scenesLib[id].hideCaptions();
+	resumeScene(scene_, wasPlaying_){
+		console.log("resumeScene")
+		currentStory.currentScene = scene_;
+
+		this.windowManager.shiftScenesLeft(false)
+
+	  			
+		if(currentStory.currentScene.started == false){
+			currentStory.currentScene.start();
 		}
-		this.captionsOn=false;
 
-	}
-	showCaptions(){
-	  for(let id in this.scenesLib){
-			this.scenesLib[id].showCaptions();
+		if(wasPlaying_){
+			currentStory.currentScene.play();
 		}
-		this.captionsOn=true;
+		
+
+		currentStory.windowManager.updatePlayPauseButton()
 	}
 
-	pageTurnOn(){
-		this.pageTurnIsOn=true;
+	// hideCaptions(){
+	// 	for(let id in this.scenesLib){
+	// 		this.scenesLib[id].hideCaptions();
+	// 	}
+	// 	this.captionsOn=false;
+
+	// }
+	// showCaptions(){
+	//   for(let id in this.scenesLib){
+	// 		this.scenesLib[id].showCaptions();
+	// 	}
+	// 	this.captionsOn=true;
+	// }
+
+	turnCaptionsOn(isOn_){
+		if(isOn_){
+			for(let id in this.scenesLib){
+				this.scenesLib[id].showCaptions();
+			}
+			this.captionsOn=true;
+		}else{
+			for(let id in this.scenesLib){
+				this.scenesLib[id].hideCaptions();
+			}
+			this.captionsOn=false;
+		}
 	}
 
-	pageTurnOff(){
-		this.pageTurnIsOn=false;
+	pageTurnOn(isOn_){
+		this.pageTurnIsOn=isOn_;
 	}
+
+	// pageTurnOff(){
+	// 	this.pageTurnIsOn=false;
+	// }
 	turnReadingOn(){
 		this.unmute();
 		this.currentScene.turnReadingOn()
+		this.readingIsOn=true;
+
+		// if(this.windowManager.html.readingSwitch.checked==false){
+		// 	this.windowManager.html.readingSwitch.checked=true;
+		// }
 	}
 	turnReadingOff(){
+		// this.windowManager.turnReadingOff()
+
 		this.mute();
 		this.currentScene.turnReadingOff()
+		this.readingIsOn=false;
+
+
+
+		// if(this.windowManager.html.readingSwitch.checked==true){
+		// 	this.windowManager.html.readingSwitch.checked=false;
+		// }
+	}
+
+	turnReadingSettingsOn(){
+
+	}
+
+	turnReadingSettingsOff(){
+
 	}
 
 	setCurrentScene(scene_){
@@ -973,6 +871,8 @@ class Story{
 			currentStory.pauseBackground();
 		}
 	}
+
+
 
 
 

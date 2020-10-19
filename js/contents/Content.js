@@ -113,7 +113,10 @@ class Content{
 		this.addEffects();
 	}
 	delete(){
-		this.html.fe.remove()
+		if(this.html != undefined){
+			// console.log(this.)
+			$(this.html.fe).remove()
+		}
 	}
 
 	addEffects(){

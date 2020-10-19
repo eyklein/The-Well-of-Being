@@ -17,10 +17,21 @@ class TextContent extends Content{
 		super.createFrontEndHTML();
 		// this.frontEndCreated=true;
 		this.html.fe = document.createElement("span");
+		this.html.fe.classList.add("text");
 		this.html.fe.innerHTML=this.content.value;
 		this.createEffects();
 
 		this.applyEffects();
+
+
+		this.html.fe.addEventListener('mouseover',function(){
+			// console.log("add hover effecs")
+			this.applyHoverEffects();
+		}.bind(this));
+		this.html.fe.addEventListener('mouseout',function(){
+			console.log("remove hover effecs")
+			this.removeHoverEffects();
+		}.bind(this));
 		
 	}
 
@@ -51,6 +62,12 @@ class TextContent extends Content{
 				this.effects.general[effect] = new FontTextEffect(this.JSONData.effects.general[effect],this)
 			}else if(effect=="link"){
 				this.effects.general[effect] = new LinkTextEffect(this.JSONData.effects.general[effect],this)
+			}else if(effect=="css"){
+				if(this.effects.general["css"]==undefined){
+					this.effects.general["css"] = new CSSEffect(this.JSONData.effects.general[effect],this)
+				}else{
+					this.effects.general["css"].push(this.JSONData.effects.general[effect]);
+				}
 			}else{
 				this.effects.general[effect]=new ContentEffect(this.JSONData.effects.general[effect],this)
 			}
@@ -90,6 +107,8 @@ class TextContent extends Content{
 
 			if(effect=="glow"){
 				this.effects.clickable.hover[effect]=new GlowTextEffect(this.JSONData.effects.clickable.hover[effect],this)
+			}else if(effect=="css"){
+				this.effects.clickable.hover["css"] = new CSSEffect(this.JSONData.effects.clickable.hover[effect],this)
 			}else{
 				this.effects.clickable.hover[effect]=new ContentEffect(this.JSONData.effects.clickable.hover[effect],this)
 			}
@@ -113,6 +132,17 @@ class TextContent extends Content{
 		
 		for(let effect in this.effects.general){
 			this.effects.general[effect].apply();
+		}
+	}
+
+	applyHoverEffects(){
+		for(let effect in this.effects.clickable.hover){
+			this.effects.clickable.hover[effect].apply();
+		}
+	}
+	removeHoverEffects(){
+		for(let effect in this.effects.clickable.hover){
+			this.effects.clickable.hover[effect].remove();
 		}
 	}
 	
