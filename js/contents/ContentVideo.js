@@ -292,7 +292,7 @@ class VideoContent extends MediaContent{
 	display(){
 		super.display();
 		this.htmlParent.append(this.html.container);
-		this.applyEntranceEffects();
+		// this.applyEntranceEffects();
 		//this.html.fe.style.display="block";
 		// this.html.fe.style.preload="metadata";//show first frame
 
@@ -364,7 +364,9 @@ class VideoContent extends MediaContent{
 
 
 	play(){
+
 		if(this.parentScene.playingMediaObjects.indexOf(this)==-1){
+			this.applyEntranceEffects();
 			this.parentScene.playingMediaObjects.push(this)
 		}
 		this.isPlaying=true;

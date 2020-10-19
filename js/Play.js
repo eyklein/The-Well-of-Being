@@ -719,6 +719,7 @@ class Story{
 			
 
 			this.currentScene=newScene_;
+			this.currentScene.entrance();
 
 			if(this.currentScene.getPlayedTime()>1000){
 				this.currentScene.rewind();
@@ -780,7 +781,7 @@ class Story{
 	}
 
 	resumeScene(scene_, wasPlaying_){
-		console.log("resumeScene")
+		// console.log("resumeScene")
 		currentStory.currentScene = scene_;
 
 		this.windowManager.shiftScenesLeft(false)
@@ -788,6 +789,8 @@ class Story{
 	  			
 		if(currentStory.currentScene.started == false){
 			currentStory.currentScene.start();
+		}else if(currentStory.currentScene.getStatus()=="ended"){
+			currentStory.currentScene.rewind();
 		}
 
 		if(wasPlaying_){

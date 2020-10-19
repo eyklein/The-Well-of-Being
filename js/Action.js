@@ -253,14 +253,9 @@ class Action{
 
 		if(this.elicit=="display"){
 			this.displayContent(this.delay,autoPlay_);
-		}else if(this.elicit=="play"){
-			this.playContent(this.delay,autoPlay_)
-			// console.log(autoPlay_)
-			// if(autoPlay_==false){
-			// 	this.cueContent(this.delay)
-			// }else{
-			// 	this.playContent(this.delay)
-			// }
+		}
+		else if(this.elicit=="play"){
+			this.playContent(this.delay,autoPlay_);
 		}else if(this.elicit=="cue"){
 			this.cueContent(this.delay,autoPlay_)
 		}else if(this.elicit=="hide"){

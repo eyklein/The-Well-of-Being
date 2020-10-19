@@ -37,6 +37,7 @@ class CSSEffect {//extends ContentEffect
 				this.parentContent.html.fe.style[effectName]=this.effects[i][effectName];	
 			}
 		}
+		
 	}
 
 	remove(){

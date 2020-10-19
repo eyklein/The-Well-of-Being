@@ -251,8 +251,14 @@ class Content{
 
 	}
 	applyEntranceEffects(){
+		console.log("entrance scene " + this.parentScene.id );
+		console.log("entrance " + this.id );
 		
 		for(let effect in this.effects.entrance){
+			// console.log("effect")
+			// if(this.effects.entrance[effect].remove){
+			// 	this.effects.entrance[effect].remove();
+			// }
 			this.effects.entrance[effect].apply();
 		}
 	}
@@ -349,6 +355,7 @@ class Content{
 		}
 	}
 
+	
 
 	display(){
 		this.elicits.display=true;

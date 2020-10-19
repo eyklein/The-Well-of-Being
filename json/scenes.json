@@ -1088,7 +1088,7 @@
 						"value": "left"
 					},
 					"background-fill": {
-						"color": "rgba(0,0,0,.3)"
+						"color": "rgba(70,70,70,.3)"
 					},
 					"z-index": {
 						"index": 101
@@ -1412,7 +1412,7 @@
 			"orderY":4
 		},
 		"next":{
-			"id":"p0",
+			"id":"p2",
 			"auto":true
 		},
 		"actions": [{
@@ -1653,36 +1653,52 @@
 			}
 		}]
 	},{
-		"name": "PreFace",
-		"id": "p0",
+		"name": "Page 2",
+		"id": "p2",
 		"scroll":{
 			"scrollable":true,
 			"orderX":0,
 			"orderY":5
 		},
 		"next":{
-			"id":"none",
-			"auto":false
+			"id":"p4",
+			"auto":true
 		},
 		"actions": [{
 			"id": "xiv901d",
-			"tailID": "p0",
-			"headID": "901",
+			"tailID": "p2",
+			"headID": "801",
 			"trigger": "time",
 			"elicit": "display",
 			"delay": 0,
 			"conditions": []
 		},{
 			"id": "xiv901d",
-			"tailID": "p0",
-			"headID": "901",
+			"tailID": "p2",
+			"headID": "701",
 			"trigger": "time",
 			"elicit": "play",
 			"delay": 0,
 			"conditions": []
 		}, {
-			"id": "701001D",
-			"tailID": "p0",
+			"id": "xiv001d",
+			"tailID": "p2",
+			"headID": "001",
+			"trigger": "time",
+			"elicit": "display",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "701",
+			"headID": "001",
+			"trigger": "onEnd",
+			"elicit": "hide",
+			"delay": 0,
+			"conditions": []
+		}, {
+			"id": "701001h",
+			"tailID": "xxii",
 			"headID": "003",
 			"trigger": "time",
 			"elicit": "display",
@@ -1698,8 +1714,8 @@
 			"effects": {
 				"general": {
 					"clipping": {
-						"start": 72,
-						"end": 85
+						"start": 100,
+						"end": 105
 					}
 				},
 				"entrance": {},
@@ -1752,7 +1768,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#f00"
+						"color": "#fff"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -1776,14 +1792,14 @@
 			"id": "003",
 			"content": {
 				"type": "textBox",
-				"rangeType": "vareable",
-				"source": "bookInfo",
+				"rangeType": "times",
+				"source": "transcript",
 				"rangeInfo": {
-					"start": 0,
-					"end": 0
+					"start": 100,
+					"end": 103
 				},
 				"hideInfo":{
-					"startHidden":false,
+					"startHidden":true,
 					"type":"translate",
 					"direction":"up"
 				}
@@ -1792,19 +1808,19 @@
 				"general": {
 					"position": {
 						"type": "absolute",
-						"top": "0%",
+						"top": "20%",
 						"left": "0%"
 					},
 					"dimensions": {
-						"width": "56%",
-						"height": "100%"
+						"width": "30%",
+						"height": "9.5%"
 					},
 					"font": {
 						"font-family": "indieFlower"
 					},
 					"size": {
 						"type": "scalable",
-						"value": 0.031
+						"value": 0.025
 					},
 					"text-align": {
 						"value": "left"
@@ -1840,10 +1856,11 @@
 				}
 			}
 		},  {
-			"id": "901",
+			"id": "801",
 			"content": {
-				"type": "video",
-				"value": "video/p0.mp4"
+				"type": "img",
+				"value": "img/p2.jpg",
+				"background":true
 			},
 			"effects": {
 				"general": {
@@ -1851,13 +1868,20 @@
 						"type": "absolute",
 						"top": "0%",
 						"left": "0%"
-					},
-					"clipping": {
-						"start": 0,
-						"duration": 10
+					},"size": {
+						"width": "100%",
+						"height": "100%"
 					}
 				},
-				"entrance": {},
+				"entrance": {
+					"animation":{
+						"duration":8,
+						"style":"transform",
+						"startValue":1,
+						"endValue":1.2,
+						"unit":"scale"
+					}
+				},
 				"exit": {
 					"hide": {
 						"isOn": true

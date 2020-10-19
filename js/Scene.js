@@ -175,16 +175,6 @@ class Scene{
 
 	rewind(){
 
-		//should i rewind the actions 
-		// console.log(this.html)
-
-		// for(let action in this.actionsLib){
-		// 	this.actionsLib[action].rewind();
-		// }
-		// this.display()
-		// this.start(false)
-		// console.log("rewind");
-
 		this.finishedPlaying=false;
 
 		this.resetOnSceneTimer();
@@ -226,8 +216,8 @@ class Scene{
 	playTimers(){
 		for(let action in this.actionsLib){
 
-			if(currentStory.currentScene.actionsLib[action].timer!=undefined){
-				currentStory.currentScene.actionsLib[action].timer.resume()
+			if(this.actionsLib[action].timer!=undefined){
+				this.actionsLib[action].timer.resume()
 			}
 		}
 	}
@@ -293,16 +283,7 @@ class Scene{
 		}
 
 
-		// this.startTimer=new Timer(function(){
-		// 	// console.log("scene timer started");
-		// 	// console.log(this)
-		// 	this.played=true;
-		// 	this.startTimer=undefined;
-		// }.bind(this),2000)
-
-		// if(currentStory.playing){
-		// 	this.startTimer.resume();
-		// }
+		this.entrance();
 	}
 	endSceneEvent(){
 		console.log("scene end")
@@ -396,43 +377,48 @@ class Scene{
 		}
 	}
 
+	entrance(){
+		for(let id in this.contentsLib){
+			if(this.contentsLib[id].entrance != undefined){
+				this.contentsLib[id].entrance();
+			}
+		}
+
+	}
+
 	play(){
 		// console.log("play " + this.id + "XXXXXXXXXXXXXX");
-		console.log("PLAY  " + this.id)
+		// console.log("PLAY  " + this.id)
 		this.finishedPlaying=false;
-		console.log(this.finishedPlaying)
+
+		// this.entrance()
 
 		currentStory.enableNext()
 		
-console.log(this.finishedPlaying)
 		if(currentStory.scrollOrderArray.indexOf(this)>=1){
 			currentStory.playBackground();
 		}else{
 			currentStory.pauseBackground();
 		}
-		console.log(this.finishedPlaying)
 
 		if(currentStory.captionsOn==false){
 			this.hideCaptions()
 		}
-		console.log(this.finishedPlaying)
 
 		this.setVolume(currentStory.volume['main']);
-		console.log(this.finishedPlaying)
 		this.startOnSceneTimer();// not to be confused with startTimers
-		console.log(this.finishedPlaying)
 		this.paused=false;
-console.log(this.finishedPlaying)
 		this.playTimers();
 		// if(currentStory.readingIsOn){
-			console.log(this.finishedPlaying)
 		for(let i in this.playingMediaObjects){
-
 			this.playingMediaObjects[i].play();
 		}
 
+		
+		// this.entrance()
 
-		console.log(this.finishedPlaying)
+		// setTimeout(function(){this.entrance()}.bind(this),1000); 
+
 	}
 
 	mute(){

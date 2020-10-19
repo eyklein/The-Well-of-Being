@@ -32,6 +32,10 @@ class ImageContent extends Content{
 			return new ZIndexEffect(effectJSON_,this)
 		}else if(effectName_=="size"){
 			return new SizeImageEffect(effectJSON_,this)
+		}else if(effectName_=="css"){
+			return new CSSEffect(effectJSON_,this);
+		}else if(effectName_=="animation"){
+			return new AnimationEffect(effectJSON_,this);
 		}
 		else{
 			return new ImageEffect(effectJSON_,this)
@@ -103,13 +107,14 @@ class ImageContent extends Content{
 				fileType=fileType.split('.');
 				fileType=fileType[fileType.length-1];
 		
-				if(fileType=="mov" || fileType=="mp4"){
-					this.html.fe = document.createElement("video");
-				}else{
-					this.html.fe = document.createElement("img");
-				}
+				
+				this.html.fe = document.createElement("img");
+
+				// this.html.fe.classList.add('image')
+				
 				
 				this.html.fe.setAttribute('draggable', false);
+
 				//console.log(this.id)
 				this.html.fe.id=this.id;
 				//this.html.fe.onmousedown = 'return false';
@@ -139,24 +144,27 @@ class ImageContent extends Content{
 
 	}
 	addEffects(){
-		//console.log("this.createEffects();")
 		this.createEffects();
 		
 		this.applyGeneralEffects();
 	}
 
+
 	display(){
-
-		
-		//document.getElementById("background_img").append(this.html.fe);
-
-		
-
-
 		super.display();
+
+		//this is necisary to protect effects
+		// if(this.html.fe.parentNode != this.htmlParent){
 		this.htmlParent.append(this.html.fe);
-		this.applyEntranceEffects();
+		// this.entrance();
+
+		// }
+		
+		// this.applyEntranceEffects();
 		this.html.fe.style.display="block";
+	}
+	entrance(){
+		this.applyEntranceEffects();
 	}
 
 	hide(){

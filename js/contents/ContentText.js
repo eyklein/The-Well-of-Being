@@ -63,11 +63,9 @@ class TextContent extends Content{
 			}else if(effect=="link"){
 				this.effects.general[effect] = new LinkTextEffect(this.JSONData.effects.general[effect],this)
 			}else if(effect=="css"){
-				if(this.effects.general["css"]==undefined){
-					this.effects.general["css"] = new CSSEffect(this.JSONData.effects.general[effect],this)
-				}else{
-					this.effects.general["css"].push(this.JSONData.effects.general[effect]);
-				}
+				
+				this.effects.general["css"] = new CSSEffect(this.JSONData.effects.general[effect],this);
+				
 			}else{
 				this.effects.general[effect]=new ContentEffect(this.JSONData.effects.general[effect],this)
 			}
