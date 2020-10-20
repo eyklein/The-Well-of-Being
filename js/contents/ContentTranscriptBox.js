@@ -76,7 +76,6 @@ class TranscriptBoxContent extends Content{
 
 		
 
-		
 		this.createEffects();
 
 		this.applyEffects();
@@ -95,6 +94,9 @@ class TranscriptBoxContent extends Content{
 
 
 		this.resetText()
+
+
+
 
 		
 

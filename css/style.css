@@ -118,7 +118,7 @@ section {
   transition: all 1s linear;
 }
 .transcript-box .word{
-  color:#999;
+  /*color:#999;*/
   opacity: .4;
   /*background-color: rgb(0,0,0);*/
   -webkit-transition: all 1s linear;

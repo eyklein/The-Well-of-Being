@@ -80,10 +80,20 @@ class WindowManager{
 			}else{
 				this.turnReadingOn();
 			}
-
-			
-
 		}.bind(this));
+
+
+		//background
+		this.html.backgroundVolumeSwitch.addEventListener("change",function(){
+			
+			if(this.html.backgroundVolumeSwitch.checked==false){
+				currentStory.pauseBackground();
+			}else{
+				currentStory.playBackground();
+			}
+		}.bind(this));
+
+
 
 
 		

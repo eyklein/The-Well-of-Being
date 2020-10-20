@@ -136,7 +136,7 @@ class AudioContent extends MediaContent{
 						this.pause();
 					}
 
-					if(this.parentScene != currentStory.currentScene){
+					if(this.parentScene != currentStory.currentScene && this.parentScene.id != "background"){
 						this.pause();
 					}
 
@@ -277,6 +277,10 @@ class AudioContent extends MediaContent{
 	play(){
 		this.isPlaying=true;
 
+		if(this.parentScene.id=="background"){
+			this.html.fe.loop=true;
+		}
+
 		if(this.startTime == undefined){
 			this.startTime=this.parentScene.timePlayingScene;
 		}
@@ -302,6 +306,7 @@ class AudioContent extends MediaContent{
 
 		
 	}
+
 	pause(){
 		this.isPlaying=false;
 		this.html.fe.pause();

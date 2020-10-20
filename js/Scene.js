@@ -262,7 +262,7 @@ class Scene{
 
 		// this.html.fe.container.style.display="block";
 		autoScrolling=true;
-		this.scrollTo("smooth");
+		this.scrollTo(); //"smooth" for automatic page transitions
 		setTimeout(function(){
 			if(scrollTimeout==undefined){
 				autoScrolling=false;

@@ -782,7 +782,7 @@
 						"index": 101
 					},
 					"fill": {
-						"color": "#f00"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -1030,7 +1030,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#f00"
+						"color": "#fff"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -1278,7 +1278,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#f00"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -1527,7 +1527,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#f00"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -1739,7 +1739,7 @@
 				"source": "transcript",
 				"offsets":{
 					"start":0,
-					"end":1.5,
+					"end":0,
 					"all":0
 				}
 			},
@@ -1768,7 +1768,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#000"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -2025,7 +2025,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -2282,7 +2282,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -2471,7 +2471,7 @@
 				"general": {
 					"clipping": {
 						"start": 112,
-						"end": 118
+						"end": 117.5
 					}
 				},
 				"entrance": {},
@@ -2524,7 +2524,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -2773,7 +2773,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -3002,7 +3002,7 @@
 				"offsets":{
 					"start":0,
 					"end":1.5,
-					"all":0
+					"all":1
 				}
 			},
 			"effects": {
@@ -3030,7 +3030,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -3250,9 +3250,9 @@
 				"alignWith": "audio/full_reading_v200.mp3",
 				"source": "transcript",
 				"offsets":{
-					"start":0,
-					"end":1.5,
-					"all":0
+					"start":0.2,
+					"end":0,
+					"all":1
 				}
 			},
 			"effects": {
@@ -3280,7 +3280,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -3493,8 +3493,8 @@
 				"source": "transcript",
 				"offsets":{
 					"start":0,
-					"end":1.5,
-					"all":0
+					"end":0,
+					"all":1
 				}
 			},
 			"effects": {
@@ -3522,7 +3522,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -3779,7 +3779,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",
@@ -4029,499 +4029,7 @@
 						"index": 201
 					},
 					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
-			"id": "003",
-			"content": {
-				"type": "textBox",
-				"rangeType": "times",
-				"source": "transcript",
-				"rangeInfo": {
-					"start": 105,
-					"end": 110
-				},
-				"hideInfo":{
-					"startHidden":true,
-					"type":"translate",
-					"direction":"up"
-				}
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "20%",
-						"left": "0%"
-					},
-					"dimensions": {
-						"width": "30%",
-						"height": "9.5%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.025
-					},
-					"text-align": {
-						"value": "left"
-					},
-					"background-fill": {
-						"color": "rgba(0,0,0,.3)"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "rgba(255,255,255,.7)"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		},  {
-			"id": "901",
-			"content": {
-				"type": "video",
-				"value": "video/p20.mp4",
-				"background":true
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"left": "0%"
-					},"size": {
-						"width": "100%",
-						"height": "100%"
-					}
-				},
-				"entrance": {
-				},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {},
-					"hover": {},
-					"pressed": {}
-				},
-				"hover": {},
-				"pressed": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 200
-				}
-			}
-		}]
-	},{
-		"name": "Page 22",
-		"id": "p22",
-		"scroll":{
-			"scrollable":true,
-			"orderX":0,
-			"orderY":15
-		},
-		"next":{
-			"id":"p22",
-			"auto":true
-		},
-		"actions": [{
-			"id": "xiv901d",
-			"tailID": "p22",
-			"headID": "801",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "xiv901d",
-			"tailID": "p22",
-			"headID": "701",
-			"trigger": "time",
-			"elicit": "play",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "xiv001d",
-			"tailID": "p22",
-			"headID": "001",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701001h",
-			"tailID": "p22",
-			"headID": "003",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701001h",
-			"tailID": "701",
-			"headID": "001",
-			"trigger": "onEnd",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}],
-		"contents": [{
-			"id": "701",
-			"content": {
-				"type": "audio",
-				"value": "audio/full_reading_v200.mp3"
-			},
-			"effects": {
-				"general": {
-					"clipping": {
-						"start": 157.5,
-						"end": 162
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
-			"id": "001",
-			"content": {
-				"type": "transcriptBox",
-				"alignWith": "audio/full_reading_v200.mp3",
-				"source": "transcript",
-				"offsets":{
-					"start":0,
-					"end":1.5,
-					"all":0
-				}
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "5%",
-						"left": "8%"
-					},
-					"dimensions": {
-						"width": "84%",
-						"height": "15%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.0362
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 201
-					},
-					"fill": {
-						"color": "#fff"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
-			"id": "003",
-			"content": {
-				"type": "textBox",
-				"rangeType": "times",
-				"source": "transcript",
-				"rangeInfo": {
-					"start": 105,
-					"end": 110
-				},
-				"hideInfo":{
-					"startHidden":true,
-					"type":"translate",
-					"direction":"up"
-				}
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "20%",
-						"left": "0%"
-					},
-					"dimensions": {
-						"width": "30%",
-						"height": "9.5%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.025
-					},
-					"text-align": {
-						"value": "left"
-					},
-					"background-fill": {
-						"color": "rgba(0,0,0,.3)"
-					},
-					"z-index": {
-						"index": 101
-					},
-					"fill": {
-						"color": "rgba(255,255,255,.7)"
-					},
-					"stroke": {
-						"color": "#00ff00",
-						"thickness": "0px"
-					},
-					"opacity": {
-						"opacity": "0.5"
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		},  {
-			"id": "801",
-			"content": {
-				"type": "img",
-				"value": "img/p22.jpg",
-				"background":true
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "0%",
-						"left": "0%"
-					},"size": {
-						"width": "100%",
-						"height": "100%"
-					}
-				},
-				"entrance": {
-				},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {
-					"generic": {},
-					"hover": {},
-					"pressed": {}
-				},
-				"hover": {},
-				"pressed": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 200
-				}
-			}
-		}]
-	},{
-		"name": "Page 24",
-		"id": "p24",
-		"scroll":{
-			"scrollable":true,
-			"orderX":0,
-			"orderY":16
-		},
-		"next":{
-			"id":"p24",
-			"auto":true
-		},
-		"actions": [{
-			"id": "xiv901d",
-			"tailID": "p24",
-			"headID": "901",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "xiv901d",
-			"tailID": "p24",
-			"headID": "901",
-			"trigger": "time",
-			"elicit": "play",
-			"delay": 0,
-			"conditions": []
-		},{
-			"id": "xiv901d",
-			"tailID": "p24",
-			"headID": "701",
-			"trigger": "time",
-			"elicit": "play",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "xiv001d",
-			"tailID": "p24",
-			"headID": "001",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701001h",
-			"tailID": "p24",
-			"headID": "003",
-			"trigger": "time",
-			"elicit": "display",
-			"delay": 0,
-			"conditions": []
-		}, {
-			"id": "701001h",
-			"tailID": "701",
-			"headID": "001",
-			"trigger": "onEnd",
-			"elicit": "hide",
-			"delay": 0,
-			"conditions": []
-		}],
-		"contents": [{
-			"id": "701",
-			"content": {
-				"type": "audio",
-				"value": "audio/full_reading_v200.mp3"
-			},
-			"effects": {
-				"general": {
-					"clipping": {
-						"start": 160,
-						"end": 166
-					}
-				},
-				"entrance": {},
-				"exit": {
-					"hide": {
-						"isOn": true
-					}
-				},
-				"clickable": {}
-			},
-			"backend": {
-				"pos": {
-					"x": 100
-				}
-			}
-		}, {
-			"id": "001",
-			"content": {
-				"type": "transcriptBox",
-				"alignWith": "audio/full_reading_v200.mp3",
-				"source": "transcript",
-				"offsets":{
-					"start":0,
-					"end":1.5,
-					"all":0
-				}
-			},
-			"effects": {
-				"general": {
-					"position": {
-						"type": "absolute",
-						"top": "5%",
-						"left": "8%"
-					},
-					"dimensions": {
-						"width": "84%",
-						"height": "15%"
-					},
-					"font": {
-						"font-family": "indieFlower"
-					},
-					"size": {
-						"type": "scalable",
-						"value": 0.0362
-					},
-					"text-align": {
-						"value": "center"
-					},
-					"z-index": {
-						"index": 201
-					},
-					"fill": {
-						"color": "#fff"
+						"color": "#333"
 					},
 					"stroke": {
 						"color": "#00ff00",

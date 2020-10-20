@@ -8,7 +8,9 @@ class FillTextEffect extends TextEffect{
 	}
 
 	apply(){
+		// console.log(this.vareables.color)
 		this.parentContent.html.fe.style.color=this.vareables.color;
+		// console.log(this.parentContent.html.fe.style.color)
 	}
 
 	createEditorHTML(){
