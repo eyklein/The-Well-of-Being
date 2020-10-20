@@ -135,6 +135,11 @@ class AudioContent extends MediaContent{
 					if(this.html.fe.currentTime>(this.duration+this.start)){
 						this.pause();
 					}
+
+					if(this.parentScene != currentStory.currentScene){
+						this.pause();
+					}
+
 					// this.duration=this.html.fe.duration;
 				}.bind(this));
 

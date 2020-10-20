@@ -424,6 +424,14 @@ function flipPage(deg_,increment_,delay_){
 }
 
 
+// Fix up prefixing
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var context = new AudioContext();
+
+
+
+
+
 
 
 

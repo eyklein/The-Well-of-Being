@@ -108,7 +108,11 @@ class ImageContent extends Content{
 				fileType=fileType[fileType.length-1];
 		
 				
+				this.html.container=document.createElement("div");
+				
+
 				this.html.fe = document.createElement("img");
+				this.html.container.append(this.html.fe)
 
 				// this.html.fe.classList.add('image')
 				
@@ -135,6 +139,52 @@ class ImageContent extends Content{
 		
 				// this.createEffects();
 				// this.applyGeneralEffects();
+
+
+
+
+
+
+
+				this.html.progressContainer=document.createElement("div");
+				this.html.progressContainer.classList.add("progressContainer");
+
+				this.html.progressBar=document.createElement("div");
+				this.html.progressBar.classList.add("progressBar");
+				this.html.progressSpan=document.createElement("div");
+				this.html.progressSpan.classList.add("progressSpan");
+
+				this.html.progressContainer.append(this.html.progressBar)
+				this.html.progressBar.append(this.html.progressSpan);
+
+				this.html.container.append(this.html.progressContainer)
+
+				// this.updateProgressBound=this.
+				// this.html.fe.addEventListener("timeupdate", this.updateProgress.bind(this), false);
+
+				// this.html.progressBar.addEventListener("mousedown", this.startPanBound.bind(this), false);
+
+
+
+
+				this.html.progressContainer.addEventListener("mouseover", function(){
+					// console.log("mouse in")
+					document.getElementById("bottom-bar").classList.add("visible");
+				}, false);
+
+
+				this.html.progressContainer.addEventListener("mouseout", function(){
+					// console.log("mouse out")
+					document.getElementById("bottom-bar").classList.remove("visible");
+				}, false);
+
+
+
+				this.html.fe.addEventListener('click', function(e){
+					currentStory.togglePlayPause(true);
+				})
+				
+
 		
 			
 		}
@@ -155,7 +205,7 @@ class ImageContent extends Content{
 
 		//this is necisary to protect effects
 		// if(this.html.fe.parentNode != this.htmlParent){
-		this.htmlParent.append(this.html.fe);
+		this.htmlParent.append(this.html.container);
 		// this.entrance();
 
 		// }
