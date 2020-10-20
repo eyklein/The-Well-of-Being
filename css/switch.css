@@ -95,8 +95,8 @@ input:checked + .switch-slider:before {
 
   border: none;
 
-  width:60px;
-  height:60px;
+  width:7vw;
+  height:7vw;
 
   opacity: 0;
   transition: opacity 5s
