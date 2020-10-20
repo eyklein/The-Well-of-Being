@@ -39,13 +39,11 @@ class WindowManager{
 		//captions
 		this.html.captionsSwitch.addEventListener("change",function(){
 			if(this.html.readingSwitch.checked==true){
-				this.captionsWasOn=this.html.captionsSwitch.checked
+				this.captionsWasOn=this.html.captionsSwitch.checked;
 			}else{
 				this.html.captionsSwitch.checked=false;
 				shake(this.html.readingSwitch.parentElement.parentElement);
 			}
-
-
 
 			if(this.html.captionsSwitch.checked){
 				currentStory.turnCaptionsOn(true);
@@ -432,12 +430,14 @@ class WindowManager{
 		this.back.src="img/special/back.png";
 		this.back.id="back";
 		this.back.classList.add("next-back");
+		this.back.addEventListener("click",function(){currentStory.backButton()});
 		this.nextBackButtons.appendChild(this.back);
 
 		this.next= document.createElement("img"); //this.play.src="img/special/play-w.png";
 		this.next.src="img/special/next.png";
 		this.next.id="next";
 		this.next.classList.add("next-back");
+		this.next.addEventListener("click",function(){currentStory.nextScene()});
 		this.nextBackButtons.appendChild(this.next);
 
 
