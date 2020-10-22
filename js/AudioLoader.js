@@ -119,6 +119,8 @@ class AudioLoader{
 			}
 			if(bucketDone){
 				priorityAudioLoader.loadNextBucket();
+
+				console.log("LOAD NEX BUcket")
 			}
 
 

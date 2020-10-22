@@ -24,6 +24,9 @@ class TranscriptBoxContent extends Content{
 
 	resetText(){
 
+		// console.log("resetText !!!!!!!!!!!!!!!!!!")
+
+
 		if(this.offsetTimes.start){
 			var t1=this.alignMedia[0].start + this.offsetTimes.start;
 		}else{
@@ -41,7 +44,9 @@ class TranscriptBoxContent extends Content{
 		this.hidenLines=[];
 		this.currentLine;
 		this.displayedLines=[];
+		console.log("(addAvalibleTranscriptLine(" +t1+", "+t2+")")
 		this.addAvalibleTranscriptLine(t1, t2);
+		// this.addAvalibleTranscriptLine(20, 42);
 		
 	}
 
@@ -83,11 +88,15 @@ class TranscriptBoxContent extends Content{
 		for(let i in this.alignMedia){
 			// this.alignMedia[i].addEventListener("")
 
-			this.alignMedia[i].html.fe.addEventListener('timeupdate', function(){
-				//console.log(this.alignMedia[i].html.fe.currentTime);
+			this.alignMedia[i].addToDraw(this)
 
-				this.displayTranscript(this.alignMedia[i].html.fe.currentTime + this.offsetTimes.all);
-			}.bind(this,i));		
+
+
+			// ('timeupdate', function(){
+			// 	//console.log(this.alignMedia[i].html.fe.currentTime);
+
+			// 	this.displayTranscript(this.alignMedia[i].html.fe.currentTime + this.offsetTimes.all);
+			// }.bind(this,i));		
 		}
 
 
