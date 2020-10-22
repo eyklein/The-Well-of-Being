@@ -250,16 +250,19 @@ class Content{
 		//this.addEffectEditors(); //remove if no need to back end //add the edditors for effects to the side pannel
 
 	}
-	applyEntranceEffects(){
-		console.log("entrance scene " + this.parentScene.id );
-		console.log("entrance " + this.id );
-		
+	// applyEntranceEffects(){
+	// 	for(let effect in this.effects.entrance){
+	// 		this.effects.entrance[effect].apply();
+	// 	}
+	// }
+	playEntranceEffects(autoRestart_){
 		for(let effect in this.effects.entrance){
-			// console.log("effect")
-			// if(this.effects.entrance[effect].remove){
-			// 	this.effects.entrance[effect].remove();
-			// }
-			this.effects.entrance[effect].apply();
+			this.effects.entrance[effect].play(autoRestart_);
+		}
+	}
+	pauseEntranceEffects(){
+		for(let effect in this.effects.entrance){
+			this.effects.entrance[effect].pause();
 		}
 	}
 	activateExitEffects(){

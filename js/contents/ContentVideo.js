@@ -1,5 +1,8 @@
 let priorityVideoLoader=new PriorityLoader();
 
+let videosToLoad=0;
+let videosLoaded=0;
+
 class VideoContent extends MediaContent{
 	constructor(contentJson_,parentScene_){ //,url_, content_, propertiesJSON_
 		super(contentJson_,parentScene_)
@@ -24,15 +27,20 @@ class VideoContent extends MediaContent{
 	    this.stopPanBound=this.stopPan.bind(this)
 	    this.startPanBound=this.startPan.bind(this)
 
+	    this.loaded=false;
+
 	   	
 
 	}
 
 	reset(){
+		// console.log("reset")
 		this.unplay();
+		let oldHtml=this.html.fe;
 		this.createFrontEndHTML()
 		// super.reset();
 		this.isDonePlaying=false;
+		oldHtml.parentNode.removeChild(oldHtml);
 	}
 
 	
@@ -73,6 +81,8 @@ class VideoContent extends MediaContent{
 			return new LinkImageEffect(effectJSON_,this)
 		}else if(effectName_=="z-index"){
 			return new ZIndexEffect(effectJSON_,this)
+		}else if(effectName_=="animation"){
+			return new AnimationEffect(effectJSON_,this);
 		}
 		else{
 			return new ImageEffect(effectJSON_,this)
@@ -160,12 +170,23 @@ class VideoContent extends MediaContent{
 
 				
 				this.html.fe.ondurationchange = function(e) {
-					// console.log("++++");
+					
 					this.duration=this.html.fe.duration;
 				}.bind(this);
+
+				this.html.fe.addEventListener("canplay",function(e){
+					if(!this.loaded){
+						videosLoaded++;
+						
+						this.loaded=true;
+						loadScreen.update();
+					}
+					
+				}.bind(this));
 				
 
 				this.html.fe.src=absoluteLocation + this.content.value;
+				videosToLoad++;
 				
 
 				
@@ -366,7 +387,7 @@ class VideoContent extends MediaContent{
 	play(){
 
 		if(this.parentScene.playingMediaObjects.indexOf(this)==-1){
-			this.applyEntranceEffects();
+			this.playEntranceEffects();
 			this.parentScene.playingMediaObjects.push(this)
 		}
 		this.isPlaying=true;

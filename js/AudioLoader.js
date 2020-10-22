@@ -113,6 +113,7 @@ class AudioLoader{
 			let bucketDone=true;
 			for(let i in priorityAudioLoader[currentBucketIndex]){//check is bucket is done
 				let audioLoader = priorityAudioLoader[currentBucketIndex][i]
+				console.log(audioLoader);
 				if(!(audioLoader['status']=="ready" || audioLoader['status']=="downloaded")){
 					bucketDone=false;
 				}
@@ -133,6 +134,7 @@ class AudioLoader{
 		    	// console.log(url_)
 		    	//console.log(request)
 		    	request.audioContent.audioBuffer=buffer_;
+		    	// console.log("audio buffer loaded")
 
 		    	// console.log(priorityAudioLoader.files);
 		    	// console.log(this.url);

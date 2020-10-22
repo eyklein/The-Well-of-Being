@@ -7,6 +7,7 @@ class ImageContent extends Content{
 
 		this.type="img";
 		this.cNode=new ContentNode(this);
+		this.playingStatus=0; //1=playing 0=not playing -1 paused
 
 	}
 
@@ -213,8 +214,13 @@ class ImageContent extends Content{
 		// this.applyEntranceEffects();
 		this.html.fe.style.display="block";
 	}
-	entrance(){
-		this.applyEntranceEffects();
+	play(autoRestart_){
+		this.playingStatus=1;
+		this.playEntranceEffects(autoRestart_);
+	}
+	pause(){
+		this.playingStatus=-1;
+		this.pauseEntranceEffects();
 	}
 
 	hide(){

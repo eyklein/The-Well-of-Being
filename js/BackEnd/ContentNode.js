@@ -208,6 +208,7 @@ class ContentNode{ //not to be confused with nodejs
 			if(this.html == undefined){
 				console.log(this.content)
 			}
+			// console.log(this)
 			this.html.info.style.height = this.content.effects.general.clipping.vareables.duration*10+ "px";
 
 			

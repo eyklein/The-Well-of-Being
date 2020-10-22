@@ -2765,6 +2765,12 @@
 				"content": "one"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "218.44",
 			"end_time": "218.72",
@@ -2829,6 +2835,12 @@
 				"content": "accident"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "223.74",
 			"end_time": "223.92",
@@ -2853,12 +2865,24 @@
 				"content": "mystery"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "226.44",
 			"end_time": "227.32",
 			"alternatives": [{
 				"confidence": "0.989",
-				"content": "mystery"
+				"content": "Mystery"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -2898,15 +2922,27 @@
 			"end_time": "229.35",
 			"alternatives": [{
 				"confidence": "0.995",
-				"content": "one"
+				"content": "One"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "232.24",
 			"end_time": "232.42",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "we"
+				"content": "We"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -2961,6 +2997,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -3018,6 +3060,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "237.74",
 			"end_time": "238.55",
 			"alternatives": [{
@@ -3025,12 +3073,6 @@
 				"content": "Indeed"
 			}],
 			"type": "pronunciation"
-		}, {
-			"alternatives": [{
-				"confidence": "0.0",
-				"content": ","
-			}],
-			"type": "punctuation"
 		}, {
 			"start_time": "239.24",
 			"end_time": "239.43",
@@ -3059,6 +3101,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -3166,15 +3214,21 @@
 		}, {
 			"alternatives": [{
 				"confidence": "0.0",
-				"content": ","
+				"content": "."
 			}],
 			"type": "punctuation"
-		}, {
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},  {
 			"start_time": "248.84",
 			"end_time": "249.03",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "and"
+				"content": "And"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -3225,7 +3279,19 @@
 				"content": "darkness"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": ","
+			}],
+			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},  {
 			"start_time": "256.04",
 			"end_time": "256.26",
 			"alternatives": [{
@@ -3335,6 +3401,12 @@
 				"content": "."
 			}],
 			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "265.34",
 			"end_time": "265.72",
@@ -3372,13 +3444,19 @@
 			"end_time": "267.35",
 			"alternatives": [{
 				"confidence": "0.54",
-				"content": "knothole"
+				"content": "not whole"
 			}],
 			"type": "pronunciation"
 		}, {
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": "?"
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -3417,6 +3495,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": "?"
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -3459,21 +3543,13 @@
 			"type": "pronunciation"
 		}, {
 			"start_time": "275.68",
-			"end_time": "275.99",
-			"alternatives": [{
-				"confidence": "0.9987",
-				"content": "well"
-			}],
-			"type": "pronunciation"
-		}, {
-			"start_time": "275.99",
 			"end_time": "276.64",
 			"alternatives": [{
-				"confidence": "1.0",
-				"content": "being"
+				"confidence": "0.9987",
+				"content": "well-being"
 			}],
 			"type": "pronunciation"
-		}, {
+		},  {
 			"start_time": "276.67",
 			"end_time": "276.85",
 			"alternatives": [{
@@ -3493,6 +3569,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -3548,15 +3630,27 @@
 			"end_time": "280.66",
 			"alternatives": [{
 				"confidence": "0.9174",
-				"content": "where"
+				"content": "wear"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "282.44",
 			"end_time": "282.64",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "when"
+				"content": "When"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -3625,24 +3719,16 @@
 			"type": "pronunciation"
 		}, {
 			"start_time": "285.01",
-			"end_time": "285.24",
-			"alternatives": [{
-				"confidence": "1.0",
-				"content": "well"
-			}],
-			"type": "pronunciation"
-		}, {
-			"start_time": "285.24",
 			"end_time": "285.77",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "being"
+				"content": "well-being"
 			}],
 			"type": "pronunciation"
 		}, {
 			"alternatives": [{
 				"confidence": "0.0",
-				"content": ","
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -3658,7 +3744,7 @@
 			"end_time": "288.68",
 			"alternatives": [{
 				"confidence": "0.9945",
-				"content": "inclined"
+				"content": "incline"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -3707,7 +3793,13 @@
 				"content": "."
 			}],
 			"type": "punctuation"
-		}, {
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},  {
 			"start_time": "294.74",
 			"end_time": "294.99",
 			"alternatives": [{
@@ -3786,6 +3878,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "300.84",
 			"end_time": "301.02",
 			"alternatives": [{
@@ -3864,6 +3962,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "308.54",
 			"end_time": "308.76",
 			"alternatives": [{
@@ -3925,6 +4029,12 @@
 				"content": "."
 			}],
 			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "315.94",
 			"end_time": "316.16",
@@ -3969,6 +4079,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -4027,6 +4143,12 @@
 				"content": "world"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "326.24",
 			"end_time": "326.56",
@@ -4037,24 +4159,16 @@
 			"type": "pronunciation"
 		}, {
 			"start_time": "326.56",
-			"end_time": "326.85",
-			"alternatives": [{
-				"confidence": "1.0",
-				"content": "well"
-			}],
-			"type": "pronunciation"
-		}, {
-			"start_time": "326.85",
 			"end_time": "327.47",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "being"
+				"content": "well-being"
 			}],
 			"type": "pronunciation"
-		}, {
+		},  {
 			"alternatives": [{
 				"confidence": "0.0",
-				"content": "."
+				"content": ","
 			}],
 			"type": "punctuation"
 		}, {
@@ -4062,7 +4176,7 @@
 			"end_time": "328.08",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "We"
+				"content": "we"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -4070,7 +4184,7 @@
 			"end_time": "328.77",
 			"alternatives": [{
 				"confidence": "0.4965",
-				"content": "flew"
+				"content": "flow"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -4079,7 +4193,13 @@
 				"content": "."
 			}],
 			"type": "punctuation"
-		}, {
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},  {
 			"start_time": "330.54",
 			"end_time": "330.84",
 			"alternatives": [{
@@ -4103,6 +4223,12 @@
 				"content": "that"
 			}],
 			"type": "pronunciation"
+		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "331.59",
 			"end_time": "331.72",
@@ -4151,12 +4277,24 @@
 				"content": "gift"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "337.74",
 			"end_time": "338.01",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "when"
+				"content": "When"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -4193,24 +4331,22 @@
 			"type": "pronunciation"
 		}, {
 			"start_time": "339.15",
-			"end_time": "339.39",
-			"alternatives": [{
-				"confidence": "0.9998",
-				"content": "well"
-			}],
-			"type": "pronunciation"
-		}, {
-			"start_time": "339.39",
 			"end_time": "339.96",
 			"alternatives": [{
-				"confidence": "1.0",
-				"content": "being"
+				"confidence": "0.9998",
+				"content": "well-being"
 			}],
 			"type": "pronunciation"
 		}, {
 			"alternatives": [{
 				"confidence": "0.0",
-				"content": "."
+				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -4262,6 +4398,18 @@
 			}],
 			"type": "pronunciation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "347.84",
 			"end_time": "348.02",
 			"alternatives": [{
@@ -4313,6 +4461,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -4375,6 +4529,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -4464,6 +4624,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "364.84",
 			"end_time": "365.07",
 			"alternatives": [{
@@ -4496,6 +4662,18 @@
 			}],
 			"type": "pronunciation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "369.84",
 			"end_time": "370.07",
 			"alternatives": [{
@@ -4519,6 +4697,18 @@
 				"content": "choices"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": ","
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "374.74",
 			"end_time": "374.95",
@@ -4560,7 +4750,7 @@
 			}],
 			"type": "pronunciation"
 		}, {
-			"start_time": "376.19",
+			"start_time": "375",
 			"end_time": "377.05",
 			"alternatives": [{
 				"confidence": "1.0",
@@ -4574,6 +4764,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "379.44",
 			"end_time": "379.89",
 			"alternatives": [{

@@ -414,6 +414,15 @@ class Scene{
 			this.playingMediaObjects[i].play();
 		}
 
+
+		//effects
+		for(let i in this.contentsLib){
+			if(this.contentsLib[i] instanceof ImageContent){
+				// console.log(this.contentsLib[i])
+				this.contentsLib[i].play(false);
+			}
+		}
+
 		
 		// this.entrance()
 
@@ -456,6 +465,14 @@ class Scene{
 
 		for(let i in this.playingMediaObjects){
 			this.playingMediaObjects[i].pause();
+		}
+
+		//effects
+		for(let i in this.contentsLib){
+			if(this.contentsLib[i] instanceof ImageContent){
+				// console.log(this.contentsLib[i])
+				this.contentsLib[i].pause();
+			}
 		}
 	}
 	resetOnSceneTimer(){

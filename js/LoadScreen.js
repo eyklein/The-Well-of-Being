@@ -175,20 +175,35 @@ class LoadScreen{
 		// }
 		// console.log(this.preloadFiles)
 		// console.log(evt_.target.audioContent.url)
-		this.preloadFiles[evt_.target.audioContent.url].loaded = evt_.loaded;
+
+		if(evt_){
+			this.preloadFiles[evt_.target.audioContent.url].loaded = evt_.loaded;
+		}
+		
 
 
 		
 		this.loaded=this.getDownloaded();
 		this.total = this.getTotalFileSizePreload()
 
+		// videosToLoad=0;
+		// videosLoaded=0;
+
 		//console.log(this.loaded + " / " + this.total)
 
 		// console.log(this.loaded + " / " + this.total)
+		let sizeOfAVideo=10000000
+		this.loadedPercent=(this.loaded + videosLoaded*sizeOfAVideo)/(this.total+ videosToLoad*sizeOfAVideo);
 
-		this.loadedPercent=this.loaded/this.total;
+		// console.log(this.loadedPercent)
 
+		// console.log(this.loadedPercent);
+		if(this.loadedPercent>=1){
+			currentStory.displayAll();
 
+			currentStory.start();
+		}
+		
 
 		
 		
@@ -224,6 +239,9 @@ class LoadScreen{
 	draw(){
 
 		//console.log("d")
+
+		// videosToLoad=0;
+		// videosLoaded=0;
 
 
 		

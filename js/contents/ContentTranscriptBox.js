@@ -44,7 +44,7 @@ class TranscriptBoxContent extends Content{
 		this.hidenLines=[];
 		this.currentLine;
 		this.displayedLines=[];
-		console.log("(addAvalibleTranscriptLine(" +t1+", "+t2+")")
+		// console.log("(addAvalibleTranscriptLine(" +t1+", "+t2+")")
 		this.addAvalibleTranscriptLine(t1, t2);
 		// this.addAvalibleTranscriptLine(20, 42);
 		
@@ -215,6 +215,9 @@ class TranscriptBoxContent extends Content{
 				this.effects.general[effect] = new FontTextEffect(this.JSONData.effects.general[effect],this)
 			}else if(effect=="link"){
 				this.effects.general[effect] = new LinkTextEffect(this.JSONData.effects.general[effect],this)
+			}
+			else if(effect=="css"){
+				this.effects.general[effect] = new CSSEffect(this.JSONData.effects.general[effect],this);
 			}
 			else{
 				this.effects.general[effect]=new ContentEffect(this.JSONData.effects.general[effect],this)

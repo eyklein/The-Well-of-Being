@@ -43,12 +43,15 @@ class PriorityLoader{
 	}
 
 	loadBucket(bucketIndex_){
-		if(bucketIndex_>=this.threshhold && currentStory.currentScene== null){
+		// if(bucketIndex_>=this.threshhold && currentStory.currentScene== null){
 
-			currentStory.displayAll();
+		// 	currentStory.displayAll();
 
-			currentStory.start();
-		}
+		// 	currentStory.start();
+		// }
+
+
+		
 		//console.log("LOADING BUCKET :   - " + bucketIndex_)
 		this.currentLoadbucket=bucketIndex_;
 

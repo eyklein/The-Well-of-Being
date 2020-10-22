@@ -21,6 +21,8 @@ class AnimationEffect {//extends ContentEffect
 		this.currentValue=this.startValue;
 		this.increment = (this.endValue-this.startValue) / (this.duration/this.interval)
 
+		this.status="none";
+
 		
 
 	}
@@ -38,13 +40,33 @@ class AnimationEffect {//extends ContentEffect
 			clearInterval(this.id)
 		}
 		this.currentValue=this.startValue;
-		this.id=setInterval(this.frame.bind(this), this.interval); //5=this.interval
+		this.play();//this.id=setInterval(this.frame.bind(this), this.interval); //5=this.interval
+	}
+	play(autoRestart_){
+		if(this.status == "none" || (this.status == "ended" && autoRestart_)){
+			this.status="playing";
+			this.start()
+		}else if(this.status != "ended"){
+			this.id=setInterval(this.frame.bind(this), this.interval); //5=this.interval
+		}
+
+		
+
+		
+	}
+	pause(){
+		this.status="paused";
+		if(this.id!=undefined){
+			clearInterval(this.id)
+		}
+		
 	}
 
 	frame() {
 
 		if (this.isEnded()) {
 			clearInterval(this.id);
+			this.status="ended";
 		} else {
 			this.draw()
 		}
