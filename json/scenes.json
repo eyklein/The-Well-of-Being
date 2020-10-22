@@ -12309,7 +12309,7 @@
 				"effects": {
 					"general": {
 						"clipping": {
-							"start": 381,
+							"start": 382,
 							"end": 391
 						}
 					},
@@ -12455,6 +12455,522 @@
 				"content": {
 					"type": "video",
 					"value": "video/p86.mp4",
+					"background": true
+				},
+				"effects": {
+					"general": {
+						"position": {
+							"type": "absolute",
+							"top": "0%",
+							"left": "0%"
+						},
+						"size": {
+							"width": "100%",
+							"height": "100%"
+						}
+					},
+					"entrance": {
+						"animation": {
+							"duration": 8,
+							"style": "transform",
+							"startValue": 1,
+							"endValue": 1.1,
+							"unit": "scale"
+						}
+					},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {
+						"generic": {},
+						"hover": {},
+						"pressed": {}
+					},
+					"hover": {},
+					"pressed": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 200
+					}
+				}
+			}]
+		},{
+			"name": "Page 88",
+			"id": "p88",
+			"scroll": {
+				"scrollable": true,
+				"orderX": 0,
+				"orderY": 48
+			},
+			"next": {
+				"id": "p90",
+				"auto": true
+			},
+			"actions": [{
+				"id": "xiv901d",
+				"tailID": "p88",
+				"headID": "901",
+				"trigger": "time",
+				"elicit": "display",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "xiv901d",
+				"tailID": "p88",
+				"headID": "901",
+				"trigger": "time",
+				"elicit": "play",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "xiv901d",
+				"tailID": "p88",
+				"headID": "701",
+				"trigger": "time",
+				"elicit": "play",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "xiv001d",
+				"tailID": "p88",
+				"headID": "001",
+				"trigger": "time",
+				"elicit": "display",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "701001h",
+				"tailID": "p88",
+				"headID": "003",
+				"trigger": "time",
+				"elicit": "display",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "701001h",
+				"tailID": "701",
+				"headID": "001",
+				"trigger": "onEnd",
+				"elicit": "hide",
+				"delay": 0,
+				"conditions": []
+			}],
+			"contents": [{
+				"id": "701",
+				"content": {
+					"type": "audio",
+					"value": "audio/full_reading.mp3"
+				},
+				"effects": {
+					"general": {
+						"clipping": {
+							"start": 391,
+							"end": 396
+						}
+					},
+					"entrance": {},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 100
+					}
+				}
+			}, {
+				"id": "001",
+				"content": {
+					"type": "transcriptBox",
+					"alignWith": "audio/full_reading.mp3",
+					"source": "transcript",
+					"offsets": {
+						"start": 0,
+						"end": 1.2,
+						"all": 0
+					}
+				},
+				"effects": {
+					"general": {
+						"position": {
+							"type": "absolute",
+							"top": "5%",
+							"left": "8%"
+						},
+						"dimensions": {
+							"width": "84%",
+							"height": "15%"
+						},
+						"font": {
+							"font-family": "indieFlower"
+						},
+						"size": {
+							"type": "scalable",
+							"value": 0.0362
+						},
+						"text-align": {
+							"value": "center"
+						},
+						"z-index": {
+							"index": 201
+						},
+						"fill": {
+							"color": "#333"
+						},
+						"stroke": {
+							"color": "#00ff00",
+							"thickness": "0px"
+						}
+					},
+					"entrance": {},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 100
+					}
+				}
+			}, {
+				"id": "003",
+				"content": {
+					"type": "textBox",
+					"rangeType": "times",
+					"source": "transcript",
+					"rangeInfo": {
+						"start": 105,
+						"end": 110
+					},
+					"hideInfo": {
+						"startHidden": true,
+						"type": "translate",
+						"direction": "up"
+					}
+				},
+				"effects": {
+					"general": {
+						"position": {
+							"type": "absolute",
+							"top": "20%",
+							"left": "0%"
+						},
+						"dimensions": {
+							"width": "30%",
+							"height": "9.5%"
+						},
+						"font": {
+							"font-family": "indieFlower"
+						},
+						"size": {
+							"type": "scalable",
+							"value": 0.025
+						},
+						"text-align": {
+							"value": "left"
+						},
+						"background-fill": {
+							"color": "rgba(0,0,0,.3)"
+						},
+						"z-index": {
+							"index": 101
+						},
+						"fill": {
+							"color": "rgba(255,255,255,.7)"
+						},
+						"stroke": {
+							"color": "#00ff00",
+							"thickness": "0px"
+						},
+						"opacity": {
+							"opacity": "0.5"
+						}
+					},
+					"entrance": {},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 100
+					}
+				}
+			}, {
+				"id": "901",
+				"content": {
+					"type": "video",
+					"value": "video/p88.mp4",
+					"background": true
+				},
+				"effects": {
+					"general": {
+						"position": {
+							"type": "absolute",
+							"top": "0%",
+							"left": "0%"
+						},
+						"size": {
+							"width": "100%",
+							"height": "100%"
+						}
+					},
+					"entrance": {
+						"animation": {
+							"duration": 8,
+							"style": "transform",
+							"startValue": 1,
+							"endValue": 1.1,
+							"unit": "scale"
+						}
+					},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {
+						"generic": {},
+						"hover": {},
+						"pressed": {}
+					},
+					"hover": {},
+					"pressed": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 200
+					}
+				}
+			}]
+		},{
+			"name": "Page 90",
+			"id": "p90",
+			"scroll": {
+				"scrollable": true,
+				"orderX": 0,
+				"orderY": 48
+			},
+			"next": {
+				"id": "p92",
+				"auto": true
+			},
+			"actions": [{
+				"id": "xiv901d",
+				"tailID": "p90",
+				"headID": "901",
+				"trigger": "time",
+				"elicit": "display",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "xiv901d",
+				"tailID": "p90",
+				"headID": "901",
+				"trigger": "time",
+				"elicit": "play",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "xiv901d",
+				"tailID": "p90",
+				"headID": "701",
+				"trigger": "time",
+				"elicit": "play",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "xiv001d",
+				"tailID": "p90",
+				"headID": "001",
+				"trigger": "time",
+				"elicit": "display",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "701001h",
+				"tailID": "p90",
+				"headID": "003",
+				"trigger": "time",
+				"elicit": "display",
+				"delay": 0,
+				"conditions": []
+			}, {
+				"id": "701001h",
+				"tailID": "701",
+				"headID": "001",
+				"trigger": "onEnd",
+				"elicit": "hide",
+				"delay": 0,
+				"conditions": []
+			}],
+			"contents": [{
+				"id": "701",
+				"content": {
+					"type": "audio",
+					"value": "audio/full_reading.mp3"
+				},
+				"effects": {
+					"general": {
+						"clipping": {
+							"start": 398,
+							"end": 402
+						}
+					},
+					"entrance": {},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 100
+					}
+				}
+			}, {
+				"id": "001",
+				"content": {
+					"type": "transcriptBox",
+					"alignWith": "audio/full_reading.mp3",
+					"source": "transcript",
+					"offsets": {
+						"start": 0,
+						"end": 1.2,
+						"all": 0
+					}
+				},
+				"effects": {
+					"general": {
+						"position": {
+							"type": "absolute",
+							"top": "5%",
+							"left": "8%"
+						},
+						"dimensions": {
+							"width": "84%",
+							"height": "15%"
+						},
+						"font": {
+							"font-family": "indieFlower"
+						},
+						"size": {
+							"type": "scalable",
+							"value": 0.0362
+						},
+						"text-align": {
+							"value": "center"
+						},
+						"z-index": {
+							"index": 201
+						},
+						"fill": {
+							"color": "#333"
+						},
+						"stroke": {
+							"color": "#00ff00",
+							"thickness": "0px"
+						}
+					},
+					"entrance": {},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 100
+					}
+				}
+			}, {
+				"id": "003",
+				"content": {
+					"type": "textBox",
+					"rangeType": "times",
+					"source": "transcript",
+					"rangeInfo": {
+						"start": 105,
+						"end": 110
+					},
+					"hideInfo": {
+						"startHidden": true,
+						"type": "translate",
+						"direction": "up"
+					}
+				},
+				"effects": {
+					"general": {
+						"position": {
+							"type": "absolute",
+							"top": "20%",
+							"left": "0%"
+						},
+						"dimensions": {
+							"width": "30%",
+							"height": "9.5%"
+						},
+						"font": {
+							"font-family": "indieFlower"
+						},
+						"size": {
+							"type": "scalable",
+							"value": 0.025
+						},
+						"text-align": {
+							"value": "left"
+						},
+						"background-fill": {
+							"color": "rgba(0,0,0,.3)"
+						},
+						"z-index": {
+							"index": 101
+						},
+						"fill": {
+							"color": "rgba(255,255,255,.7)"
+						},
+						"stroke": {
+							"color": "#00ff00",
+							"thickness": "0px"
+						},
+						"opacity": {
+							"opacity": "0.5"
+						}
+					},
+					"entrance": {},
+					"exit": {
+						"hide": {
+							"isOn": true
+						}
+					},
+					"clickable": {}
+				},
+				"backend": {
+					"pos": {
+						"x": 100
+					}
+				}
+			}, {
+				"id": "901",
+				"content": {
+					"type": "video",
+					"value": "video/p90.mp4",
 					"background": true
 				},
 				"effects": {

@@ -4800,6 +4800,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "383.84",
 			"end_time": "384.09",
 			"alternatives": [{
@@ -4812,7 +4818,7 @@
 			"end_time": "384.45",
 			"alternatives": [{
 				"confidence": "0.9606",
-				"content": "we've"
+				"content": "weave"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -4863,6 +4869,12 @@
 				"content": "failures"
 			}],
 			"type": "pronunciation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
 		}, {
 			"start_time": "388.54",
 			"end_time": "388.77",
@@ -4915,6 +4927,12 @@
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": "."
+			}],
+			"type": "punctuation"
+		},{
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
 			}],
 			"type": "punctuation"
 		}, {
@@ -4972,6 +4990,12 @@
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "398.84",
 			"end_time": "399.61",
 			"alternatives": [{
@@ -4980,17 +5004,11 @@
 			}],
 			"type": "pronunciation"
 		}, {
-			"alternatives": [{
-				"confidence": "0.0",
-				"content": "."
-			}],
-			"type": "punctuation"
-		}, {
 			"start_time": "399.88",
 			"end_time": "400.09",
 			"alternatives": [{
 				"confidence": "1.0",
-				"content": "Did"
+				"content": "did"
 			}],
 			"type": "pronunciation"
 		}, {
@@ -5019,27 +5037,25 @@
 			"type": "pronunciation"
 		}, {
 			"start_time": "400.64",
-			"end_time": "400.83",
-			"alternatives": [{
-				"confidence": "0.9991",
-				"content": "well"
-			}],
-			"type": "pronunciation"
-		}, {
-			"start_time": "400.83",
 			"end_time": "401.3",
 			"alternatives": [{
-				"confidence": "1.0",
-				"content": "being"
+				"confidence": "0.9991",
+				"content": "well-being"
 			}],
 			"type": "pronunciation"
-		}, {
+		},  {
 			"alternatives": [{
 				"confidence": "0.0",
 				"content": "?"
 			}],
 			"type": "punctuation"
 		}, {
+			"alternatives": [{
+				"confidence": "0.0",
+				"content": "<br>"
+			}],
+			"type": "punctuation"
+		},{
 			"start_time": "406.34",
 			"end_time": "406.69",
 			"alternatives": [{
