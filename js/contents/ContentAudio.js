@@ -84,6 +84,7 @@ class AudioContent extends Content{
 		}
 		
 		// super.reset();
+		this.setInitalTimeVars();
 		this.isDonePlaying=false;
 	}
 

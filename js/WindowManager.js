@@ -244,6 +244,9 @@ class WindowManager{
 
 
 
+
+
+
 	}
 
 	getScrollPercent(){
@@ -254,7 +257,7 @@ class WindowManager{
 
 		let wBar = parseFloat($(this.html.scrollbarX).css("width"));
 
-		let percent=(lThumb)/(wBar-wThumb);
+		let percent=lThumb/(wBar-wThumb);
 
 		return percent;
 	}
@@ -365,15 +368,19 @@ class WindowManager{
 		if(percent_==undefined){
 			percent_= this.getScrollPercent()
 		}
-		let currentSceneIndex = Math.round(percent_*(currentStory.scrollOrderArray.length))
+		// console.log(percent_)
+		if(typeof(percent_)=="string"){
+			this.html.scrollbarThumbX.innerHTML=percent_;
+		}else{
+			let currentSceneIndex = Math.round(percent_*(currentStory.scrollOrderArray.length))
 
 
-		currentSceneIndex=Math.max(currentSceneIndex,0);
-		currentSceneIndex=Math.min(currentSceneIndex,currentStory.scrollOrderArray.length-1);
+			currentSceneIndex=Math.max(currentSceneIndex,0);
+			currentSceneIndex=Math.min(currentSceneIndex,currentStory.scrollOrderArray.length-1);
 
-		// console.log(currentSceneIndex)
-		this.html.scrollbarThumbX.innerHTML=currentStory.scrollOrderArray[currentSceneIndex].name;
-
+			// console.log(currentSceneIndex)
+			this.html.scrollbarThumbX.innerHTML=currentStory.scrollOrderArray[currentSceneIndex].name;
+		}
 	}
 	
 	createMainButtons(){

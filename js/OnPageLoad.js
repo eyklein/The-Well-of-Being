@@ -206,7 +206,8 @@ function startScrolledToScene(scrollPos_) {
 	  			currentStory.currentScene.pause();
 	  			// this.html.scrollbarThumbX
 
-	  			currentStory.resumeScene(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)], wasPlaying);
+	  			currentStory.newScene(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)], wasPlaying);
+	  			// currentStory.resumeScene(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)], wasPlaying);
 	  			
 	  		}
 	  		

@@ -749,6 +749,9 @@ class Story{
 			// if(!this.currentScene.started){
 				this.currentScene.start(autoPlay_);
 			// }
+			console.log(newScene_)
+			console.log(newScene_.name)
+			this.windowManager.updateScrollThumbPage(newScene_.name);
 
 			this.currentScene.play();
 

@@ -88,9 +88,10 @@
     -o-animation: fadeInFromNone 0.5s;*/
 
     opacity: .8;
-    transition: opacity .5s
+    transition: opacity 2s
     /*animation: fadeInFromNone 0.5s;*/
 }
+
 
 
 
@@ -209,4 +210,17 @@
   /*transition-durat ion: .1s;*/
   /*padding:2px;*/
   /*width: 24px;*/
+}
+
+#scrollbarX-thumb.startDisplayed{
+
+    display: block;
+
+ /*   -webkit-animation: fadeInFromNone 0.5s;
+    -moz-animation: fadeInFromNone 0.5s;
+    -o-animation: fadeInFromNone 0.5s;*/
+
+    opacity: .8;
+    transition: opacity 5s
+    /*animation: fadeInFromNone 0.5s;*/
 }
