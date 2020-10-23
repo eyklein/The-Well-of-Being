@@ -686,7 +686,7 @@ class Story{
 	newScene(newScene_, autoPlay_,type_){
 
 
-		this.windowManager.shiftScenesLeft(false);
+		this.windowManager.shiftScenesLeft(false);//the is the left shift from having the mouse on the right pannel
 
 		if(newScene_ instanceof Scene){
 
@@ -722,6 +722,7 @@ class Story{
 			this.currentScene.entrance();
 
 			if(this.currentScene.getPlayedTime()>1000){
+				console.log("REWIND!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 				this.currentScene.rewind();
 			}
 
