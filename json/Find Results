@@ -1,0 +1,91 @@
+Searching 170 files for "p28" (regex)
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/audio/Background Noise.mp3:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/audio/ES_Contrarium - Ever So Blue.mp3:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/audio/ES_Discover - Hosini & Jones.mp3:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/audio/ES_Night In Burma - Joseph Beg.mp3:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/audio/full_reading.mpeg:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/img/special/pause play.ai:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/json/scenes.json:
+ 4669  			},
+ 4670  			"next": {
+ 4671: 				"id": "p28",
+ 4672  				"auto": true
+ 4673  			},
+ ....
+ 4912  		}, {
+ 4913  			"name": "Page 28",
+ 4914: 			"id": "p28",
+ 4915  			"scroll": {
+ 4916  				"scrollable": true,
+ ....
+ 4924  			"actions": [{
+ 4925  				"id": "xiv901d",
+ 4926: 				"tailID": "p28",
+ 4927  				"headID": "901",
+ 4928  				"trigger": "time",
+ ....
+ 4932  			}, {
+ 4933  				"id": "xiv901d",
+ 4934: 				"tailID": "p28",
+ 4935  				"headID": "901",
+ 4936  				"trigger": "time",
+ ....
+ 4940  			}, {
+ 4941  				"id": "xiv901d",
+ 4942: 				"tailID": "p28",
+ 4943  				"headID": "701",
+ 4944  				"trigger": "time",
+ ....
+ 4948  			}, {
+ 4949  				"id": "xiv001d",
+ 4950: 				"tailID": "p28",
+ 4951  				"headID": "001",
+ 4952  				"trigger": "time",
+ ....
+ 4956  			}, {
+ 4957  				"id": "701001h",
+ 4958: 				"tailID": "p28",
+ 4959  				"headID": "003",
+ 4960  				"trigger": "time",
+ ....
+ 5125  				"content": {
+ 5126  					"type": "video",
+ 5127: 					"value": "video/p28.mp4",
+ 5128  					"background": true
+ 5129  				},
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/76.mp4:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/intro(backup).mp4:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/net.mp4:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/p50.mp4:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/p50x.mp4:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/p76.mp4:
+    <binary>
+
+/Users/eyklein/Google Drive NYU/aeaea/The-Well-of-Being/video/xvi-xx.mp4:
+    <binary>
+
+24 matches across 14 files
