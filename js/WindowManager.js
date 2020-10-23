@@ -122,6 +122,8 @@ class WindowManager{
 					var l = parseFloat($(this).css("left")) ;
 					var r = parseFloat($(this).css("left"))+widthThumb;  //) / (parseFloat($(this).parent().css("width"))) ) 
 
+
+
 					if(l<0){
 						$(this).css("left" , "0px");
 					}else if(r>widthBar){
@@ -139,14 +141,30 @@ class WindowManager{
 		}.bind(this));
 
 		$(this.html.scrollbarThumbX).on('drag', function(e) {
-			let thumb = this.html.scrollbarThumbX;
-			let lThumb = parseFloat($(thumb).css("left"));
+			// let thumb = this.html.scrollbarThumbX;
+			// let lThumb = parseFloat($(thumb).css("left"));
 
-			let wThumb = parseFloat($(thumb).css("width"));
+			// let wThumb = parseFloat($(thumb).css("width"));
 
-			let wBar = parseFloat($(this.html.scrollbarX).css("width"));
+			// let wBar = parseFloat($(this.html.scrollbarX).css("width"));
 
-			let percent=lThumb/(wBar-wThumb);
+			// let percent=lThumb/(wBar-wThumb);
+			let percent = this.getScrollPercent()
+
+			this.updateScrollThumbPage(percent);
+
+
+			
+			// let currentSceneIndex = Math.round(percent*(currentStory.scrollOrderArray.length-1))
+
+
+			// currentSceneIndex=Math.max(currentSceneIndex,0);
+			// currentSceneIndex=Math.min(currentSceneIndex,currentStory.scrollOrderArray.length-1);
+			
+			// // console.log(currentSceneIndex)
+			// this.html.scrollbarThumbX.innerHTML=currentStory.scrollOrderArray[currentSceneIndex].name;
+
+
 
 			scrollTo(percent*document.width*(currentStory.scrollOrderArray.length-1));
 
@@ -226,6 +244,19 @@ class WindowManager{
 
 
 
+	}
+
+	getScrollPercent(){
+		let thumb = this.html.scrollbarThumbX;
+		let lThumb = parseFloat($(thumb).css("left"));
+
+		let wThumb = parseFloat($(thumb).css("width"));
+
+		let wBar = parseFloat($(this.html.scrollbarX).css("width"));
+
+		let percent=(lThumb)/(wBar-wThumb);
+
+		return percent;
 	}
 
 
@@ -320,6 +351,29 @@ class WindowManager{
 
 		percent=percent*(1-thumbPercent);
 		$(this.html.scrollbarThumbX).css("left", percent+"%")
+
+		// document.getElementById("scenes").addEventListener('scroll', function(){
+		
+		this.updateScrollThumbPage();
+
+		
+		
+
+	}
+
+	updateScrollThumbPage(percent_){
+		if(percent_==undefined){
+			percent_= this.getScrollPercent()
+		}
+		let currentSceneIndex = Math.round(percent_*(currentStory.scrollOrderArray.length))
+
+
+		currentSceneIndex=Math.max(currentSceneIndex,0);
+		currentSceneIndex=Math.min(currentSceneIndex,currentStory.scrollOrderArray.length-1);
+
+		// console.log(currentSceneIndex)
+		this.html.scrollbarThumbX.innerHTML=currentStory.scrollOrderArray[currentSceneIndex].name;
+
 	}
 	
 	createMainButtons(){

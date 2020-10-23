@@ -204,16 +204,21 @@ function startScrolledToScene(scrollPos_) {
 	  		if(currentStory.currentScene != currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)]){
 	  			// console.log("Pausing " + currentStory.currentScene.id)
 	  			currentStory.currentScene.pause();
+	  			// this.html.scrollbarThumbX
 
 	  			currentStory.resumeScene(currentStory.scrollOrderArray[Math.round(scrollPos_/document.width)], wasPlaying);
-	  			console.log("XXXXXXX")
-	  			console.log(currentStory.currentScene.finishedPlaying)
+	  			
 	  		}
 	  		
 	  	}
   
   	
 }
+
+
+
+
+
 
 
 

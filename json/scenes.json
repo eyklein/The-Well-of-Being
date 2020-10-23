@@ -65,7 +65,7 @@
 				}
 			}]
 		}, {
-			"name": "intro",
+			"name": "Intro",
 			"id": "INTRO",
 			"scroll": {
 				"scrollable": true,
@@ -648,7 +648,7 @@
 				}
 			}]
 		}, {
-			"name": "Pages viii-xii",
+			"name": "viii-xii",
 			"id": "viii-xii",
 			"scroll": {
 				"scrollable": true,
@@ -905,7 +905,7 @@
 				}
 			}]
 		}, {
-			"name": "Page xiv",
+			"name": "xiv",
 			"id": "xiv",
 			"scroll": {
 				"scrollable": true,
@@ -1154,7 +1154,7 @@
 				}
 			}]
 		}, {
-			"name": "Page xvi-xx",
+			"name": "xvi-xx",
 			"id": "xvi-xx",
 			"scroll": {
 				"scrollable": true,
@@ -1403,7 +1403,7 @@
 				}
 			}]
 		}, {
-			"name": "Page xxii",
+			"name": "xxii",
 			"id": "xxii",
 			"scroll": {
 				"scrollable": true,
@@ -1652,7 +1652,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 2",
+			"name": "2",
 			"id": "p2",
 			"scroll": {
 				"scrollable": true,
@@ -1910,7 +1910,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 4",
+			"name": "4",
 			"id": "p4",
 			"scroll": {
 				"scrollable": true,
@@ -2160,7 +2160,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 6",
+			"name": "6",
 			"id": "p6",
 			"scroll": {
 				"scrollable": true,
@@ -2410,7 +2410,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 8",
+			"name": "8",
 			"id": "p8",
 			"scroll": {
 				"scrollable": true,
@@ -2668,7 +2668,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 10",
+			"name": "10",
 			"id": "p10",
 			"scroll": {
 				"scrollable": true,
@@ -2918,7 +2918,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 12",
+			"name": "12",
 			"id": "p12",
 			"scroll": {
 				"scrollable": true,
@@ -3168,7 +3168,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 14",
+			"name": "14",
 			"id": "p14",
 			"scroll": {
 				"scrollable": true,
@@ -3418,7 +3418,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 16",
+			"name": "16",
 			"id": "p16",
 			"scroll": {
 				"scrollable": true,
@@ -3668,7 +3668,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 18",
+			"name": "18",
 			"id": "p18",
 			"scroll": {
 				"scrollable": true,
@@ -3918,7 +3918,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 20",
+			"name": "20",
 			"id": "p20",
 			"scroll": {
 				"scrollable": true,
@@ -4168,7 +4168,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 22",
+			"name": "22",
 			"id": "p22",
 			"scroll": {
 				"scrollable": true,
@@ -4410,7 +4410,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 24",
+			"name": "24",
 			"id": "p24",
 			"scroll": {
 				"scrollable": true,
@@ -4660,7 +4660,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 26",
+			"name": "26",
 			"id": "p26",
 			"scroll": {
 				"scrollable": true,
@@ -4910,7 +4910,7 @@
 				}
 			}]
 		}, {
-			"name": "Page 28",
+			"name": "28",
 			"id": "p28",
 			"scroll": {
 				"scrollable": true,
@@ -5160,7 +5160,7 @@
 				}
 			}]
 		},{
-			"name": "Page 30",
+			"name": "30",
 			"id": "p30",
 			"scroll": {
 				"scrollable": true,
@@ -5410,7 +5410,7 @@
 				}
 			}]
 		},{
-			"name": "Page 32",
+			"name": "32",
 			"id": "p32",
 			"scroll": {
 				"scrollable": true,
@@ -5660,7 +5660,7 @@
 				}
 			}]
 		},{
-			"name": "Page 34",
+			"name": "34",
 			"id": "p34",
 			"scroll": {
 				"scrollable": true,
@@ -5910,7 +5910,7 @@
 				}
 			}]
 		},{
-			"name": "Page 36",
+			"name": "36",
 			"id": "p36",
 			"scroll": {
 				"scrollable": true,
@@ -6160,7 +6160,7 @@
 				}
 			}]
 		},{
-			"name": "Page 38",
+			"name": "38",
 			"id": "p38",
 			"scroll": {
 				"scrollable": true,
@@ -6410,7 +6410,7 @@
 				}
 			}]
 		},{
-			"name": "Page 40",
+			"name": "40",
 			"id": "p40",
 			"scroll": {
 				"scrollable": true,
@@ -6660,7 +6660,7 @@
 				}
 			}]
 		},{
-			"name": "Page 42",
+			"name": "42",
 			"id": "p42",
 			"scroll": {
 				"scrollable": true,
@@ -6910,7 +6910,7 @@
 				}
 			}]
 		},{
-			"name": "Page 44",
+			"name": "44",
 			"id": "p44",
 			"scroll": {
 				"scrollable": true,
@@ -7160,7 +7160,7 @@
 				}
 			}]
 		},{
-			"name": "Page 46",
+			"name": "46",
 			"id": "p46",
 			"scroll": {
 				"scrollable": true,
@@ -7418,7 +7418,7 @@
 				}
 			}]
 		},{
-			"name": "Page 48",
+			"name": "48",
 			"id": "p48",
 			"scroll": {
 				"scrollable": true,
@@ -7668,7 +7668,7 @@
 				}
 			}]
 		},{
-			"name": "Page 50",
+			"name": "50",
 			"id": "p50",
 			"scroll": {
 				"scrollable": true,
@@ -7918,7 +7918,7 @@
 				}
 			}]
 		},{
-			"name": "Page 52",
+			"name": "52",
 			"id": "p52",
 			"scroll": {
 				"scrollable": true,
@@ -8168,7 +8168,7 @@
 				}
 			}]
 		},{
-			"name": "Page 54",
+			"name": "54",
 			"id": "p54",
 			"scroll": {
 				"scrollable": true,
@@ -8418,7 +8418,7 @@
 				}
 			}]
 		},{
-			"name": "Page 56",
+			"name": "56",
 			"id": "p56",
 			"scroll": {
 				"scrollable": true,
@@ -8668,7 +8668,7 @@
 				}
 			}]
 		},{
-			"name": "Page 58",
+			"name": "58",
 			"id": "p58",
 			"scroll": {
 				"scrollable": true,
@@ -8918,7 +8918,7 @@
 				}
 			}]
 		},{
-			"name": "Page 60",
+			"name": "60",
 			"id": "p60",
 			"scroll": {
 				"scrollable": true,
@@ -9168,7 +9168,7 @@
 				}
 			}]
 		},{
-			"name": "Page 62",
+			"name": "62",
 			"id": "p62",
 			"scroll": {
 				"scrollable": true,
@@ -9418,7 +9418,7 @@
 				}
 			}]
 		},{
-			"name": "Page 64",
+			"name": "64",
 			"id": "p64",
 			"scroll": {
 				"scrollable": true,
@@ -9668,7 +9668,7 @@
 				}
 			}]
 		},{
-			"name": "Page 66",
+			"name": "66",
 			"id": "p66",
 			"scroll": {
 				"scrollable": true,
@@ -9934,7 +9934,7 @@
 				}
 			}]
 		},{
-			"name": "Page 68",
+			"name": "68",
 			"id": "p68",
 			"scroll": {
 				"scrollable": true,
@@ -10184,7 +10184,7 @@
 				}
 			}]
 		},{
-			"name": "Page 70",
+			"name": "70",
 			"id": "p70",
 			"scroll": {
 				"scrollable": true,
@@ -10442,7 +10442,7 @@
 				}
 			}]
 		},{
-			"name": "Page 72",
+			"name": "72",
 			"id": "p72",
 			"scroll": {
 				"scrollable": true,
@@ -10700,7 +10700,7 @@
 				}
 			}]
 		},{
-			"name": "Page 74",
+			"name": "74",
 			"id": "p74",
 			"scroll": {
 				"scrollable": true,
@@ -10958,7 +10958,7 @@
 				}
 			}]
 		},{
-			"name": "Page 76",
+			"name": "76",
 			"id": "p76",
 			"scroll": {
 				"scrollable": true,
@@ -11216,7 +11216,7 @@
 				}
 			}]
 		},{
-			"name": "Page 78",
+			"name": "78",
 			"id": "p78",
 			"scroll": {
 				"scrollable": true,
@@ -11466,7 +11466,7 @@
 				}
 			}]
 		},{
-			"name": "Page 80",
+			"name": "80",
 			"id": "p80",
 			"scroll": {
 				"scrollable": true,
@@ -11724,7 +11724,7 @@
 				}
 			}]
 		},{
-			"name": "Page 82",
+			"name": "82",
 			"id": "p82",
 			"scroll": {
 				"scrollable": true,
@@ -11982,7 +11982,7 @@
 				}
 			}]
 		},{
-			"name": "Page 84",
+			"name": "84",
 			"id": "p84",
 			"scroll": {
 				"scrollable": true,
@@ -12240,7 +12240,7 @@
 				}
 			}]
 		},{
-			"name": "Page 86",
+			"name": "86",
 			"id": "p86",
 			"scroll": {
 				"scrollable": true,
@@ -12498,7 +12498,7 @@
 				}
 			}]
 		},{
-			"name": "Page 88",
+			"name": "88",
 			"id": "p88",
 			"scroll": {
 				"scrollable": true,
@@ -12756,7 +12756,7 @@
 				}
 			}]
 		},{
-			"name": "Page 90",
+			"name": "90",
 			"id": "p90",
 			"scroll": {
 				"scrollable": true,

@@ -260,32 +260,32 @@ class AudioContent extends Content{
 
 		if(!this.backEndCreated){
 			this.backEndCreated=true;
-			this.addEffectEditors();
+			// this.addEffectEditors();
 
-			if(this.audioLoaded){
-				this.updateAudioDisplay();
-			}
+			// if(this.audioLoaded){
+			// 	this.updateAudioDisplay();
+			// }
 		}
 
 		
 	}
 
 
-	getAmplitudes(samples_){ //,startPosition_,duration_) {
-		const rawData = this.audioBuffer.getChannelData(0); // We only need to work with one channel of data
-		const samples = samples_; // Number of samples we want to have in our final data set
-		const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
-		const filteredData = [];
-		for (let i = 0; i < samples; i++) {
-			let blockStart = blockSize * i; // the location of the first sample in the block
-			let sum = 0;
-			for (let j = 0; j < blockSize; j++) {
-			  sum = sum + Math.abs(rawData[blockStart + j]) // find the sum of all the samples in the block
-			}
-			filteredData.push(sum / blockSize); // divide the sum by the block size to get the average
-		}
-		return filteredData;
-	}
+	// getAmplitudes(samples_){ //,startPosition_,duration_) {
+	// 	const rawData = this.audioBuffer.getChannelData(0); // We only need to work with one channel of data
+	// 	const samples = samples_; // Number of samples we want to have in our final data set
+	// 	const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
+	// 	const filteredData = [];
+	// 	for (let i = 0; i < samples; i++) {
+	// 		let blockStart = blockSize * i; // the location of the first sample in the block
+	// 		let sum = 0;
+	// 		for (let j = 0; j < blockSize; j++) {
+	// 		  sum = sum + Math.abs(rawData[blockStart + j]) // find the sum of all the samples in the block
+	// 		}
+	// 		filteredData.push(sum / blockSize); // divide the sum by the block size to get the average
+	// 	}
+	// 	return filteredData;
+	// }
 
 	updateIcon(){
 	
@@ -395,7 +395,13 @@ class AudioContent extends Content{
 	}
 
 	draw(){//runs while audio is playing
-		console.log("playing from " + this.parentScene.id)
+		// console.log("Audio Start "+ this.parentScene.id + " ?  "+ currentStory.currentScene.id)
+		// console.log("playing from " + this.parentScene.id)
+		if(this.parentScene != currentStory.currentScene){
+			console.log("force stop");
+			this.pause();
+		}
+
 		for(let i in this.transcripts){
 			this.transcripts[i].displayTranscript(this.getCurrentPlayTime())
 		}
@@ -514,6 +520,15 @@ class AudioContent extends Content{
 		    	
 		 		// this.isPlaying=false;
 			}.bind(this);
+
+			// this.source.onstart=function(event_){
+
+		 //    	console.log("Audio Start "+ this.parentScene.id + " ?  "+ currentStory.currentScene.id)
+		 //    	// console.log(this.parentScene.id)
+		    	
+		    	
+		 // 		// this.isPlaying=false;
+			// }.bind(this);
 		}
 		currentStory.updatePlayPause();
 	}

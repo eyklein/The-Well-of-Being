@@ -47,7 +47,7 @@
 
 #scrollbarX{
     /*background-color: blue;*/
-    height: 10px;
+    height: 2vw;
     width: 100%;
     bottom:0px;
     border-radius: 10px;
@@ -56,15 +56,18 @@
 #scrollbarX-thumb{
     background-color: gray;
     height: 100%;
-    width: 50px;
+    width: 5vw;
     border-radius: 10px;
     opacity: 0;
-    transition: opacity .5s
+    transition: opacity .5s;
+    color: #fff;
+    text-align: center;
+    font-family: indieFlower;
 
   }
   #scrollbarX-thumb.scrolling{
     opacity: .2;
-    transition: opacity 2s
+    transition: opacity 2s;
 
   }
 
